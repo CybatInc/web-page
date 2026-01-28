@@ -9,17 +9,33 @@
 </head>
 
 <body class="bg-slate-900 text-white font-sans selection:bg-cyan-500">
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto border-b border-slate-800">
-        <div class="text-2xl font-bold tracking-tighter uppercase">
-            <a href="index.html">CYBAT<span class="text-blue-500">AI</span></a>
-        </div>
-        <div class="space-x-8 hidden md:flex items-center text-sm font-medium uppercase tracking-widest">
-            <a href="features.html" class="hover:text-blue-400 transition">Features</a>
-            <a href="infrastructure.html" class="hover:text-blue-400 transition">Infrastructure</a>
-            <a href="privacy.html" class="hover:text-blue-400 transition">Privacy</a>
-            <a href="roadmap.html" class="hover:text-blue-400 transition">Roadmap</a>
-            <a href="contact.html" class="bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition">Get
-                Started</a>
+    <nav class="p-4 md:p-6 border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center group transition">
+                    <span class="text-2xl md:text-3xl font-bold tracking-tighter uppercase text-white">Cybat</span>
+                    <svg class="w-7 h-7 md:w-8 md:h-8 ml-1 text-blue-500 transition-transform group-hover:scale-110"
+                        fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.47 4.75-3.53 8.93-7 10.22V11.99z" />
+                    </svg>
+                </a>
+            </div>
+
+            <div
+                class="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-4 gap-y-3 md:gap-x-8 text-[10px] md:text-sm font-bold uppercase tracking-widest text-slate-400">
+                <a href="features.html" class="hover:text-blue-400 transition">Features</a>
+                <a href="infrastructure.html" class="hover:text-blue-400 transition">Infra</a>
+                <a href="privacy.html" class="hover:text-blue-400 transition">Privacy</a>
+                <a href="stack.html" class="hover:text-blue-400 transition">Stack</a>
+                <a href="roadmap.html" class="hover:text-blue-400 transition">Roadmap</a>
+
+                <a href="contact.html"
+                    class="bg-blue-600 px-5 py-2 rounded-full text-white text-[11px] md:text-xs hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 whitespace-nowrap">
+                    Get Started
+                </a>
+            </div>
         </div>
     </nav>
 
