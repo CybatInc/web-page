@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitepaper: Autonomous Threat Mitigation | Cybat AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+
+        body {
+            background-color: #fcfcfc;
+            color: #1a1a1a;
+            font-family: "Inter", -apple-system, sans-serif;
+        }
+
+        .paper-content h2 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-12">
+
+    <div class="max-w-4xl mx-auto mb-8 flex justify-between items-center no-print">
+        <a href="stack.html" class="text-blue-600 hover:underline font-bold">← Back to Stack</a>
+        <button onclick="window.print()" class="bg-slate-900 text-white px-4 py-2 rounded text-sm font-bold">PDF
+            Download / Print</button>
+    </div>
+
+    <article class="max-w-4xl mx-auto bg-white p-8 md:p-16 border border-slate-200 shadow-sm rounded-lg paper-content">
+        <div class="text-center mb-16">
+            <h4
+                class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 underline decoration-2 underline-offset-4">
+                Technical Whitepaper 2026.01</h4>
+            <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Autonomous Threat Mitigation in Multi-Project
+                GCP Environments</h1>
+            <p class="text-slate-500 italic">Authored by the Cybat AI Engineering Team</p>
+        </div>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Abstract</h2>
+            <p class="leading-relaxed text-slate-700">
+                Traditional Security Operations Centers (SOC) face an "Inertia Gap"—the time between threat detection
+                and manual firewall updates. Cybat AI introduces an agentic workflow using <b>Gemini 2.5 Flash</b> and
+                <b>GKE Autopilot</b> to close this gap. This paper outlines the architecture for sub-5-second mitigation
+                of L7 and L4 threats without human intervention.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">1. The Ingestion Engine</h2>
+            <p class="mb-4">Cybat AI utilizes <b>Aggregated Logging Sinks</b> at the Organization node. By routing all
+                `GCE_Instance` and `HTTP_Load_Balancer` logs to a centralized <b>Cloud Pub/Sub</b> topic, we ensure
+                complete visibility across the hierarchy.</p>
+            <div class="bg-slate-50 p-6 rounded-lg font-mono text-sm border border-slate-100 italic">
+                // Logic: Log Ingestion Rate Scalability<br>
+                Throughput = (Avg_Log_Size * Events_Per_Second) / GKE_Worker_Count
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">2. AI-Driven Intent Analysis</h2>
+            <p>Unlike static Regex-based WAFs, our Gemini-powered engine evaluates <b>Contextual Intent</b>. We analyze:
+            </p>
+            <ul class="list-disc ml-6 mt-4 space-y-2 text-slate-700">
+                <li><b>Temporal Density:</b> Frequency of 403 errors across multiple project IDs.</li>
+                <li><b>Header Anomalies:</b> Mismatched User-Agent strings and TCP fingerprinting.</li>
+                <li><b>Lateral Movement:</b> Identification of internal port-scanning patterns from compromised VMs.
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">3. Mitigation Strategy</h2>
+            <p class="mb-4">MITRE ATT&CK mitigation is performed via two primary API paths:</p>
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50">
+                        <th class="p-3 border">Threat Vector</th>
+                        <th class="p-3 border">Enforcement Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 border">HTTP/WAF (SQLi, XSS)</td>
+                        <td class="p-3 border text-blue-600 font-bold">Cloud Armor Security Policy</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 border">SSH/RDP Brute Force</td>
+                        <td class="p-3 border text-cyan-600 font-bold">Hierarchical Firewall Policy</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 border">C&C Communication</td>
+                        <td class="p-3 border text-purple-600 font-bold">VPC Service Controls (Injected)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Security & Compliance</h2>
+            <p>Cybat AI operates on a <b>Zero-Data-Retention</b> basis. Logs are analyzed in-flight within a secure GKE
+                sandbox. IAM permissions are managed via <b>Workload Identity Federation</b>, ensuring no static
+                credentials ever exist within our infrastructure.</p>
+        </section>
+
+        <footer class="mt-20 pt-8 border-t border-slate-100 text-center text-slate-400 text-sm">
+            © 2026 Cybat AI Engineering. All technical specifications are subject to the Google Cloud Marketplace SLA.
+        </footer>
+    </article>
+
+</body>
+
+</html>

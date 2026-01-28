@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Cybat AI - Autonomous Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white font-sans selection:bg-blue-500">
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto border-b border-slate-800">
+        <div class="text-2xl font-bold tracking-tighter uppercase">
+            <a href="index.html">CYBAT<span class="text-blue-500">AI</span></a>
+        </div>
+        <div class="space-x-8 hidden md:flex items-center text-sm font-medium uppercase tracking-widest">
+            <a href="features.html" class="hover:text-blue-400 transition">Features</a>
+            <a href="infrastructure.html" class="hover:text-blue-400 transition">Infrastructure</a>
+            <a href="privacy.html" class="hover:text-blue-400 transition">Privacy</a>
+            <a href="contact.html" class="bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition">Get
+                Started</a>
+        </div>
+    </nav>
+
+    <section class="py-20 px-6 text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-black mb-6">Security that thinks <br><span
+                class="text-blue-500 italic">before</span> it blocks.</h1>
+        <p class="text-xl text-slate-400">Cybat AI isn't just a firewall; it's an autonomous SOC analyst running at the
+            speed of Google's backbone.</p>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-12">
+
+        <div class="bg-slate-800/50 p-10 rounded-3xl border border-slate-700 hover:border-blue-500/50 transition">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-2xl mb-6">🧠</div>
+            <h3 class="text-2xl font-bold mb-4">Gemini-Powered Intent Analysis</h3>
+            <p class="text-slate-400 leading-relaxed mb-6">
+                Most tools block based on "what" (an IP). Cybat AI understands the "why." By analyzing HTTP headers and
+                payload patterns with Gemini 2.5 Flash, we identify sophisticated bots that hide behind residential
+                proxies.
+            </p>
+            <ul class="text-sm space-y-2 text-slate-300">
+                <li class="flex items-center">✅ Detects SQLi & XSS zero-days</li>
+                <li class="flex items-center">✅ Pattern-matching across 100+ projects</li>
+                <li class="flex items-center">✅ Continuous learning from threat intel</li>
+            </ul>
+        </div>
+
+        <div class="bg-slate-800/50 p-10 rounded-3xl border border-slate-700 hover:border-cyan-500/50 transition">
+            <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-2xl mb-6">⚡</div>
+            <h3 class="text-2xl font-bold mb-4">Dual-Enforcement Engine</h3>
+            <p class="text-slate-400 leading-relaxed mb-6">
+                Cybat AI intelligently routes mitigation to the most efficient layer of your GCP hierarchy to minimize
+                latency and maximize protection.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                    <span class="text-xs font-bold text-blue-400 uppercase">Cloud Armor</span>
+                    <p class="text-xs mt-1 italic">L7 Edge Blocking</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                    <span class="text-xs font-bold text-cyan-400 uppercase">Firewall Policy</span>
+                    <p class="text-xs mt-1 italic">L3/4 VPC Blocking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-slate-800/50 p-10 rounded-3xl border border-slate-700">
+            <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-2xl mb-6">👁️</div>
+            <h3 class="text-2xl font-bold mb-4">Real-time Pub/Sub Ingestion</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Using our custom Fluent Bit workers, we ingest millions of log lines per second from your Organization
+                Sinks. No logs are stored on our servers—we process in-flight and act immediately.
+            </p>
+        </div>
+
+        <div class="bg-slate-800/50 p-10 rounded-3xl border border-slate-700">
+            <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-6">🛡️</div>
+            <h3 class="text-2xl font-bold mb-4">Hierarchical Organization Guard</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Block a threat once, protect everywhere. Cybat AI can inject rules at the GCP Organization or Folder
+                level, ensuring a "one-click" block protects every project in your company instantly.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="bg-white text-slate-900 py-12 px-6 text-center font-bold text-sm tracking-widest uppercase">
+        Built with: Google Kubernetes Engine • Vertex AI • Terraform • Cloud Armor • Pub/Sub
+    </section>
+
+    <section class="py-24 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-8">Ready to automate your GCP defense?</h2>
+        <a href="contact.html"
+            class="bg-blue-600 px-12 py-5 rounded-2xl font-black text-xl hover:bg-blue-700 transition">Get Started for
+            Free</a>
+    </section>
+
+</body>
+
+</html>

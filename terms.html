@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Cybat AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto border-b border-slate-800">
+        <div class="text-2xl font-bold tracking-tighter uppercase">CYBAT<span class="text-blue-500">AI</span></div>
+        <div class="space-x-8 hidden md:flex items-center text-sm font-medium uppercase tracking-widest">
+            <a href="index.html" class="text-sm text-slate-500 hover:text-blue-600">← Back to Home</a>
+
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto py-16 px-6">
+        <h1 class="text-4xl font-black mb-4">Terms of Service</h1>
+        <p class="text-slate-500 mb-8 font-mono text-sm">Effective Date: January 25, 2026</p>
+
+        <section class="space-y-8">
+            <div>
+                <h2 class="text-2xl font-bold mb-3">1. Acceptance of Terms</h2>
+                <p>By deploying the Cybat AI agent within your Google Cloud Platform (GCP) environment, you agree to be
+                    bound by these Terms of Service. If you are acting on behalf of an organization, you represent that
+                    you have the authority to bind that entity to these terms.</p>
+            </div>
+
+            <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                <h2 class="text-xl font-bold mb-3 text-amber-900">2. Automated Actions & "False Positives"</h2>
+                <p class="text-amber-800">
+                    Cybat AI uses Gemini-powered logic to execute automated security responses, including the blocking
+                    of IP addresses. You acknowledge that:
+                </p>
+                <ul class="list-disc ml-5 mt-2 space-y-2 text-amber-800">
+                    <li>AI models are probabilistic and may occasionally misidentify legitimate traffic as malicious (a
+                        "False Positive").</li>
+                    <li><strong>Responsibility:</strong> You are responsible for configuring "Allow Lists" and
+                        monitoring the agent's actions via the Cybat AI dashboard.</li>
+                    <li><strong>No Liability:</strong> Cybat AI is not liable for any service disruptions or lost
+                        revenue resulting from automated blocking actions.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">3. Service Integration</h2>
+                <p>Cybat AI requires specific IAM permissions to interact with your <strong>Cloud Armor</strong> and
+                    <strong>Compute Firewall</strong> APIs. You retain full control over these permissions and may
+                    revoke them at any time, which will immediately terminate the agent's ability to protect your
+                    infrastructure.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">4. Usage Restrictions</h2>
+                <p>You may not use Cybat AI to:
+                <ul class="list-disc ml-5 mt-2 space-y-2">
+                    <li>Reverse engineer the underlying security algorithms or Gemini prompts.</li>
+                    <li>Use the service to perform "Denial of Service" attacks against third parties.</li>
+                    <li>Circulate the agent's internal threat intelligence data for commercial resale.</li>
+                </ul>
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">5. Disclaimer of Warranties</h2>
+                <p class="uppercase font-bold text-sm tracking-tight">
+                    THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE." WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED,
+                    INCLUDING THE WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE DO NOT
+                    GUARANTEE 100% PROTECTION AGAINST ALL POSSIBLE CYBER THREATS.
+                </p>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200">
+                <p class="text-sm text-slate-500">Questions regarding these terms? Contact
+                    <strong>legal@cybat-ai.com</strong>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

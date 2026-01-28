@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Cybat AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto border-b border-slate-800">
+        <div class="text-2xl font-bold tracking-tighter uppercase">CYBAT<span class="text-blue-500">AI</span></div>
+        <div class="space-x-8 hidden md:flex items-center text-sm font-medium uppercase tracking-widest">
+            <a href="index.html" class="text-sm text-slate-500 hover:text-blue-600">← Back to Home</a>
+
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto py-16 px-6">
+        <h1 class="text-4xl font-black mb-4">Privacy Policy</h1>
+        <p class="text-slate-500 mb-8 font-mono text-sm">Last Updated: January 25, 2026</p>
+
+        <section class="space-y-8">
+            <div>
+                <h2 class="text-2xl font-bold mb-3">1. Introduction</h2>
+                <p>Cybat AI ("we," "our," or "us") provides an autonomous security agent for Google Cloud Platform. This
+                    policy explains how we handle technical telemetry and log data. We are committed to "Privacy by
+                    Design," ensuring that your security data is used only for protection, never for profiling or
+                    secondary marketing.</p>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <h2 class="text-xl font-bold mb-3 text-blue-900">2. Data We Process</h2>
+                <p class="mb-4 text-blue-800">Our agent processes the following data via your Google Cloud Pub/Sub
+                    integration:</p>
+                <ul class="list-disc ml-5 space-y-2 text-blue-800">
+                    <li><strong>Network Metadata:</strong> Source IP addresses, destination ports, and protocol types.
+                    </li>
+                    <li><strong>HTTP Metadata:</strong> User agents, request paths, and response codes (Layer 7 logs).
+                    </li>
+                    <li><strong>Security Events:</strong> Cloud Armor violations and Firewall hit counts.</li>
+                </ul>
+                <p class="mt-4 font-semibold text-blue-900 italic">We do not store the full payload of your
+                    application's database or private user content.</p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">3. Use of AI and Machine Learning</h2>
+                <p>Cybat AI utilizes the <strong>Google Gemini API (Vertex AI)</strong> to analyze log patterns. In
+                    accordance with the <strong>EU AI Act (2026)</strong>:</p>
+                <ul class="list-disc ml-5 mt-3 space-y-2">
+                    <li><strong>No Training:</strong> We use "Zero-Retention" inference. Your data is <u>not</u> used to
+                        train the underlying Google Gemini models.</li>
+                    <li><strong>Automated Decisions:</strong> Our AI may trigger automated IP blocking. You maintain
+                        "Human-in-the-Loop" control through the Cybat AI dashboard settings.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">4. Data Retention</h2>
+                <p>Technical logs processed by Cybat AI are retained for the minimum period required for security
+                    analysis (typically 30 days) unless otherwise configured by your enterprise retention policy in
+                    Google Cloud Logging.</p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-3">5. Compliance (GDPR/CCPA)</h2>
+                <p>We act as a <strong>Data Processor</strong> under GDPR. All data remains within the Google Cloud
+                    region you specify during deployment (Data Sovereignty). Users have the right to request access to
+                    or deletion of telemetry tied to their identifiers.</p>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200">
+                <p class="text-sm text-slate-500">For privacy inquiries, please contact our Data Protection Officer at
+                    <strong>privacy@cybat-ai.com</strong>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
