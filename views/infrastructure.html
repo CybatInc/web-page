@@ -1,0 +1,69 @@
+<header class="py-20 px-6 text-center max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight">The Backbone of <span
+            class="text-cyan-400">Cybat AI</span></h1>
+    <p class="text-lg text-slate-400 leading-relaxed">
+        Our agent is built natively on Google Cloud to ensure 99.99% availability and sub-second detection latency.
+        We don't just run on the cloud; we are part of it.
+    </p>
+</header>
+
+<section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="bg-slate-800/30 border border-slate-700 rounded-3xl p-8 md:p-12">
+        <h2 class="text-2xl font-bold mb-10 text-center uppercase tracking-widest text-blue-400">Real-Time
+            Protection Lifecycle</h2>
+
+        <div class="grid md:grid-cols-4 gap-4 text-center">
+            <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
+                <div class="text-3xl mb-4">📡</div>
+                <h4 class="font-bold mb-2">Ingestion</h4>
+                <p class="text-xs text-slate-500 font-mono">Cloud Logging → Pub/Sub</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center text-slate-700">→</div>
+            <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
+                <div class="text-3xl mb-4">⚙️</div>
+                <h4 class="font-bold mb-2">Processing</h4>
+                <p class="text-xs text-slate-500 font-mono">GKE Autopilot + Fluent Bit</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center text-slate-700">→</div>
+            <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
+                <div class="text-3xl mb-4">🔮</div>
+                <h4 class="font-bold mb-2">Inference</h4>
+                <p class="text-xs text-slate-500 font-mono">Vertex AI (Gemini 2.5)</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center text-slate-700">→</div>
+            <div class="p-6 bg-slate-900 rounded-2xl border border-blue-500/50 shadow-lg shadow-blue-500/10">
+                <div class="text-3xl mb-4">🔨</div>
+                <h4 class="font-bold mb-2 text-blue-400">Mitigation</h4>
+                <p class="text-xs text-slate-500 font-mono">Armor & Firewall APIs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-10">
+    <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span
+                class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>GKE Autopilot</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+            Our worker nodes run on GKE Autopilot, providing elastic scaling that grows with your log volume. We use
+            <b>Spot Pods</b> to maintain the lowest possible cost for our customers while ensuring high
+            availability.
+        </p>
+    </div>
+    <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span
+                class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Pub/Sub Messaging</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+            We utilize a decoupled event-driven architecture. By using Pub/Sub as our buffer, Cybat AI can handle
+            massive bursts of traffic (like DDoS attacks) without dropping a single log line.
+        </p>
+    </div>
+    <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span
+                class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>Workload Identity</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+            Security first: Our agent uses GCP Workload Identity for keyless authentication. We never store service
+            account JSON keys. Access is granted via short-lived, scoped tokens.
+        </p>
+    </div>
+</section>
