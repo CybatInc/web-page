@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Received | Cybat AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="refresh" content="5;url=index.html">
+</head>
+
+<body class="bg-slate-950 text-white font-sans flex items-center justify-center min-h-screen p-6">
+
+    <div class="max-w-md w-full text-center">
+        <div class="mb-8 flex justify-center">
+            <div class="relative">
+                <div class="absolute inset-0 bg-blue-500 blur-2xl opacity-20 animate-pulse"></div>
+                <svg class="w-20 h-20 text-blue-500 relative" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                </svg>
+            </div>
+        </div>
+
+        <h1 class="text-4xl font-black mb-4 tracking-tighter uppercase">Message Secured</h1>
+        <p class="text-slate-400 mb-8 leading-relaxed">
+            Thank you for reaching out. Our team has received your transmission and will respond shortly via encrypted
+            channels.
+        </p>
+
+        <div class="space-y-4">
+            <a href="index.html"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-500/20">
+                Return to Dashboard
+            </a>
+            <p class="text-xs text-slate-600 uppercase tracking-widest pt-4">
+                Redirecting you automatically in <span id="timer">5</span> seconds...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Simple countdown timer for the UI
+        let seconds = 5;
+        const display = document.getElementById('timer');
+        setInterval(() => {
+            seconds--;
+            if (seconds >= 0) display.innerText = seconds;
+        }, 1000);
+    </script>
+</body>
+
+</html>
