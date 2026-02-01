@@ -74,9 +74,151 @@
                 <div
                     class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
                 </div>
-                <img src="/assets/pipeline.png" alt="Cybat AI Pipeline Roadmap"
-                    class="relative rounded-3xl border border-slate-700 shadow-2xl transition group-hover:scale-[1.01]">
+                <div
+                    class="relative bg-slate-900/50 p-8 rounded-3xl border border-slate-700 shadow-2xl h-[400px] flex items-center justify-center overflow-hidden">
+                    <!-- Background Grid -->
+                    <div
+                        class="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:20px_20px]">
+                    </div>
+
+                    <!-- Flow Container -->
+                    <div class="relative z-10 w-full flex items-center justify-between px-4">
+
+                        <!-- Client Zone -->
+                        <div
+                            class="flex flex-col items-center bg-slate-800/80 p-6 rounded-2xl border border-slate-700 shadow-xl z-20 w-1/4 h-64 justify-center relative">
+                            <div
+                                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-slate-700 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-slate-300 border border-slate-600">
+                                Client Apps</div>
+
+                            <div class="flex space-x-2 mb-4">
+                                <div class="w-8 h-8 bg-slate-600 rounded flex items-center justify-center text-lg">💻
+                                </div>
+                                <div class="w-8 h-8 bg-slate-600 rounded flex items-center justify-center text-lg">📱
+                                </div>
+                            </div>
+                            <span class="text-xs text-slate-500 text-center">Generating Traffic</span>
+
+                            <!-- Emitter Point -->
+                            <div
+                                class="absolute right-0 top-1/2 transform translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full animate-pulse">
+                            </div>
+                        </div>
+
+                        <!-- Connection Path -->
+                        <div class="flex-1 h-[2px] bg-blue-900/50 relative">
+                            <!-- Packets -->
+                            <div class="absolute top-0 left-0 w-2 h-2 bg-red-500 rounded-full animate-flow-dot"
+                                style="animation-duration: 3s; animation-iteration-count: infinite;"></div>
+                            <div class="absolute top-0 left-0 w-2 h-2 bg-green-500 rounded-full animate-flow-dot"
+                                style="animation-duration: 3s; animation-delay: 1.5s; animation-iteration-count: infinite;">
+                            </div>
+                        </div>
+
+                        <!-- Provider Zone (GCP Project) -->
+                        <div
+                            class="flex-1 bg-slate-900/80 p-6 rounded-2xl border border-blue-900/50 shadow-2xl z-20 h-80 relative flex items-center justify-between px-8 bg-[url('/assets/grid.svg')]">
+                            <div
+                                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-900/80 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-blue-200 border border-blue-500/50 flex items-center gap-2">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/google_cloud_48dp.png"
+                                    class="w-3 h-3 grayscale opacity-70"> Cybat AI (Provider)
+                            </div>
+
+                            <!-- Ingestion (Fluent Bit) -->
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-12 h-12 bg-purple-900/30 rounded-lg border border-purple-500/50 flex items-center justify-center mb-2">
+                                    <span class="text-xl">🌪️</span>
+                                </div>
+                                <span class="text-[9px] font-bold text-slate-500 uppercase">Ingestion</span>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div class="w-12 h-[1px] bg-slate-700"></div>
+
+                            <!-- Analysis (Gemini) -->
+                            <div class="flex flex-col items-center relative">
+                                <div class="absolute inset-0 bg-blue-500/20 rounded-full animate-pulse-slow blur-xl">
+                                </div>
+                                <div
+                                    class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-2 relative z-10 shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                                    <span class="text-3xl">✨</span>
+                                </div>
+                                <span class="text-[9px] font-bold text-blue-400 uppercase">Gemini 2.5</span>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div class="w-12 h-[1px] bg-slate-700"></div>
+
+                            <!-- Enforcement (Armor) -->
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-lg border border-cyan-500/50 flex items-center justify-center mb-2 animate-shield">
+                                    <span class="text-2xl">🛡️</span>
+                                </div>
+                                <span class="text-[9px] font-bold text-slate-500 uppercase">Cloud Armor</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Built on Google Cloud Badges -->
+<section class="py-12 border-b border-slate-800 bg-slate-900/50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-8">Architected Exclusively for Google
+            Cloud</p>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 opacity-80 hover:opacity-100 transition duration-500">
+
+            <div class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition">
+                    <span class="text-xl">⚡</span>
+                </div>
+                <div class="text-left">
+                    <div class="text-white font-bold text-sm">Vertex AI</div>
+                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">Gemini 2.5</div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition">
+                    <span class="text-xl">🚢</span>
+                </div>
+                <div class="text-left">
+                    <div class="text-white font-bold text-sm">GKE Autopilot</div>
+                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">Scalable Compute</div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition">
+                    <span class="text-xl">🛡️</span>
+                </div>
+                <div class="text-left">
+                    <div class="text-white font-bold text-sm">Cloud Armor</div>
+                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">Edge Security</div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition">
+                    <span class="text-xl">📡</span>
+                </div>
+                <div class="text-left">
+                    <div class="text-white font-bold text-sm">Pub/Sub</div>
+                    <div class="text-[10px] text-slate-500 uppercase tracking-wider">Event Stream</div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -109,7 +251,37 @@
             </p>
         </div>
     </div>
+</section>
 
+<!-- FAQ Section -->
+<section id="faq" class="py-24 max-w-4xl mx-auto px-6">
+    <h2 class="text-center text-4xl font-black mb-16 uppercase tracking-tighter">Frequently Asked Questions (PQRS)</h2>
+    <div class="space-y-4">
+
+        <div v-for="(faq, index) in $root.faqs" :key="index"
+            class="bg-slate-900 border rounded-2xl transition-all duration-300"
+            :class="$root.activeFaq === index ? 'border-blue-500/50 bg-slate-900/80 shadow-lg shadow-blue-500/5' : 'border-slate-800'">
+
+            <button @click="$root.toggleFaq(index)"
+                class="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                <span class="font-bold text-lg transition"
+                    :class="$root.activeFaq === index ? 'text-blue-400' : 'text-white'">
+                    {{ faq.question }}
+                </span>
+                <span class="transition-transform duration-300" :class="{ 'rotate-180': $root.activeFaq === index }">
+                    <svg fill="none" class="w-6 h-6 text-slate-500" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </span>
+            </button>
+
+            <div v-show="$root.activeFaq === index"
+                class="px-6 pb-6 text-slate-400 leading-relaxed text-sm animate-in fade-in slide-in-from-top-2 duration-300">
+                <div v-html="faq.answer"></div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <section class="py-24 bg-slate-900 border-y border-slate-800">
