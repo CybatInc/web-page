@@ -29,6 +29,20 @@ const router = createRouter({
     routes
 });
 
-const app = createApp({});
+const app = createApp({
+    data() {
+        return {
+            isMobileMenuOpen: false
+        };
+    },
+    methods: {
+        toggleMobileMenu() {
+            this.isMobileMenuOpen = !this.isMobileMenuOpen;
+        },
+        closeMobileMenu() {
+            this.isMobileMenuOpen = false;
+        }
+    }
+});
 app.use(router);
 app.mount('#app');
