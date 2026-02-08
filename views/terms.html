@@ -1,59 +1,82 @@
-<main class="max-w-3xl mx-auto py-16 px-6">
-    <h1 class="text-4xl font-black mb-4">Terms of Service</h1>
-    <p class="text-slate-500 mb-8 font-mono text-sm">Effective Date: January 25, 2026</p>
+<header class="py-32 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
+    <div class="aurora aurora-lavender w-96 h-96 -top-48 -left-48 opacity-10"></div>
+    <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-80 relative z-10">Legal
+        Framework</div>
+    <h1
+        class="text-6xl md:text-8xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10">
+        TERMS OF<br>
+        <span class="text-ai-lavender">SERVICE.</span>
+    </h1>
+    <p class="text-white/20 mt-12 font-mono text-[10px] uppercase tracking-[0.3em] relative z-10">Effective Date // JAN
+        25, 2026</p>
+</header>
 
-    <section class="space-y-8">
-        <div>
-            <h2 class="text-2xl font-bold mb-3">1. Acceptance of Terms</h2>
-            <p>By deploying the Cybat AI agent within your Google Cloud Platform (GCP) environment, you agree to be
-                bound by these Terms of Service. If you are acting on behalf of an organization, you represent that
-                you have the authority to bind that entity to these terms.</p>
-        </div>
+<main class="max-w-7xl mx-auto px-6 pb-48 relative z-10">
+    <div class="grid md:grid-cols-2 gap-1 border-t border-white/5">
 
-        <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
-            <h2 class="text-xl font-bold mb-3 text-amber-900">2. Automated Actions & "False Positives"</h2>
-            <p class="text-amber-800">
-                Cybat AI uses Gemini-powered logic to execute automated security responses, including the blocking
-                of IP addresses. You acknowledge that:
-            </p>
-            <ul class="list-disc ml-5 mt-2 space-y-2 text-amber-800">
-                <li>AI models are probabilistic and may occasionally misidentify legitimate traffic as malicious (a
-                    "False Positive").</li>
-                <li><strong>Responsibility:</strong> You are responsible for configuring "Allow Lists" and
-                    monitoring the agent's actions via the Cybat AI dashboard.</li>
-                <li><strong>No Liability:</strong> Cybat AI is not liable for any service disruptions or lost
-                    revenue resulting from automated blocking actions.</li>
-            </ul>
-        </div>
-
-        <div>
-            <h2 class="text-2xl font-bold mb-3">3. Service Integration</h2>
-            <p>Cybat AI requires specific IAM permissions to interact with your <strong>Cloud Armor</strong> and
-                <strong>Compute Firewall</strong> APIs. You retain full control over these permissions and may
-                revoke them at any time, which will immediately terminate the agent's ability to protect your
-                infrastructure.
+        <div class="bg-ai-navy p-12 border-b border-r border-white/5 group hover:bg-white/[0.02] transition-colors">
+            <div class="font-mono text-ai-lavender text-xs mb-8">01 / ACCEPTANCE</div>
+            <h2 class="text-2xl font-heading font-black mb-6 uppercase tracking-tighter text-white">The Agreement</h2>
+            <p class="text-white/50 leading-relaxed text-sm">
+                By deploying the Cybat AI agent within your GCP environment, you agree to these Terms.
+                You represent that you have the authority to bind your organization to this protocol.
             </p>
         </div>
 
-        <div>
-            <h2 class="text-2xl font-bold mb-3">4. Usage Restrictions</h2>
-            <p>You may not use Cybat AI to:
-            <ul class="list-disc ml-5 mt-2 space-y-2">
-                <li>Reverse engineer the underlying security algorithms or Gemini prompts.</li>
-                <li>Use the service to perform "Denial of Service" attacks against third parties.</li>
-                <li>Circulate the agent's internal threat intelligence data for commercial resale.</li>
-            </ul>
+        <div class="col-span-2 bg-ai-obsidian p-16 border-b border-white/5 relative overflow-hidden">
+            <div class="aurora aurora-mint w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10">
+            </div>
+            <div class="relative z-10">
+                <div class="font-mono text-ai-mint text-xs mb-8">02 / AUTOMATION</div>
+                <h2 class="text-3xl font-heading font-black mb-8 uppercase tracking-tighter text-white text-ai-mint">
+                    Agentic Responsibility</h2>
+                <p class="text-white/50 leading-relaxed text-sm mb-12 max-w-3xl">
+                    Cybat AI uses Gemini-powered logic to execute automated responses. You acknowledge that AI models
+                    are probabilistic and may misidentify traffic (False Positives).
+                </p>
+                <div class="grid md:grid-cols-2 gap-1 text-left font-mono">
+                    <div class="bg-white/5 p-8 border border-white/5">
+                        <h4 class="text-ai-mint text-[10px] mb-4 uppercase tracking-[0.2em] font-bold">// CONFIGURATION
+                        </h4>
+                        <p class="text-[10px] opacity-40 leading-relaxed">You are responsible for monitoring actions via
+                            the dashboard and configuring allow-lists.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 border border-white/5">
+                        <h4 class="text-ai-lavender text-[10px] mb-4 uppercase tracking-[0.2em] font-bold">// LIABILITY
+                        </h4>
+                        <p class="text-[10px] opacity-40 leading-relaxed">Cybat AI is not liable for service disruptions
+                            resulting from automated blocking actions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-ai-navy p-12 border-b border-r border-white/5 group hover:bg-white/[0.02] transition-colors">
+            <div class="font-mono text-ai-lavender text-xs mb-8">03 / INTEGRATION</div>
+            <h2 class="text-2xl font-heading font-black mb-6 uppercase tracking-tighter text-white">IAM Protocol</h2>
+            <p class="text-white/50 leading-relaxed text-sm">
+                Cybat AI requires IAM permissions to interact with Cloud Armor and VPC Firewalls.
+                You retain full control and may revoke permissions at any time, terminating protection.
             </p>
         </div>
 
-        <div>
-            <h2 class="text-2xl font-bold mb-3">5. Disclaimer of Warranties</h2>
-            <p class="uppercase font-bold text-sm tracking-tight">
-                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE." WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED,
-                INCLUDING THE WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE DO NOT
-                GUARANTEE 100% PROTECTION AGAINST ALL POSSIBLE CYBER THREATS.
+        <div class="bg-ai-navy p-12 border-b border-white/5 group hover:bg-white/[0.02] transition-colors">
+            <div class="font-mono text-ai-mint text-xs mb-8">04 / RESTRICTIONS</div>
+            <h2 class="text-2xl font-heading font-black mb-6 uppercase tracking-tighter text-white">Usage Limits</h2>
+            <p class="text-white/50 leading-relaxed text-sm">
+                You may not reverse-engineer underlying logic or prompts, use the service for DDoS attacks,
+                or resell internal threat intelligence data.
             </p>
         </div>
 
-    </section>
+        <div class="col-span-2 bg-white/5 p-12 border-b border-white/5">
+            <div class="font-mono text-xs opacity-20 mb-6 uppercase tracking-widest text-center">NO_WARRANTY_ADVISORY
+            </div>
+            <p class="text-[10px] opacity-40 leading-relaxed text-center uppercase tracking-widest max-w-4xl mx-auto">
+                THE SERVICE IS PROVIDED "AS IS." WE DISCLAIM ALL WARRANTIES. WE DO NOT GUARANTEE 100% PROTECTION AGAINST
+                ALL POSSIBLE CYBER THREATS.
+            </p>
+        </div>
+
+    </div>
 </main>

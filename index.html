@@ -30,16 +30,128 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lato:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        heading: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                    colors: {
+                        'ai-obsidian': '#030712',
+                        'ai-navy': '#0F172A',
+                        'ai-lavender': '#A78BFA',
+                        'ai-mint': '#2DD4BF',
+                        'ai-border': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue-router@4"></script>
 </head>
 
 <style>
+    :root {
+        --color-bg: #030712;
+        --color-text: #F9FAFB;
+        --color-lavender: #A78BFA;
+        --color-mint: #2DD4BF;
+    }
+
     html,
     body {
         height: 100%;
         margin: 0;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: 'Lato', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-heading {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Refined Edges */
+    * {
+        border-radius: 4px;
+    }
+
+    /* Aurora Glows */
+    .aurora {
+        position: absolute;
+        filter: blur(100px);
+        opacity: 0.15;
+        z-index: 0;
+        pointer-events: none;
+        border-radius: 50%;
+    }
+
+    .aurora-lavender {
+        background: var(--color-lavender);
+    }
+
+    .aurora-mint {
+        background: var(--color-mint);
+    }
+
+    /* Typewriter Effect */
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 100%
+        }
+    }
+
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: var(--color-lavender);
+        }
+    }
+
+    .typewriter {
+        overflow: hidden;
+        border-right: .15em solid var(--color-lavender);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: -0.05em;
+        animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+    }
+
+    .section-deep {
+        background-color: #030712;
+        color: #F9FAFB;
+    }
+
+    .section-navy {
+        background-color: #0F172A;
+        color: #F9FAFB;
     }
 
     @keyframes flow-particle {
@@ -65,75 +177,72 @@
         }
     }
 
-    @keyframes pulse-ring {
-        0% {
-            transform: scale(0.8);
-            opacity: 0.5;
-        }
-
-        100% {
-            transform: scale(2);
-            opacity: 0;
-        }
+    .animate-flow-dot {
+        animation: flow-particle 2s infinite ease-out;
     }
 
     @keyframes shield-glow {
 
         0%,
         100% {
-            filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+            box-shadow: 0 0 5px rgba(159, 181, 173, 0.3);
         }
 
         50% {
-            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+            box-shadow: 0 0 20px rgba(159, 181, 173, 0.5);
         }
-    }
-
-    .animate-flow-dot {
-        animation: flow-particle 2s infinite ease-out;
-    }
-
-    .animate-pulse-slow {
-        animation: pulse-ring 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
     }
 
     .animate-shield {
         animation: shield-glow 3s infinite ease-in-out;
     }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #1E1E1E;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #3C3C3C;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #9FB5AD;
+    }
 </style>
 
-<body class="bg-slate-900 text-white font-sans">
+<body class="bg-ai-obsidian text-white font-sans">
     <div id="app" class="flex flex-col min-h-screen">
-        <nav class="p-4 md:p-6 border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
-            <div class="max-w-6xl mx-auto flex justify-between items-center bg-slate-900/0 relative">
+        <nav class="p-4 md:p-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto flex justify-between items-center relative">
                 <router-link to="/" class="flex items-center group" @click="closeMobileMenu">
-                    <span class="text-2xl font-bold tracking-tighter uppercase">Cybat</span>
-                    <svg class="w-7 h-7 ml-1 text-blue-500 transition-transform group-hover:scale-110"
-                        fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.47 4.75-3.53 8.93-7 10.22V11.99z" />
-                    </svg>
+                    <span class="text-3xl font-heading font-black tracking-tighter uppercase italic">Cybat</span>
+                    <div class="w-4 h-4 bg-ai-lavender ml-1 animate-pulse shadow-[0_0_10px_#A78BFA]"></div>
                 </router-link>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest text-slate-400">
-                    <router-link to="/features" class="hover:text-blue-400">Features</router-link>
-                    <router-link to="/infrastructure" class="hover:text-blue-400">Infra</router-link>
-                    <router-link to="/privacy" class="hover:text-blue-400">Privacy</router-link>
-                    <router-link to="/ai-safety" class="hover:text-blue-400">AI Safety</router-link>
-                    <router-link to="/stack" class="hover:text-blue-400">Stack</router-link>
-                    <router-link to="/roadmap" class="hover:text-blue-400">Roadmap</router-link>
+                <div
+                    class="hidden md:flex items-center space-x-10 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-white/50">
+                    <router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link>
+                    <router-link to="/infrastructure"
+                        class="hover:text-ai-lavender transition-colors">Infra</router-link>
+                    <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI
+                        Safety</router-link>
+                    <router-link to="/stack" class="hover:text-ai-lavender transition-colors">Stack</router-link>
                     <router-link to="/contact"
-                        class="bg-blue-600 px-5 py-2 rounded-full text-white hover:bg-blue-700 transition">Get
-                        Started</router-link>
+                        class="bg-ai-lavender text-ai-obsidian px-8 py-3 hover:bg-white transition-colors font-bold">Connect_</router-link>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button @click="toggleMobileMenu" class="md:hidden text-slate-400 hover:text-white focus:outline-none">
+                <button @click="toggleMobileMenu" class="md:hidden text-white/50 hover:text-white focus:outline-none">
                     <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M4 8h16M4 16h16" />
+                        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -141,23 +250,18 @@
 
             <!-- Mobile Menu Dropdown -->
             <div v-show="isMobileMenuOpen"
-                class="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 shadow-2xl flex flex-col p-6 space-y-4 text-center z-40">
+                class="md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-6 z-40">
                 <router-link to="/features" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">Features</router-link>
+                    class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
                 <router-link to="/infrastructure" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">Infra</router-link>
-                <router-link to="/privacy" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">Privacy</router-link>
+                    class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
                 <router-link to="/ai-safety" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">AI
+                    class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">AI
                     Safety</router-link>
                 <router-link to="/stack" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">Stack</router-link>
-                <router-link to="/roadmap" @click="closeMobileMenu"
-                    class="block text-slate-400 hover:text-blue-400 font-bold uppercase tracking-widest py-2 border-b border-slate-800">Roadmap</router-link>
+                    class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
                 <router-link to="/contact" @click="closeMobileMenu"
-                    class="block bg-blue-600 text-white font-bold uppercase tracking-widest px-5 py-3 rounded-xl mt-4">Get
-                    Started</router-link>
+                    class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5">Connect_</router-link>
             </div>
         </nav>
 
@@ -165,34 +269,45 @@
             <router-view></router-view>
         </div>
 
-        <footer class="bg-slate-950 py-16 border-t border-slate-800">
-            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm text-slate-500">
+        <footer class="bg-ai-obsidian py-32 border-t border-white/5 relative overflow-hidden">
+            <div class="aurora aurora-lavender w-96 h-96 -bottom-48 -left-48 opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-20 relative z-10">
                 <div class="col-span-2">
-                    <div class="text-white font-bold text-xl mb-4">CYBAT AI</div>
-                    <p class="max-w-xs">Autonomous security agent designed specifically for the Google Cloud
-                        Marketplace ecosystem.</p>
+                    <div class="text-white font-heading font-black text-2xl mb-8 uppercase italic tracking-tighter">
+                        CYBAT AI</div>
+                    <p class="max-w-sm text-sm text-white/40 leading-relaxed font-mono">
+                        // AUTONOMOUS_SECURITY_ORCHESTRATION<br>
+                        // ENGINE_V3.0_ACTIVE<br>
+                        // REGION: US-CENTRAL-1
+                    </p>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><router-link to="/privacy" class="hover:text-blue-400">Privacy Policy</router-link></li>
-                        <li><router-link to="/ai-safety" class="hover:text-blue-400">AI & Safety</router-link></li>
-                        <li><router-link to="/terms" class="hover:text-blue-400">Terms of Service</router-link></li>
+                    <h4 class="text-white font-mono font-bold mb-8 uppercase text-[10px] tracking-[0.3em] opacity-40">
+                        Resources</h4>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
+                        <li><router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI
+                                Safety</router-link></li>
+                        <li><router-link to="/privacy"
+                                class="hover:text-ai-lavender transition-colors">Privacy</router-link></li>
+                        <li><router-link to="/terms"
+                                class="hover:text-ai-lavender transition-colors">Terms</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Support</h4>
-                    <ul class="space-y-2">
-                        <li><router-link to="/contact" class="hover:text-blue-400">Contact Us</router-link></li>
-                        <li><a href="https://github.com/cybatInc" target="_blank" class="hover:text-blue-400">GitHub</a>
-                        </li>
-                        <li><a href="https://linkedin.com/in/ederius" target="_blank"
-                                class="hover:text-blue-400">Founder</a></li>
+                    <h4 class="text-white font-mono font-bold mb-8 uppercase text-[10px] tracking-[0.3em] opacity-40">
+                        Contact</h4>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
+                        <li><router-link to="/contact"
+                                class="hover:text-ai-lavender transition-colors">Portal</router-link></li>
+                        <li><a href="https://github.com/cybatInc" target="_blank"
+                                class="hover:text-ai-lavender transition-colors">GitHub</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="text-center mt-12 text-xs text-slate-700">
-                &copy; 2026 Cybat AI. All infrastructure primarily hosted on Google Cloud.
+            <div
+                class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-center mt-32 text-white/20 relative z-10">
+                &copy; 2026 Cybat AI. Platform Status: Nominal.
             </div>
         </footer>
     </div>

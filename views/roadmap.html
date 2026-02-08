@@ -1,45 +1,66 @@
-<main class="max-w-4xl mx-auto py-16 px-6">
-    <h1 class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">Development Roadmap</h1>
-    <p class="text-slate-500 mb-16 uppercase tracking-widest text-sm font-bold">Projected Milestones for 2026</p>
+<header class="py-32 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
+    <div class="aurora aurora-lavender w-96 h-96 -top-48 -left-48 opacity-10"></div>
+    <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-80 relative z-10">Strategy
+    </div>
+    <h1
+        class="text-6xl md:text-8xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10">
+        MISSION<br>
+        <span class="text-ai-lavender">TRAJECTORY.</span>
+    </h1>
+</header>
 
+<main class="max-w-7xl mx-auto px-6 pb-48 relative z-10">
     <div
-        class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+        class="space-y-0 relative before:absolute before:inset-0 before:left-0 md:before:left-1/2 before:-translate-x-px before:h-full before:w-[1px] before:bg-white/5">
 
-        <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+        <!-- Q1 -->
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
             <div
-                class="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500 bg-slate-900 text-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                01
+                class="flex items-center justify-center w-4 h-4 bg-ai-lavender shadow-[0_0_15px_#A78BFA] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-0 md:left-1/2">
             </div>
             <div
-                class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-blue-500/30 bg-slate-800/40 shadow-xl backdrop-blur-sm">
-                <h3 class="font-bold text-white text-xl">Q1: Core Ingestion (Current)</h3>
-                <p class="text-sm text-slate-400 mt-2">Finalizing GKE Autopilot integration and Pub/Sub log
-                    streaming logic. Initial Gemini 3 Flash prompt engineering for L7 threat classification.</p>
+                class="w-full md:w-[45%] p-12 bg-ai-navy border border-white/5 hover:border-ai-lavender/50 transition-colors ml-12 md:ml-0">
+                <div class="font-mono text-[10px] text-ai-lavender mb-4 uppercase tracking-[0.2em]">Q1 // CURRENT_PHASE
+                </div>
+                <h3 class="font-heading font-black text-white text-2xl uppercase tracking-tighter">Core Ingestion</h3>
+                <p class="text-sm text-white/40 mt-6 leading-relaxed">
+                    Finalizing GKE Autopilot integration and Pub/Sub telemetry streaming.
+                    Initial Gemini Flash prompt engineering for L7 threat classification.
+                </p>
             </div>
         </div>
 
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+        <!-- Q2 -->
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mt-1">
             <div
-                class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-900 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                02
+                class="flex items-center justify-center w-4 h-4 bg-white/10 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-0 md:left-1/2">
             </div>
-            <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <h3 class="font-bold text-white text-xl">Q2: Agentic Automation</h3>
-                <p class="text-sm text-slate-400 mt-2">Implementation of automated Cloud Armor policy updates.
-                    Launching Private Beta for select GCP customers.</p>
+            <div
+                class="w-full md:w-[45%] p-12 bg-ai-obsidian border border-white/5 hover:border-ai-mint/50 transition-colors ml-12 md:ml-0">
+                <div class="font-mono text-[10px] text-ai-mint mb-4 uppercase tracking-[0.2em]">Q2 // DEVELOPMENT</div>
+                <h3 class="font-heading font-black text-white text-2xl uppercase tracking-tighter">Agentic Automation
+                </h3>
+                <p class="text-sm text-white/40 mt-6 leading-relaxed">
+                    Implementation of automated Cloud Armor policy updates.
+                    Launching Private Beta for select GCP enterprise customers.
+                </p>
             </div>
         </div>
 
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+        <!-- Q3 -->
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mt-1">
             <div
-                class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-900 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                03
+                class="flex items-center justify-center w-4 h-4 bg-white/10 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-0 md:left-1/2">
             </div>
-            <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-slate-800 bg-slate-900/50">
-                <h3 class="font-bold text-white text-xl">Q3: Marketplace Onboarding</h3>
-                <p class="text-sm text-slate-400 mt-2">Listing Cybat AI on Google Cloud Marketplace. Automated
-                    billing integration and multi-organization support.</p>
+            <div
+                class="w-full md:w-[45%] p-12 bg-ai-obsidian border border-white/5 hover:border-ai-lavender/50 transition-colors ml-12 md:ml-0">
+                <div class="font-mono text-[10px] text-ai-lavender mb-4 uppercase tracking-[0.2em]">Q3 // SCALING</div>
+                <h3 class="font-heading font-black text-white text-2xl uppercase tracking-tighter">Marketplace listing
+                </h3>
+                <p class="text-sm text-white/40 mt-6 leading-relaxed">
+                    Listing Cybat AI on Google Cloud Marketplace. Automated
+                    billing integration and hierarchical multi-organization support.
+                </p>
             </div>
         </div>
 
