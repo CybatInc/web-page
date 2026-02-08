@@ -22,6 +22,7 @@ const routes = [
     { path: '/infrastructure', component: loadTemplate('infrastructure') },
     { path: '/stack', component: loadTemplate('stack') },
     { path: '/terms', component: loadTemplate('terms') },
+    { path: '/ai-safety', component: loadTemplate('ai-safety') },
 ];
 
 const router = createRouter({
