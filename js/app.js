@@ -33,6 +33,7 @@ const router = createRouter({
 const app = createApp({
     data() {
         return {
+            isMounted: false,
             isMobileMenuOpen: false,
             activeFaq: null,
             faqs: [
@@ -61,6 +62,9 @@ const app = createApp({
         closeMobileMenu() {
             this.isMobileMenuOpen = false;
         }
+    },
+    mounted() {
+        this.isMounted = true;
     }
 });
 app.use(router);
