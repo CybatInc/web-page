@@ -14,11 +14,10 @@
         </h1>
 
         <p class="text-xl md:text-2xl text-white/50 mb-16 max-w-3xl leading-relaxed">
-            AI Agents that identify malicious intent in your logs and execute
-            real-time enforcement across Cloud Armor and VPC Firewalls.
+            Autonomous AI layer for cloud security — mitigates threats in &lt;5s without human ops.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-0">
+        <div class="flex flex-col sm:flex-row gap-0 items-center">
             <router-link to="/contact"
                 class="bg-ai-lavender text-ai-obsidian px-12 py-5 font-heading font-black text-sm uppercase tracking-widest hover:bg-white transition-colors duration-300">
                 Request Analysis
@@ -27,6 +26,17 @@
                 class="border border-white/10 text-white px-12 py-5 font-heading font-black text-sm uppercase tracking-widest hover:bg-white/5 transition-colors duration-300">
                 Examine Platform
             </router-link>
+            <div class="mt-8 sm:mt-0 sm:ml-12 flex items-center gap-4 opacity-40">
+                <div class="w-10 h-10 border border-white/20 flex items-center justify-center p-2">
+                    <svg viewBox="0 0 24 24" class="fill-current text-white">
+                        <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
+                    </svg>
+                </div>
+                <div class="font-mono text-[9px] uppercase tracking-[0.2em] leading-tight text-white">
+                    // Deployment target:<br>
+                    <span class="text-ai-lavender">GCP Marketplace</span>
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -50,8 +60,8 @@
                         class="font-mono text-3xl font-black text-ai-lavender/40 group-hover:text-ai-lavender transition-colors">
                         01</div>
                     <div>
-                        <h4 class="font-heading font-black uppercase text-lg mb-2">Ingestion</h4>
-                        <p class="text-sm opacity-50">Stateless telemetry streams from Pub/Sub, Cloud Logging, and GKE.
+                        <h4 class="font-heading font-black uppercase text-lg mb-2">Logs</h4>
+                        <p class="text-sm opacity-50">Ingest real-time telemetry from Pub/Sub, Cloud Logging, and GKE.
                         </p>
                     </div>
                 </div>
@@ -60,9 +70,9 @@
                         class="font-mono text-3xl font-black text-ai-mint/40 group-hover:text-ai-mint transition-colors">
                         02</div>
                     <div>
-                        <h4 class="font-heading font-black uppercase text-lg mb-2">Analysis</h4>
-                        <p class="text-sm opacity-50">Gemini-powered reasoning to detect zero-day exploits and malicious
-                            intent.</p>
+                        <h4 class="font-heading font-black uppercase text-lg mb-2">AI Reasoning</h4>
+                        <p class="text-sm opacity-50">Gemini-powered analysis to identify malicious intent and zero-day
+                            threats.</p>
                     </div>
                 </div>
                 <div class="flex gap-8 group">
@@ -70,39 +80,40 @@
                         class="font-mono text-3xl font-black text-ai-lavender/40 group-hover:text-ai-lavender transition-colors">
                         03</div>
                     <div>
-                        <h4 class="font-heading font-black uppercase text-lg mb-2">Enforcement</h4>
-                        <p class="text-sm opacity-50">Immediate L3-L7 mitigation via Cloud Armor and VPC Firewall rules.
+                        <h4 class="font-heading font-black uppercase text-lg mb-2">Auto Firewall Actions</h4>
+                        <p class="text-sm opacity-50">Automated mitigation via Cloud Armor and VPC Firewall in under 5
+                            seconds.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="relative bg-ai-lavender/5 p-1 border border-white/5">
-            <div class="aspect-square bg-ai-obsidian p-12 flex flex-col justify-between relative overflow-hidden">
-                <!-- Technical Grid -->
-                <div
-                    class="absolute inset-0 opacity-10 bg-[radial-gradient(#A78BFA_1px,transparent_1px)] bg-[size:20px_20px]">
-                </div>
+        <div class="relative group">
+            <!-- Image Container with Glow -->
+            <div
+                class="absolute -inset-4 bg-ai-lavender/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+            </div>
+            <div class="relative bg-ai-navy/50 border border-white/5 overflow-hidden">
+                <img src="assets/pipeline-workflow.png" alt="Cybat Pipeline Workflow"
+                    class="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-700">
 
-                <div class="relative z-10">
-                    <div class="font-mono text-[10px] text-ai-lavender mb-4">// THREAT_LANDSCAPE_MAP</div>
-                    <div class="w-full h-1 bg-white/5 mb-2">
-                        <div class="h-full bg-ai-lavender w-2/3 animate-pulse"></div>
+                <!-- Overlay Elements for Technical Feel -->
+                <div class="absolute top-8 left-8">
+                    <div class="font-mono text-[10px] text-ai-lavender opacity-40 uppercase tracking-[0.2em] mb-2">//
+                        PIPELINE_TELEMETRY_LIVE</div>
+                    <div class="flex gap-1">
+                        <div class="w-1 h-1 bg-ai-lavender animate-pulse"></div>
+                        <div class="w-1 h-1 bg-ai-lavender animate-pulse" style="animation-delay: 0.2s"></div>
+                        <div class="w-1 h-1 bg-ai-lavender animate-pulse" style="animation-delay: 0.4s"></div>
                     </div>
                 </div>
 
-                <div class="relative z-10 flex justify-center py-20">
-                    <div
-                        class="w-32 h-32 border-2 border-ai-lavender flex items-center justify-center animate-shield shadow-[0_0_30px_rgba(167,139,250,0.2)]">
-                        <span class="text-5xl">🛡️</span>
+                <div class="absolute bottom-8 right-8 text-right">
+                    <div class="font-mono text-[9px] text-ai-mint opacity-40 uppercase tracking-[0.2em] mb-1">
+                        ENFORCEMENT_ACTIVE</div>
+                    <div class="text-[8px] font-mono text-white/20 uppercase tracking-widest">L3/L4/L7 SHIELDS_ENGAGED
                     </div>
-                </div>
-
-                <div class="relative z-10 font-mono text-[10px] space-y-1 opacity-40">
-                    <div>> INITIALIZING_SOC_AGENT...</div>
-                    <div>> FETCHING_GCP_METADATA...</div>
-                    <div>> POLICIES_LOADED: default-soc-policy</div>
                 </div>
             </div>
         </div>
@@ -119,29 +130,67 @@
             </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 border-l border-t border-white/5">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-white/5">
             <div class="p-12 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-3xl mb-8 group-hover:scale-110 transition-transform">⚡</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Sub-Second Reaction</h3>
+                <div class="text-3xl mb-8 group-hover:scale-110 transition-transform">🧠</div>
+                <h3 class="font-heading font-black text-xl mb-4 uppercase">AI-Driven Threat Analysis</h3>
                 <p class="text-sm opacity-50 leading-relaxed">
-                    Most threats are identified and blocked within 500ms of their first appearance in your logging
-                    sinks.
+                    Leveraging Vertex AI + Gemini for deep multi-modal security reasoning.
                 </p>
             </div>
             <div class="p-12 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
                 <div class="text-ai-lavender text-3xl mb-8 group-hover:scale-110 transition-transform font-bold italic">
-                    AI</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Trust by Design</h3>
+                    ⚡</div>
+                <h3 class="font-heading font-black text-xl mb-4 uppercase">Sub-5s Automated Action</h3>
                 <p class="text-sm opacity-50 leading-relaxed">
-                    Zero-retention data processing means your security telemetry never hits a disk.
+                    Identify and neutralize threats in less than 5 seconds without human intervention.
                 </p>
             </div>
             <div class="p-12 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-ai-mint text-3xl mb-8 group-hover:scale-110 transition-transform">📉</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Cost Optimized</h3>
+                <div class="text-ai-mint text-3xl mb-8 group-hover:scale-110 transition-transform">☁️</div>
+                <h3 class="font-heading font-black text-xl mb-4 uppercase">Cloud-Native (GCP First)</h3>
                 <p class="text-sm opacity-50 leading-relaxed">
-                    Leveraging GKE Spot Pods and Gemini reasoning to reduce security overhead by up to 70%.
+                    Built natively for Google Cloud Platform, utilizing native security APIs.
                 </p>
+            </div>
+            <div class="p-12 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
+                <div class="text-ai-lavender text-3xl mb-8 group-hover:scale-110 transition-transform">📊</div>
+                <h3 class="font-heading font-black text-xl mb-4 uppercase">Easy Integration</h3>
+                <p class="text-sm opacity-50 leading-relaxed">
+                    Simple integration with existing stacks plus specialized dashboards for executives.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-32 section-deep border-y border-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-24 text-center">
+            <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-6">Audience</div>
+            <h2 class="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter leading-none mb-12">
+                BUILT FOR THE<br>GCP ECOSYSTEM.
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <div
+                class="p-10 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
+                <h4 class="font-heading font-black uppercase text-xl mb-4">GCP Enterprises</h4>
+                <p class="text-sm opacity-50 leading-relaxed">Scale security across thousands of projects with
+                    centralized policy enforcement and AI reasoning.</p>
+            </div>
+            <div
+                class="p-10 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
+                <h4 class="font-heading font-black uppercase text-xl mb-4">Cloud Teams</h4>
+                <p class="text-sm opacity-50 leading-relaxed">Offload manual log review and focus on architecture while
+                    AI handles sub-second threat response.</p>
+            </div>
+            <div
+                class="p-10 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
+                <h4 class="font-heading font-black uppercase text-xl mb-4">DevSecOps</h4>
+                <p class="text-sm opacity-50 leading-relaxed">Integrate security directly into the pipeline with
+                    API-first architecture and automated remediation.</p>
             </div>
         </div>
     </div>
@@ -169,10 +218,20 @@
                 With deep expertise in the Google Cloud ecosystem, Eder is pioneering the use of Agentic AI for critical
                 infrastructure defense.
             </p>
-            <a href="https://linkedin.com/in/ederius" target="_blank"
-                class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
-                Connect on LinkedIn_
-            </a>
+            <div class="flex flex-wrap gap-6 items-center">
+                <a href="https://linkedin.com/in/ederius" target="_blank"
+                    class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
+                    LinkedIn_
+                </a>
+                <a href="https://github.com/cybatInc" target="_blank"
+                    class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
+                    GitHub_
+                </a>
+                <router-link to="/contact"
+                    class="font-mono text-sm border-b-2 border-ai-mint pb-1 hover:text-white hover:border-white transition-all text-ai-mint">
+                    Book a Demo_
+                </router-link>
+            </div>
         </div>
     </div>
 </section>
@@ -186,9 +245,19 @@
         <p class="text-xl opacity-60 mb-16 max-w-2xl mx-auto leading-relaxed">
             Experience the next era of autonomous security. Secure your private beta invitation today.
         </p>
-        <router-link to="/contact"
-            class="inline-block bg-white text-ai-obsidian px-16 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-ai-lavender hover:text-ai-obsidian transition-all duration-300">
-            Request Access
-        </router-link>
+        <div class="flex flex-wrap justify-center gap-6">
+            <router-link to="/contact"
+                class="inline-block bg-ai-lavender text-ai-obsidian px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-white transition-all duration-300">
+                Join Beta
+            </router-link>
+            <router-link to="/contact"
+                class="inline-block bg-white text-ai-obsidian px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-ai-mint transition-all duration-300">
+                Book Demo
+            </router-link>
+            <router-link to="/contact"
+                class="inline-block border border-white/20 text-white px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-white/5 transition-all duration-300">
+                Get Early Access
+            </router-link>
+        </div>
     </div>
 </section>
