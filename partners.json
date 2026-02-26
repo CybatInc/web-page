@@ -1,0 +1,20 @@
+[
+    {
+        "id": "partner-1",
+        "name": "CloudGuard Solutions",
+        "description": "Enterprise cloud security consultants specializing in GCP architecture.",
+        "icon": "🛡️"
+    },
+    {
+        "id": "partner-2",
+        "name": "Nexus Infrastructure",
+        "description": "Automated provisioning and scaling for high-traffic GKE workloads.",
+        "icon": "🏗️"
+    },
+    {
+        "id": "partner-3",
+        "name": "Sentinel Systems",
+        "description": "Provider of advanced telemetry and real-time monitoring dashboards.",
+        "icon": "📡"
+    }
+]

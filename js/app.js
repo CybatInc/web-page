@@ -36,6 +36,14 @@ const app = createApp({
             isMounted: false,
             isMobileMenuOpen: false,
             activeFaq: null,
+            partnerForm: {
+                name: '',
+                email: '',
+                company: '',
+                message: ''
+            },
+            formStatus: 'idle', // idle, sending, success, error
+            partners: [],
             faqs: [
                 {
                     question: "Do you store my logs?",
@@ -52,7 +60,44 @@ const app = createApp({
             ]
         };
     },
+    mounted() {
+        this.isMounted = true;
+        this.fetchPartners();
+    },
     methods: {
+        async fetchPartners() {
+            try {
+                const response = await fetch('./partners.json');
+                if (response.ok) {
+                    this.partners = await response.json();
+                }
+            } catch (e) {
+                console.warn('Failed to fetch partners:', e);
+            }
+        },
+        async submitPartnerForm() {
+            this.formStatus = 'sending';
+            try {
+                // Return to Formspree for direct email notifications
+                const endpoint = 'https://formspree.io/f/xnjvbjra';
+
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify(this.partnerForm)
+                });
+
+                if (response.ok) {
+                    this.formStatus = 'success';
+                    this.partnerForm = { name: '', email: '', company: '', message: '' };
+                } else {
+                    this.formStatus = 'error';
+                }
+            } catch (e) {
+                console.error('Partner signup failed:', e);
+                this.formStatus = 'error';
+            }
+        },
         toggleFaq(index) {
             this.activeFaq = this.activeFaq === index ? null : index;
         },
@@ -62,9 +107,6 @@ const app = createApp({
         closeMobileMenu() {
             this.isMobileMenuOpen = false;
         }
-    },
-    mounted() {
-        this.isMounted = true;
     },
     template: `
         <div class="flex flex-col min-h-screen">
@@ -76,7 +118,7 @@ const app = createApp({
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-10 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-white/50">
+                    <div class="hidden md:flex items-center space-x-10 text-xs font-mono font-bold uppercase tracking-[0.2em] text-white/50">
                         <router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link>
                         <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</router-link>
                         <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI Safety</router-link>
@@ -95,11 +137,11 @@ const app = createApp({
 
                 <!-- Mobile Menu Dropdown -->
                 <div v-show="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-6 z-40">
-                    <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
-                    <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
-                    <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
-                    <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-xs font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
-                    <router-link to="/contact" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5">Connect_</router-link>
+                    <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
+                    <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
+                    <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
+                    <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
+                    <router-link to="/contact" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5 text-sm">Connect_</router-link>
                 </div>
             </nav>
 

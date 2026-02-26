@@ -8,7 +8,7 @@
             Autonomous Security • Engine v3.0
         </div>
 
-        <h1 class="text-5xl md:text-[140px] font-heading font-black leading-[0.85] tracking-tighter mb-12 uppercase">
+        <h1 class="text-4xl md:text-[100px] font-heading font-black leading-[0.85] tracking-tighter mb-12 uppercase">
             SECURE THE<br>
             <span class="typewriter inline-block text-ai-lavender">GCP SURFACE.</span>
         </h1>
@@ -330,6 +330,110 @@
                     class="font-mono text-sm border-b-2 border-ai-mint pb-1 hover:text-white hover:border-white transition-all text-ai-mint">
                     Book a Demo_
                 </router-link>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-32 section-navy border-y border-white/5 relative overflow-hidden">
+    <div class="aurora aurora-lavender w-[600px] h-[600px] -top-96 -right-96 opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-24 text-center md:text-left">
+            <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Ecosystem</div>
+            <h2 class="text-4xl md:text-8xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
+                EARLY ACCESS<br>PARTNERS.
+            </h2>
+            <p class="text-xl opacity-50 max-w-2xl leading-relaxed">
+                We are proud to collaborate with industry leaders who are shaping the future of autonomous cloud
+                defense.
+            </p>
+        </div>
+
+        <!-- Partners Gallery -->
+        <div class="grid md:grid-cols-3 gap-8 mb-32">
+            <div v-for="partner in $root.partners" :key="partner.id"
+                class="bg-ai-obsidian p-10 border border-white/5 hover:border-ai-lavender/30 transition-all group">
+                <div class="text-4xl mb-6">{{ partner.icon }}</div>
+                <h3
+                    class="font-heading font-black text-xl mb-4 uppercase tracking-tighter group-hover:text-ai-lavender transition-colors">
+                    {{ partner.name }}
+                </h3>
+                <p class="text-sm opacity-40 leading-relaxed">
+                    {{ partner.description }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="bg-ai-obsidian border border-white/5 p-8 md:p-16 relative">
+            <div class="aurora aurora-mint w-48 h-48 -bottom-24 -left-24 opacity-10"></div>
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16">
+                    <h3 class="font-heading font-black text-3xl uppercase tracking-tighter mb-4">Partner with Cybat</h3>
+                    <p class="text-sm opacity-50 uppercase tracking-widest font-mono">// Request inclusion in our early
+                        access program</p>
+                </div>
+
+                <form v-if="$root.formStatus !== 'success'" @submit.prevent="$root.submitPartnerForm" class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <label
+                                class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">01
+                                // IDENTITY</label>
+                            <input type="text" v-model="$root.partnerForm.name" placeholder="Full Name" required
+                                class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">02
+                                // ENTITY</label>
+                            <input type="text" v-model="$root.partnerForm.company" placeholder="Company / Project"
+                                required
+                                class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">03
+                            // CHANNEL</label>
+                        <input type="email" v-model="$root.partnerForm.email" placeholder="Business Email" required
+                            class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                    </div>
+
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">04
+                            // MISSION</label>
+                        <textarea v-model="$root.partnerForm.message" rows="4"
+                            placeholder="How do you plan to use Cybat AI?" required
+                            class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" :disabled="$root.formStatus === 'sending'"
+                        class="w-full bg-ai-lavender text-ai-obsidian font-heading font-black py-5 uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98] disabled:opacity-50">
+                        {{ $root.formStatus === 'sending' ? 'Transmitting...' : 'Apply for Early Access' }}
+                    </button>
+
+                    <p v-if="$root.formStatus === 'error'"
+                        class="text-red-400 font-mono text-[10px] text-center uppercase tracking-widest">
+                        ERROR: Failed to transmit data. Please try again or contact cto@cybat.co
+                    </p>
+                </form>
+
+                <div v-else class="py-20 text-center">
+                    <div class="text-ai-mint text-5xl mb-8">✓</div>
+                    <h3 class="font-heading font-black text-3xl uppercase tracking-tighter mb-4 text-ai-mint">
+                        Transmission Received</h3>
+                    <p class="text-sm opacity-50 max-w-md mx-auto leading-relaxed">
+                        Your application has been logged and stored for review. Our team will contact you via the
+                        provided secure channel.
+                    </p>
+                    <button @click="$root.formStatus = 'idle'"
+                        class="mt-12 font-mono text-xs text-ai-lavender uppercase tracking-widest border-b border-ai-lavender pb-1">Send
+                        another signal_</button>
+                </div>
             </div>
         </div>
     </div>
