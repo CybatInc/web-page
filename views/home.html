@@ -18,7 +18,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-0 items-center">
-            <router-link to="/contact"
+            <router-link to="/connect"
                 class="bg-ai-lavender text-ai-obsidian px-12 py-5 font-heading font-black text-sm uppercase tracking-widest hover:bg-white transition-colors duration-300">
                 Request Analysis
             </router-link>
@@ -326,7 +326,7 @@
                     class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
                     GitHub_
                 </a>
-                <router-link to="/contact"
+                <router-link to="/connect"
                     class="font-mono text-sm border-b-2 border-ai-mint pb-1 hover:text-white hover:border-white transition-all text-ai-mint">
                     Book a Demo_
                 </router-link>
@@ -339,100 +339,32 @@
 <section class="py-32 section-navy border-y border-white/5 relative overflow-hidden">
     <div class="aurora aurora-lavender w-[600px] h-[600px] -top-96 -right-96 opacity-10"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-24 text-center md:text-left">
-            <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Ecosystem</div>
-            <h2 class="text-4xl md:text-8xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                EARLY ACCESS<br>PARTNERS.
-            </h2>
-            <p class="text-xl opacity-50 max-w-2xl leading-relaxed">
-                We are proud to collaborate with industry leaders who are shaping the future of autonomous cloud
-                defense.
-            </p>
-        </div>
-
-        <!-- Partners Gallery -->
-        <div class="grid md:grid-cols-3 gap-8 mb-32">
-            <div v-for="partner in $root.partners" :key="partner.id"
-                class="bg-ai-obsidian p-10 border border-white/5 hover:border-ai-lavender/30 transition-all group">
-                <div class="text-4xl mb-6">{{ partner.icon }}</div>
-                <h3
-                    class="font-heading font-black text-xl mb-4 uppercase tracking-tighter group-hover:text-ai-lavender transition-colors">
-                    {{ partner.name }}
-                </h3>
-                <p class="text-sm opacity-40 leading-relaxed">
-                    {{ partner.description }}
+        <div class="grid md:grid-cols-2 gap-24 items-center">
+            <div>
+                <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Ecosystem</div>
+                <h2 class="text-4xl md:text-8xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
+                    EARLY ACCESS<br><span class="text-ai-lavender">PARTNERS.</span>
+                </h2>
+                <p class="text-xl opacity-50 mb-12 leading-relaxed">
+                    We are working with innovative engineering teams to refine our autonomous engine. Join our exclusive
+                    waitlist to secure founding perks.
                 </p>
+                <router-link to="/early-access"
+                    class="inline-block bg-ai-lavender text-ai-obsidian px-10 py-5 font-heading font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all">
+                    Apply for Early Access_
+                </router-link>
             </div>
-        </div>
 
-        <!-- Signup Form -->
-        <div class="bg-ai-obsidian border border-white/5 p-8 md:p-16 relative">
-            <div class="aurora aurora-mint w-48 h-48 -bottom-24 -left-24 opacity-10"></div>
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-16">
-                    <h3 class="font-heading font-black text-3xl uppercase tracking-tighter mb-4">Partner with Cybat</h3>
-                    <p class="text-sm opacity-50 uppercase tracking-widest font-mono">// Request inclusion in our early
-                        access program</p>
-                </div>
-
-                <form v-if="$root.formStatus !== 'success'" @submit.prevent="$root.submitPartnerForm" class="space-y-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <label
-                                class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">01
-                                // IDENTITY</label>
-                            <input type="text" v-model="$root.partnerForm.name" placeholder="Full Name" required
-                                class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
-                        </div>
-                        <div>
-                            <label
-                                class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">02
-                                // ENTITY</label>
-                            <input type="text" v-model="$root.partnerForm.company" placeholder="Company / Project"
-                                required
-                                class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label
-                            class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">03
-                            // CHANNEL</label>
-                        <input type="email" v-model="$root.partnerForm.email" placeholder="Business Email" required
-                            class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
-                    </div>
-
-                    <div>
-                        <label
-                            class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">04
-                            // MISSION</label>
-                        <textarea v-model="$root.partnerForm.message" rows="4"
-                            placeholder="How do you plan to use Cybat AI?" required
-                            class="w-full bg-ai-navy border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm"></textarea>
-                    </div>
-
-                    <button type="submit" :disabled="$root.formStatus === 'sending'"
-                        class="w-full bg-ai-lavender text-ai-obsidian font-heading font-black py-5 uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-[0.98] disabled:opacity-50">
-                        {{ $root.formStatus === 'sending' ? 'Transmitting...' : 'Apply for Early Access' }}
-                    </button>
-
-                    <p v-if="$root.formStatus === 'error'"
-                        class="text-red-400 font-mono text-[10px] text-center uppercase tracking-widest">
-                        ERROR: Failed to transmit data. Please try again or contact cto@cybat.co
-                    </p>
-                </form>
-
-                <div v-else class="py-20 text-center">
-                    <div class="text-ai-mint text-5xl mb-8">✓</div>
-                    <h3 class="font-heading font-black text-3xl uppercase tracking-tighter mb-4 text-ai-mint">
-                        Transmission Received</h3>
-                    <p class="text-sm opacity-50 max-w-md mx-auto leading-relaxed">
-                        Your application has been logged and stored for review. Our team will contact you via the
-                        provided secure channel.
-                    </p>
-                    <button @click="$root.formStatus = 'idle'"
-                        class="mt-12 font-mono text-xs text-ai-lavender uppercase tracking-widest border-b border-ai-lavender pb-1">Send
-                        another signal_</button>
+            <div class="grid grid-cols-2 gap-4">
+                <div v-for="partner in $root.partners" :key="partner.id"
+                    class="bg-ai-obsidian p-8 border border-white/5 hover:border-ai-lavender/30 transition-all group text-center">
+                    <div
+                        class="text-3xl mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100">
+                        {{ partner.icon }}</div>
+                    <h3
+                        class="font-mono text-[10px] uppercase tracking-widest text-ai-lavender opacity-60 group-hover:opacity-100 transition-opacity">
+                        {{ partner.name }}
+                    </h3>
                 </div>
             </div>
         </div>
@@ -448,17 +380,17 @@
         <p class="text-xl opacity-60 mb-16 max-w-2xl mx-auto leading-relaxed">
             Experience the next era of autonomous security. Secure your private beta invitation today.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <router-link to="/contact"
-                class="inline-block bg-ai-lavender text-ai-obsidian px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-white transition-all duration-300">
+        <div class="flex flex-wrap justify-center gap-6 text-xs md:text-sm">
+            <router-link to="/connect"
+                class="inline-block bg-ai-lavender text-ai-obsidian px-12 py-6 font-heading font-black hover:bg-white transition-all uppercase tracking-widest">
                 Join Beta
             </router-link>
-            <router-link to="/contact"
-                class="inline-block bg-white text-ai-obsidian px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-ai-mint transition-all duration-300">
+            <router-link to="/connect"
+                class="inline-block bg-white text-ai-obsidian px-12 py-6 font-heading font-black hover:bg-ai-mint transition-all uppercase tracking-widest">
                 Book Demo
             </router-link>
-            <router-link to="/contact"
-                class="inline-block border border-white/20 text-white px-12 py-6 font-heading font-black text-lg uppercase tracking-widest hover:bg-white/5 transition-all duration-300">
+            <router-link to="/early-access"
+                class="inline-block border border-white/20 text-white px-12 py-6 font-heading font-black hover:bg-white/5 transition-all uppercase tracking-widest">
                 Get Early Access
             </router-link>
         </div>

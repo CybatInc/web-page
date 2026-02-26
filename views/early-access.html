@@ -1,0 +1,156 @@
+<main class="relative bg-ai-obsidian">
+    <header class="py-32 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
+        <div class="aurora aurora-lavender w-96 h-96 -top-48 -left-48 opacity-20"></div>
+        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-80 relative z-10">
+            Visionary Partnership</div>
+        <h1
+            class="text-5xl md:text-[90px] font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10 text-white">
+            BECOME A<br>
+            <span class="text-ai-lavender">FOUNDING PARTNER.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white/50 max-w-3xl leading-relaxed relative z-10">
+            We are building the autonomous SOC for the next decade. Join our exclusive waitlist and help shape the
+            perimeter of the future.
+        </p>
+    </header>
+
+    <section class="py-32 section-navy border-y border-white/5 relative overflow-hidden">
+        <div class="aurora aurora-mint w-[600px] h-[600px] -bottom-48 -right-48 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-24 items-start">
+                <div>
+                    <h2 class="text-4xl font-heading font-black mb-12 uppercase tracking-tighter text-white">Exclusive
+                        Perks</h2>
+                    <div class="space-y-12">
+                        <div class="flex gap-8 group">
+                            <div class="text-ai-lavender text-3xl group-hover:scale-110 transition-transform">🎁</div>
+                            <div>
+                                <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">3-Month Free
+                                    Trial</h4>
+                                <p class="text-sm opacity-50 leading-relaxed text-white/70">Full access to the Cybat AI
+                                    engine for 90 days following our public launch. No strings attached.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div class="text-ai-mint text-3xl group-hover:scale-110 transition-transform">🏷️</div>
+                            <div>
+                                <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-mint">Founding
+                                    Discount</h4>
+                                <p class="text-sm opacity-50 leading-relaxed text-white/70">A permanent 20% "Early
+                                    Adopter" discount on all professional plans, locked in for the life of your account.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div class="text-ai-lavender text-3xl group-hover:scale-110 transition-transform">🛤️</div>
+                            <div>
+                                <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">Roadmap
+                                    Influence</h4>
+                                <p class="text-sm opacity-50 leading-relaxed text-white/70">Direct influence on our
+                                    development priorities through monthly exclusive "Design Partner" sessions with our
+                                    CTO.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div class="text-ai-mint text-3xl group-hover:scale-110 transition-transform">🛡️</div>
+                            <div>
+                                <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-mint">VIP Support
+                                    Channel</h4>
+                                <p class="text-sm opacity-50 leading-relaxed text-white/70">Instant access to our
+                                    founding engineering team via a private Slack channel for zero-day response and
+                                    architectural help.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div class="text-ai-lavender text-3xl group-hover:scale-110 transition-transform">🔍</div>
+                            <div>
+                                <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">Strategic
+                                    Security Audit</h4>
+                                <p class="text-sm opacity-50 leading-relaxed text-white/70">A complimentary one-time
+                                    deep-dive review of your current GCP security posture by our core architects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-ai-obsidian border border-white/10 p-12 relative overflow-hidden">
+                    <div class="aurora aurora-lavender w-64 h-64 -top-32 -right-32 opacity-10"></div>
+                    <div class="relative z-10">
+                        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-12 opacity-60">
+                            Waitlist // Secure_Entry</div>
+
+                        <div v-if="$root.formStatus === 'success'" class="text-center py-20">
+                            <div class="text-6xl mb-8">✨</div>
+                            <h3 class="text-3xl font-heading font-black uppercase tracking-tighter mb-4 text-ai-mint">
+                                Identity Authorized</h3>
+                            <p class="opacity-50 font-mono text-sm leading-relaxed text-white/70">
+                                Your application has been logged and stored for review. Our team will contact you via
+                                the encrypted channel provided.
+                            </p>
+                            <button @click="$root.formStatus = 'idle'"
+                                class="mt-12 text-ai-lavender hover:text-white font-mono text-xs uppercase tracking-widest transition-colors">
+                                Submit another application_
+                            </button>
+                        </div>
+
+                        <form v-else @submit.prevent="$root.submitPartnerForm" class="space-y-8">
+                            <div>
+                                <label
+                                    class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">01
+                                    // IDENTITY</label>
+                                <input type="text" v-model="$root.partnerForm.name" placeholder="Full Name" required
+                                    class="w-full bg-white/[0.03] border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">02
+                                    // CHANNEL</label>
+                                <input type="email" v-model="$root.partnerForm.email" placeholder="Business Email"
+                                    required
+                                    class="w-full bg-white/[0.03] border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">03
+                                    // ORGANIZATION</label>
+                                <input type="text" v-model="$root.partnerForm.company" placeholder="Company Name"
+                                    class="w-full bg-white/[0.03] border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">04
+                                    // MISSION DATA</label>
+                                <textarea v-model="$root.partnerForm.message" rows="4"
+                                    placeholder="How many GCP projects do you manage?" required
+                                    class="w-full bg-white/[0.03] border border-white/5 px-6 py-4 text-white focus:outline-none focus:border-ai-lavender transition-all placeholder:opacity-20 font-mono text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" :disabled="$root.formStatus === 'sending'"
+                                class="w-full bg-ai-lavender text-ai-obsidian font-heading font-black py-5 uppercase tracking-[0.2em] hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-wait text-sm">
+                                <span v-if="$root.formStatus === 'sending'">Initializing Ingest...</span>
+                                <span v-else>Apply for Early Access</span>
+                            </button>
+
+                            <p v-if="$root.formStatus === 'error'"
+                                class="text-sm text-red-400 font-mono text-center animate-pulse">
+                                ERROR: Failed to transmit data. Please try again or contact cto@cybat.co
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-48 text-center section-deep relative overflow-hidden">
+        <div class="aurora aurora-mint w-[800px] h-[800px] -bottom-1/2 left-1/2 -translate-x-1/2 opacity-10"></div>
+        <h2
+            class="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter leading-none mb-16 relative z-10 text-white">
+            QUESTIONS?<br><span class="text-ai-lavender">WERE CONNECTED.</span>
+        </h2>
+        <router-link to="/connect"
+            class="inline-block border border-ai-lavender text-ai-lavender px-20 py-6 font-heading font-black text-sm uppercase tracking-[0.3em] hover:bg-ai-lavender hover:text-ai-obsidian transition-all relative z-10">
+            Contact Architecture_
+        </router-link>
+    </section>
+</main>

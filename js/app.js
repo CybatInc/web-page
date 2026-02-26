@@ -17,7 +17,8 @@ const routes = [
     { path: '/', component: loadTemplate('home') },
     { path: '/privacy', component: loadTemplate('privacy') },
     { path: '/roadmap', component: loadTemplate('roadmap') },
-    { path: '/contact', component: loadTemplate('contact') },
+    { path: '/connect', component: loadTemplate('contact') },
+    { path: '/early-access', component: loadTemplate('early-access') },
     { path: '/features', component: loadTemplate('features') },
     { path: '/infrastructure', component: loadTemplate('infrastructure') },
     { path: '/stack', component: loadTemplate('stack') },
@@ -123,7 +124,7 @@ const app = createApp({
                         <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</router-link>
                         <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI Safety</router-link>
                         <router-link to="/stack" class="hover:text-ai-lavender transition-colors">Stack</router-link>
-                        <router-link to="/contact" class="bg-ai-lavender text-ai-obsidian px-8 py-3 hover:bg-white transition-colors font-bold">Connect_</router-link>
+                        <router-link to="/connect" class="bg-ai-lavender text-ai-obsidian px-8 py-3 hover:bg-white transition-colors font-bold">Connect_</router-link>
                     </div>
 
                     <!-- Mobile Menu Button -->
@@ -141,7 +142,7 @@ const app = createApp({
                     <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
                     <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
                     <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
-                    <router-link to="/contact" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5 text-sm">Connect_</router-link>
+                    <router-link to="/connect" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5 text-sm">Connect_</router-link>
                 </div>
             </nav>
 
@@ -161,18 +162,19 @@ const app = createApp({
                     </div>
                     <div>
                         <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Navigation</h4>
-                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
                             <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link></li>
                             <li><router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infrastructure</router-link></li>
                             <li><router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI Safety</router-link></li>
+                            <li><router-link to="/connect" class="hover:text-ai-lavender transition-colors">Connect</router-link></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Connect</h4>
-                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
-                            <li><router-link to="/contact" class="hover:text-ai-lavender transition-colors">Contact</router-link></li>
+                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Ecosystem</h4>
+                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
+                            <li><router-link to="/early-access" class="hover:text-ai-lavender transition-colors">Early Access</router-link></li>
+                            <li><router-link to="/roadmap" class="hover:text-ai-lavender transition-colors">Roadmap</router-link></li>
                             <li><a href="https://linkedin.com" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
-                            <li><a href="https://twitter.com" class="hover:text-ai-lavender transition-colors">Twitter (X)</a></li>
                         </ul>
                     </div>
                 </div>
