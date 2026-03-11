@@ -31,6 +31,17 @@ const router = createRouter({
     routes
 });
 
+// Track page views on route change
+router.afterEach((to) => {
+    if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+            page_title: to.name || to.path,
+            page_location: window.location.href,
+            page_path: to.path
+        });
+    }
+});
+
 const app = createApp({
     data() {
         return {
@@ -146,7 +157,7 @@ const app = createApp({
                 </div>
             </nav>
 
-            <div class="flex-grow">
+            <div class="flex-grow" v-if="isMounted">
                 <router-view></router-view>
             </div>
 
@@ -174,7 +185,7 @@ const app = createApp({
                         <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
                             <li><router-link to="/early-access" class="hover:text-ai-lavender transition-colors">Early Access</router-link></li>
                             <li><router-link to="/roadmap" class="hover:text-ai-lavender transition-colors">Roadmap</router-link></li>
-                            <li><a href="https://linkedin.com" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
+                            <li><a href="https://linkedin.com/company/cybat-ai" target="_blank" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
