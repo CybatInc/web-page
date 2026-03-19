@@ -24,6 +24,9 @@ const routes = [
     { path: '/stack', component: loadTemplate('stack') },
     { path: '/terms', component: loadTemplate('terms') },
     { path: '/ai-safety', component: loadTemplate('ai-safety') },
+    { path: '/pricing', component: loadTemplate('pricing') },
+    { path: '/support', component: loadTemplate('support') },
+    { path: '/security', component: loadTemplate('security') },
 ];
 
 const router = createRouter({
@@ -130,12 +133,15 @@ const app = createApp({
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-10 text-xs font-mono font-bold uppercase tracking-[0.2em] text-white/50">
+                    <div class="hidden md:flex items-center space-x-6 text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-white/50">
                         <router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link>
                         <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</router-link>
-                        <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI Safety</router-link>
+                        <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">Safety</router-link>
                         <router-link to="/stack" class="hover:text-ai-lavender transition-colors">Stack</router-link>
-                        <router-link to="/connect" class="bg-ai-lavender text-ai-obsidian px-8 py-3 hover:bg-white transition-colors font-bold">Connect_</router-link>
+                        <router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link>
+                        <router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link>
+                        <router-link to="/security" class="hover:text-ai-lavender transition-colors">Security</router-link>
+                        <router-link to="/connect" class="bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Connect_</router-link>
                     </div>
 
                     <!-- Mobile Menu Button -->
@@ -148,12 +154,15 @@ const app = createApp({
                 </div>
 
                 <!-- Mobile Menu Dropdown -->
-                <div v-show="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-6 z-40">
+                <div v-show="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
                     <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
                     <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
                     <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
                     <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
-                    <router-link to="/connect" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-5 text-sm">Connect_</router-link>
+                    <router-link to="/pricing" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Pricing</router-link>
+                    <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</router-link>
+                    <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</router-link>
+                    <router-link to="/connect" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</router-link>
                 </div>
             </nav>
 
@@ -175,9 +184,9 @@ const app = createApp({
                         <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Navigation</h4>
                         <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
                             <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link></li>
-                            <li><router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infrastructure</router-link></li>
-                            <li><router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">AI Safety</router-link></li>
-                            <li><router-link to="/connect" class="hover:text-ai-lavender transition-colors">Connect</router-link></li>
+                            <li><router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link></li>
+                            <li><router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link></li>
+                            <li><router-link to="/security" class="hover:text-ai-mint transition-colors">Security</router-link></li>
                         </ul>
                     </div>
                     <div>
@@ -190,10 +199,10 @@ const app = createApp({
                     </div>
                 </div>
                 <div class="max-w-7xl mx-auto px-6 mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div class="font-mono text-[8px] uppercase tracking-[0.3em] text-white/20 text-center md:text-left">
-                        © 2024 Cybat AI. All Rights Reserved. // encrypted_connection_established
+                    <div class="font-mono text-xs uppercase tracking-[0.2em] text-white/40 text-center md:text-left">
+                        © 2026 Cybat AI. All Rights Reserved. // encrypted_connection_established
                     </div>
-                    <div class="flex gap-8 font-mono text-[8px] uppercase tracking-widest text-white/20">
+                    <div class="flex gap-8 font-mono text-xs uppercase tracking-widest text-white/40">
                         <router-link to="/privacy" class="hover:text-white transition-colors">Privacy</router-link>
                         <router-link to="/terms" class="hover:text-white transition-colors">Terms</router-link>
                     </div>
