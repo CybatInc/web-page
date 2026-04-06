@@ -1,0 +1,66 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
+                <h3 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Documentation Index</h3>
+                <nav class="space-y-4 font-mono text-sm">
+                    <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/user-guide" class="block text-white hover:text-ai-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-white hover:text-ai-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-white hover:text-ai-mint transition-colors font-bold text-ai-lavender">Security Specs</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="lg:w-3/4">
+            <div class="mb-16">
+                <h1 class="text-4xl md:text-5xl font-heading font-black mb-6 uppercase tracking-tighter italic">Critical Security Specs<span class="text-ai-lavender">_</span></h1>
+                
+                <div class="bg-ai-obsidian border border-ai-mint/30 rounded-lg p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.05),transparent_70%)]"></div>
+                    
+                    <div class="space-y-8 relative z-10">
+                        <!-- IAM Permissions -->
+                        <div>
+                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                                Permissions (IAM)
+                            </h3>
+                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                                The Engine operates under a principle of least privilege. Requires explicit authorization for: <code class="text-ai-lavender text-xs ml-2">logging.viewer</code>, <code class="text-ai-lavender text-xs mx-1">compute.networkViewer</code>.
+                            </p>
+                        </div>
+
+                        <!-- Data Sovereignty -->
+                        <div>
+                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                                Data Sovereignty
+                            </h3>
+                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                                Zero-retention architecture ensures <strong class="text-white">data remains strictly within the user's GCP project boundaries</strong>. No logs or sensitive payload data are persisted to Cybat infrastructure.
+                            </p>
+                        </div>
+
+                        <!-- Authentication -->
+                        <div>
+                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
+                                Authentication
+                            </h3>
+                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                                Platform access relies exclusively on <strong>Single Sign-On (SSO) via Google Identity</strong> integration, seamlessly authorizing users against their existing Workspace/Cloud Identity directory.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

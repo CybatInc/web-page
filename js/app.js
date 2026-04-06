@@ -27,6 +27,11 @@ const routes = [
     { path: '/pricing', component: loadTemplate('pricing') },
     { path: '/support', component: loadTemplate('support') },
     { path: '/security', component: loadTemplate('security') },
+    { path: '/docs', component: loadTemplate('docs') },
+    { path: '/docs/getting-started', component: loadTemplate('docs-getting-started') },
+    { path: '/docs/user-guide', component: loadTemplate('docs-user-guide') },
+    { path: '/docs/release-notes', component: loadTemplate('docs-release-notes') },
+    { path: '/docs/security-specs', component: loadTemplate('docs-security-specs') },
 ];
 
 const router = createRouter({
@@ -140,6 +145,7 @@ const app = createApp({
                         <router-link to="/stack" class="hover:text-ai-lavender transition-colors">Stack</router-link>
                         <router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link>
                         <router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link>
+                        <router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link>
                         <router-link to="/security" class="hover:text-ai-lavender transition-colors">Security</router-link>
                         <router-link to="/connect" class="bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Connect_</router-link>
                     </div>
@@ -161,6 +167,7 @@ const app = createApp({
                     <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
                     <router-link to="/pricing" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Pricing</router-link>
                     <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</router-link>
+                    <router-link to="/docs" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Docs</router-link>
                     <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</router-link>
                     <router-link to="/connect" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</router-link>
                 </div>
@@ -186,6 +193,7 @@ const app = createApp({
                             <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link></li>
                             <li><router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link></li>
                             <li><router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link></li>
+                            <li><router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link></li>
                             <li><router-link to="/security" class="hover:text-ai-mint transition-colors">Security</router-link></li>
                         </ul>
                     </div>
