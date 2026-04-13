@@ -30,6 +30,33 @@
                         Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace is designed to be completely frictionless. Follow these steps to secure your environment in minutes.
                     </p>
 
+                    <!-- Prerequisites -->
+                    <div class="space-y-4 bg-ai-navy/50 border border-ai-lavender/20 rounded-lg p-6">
+                        <h2 class="text-xl font-heading font-bold text-ai-lavender uppercase italic">Prerequisites</h2>
+                        <p class="text-sm text-white/60">Before subscribing, confirm your GCP environment meets the following requirements. The engine can be activated without all items, but detection quality improves significantly with each one in place.</p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
+                                <ul class="space-y-2 text-white/70 text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Active GCP project with billing enabled</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Cloud Logging enabled on your project</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> At least one internet-facing workload (GCE, GKE, or Cloud Run)</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> VPC network configured</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Slack workspace + Incoming Webhook URL for alert delivery</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Strongly Recommended</p>
+                                <ul class="space-y-2 text-white/70 text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Cloud HTTP(S) Load Balancer with access logging enabled — unlocks full L7 threat analysis</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Cloud Armor security policy attached to the Load Balancer — enables edge IP blocking</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Structured JSON logs with <code class="bg-white/10 px-1 rounded text-ai-lavender">httpRequest.remoteIp</code> or <code class="bg-white/10 px-1 rounded text-ai-lavender">jsonPayload.ip</code> fields</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/30 italic border-t border-white/10 pt-4">For a complete list of supported log types and required fields, see the <a href="#/docs/security-specs" class="text-ai-lavender hover:text-white transition-colors underline">Security Specs</a> page.</p>
+                    </div>
+
                     <div class="space-y-4">
                         <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 1: Subscribe via Google Cloud Marketplace</h2>
                         <ul class="list-disc pl-6 space-y-2 text-sm text-white/60">
