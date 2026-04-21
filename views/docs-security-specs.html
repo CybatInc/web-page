@@ -6,7 +6,7 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Documentation Index</h3>
+                <h3 class="font-mono text-xs uppercase tracking-widest text-white/85 mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
                     <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
@@ -31,7 +31,7 @@
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
                                 Permissions (IAM)
                             </h3>
-                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                            <p class="font-mono text-sm text-white/95 bg-white/5 p-4 rounded border border-white/5">
                                 The Engine operates under a principle of least privilege. Requires explicit authorization for: <code class="text-ai-lavender text-xs ml-2">logging.viewer</code>, <code class="text-ai-lavender text-xs mx-1">compute.networkViewer</code>, <code class="text-ai-lavender text-xs mx-1">compute.securityAdmin</code> (for Cloud Armor enforcement), <code class="text-ai-lavender text-xs mx-1">compute.networkAdmin</code> (for VPC Firewall enforcement).
                             </p>
                         </div>
@@ -42,7 +42,7 @@
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
                                 Data Sovereignty
                             </h3>
-                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                            <p class="font-mono text-sm text-white/95 bg-white/5 p-4 rounded border border-white/5">
                                 Zero-retention architecture ensures <strong class="text-white">data remains strictly within the user's GCP project boundaries</strong>. No logs or sensitive payload data are persisted to Cybat infrastructure.
                             </p>
                         </div>
@@ -53,7 +53,7 @@
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
                                 Authentication
                             </h3>
-                            <p class="font-mono text-sm text-white/70 bg-white/5 p-4 rounded border border-white/5">
+                            <p class="font-mono text-sm text-white/95 bg-white/5 p-4 rounded border border-white/5">
                                 Platform access relies exclusively on <strong>Single Sign-On (SSO) via Google Identity</strong> integration, seamlessly authorizing users against their existing Workspace/Cloud Identity directory.
                             </p>
                         </div>
@@ -63,7 +63,7 @@
                 <!-- CLIENT REQUIREMENTS SECTION -->
                 <div class="mt-12">
                     <h2 class="text-3xl font-heading font-black mb-2 uppercase tracking-tighter italic">Client Requirements<span class="text-ai-lavender">_</span></h2>
-                    <p class="font-mono text-sm text-white/40 mb-8">Minimum infrastructure and log configuration needed for the engine to detect threats effectively.</p>
+                    <p class="font-mono text-sm text-white mb-8">Minimum infrastructure and log configuration needed for the engine to detect threats effectively.</p>
 
                     <!-- Infrastructure Prerequisites -->
                     <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
@@ -74,7 +74,7 @@
                         <div class="grid md:grid-cols-2 gap-4 font-mono text-sm">
                             <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
-                                <ul class="space-y-2 text-white/70 text-xs">
+                                <ul class="space-y-2 text-white/95 text-xs">
                                     <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> GCP project with <strong class="text-white">Cloud Logging enabled</strong></li>
                                     <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> At least one internet-facing workload generating HTTP logs (GCE, GKE, Cloud Run)</li>
                                     <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> <strong class="text-white">VPC network</strong> — required for Layer 3/4 firewall enforcement</li>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Recommended</p>
-                                <ul class="space-y-2 text-white/70 text-xs">
+                                <ul class="space-y-2 text-white/95 text-xs">
                                     <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">Cloud HTTP(S) Load Balancer</strong> — enables full L7 log analysis and Cloud Armor integration</li>
                                     <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">Cloud Armor security policy</strong> — enables edge-level IP blocking (Layer 7)</li>
                                     <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> GKE Autopilot or Fluent Bit agent — for structured log forwarding from containerized workloads</li>
@@ -104,7 +104,7 @@
                                     <p class="text-white font-bold mb-1">Cloud HTTP(S) Load Balancer</p>
                                     <p class="text-ai-mint text-[10px] uppercase tracking-widest">Full L7 Coverage</p>
                                 </div>
-                                <div class="col-span-8 text-white/60 leading-relaxed">
+                                <div class="col-span-8 text-white/90 leading-relaxed">
                                     The primary and most effective log source. Provides <code class="bg-white/10 px-1 rounded text-ai-lavender">httpRequest.remoteIp</code>, <code class="bg-white/10 px-1 rounded text-ai-lavender">httpRequest.requestUrl</code>, and HTTP status codes. Enables SQLi, XSS, credential stuffing, and DDoS detection. Requires Cloud Logging to be enabled on the backend service.
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                     <p class="text-white font-bold mb-1">Cloud Armor Logs</p>
                                     <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Signature + L7 Context</p>
                                 </div>
-                                <div class="col-span-8 text-white/60 leading-relaxed">
+                                <div class="col-span-8 text-white/90 leading-relaxed">
                                     Pre-rule evaluation logs from Cloud Armor. Provides attack signature context alongside source IP and matched OWASP rule IDs. Works in combination with Load Balancer logs for enriched analysis. Cloud Armor policy must be attached to the Load Balancer.
                                 </div>
                             </div>
@@ -122,16 +122,16 @@
                                     <p class="text-white font-bold mb-1">GKE / Application Logs</p>
                                     <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Structured JSON Required</p>
                                 </div>
-                                <div class="col-span-8 text-white/60 leading-relaxed">
+                                <div class="col-span-8 text-white/90 leading-relaxed">
                                     Logs emitted from containerized workloads via Fluent Bit or the GKE logging agent. Must include a structured <code class="bg-white/10 px-1 rounded text-ai-lavender">jsonPayload.ip</code> field. Optionally include <code class="bg-white/10 px-1 rounded text-ai-lavender">jsonPayload.request</code> for URL-level analysis.
                                 </div>
                             </div>
                             <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
                                 <div class="col-span-4">
                                     <p class="text-white font-bold mb-1">Custom Application Logs</p>
-                                    <p class="text-white/40 text-[10px] uppercase tracking-widest">Partial Coverage</p>
+                                    <p class="text-white text-[10px] uppercase tracking-widest">Partial Coverage</p>
                                 </div>
-                                <div class="col-span-8 text-white/60 leading-relaxed">
+                                <div class="col-span-8 text-white/90 leading-relaxed">
                                     Any structured JSON log emitted to Cloud Logging. Detection quality depends on the fields present. The engine will extract threat signals as long as a source IP is resolvable.
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     <p class="text-white font-bold mb-1">VPC Flow Logs / Raw TCP</p>
                                     <p class="text-red-400 text-[10px] uppercase tracking-widest">L3/L4 Only</p>
                                 </div>
-                                <div class="col-span-8 text-white/60 leading-relaxed">
+                                <div class="col-span-8 text-white/90 leading-relaxed">
                                     VPC Flow Logs are supported but provide <strong class="text-white">network-layer signals only</strong> (port scans, volumetric traffic). Application-layer attacks (SQLi, XSS, injection) cannot be detected without HTTP-level log fields. Non-HTTP protocols are not analyzed.
                                 </div>
                             </div>
@@ -157,36 +157,36 @@
                             <table class="w-full font-mono text-xs">
                                 <thead>
                                     <tr class="border-b border-white/10 text-left">
-                                        <th class="pb-3 pr-6 text-white/40 uppercase tracking-widest font-normal">Field</th>
-                                        <th class="pb-3 pr-6 text-white/40 uppercase tracking-widest font-normal">Status</th>
-                                        <th class="pb-3 text-white/40 uppercase tracking-widest font-normal">Purpose</th>
+                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Field</th>
+                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Status</th>
+                                        <th class="pb-3 text-white uppercase tracking-widest font-normal">Purpose</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-white/5">
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.remoteIp</code><br><span class="text-white/30">or <code class="text-ai-lavender">jsonPayload.ip</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.remoteIp</code><br><span class="text-white/95">or <code class="text-ai-lavender">jsonPayload.ip</code></span></td>
                                         <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white/60">Source IP for grouping and blocking. Without this field, no analysis or enforcement is possible.</td>
+                                        <td class="py-3 text-white/90">Source IP for grouping and blocking. Without this field, no analysis or enforcement is possible.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">resource.labels.project_id</code><br><span class="text-white/30">or <code class="text-ai-lavender">logName</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">resource.labels.project_id</code><br><span class="text-white/95">or <code class="text-ai-lavender">logName</code></span></td>
                                         <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white/60">GCP project identification for multi-tenant routing, billing, and enforcement targeting.</td>
+                                        <td class="py-3 text-white/90">GCP project identification for multi-tenant routing, billing, and enforcement targeting.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.requestUrl</code><br><span class="text-white/30">or <code class="text-ai-lavender">request</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.requestUrl</code><br><span class="text-white/95">or <code class="text-ai-lavender">request</code></span></td>
                                         <td class="py-3 pr-6"><span class="text-ai-mint uppercase tracking-widest">Recommended</span></td>
-                                        <td class="py-3 text-white/60">Enables URL-pattern analysis for SQLi, XSS, and path traversal detection. Significantly improves threat classification accuracy.</td>
+                                        <td class="py-3 text-white/90">Enables URL-pattern analysis for SQLi, XSS, and path traversal detection. Significantly improves threat classification accuracy.</td>
                                     </tr>
                                     <tr>
                                         <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.status</code></td>
                                         <td class="py-3 pr-6"><span class="text-ai-mint uppercase tracking-widest">Recommended</span></td>
-                                        <td class="py-3 text-white/60">HTTP status code. 4xx/5xx responses are used as primary signal for attack pattern clustering.</td>
+                                        <td class="py-3 text-white/90">HTTP status code. 4xx/5xx responses are used as primary signal for attack pattern clustering.</td>
                                     </tr>
                                     <tr>
                                         <td class="py-3 pr-6"><code class="text-ai-lavender">resource.labels.subnetwork_name</code></td>
-                                        <td class="py-3 pr-6"><span class="text-white/40 uppercase tracking-widest">Optional</span></td>
-                                        <td class="py-3 text-white/60">Used to auto-discover the VPC network for targeted firewall rule creation. Without it, enforcement falls back to Cloud Armor.</td>
+                                        <td class="py-3 pr-6"><span class="text-white uppercase tracking-widest">Optional</span></td>
+                                        <td class="py-3 text-white/90">Used to auto-discover the VPC network for targeted firewall rule creation. Without it, enforcement falls back to Cloud Armor.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -199,7 +199,7 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                             Limitations &amp; Out-of-Scope
                         </h3>
-                        <ul class="font-mono text-xs text-white/60 space-y-2">
+                        <ul class="font-mono text-xs text-white/90 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Non-GCP environments:</strong> The engine is native to Google Cloud. AWS, Azure, and on-premise log sources are not supported.</li>
                             <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Unstructured / plaintext logs:</strong> Logs must be structured JSON to be parseable. Free-text log lines cannot be analyzed.</li>
                             <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Encrypted payload inspection:</strong> The engine operates on log metadata. It does not decrypt or inspect TLS payload bodies.</li>

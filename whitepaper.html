@@ -117,7 +117,7 @@
                     <span class="text-ai-lavender">MITIGATION.</span>
                 </h1>
                 <div class="h-1 w-24 bg-ai-mint mx-auto mb-8"></div>
-                <p class="text-white/40 font-mono text-xs uppercase tracking-widest leading-loose">
+                <p class="text-white font-mono text-xs uppercase tracking-widest leading-loose">
                     Authored by the Cybat AI Engineering Team<br>
                     & Lead Architect <a href="https://linkedin.com/in/ederius" target="_blank"
                         class="text-ai-lavender hover:text-white transition-colors">Ederius Toro_</a>
@@ -126,7 +126,7 @@
 
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">Abstract</h2>
-                <p class="leading-relaxed text-white/60 text-lg italic">
+                <p class="leading-relaxed text-white/90 text-lg italic">
                     Traditional SOC operations suffer from the "Inertia Gap"—the critical latency between detection and
                     manual enforcement.
                     Cybat AI introduces an agentic orchestration layer using Gemini 3.1 Flash and GKE Autopilot to
@@ -137,7 +137,7 @@
 
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">1. Ingestion Protocol</h2>
-                <p class="mb-8 text-white/50 leading-relaxed">
+                <p class="mb-8 text-white/85 leading-relaxed">
                     The platform leverages Aggregated Logging Sinks at the Organizational level. By utilizing a keyless
                     Pub/Sub stream,
                     we ingest telemetry from every active `GCE_Instance` and `Load_Balancer` into a distributed Lua
@@ -153,7 +153,7 @@
 
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">2. Intent Reasoning</h2>
-                <p class="text-white/50 leading-relaxed mb-8">
+                <p class="text-white/85 leading-relaxed mb-8">
                     Unlike static Regex-based WAFs, our engine evaluates contextual malicious intent. By processing
                     headers
                     through large context windows, we identify:
@@ -182,7 +182,7 @@
 
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">3. Enforcement Matrix</h2>
-                <p class="mb-8 text-white/50 leading-relaxed">MITRE ATT&CK mitigation is mapped to zero-latency
+                <p class="mb-8 text-white/85 leading-relaxed">MITRE ATT&CK mitigation is mapped to zero-latency
                     enforcement points:</p>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse font-mono text-[10px] uppercase tracking-widest">
@@ -192,7 +192,7 @@
                                 <th class="p-4 border border-white/10">Control Plane Item</th>
                             </tr>
                         </thead>
-                        <tbody class="text-white/50">
+                        <tbody class="text-white/85">
                             <tr>
                                 <td class="p-4 border border-white/10">HTTP/L7 (SQLi/XSS)</td>
                                 <td class="p-4 border border-white/10 text-ai-mint">Cloud Armor Policy</td>
@@ -212,7 +212,7 @@
 
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">4. Sovereignty</h2>
-                <p class="text-white/50 leading-relaxed">
+                <p class="text-white/85 leading-relaxed">
                     Cybat AI operates using a <b>Zero-Retention</b> model. Telemetry is reasoned over in ephemeral
                     memory
                     within a secure GKE sandbox. Every decision is traceable via audited reasoning logs.
@@ -220,7 +220,7 @@
             </section>
 
             <footer
-                class="text-center pt-24 pb-12 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-white/20 border-t border-white/5 mt-32">
+                class="text-center pt-24 pb-12 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-white/90 border-t border-white/5 mt-32">
                 &copy; 2026 Cybat AI // Internal Technical Specification // Classified Output
             </footer>
         </div>
