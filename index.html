@@ -209,6 +209,12 @@
         animation: shield-glow 3s infinite ease-in-out;
     }
 
+    @keyframes globe-fade-in {
+        from { opacity: 0; transform: scale(0.96); }
+        to   { opacity: 1; transform: scale(1); }
+    }
+    .globe-fade-in { animation: globe-fade-in 1.8s ease-out forwards; }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
         width: 8px;
@@ -237,7 +243,7 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6 text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-white/85">
+                <div class="hidden md:flex items-center space-x-6 text-[12px] font-mono font-bold uppercase tracking-[0.15em] text-white">
                     <a href="#/features" class="hover:text-ai-lavender transition-colors">Features</a>
                     <a href="#/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</a>
                     <a href="#/ai-safety" class="hover:text-ai-lavender transition-colors">Safety</a>
@@ -251,7 +257,7 @@
                 </div>
 
                 <!-- Mobile Menu Button (Static fallback) -->
-                <button class="md:hidden text-white/85 hover:text-white focus:outline-none">
+                <button class="md:hidden text-white hover:text-white focus:outline-none">
                     <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 8h16M4 16h16" />
                     </svg>
@@ -261,14 +267,14 @@
             <!-- Mobile Menu Dropdown (Hidden for No-JS by default via CSS if needed, or shown) -->
             <div
                 class="hidden md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
-                <a href="#/features" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</a>
-                <a href="#/infrastructure" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</a>
-                <a href="#/ai-safety" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</a>
-                <a href="#/stack" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</a>
-                <a href="#/pricing" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Pricing</a>
-                <a href="#/support" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</a>
-                <a href="#/docs" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Docs</a>
-                <a href="#/security" class="block text-white/85 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</a>
+                <a href="#/features" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</a>
+                <a href="#/infrastructure" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</a>
+                <a href="#/ai-safety" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</a>
+                <a href="#/stack" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</a>
+                <a href="#/pricing" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Pricing</a>
+                <a href="#/support" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</a>
+                <a href="#/docs" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Docs</a>
+                <a href="#/security" class="block text-white hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</a>
                 <a href="#/connect" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</a>
             </div>
         </nav>
@@ -319,6 +325,7 @@
         </footer>
     </div>
 
+    <script src="https://unpkg.com/globe.gl"></script>
     <script src="js/app.js"></script>
 </body>
 

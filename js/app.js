@@ -13,8 +13,120 @@ const loadTemplate = (name) => {
         }));
 };
 
+// ── Landing page globe ────────────────────────────────────────────────────────
+
+let _globe = null;
+let _globeResizeObs = null;
+let _globeArcTimer = null;
+
+const DEMO_POINTS = [
+    { lat: 40.71, lng: -74.01, color: '#A78BFA', alt: 0, r: 0.45 }, // New York
+    { lat: 51.51, lng:  -0.13, color: '#2DD4BF', alt: 0, r: 0.35 }, // London
+    { lat: 35.68, lng: 139.65, color: '#A78BFA', alt: 0, r: 0.42 }, // Tokyo
+    { lat: 50.11, lng:   8.68, color: '#A78BFA', alt: 0, r: 0.38 }, // Frankfurt
+    { lat:  1.35, lng: 103.82, color: '#2DD4BF', alt: 0, r: 0.32 }, // Singapore
+    { lat: 19.08, lng:  72.88, color: '#A78BFA', alt: 0, r: 0.36 }, // Mumbai
+    { lat:-23.55, lng: -46.63, color: '#2DD4BF', alt: 0, r: 0.30 }, // São Paulo
+    { lat:  4.71, lng: -74.07, color: '#A78BFA', alt: 0, r: 0.30 }, // Bogotá
+    { lat: 55.76, lng:  37.62, color: '#A78BFA', alt: 0, r: 0.40 }, // Moscow
+    { lat:-33.87, lng: 151.21, color: '#2DD4BF', alt: 0, r: 0.28 }, // Sydney
+];
+
+// Expanded arc pool — rotated through over time for a live-scanning effect
+const ARC_POOL = [
+    { startLat: 40.71, startLng: -74.01, endLat: 51.51, endLng:  -0.13 }, // NY → London
+    { startLat: 55.76, startLng:  37.62, endLat: 50.11, endLng:   8.68 }, // Moscow → Frankfurt
+    { startLat: 35.68, startLng: 139.65, endLat:  1.35, endLng: 103.82 }, // Tokyo → Singapore
+    { startLat: 19.08, startLng:  72.88, endLat:  1.35, endLng: 103.82 }, // Mumbai → Singapore
+    { startLat:  4.71, startLng: -74.07, endLat: 40.71, endLng: -74.01 }, // Bogotá → NY
+    { startLat:-23.55, startLng: -46.63, endLat: 51.51, endLng:  -0.13 }, // São Paulo → London
+    { startLat: 55.76, startLng:  37.62, endLat: 40.71, endLng: -74.01 }, // Moscow → NY
+    { startLat: 35.68, startLng: 139.65, endLat: 19.08, endLng:  72.88 }, // Tokyo → Mumbai
+    { startLat:-33.87, startLng: 151.21, endLat:  1.35, endLng: 103.82 }, // Sydney → Singapore
+    { startLat:  4.71, startLng: -74.07, endLat: 51.51, endLng:  -0.13 }, // Bogotá → London
+    { startLat: 40.71, startLng: -74.01, endLat: 50.11, endLng:   8.68 }, // NY → Frankfurt
+    { startLat:-23.55, startLng: -46.63, endLat: 40.71, endLng: -74.01 }, // São Paulo → NY
+];
+
+const ARCS_VISIBLE = 3; // how many arcs show at once
+let _arcHead = 0;
+
+function nextArcs() {
+    const slice = [];
+    for (let i = 0; i < ARCS_VISIBLE; i++) {
+        slice.push(ARC_POOL[(_arcHead + i) % ARC_POOL.length]);
+    }
+    _arcHead = (_arcHead + 1) % ARC_POOL.length;
+    return slice;
+}
+
+function initLandingGlobe() {
+    const el = document.getElementById('landing-globe');
+    if (!el || typeof Globe === 'undefined' || _globe) return;
+
+    _globe = Globe()(el)
+        .width(el.clientWidth)
+        .height(el.clientHeight)
+        .backgroundColor('#030712')
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+        .atmosphereColor('#6d28d9')
+        .atmosphereAltitude(0.22)
+        .pointsData(DEMO_POINTS)
+        .pointColor('color')
+        .pointAltitude('alt')
+        .pointRadius('r')
+        .arcsData(nextArcs())
+        .arcColor(() => ['rgba(167,139,250,0.9)', 'rgba(45,212,191,0.4)'])
+        .arcDashLength(0.4)
+        .arcDashGap(0.25)
+        .arcDashAnimateTime(2200)
+        .arcStroke(0.35)
+        .arcAltitude(0.18);
+
+    _globe.controls().autoRotate      = true;
+    _globe.controls().autoRotateSpeed = 0.4;
+    _globe.controls().enableZoom      = false;
+    _globe.controls().enablePan       = false;
+    _globe.controls().enableRotate    = false;
+    _globe.pointOfView({ lat: 20, lng: -30, altitude: 2.6 });
+
+    // Cycle to a new set of arcs every 2.5 s
+    _globeArcTimer = setInterval(() => {
+        _globe?.arcsData(nextArcs());
+    }, 2500);
+
+    _globeResizeObs = new ResizeObserver(([entry]) => {
+        const { width, height } = entry.contentRect;
+        if (width && height) _globe?.width(width).height(height);
+    });
+    _globeResizeObs.observe(el);
+}
+
+function destroyLandingGlobe() {
+    clearInterval(_globeArcTimer);
+    _globeArcTimer = null;
+    _globeResizeObs?.disconnect();
+    _globeResizeObs = null;
+    try { _globe?.renderer()?.dispose(); } catch {}
+    const el = document.getElementById('landing-globe');
+    if (el) el.replaceChildren();
+    _globe = null;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 const routes = [
-    { path: '/', component: loadTemplate('home') },
+    {
+        path: '/',
+        component: () => fetch('./views/home.html')
+            .then(res => { if (!res.ok) throw new Error('Failed to load home'); return res.text(); })
+            .then(html => ({
+                template: html,
+                mounted()   { this.$nextTick(initLandingGlobe); },
+                unmounted() { destroyLandingGlobe(); }
+            }))
+    },
     { path: '/privacy', component: loadTemplate('privacy') },
     { path: '/roadmap', component: loadTemplate('roadmap') },
     { path: '/connect', component: loadTemplate('contact') },
