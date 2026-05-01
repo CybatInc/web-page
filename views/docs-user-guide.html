@@ -1,12 +1,12 @@
 <!-- Documentation Page - Views -->
-<div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
     <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
     <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white/85 mb-6">Documentation Index</h3>
+                <h3 class="font-mono text-xs uppercase tracking-widest text-white mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
                     <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
@@ -18,38 +18,151 @@
         </div>
 
         <div class="lg:w-3/4">
-            <div class="mb-16">
-                <h1 class="text-4xl md:text-5xl font-heading font-black mb-6 uppercase tracking-tighter italic">User Guide<span class="text-ai-lavender">_</span></h1>
-                
-                <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-8 font-mono text-white">
-                    <p class="text-lg leading-relaxed">
-                        The User Guide provides an in-depth reference to the Cybat Engine logic. Learn how to tune AI parameters, build custom threat profiles, and analyze the telemetry dashboard.
-                    </p>
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">1. Navigating the Telemetry Dashboard</h2>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white/90">
-                            <li><strong class="text-white">Global View:</strong> See a high-level overview of incoming logs, active alerts, and autonomous remediations taken by the engine.</li>
-                            <li><strong class="text-white">Threat Analytics:</strong> Deep-dive into specific anomalies identified by the Gemini models, with detailed contextual metadata surrounding the event.</li>
-                        </ul>
+            <div class="mb-6">
+                <h1 class="text-lg md:text-xl font-heading font-black mb-6 uppercase tracking-tighter italic">User Guide<span class="text-ai-lavender">_</span></h1>
+
+                <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-10 font-mono text-white">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pb-6 border-b border-white/10">
+                        <p class="text-lg leading-relaxed flex-1">
+                            The Intelligence Dashboard is your real-time command center for autonomous threat monitoring. This guide covers every panel, how the engine processes threats, and how enforcement actions are applied.
+                        </p>
+                        <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                            class="flex-shrink-0 inline-block bg-ai-lavender text-ai-obsidian px-5 py-2 font-bold text-sm hover:bg-white transition-colors text-center">
+                            Open Dashboard →
+                        </a>
                     </div>
 
+                    <!-- Section 1: Dashboard layout -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">2. Configuring Environments</h2>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white/90">
-                            <li><strong class="text-white">Project Mapping:</strong> Manage the GCP projects you have connected via Pub/Sub sinks. Organize them into Folders or specific monitored zones.</li>
-                            <li><strong class="text-white">Alerting Integrations:</strong> Connect your Cybat Workspace to external alerting tools like Slack, PagerDuty, or native Google Cloud Monitoring components.</li>
-                        </ul>
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">1. Dashboard Layout</h2>
+                        <p class="text-sm text-white">After logging in at <code class="bg-white/10 px-1 rounded text-ai-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard, which consists of three areas:</p>
+
+                        <div class="space-y-3 text-sm text-white">
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">3D Threat Globe</p>
+                                <p class="mb-3">A rotating Earth visualization showing the geographic origin of all detected threats. Glowing lavender points represent high-severity sources; mint points represent medium-severity. Click any point to see the full list of incidents from that location.</p>
+                                <div class="relative border border-white/10 overflow-hidden rounded">
+                                    <img src="assets/screenshot-globe.png" alt="3D Threat Globe" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-globe.png ]</div>
+                                </div>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Incident Feed</p>
+                                <p class="mb-3">A live list of all detected threats sorted by recency. Each card shows the source IP, threat level (high / medium), timestamp, affected GCP project, and the enforcement action taken. Click any incident to open the full detail panel.</p>
+                                <div class="relative border border-white/10 overflow-hidden rounded">
+                                    <img src="assets/screenshot-incidents.png" alt="Incident Feed" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-incidents.png ]</div>
+                                </div>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Incident Detail Panel</p>
+                                <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all log evidence records that triggered the detection, the enforcement decision and its status, and the Slack notification dispatched to your team.</p>
+                                <div class="relative border border-white/10 overflow-hidden rounded">
+                                    <img src="assets/screenshot-detail.png" alt="Incident Detail Panel" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-detail.png ]</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Section 2: Engine pipeline -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">3. Generating Threat Reports</h2>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white/90">
-                            <li><strong class="text-white">Automated Summaries:</strong> Configure the engine to generate weekly security baseline reports to share with compliance or administrative stakeholders.</li>
-                            <li><strong class="text-white">On-Demand Export:</strong> Export specific incident timelines and AI analysis logs into standard formats for post-mortem tracking.</li>
-                        </ul>
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">2. How the Engine Processes a Threat</h2>
+                        <p class="text-sm text-white">Each log record moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from log emission to enforcement.</p>
+
+                        <div class="space-y-2 text-xs text-white">
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">01</span>
+                                <div><strong class="text-white">Ingestion</strong> — Cloud Logging routes your project's logs to a dedicated Pub/Sub topic. The Cybat ingestion layer (Fluent Bit + pubsub-bridge running on GKE) pulls messages continuously and forwards them to the SOC agent.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">02</span>
+                                <div><strong class="text-white">IP Grouping</strong> — Logs from the same batch are grouped by source IP to build a per-IP request picture before analysis.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">03</span>
+                                <div><strong class="text-white">Subscription Check</strong> — The engine validates your organization's active Marketplace subscription via GCP Service Control before proceeding.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">04</span>
+                                <div><strong class="text-white">Verdict Cache</strong> — IPs seen in the last 24 hours skip Gemini re-analysis and are enforced immediately using the cached verdict, eliminating redundant AI calls.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">05</span>
+                                <div><strong class="text-white">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">06</span>
+                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4). If the VPC network is not discoverable from the logs, it falls back to Cloud Armor IP block (Layer 7). Enforcement is targeted to the specific GCP project the logs originated from.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">07</span>
+                                <div><strong class="text-white">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. A Slack notification is dispatched to your configured webhook with the full threat summary and enforcement outcome.</div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Section 3: Threat levels -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">3. Threat Levels & Enforcement Behavior</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs">
+                                <thead>
+                                    <tr class="border-b border-white/10 text-left">
+                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Level</th>
+                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Action</th>
+                                        <th class="pb-3 text-white uppercase tracking-widest font-normal">Dashboard Color</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/5">
+                                    <tr>
+                                        <td class="py-3 pr-6 text-red-400 font-bold">HIGH</td>
+                                        <td class="py-3 pr-6 text-white">Immediate block — VPC Firewall deny or Cloud Armor IP rule. Slack alert dispatched.</td>
+                                        <td class="py-3"><span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded">red</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-amber-400 font-bold">MEDIUM</td>
+                                        <td class="py-3 pr-6 text-white">Block applied. Slack alert dispatched. Incident flagged for review.</td>
+                                        <td class="py-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded">amber</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-white font-bold">LOW / NONE</td>
+                                        <td class="py-3 pr-6 text-white">No enforcement. Verdict cached for 24 hours to skip future analysis of the same IP.</td>
+                                        <td class="py-3"><span class="text-white/70">not shown</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Slack alerts -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">4. Slack Alert Configuration</h2>
+                        <p class="text-sm text-white">Slack alerts are configured per organization during onboarding. Each alert includes:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
+                            <li>Source IP and geographic location</li>
+                            <li>Threat level and the Gemini model's explanation</li>
+                            <li>Enforcement action taken (firewall rule name or Cloud Armor rule)</li>
+                            <li>GCP project affected</li>
+                            <li>Timestamp and incident ID for cross-referencing the dashboard</li>
+                        </ul>
+                        <p class="text-sm text-white">To update your Slack webhook URL, contact support or use the settings panel inside the Intelligence Portal.</p>
+                    </div>
+
                     <div class="space-y-4 border-t border-white/10 pt-8 mt-8">
-                        <a href="#/docs/release-notes" class="inline-block bg-white/5 border border-white/10 hover:border-ai-lavender px-4 py-2 rounded text-sm text-white transition-colors">View Release Notes &rarr;</a>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                                class="inline-block bg-ai-lavender text-ai-obsidian px-5 py-2 font-bold text-sm hover:bg-white transition-colors">
+                                Open Dashboard →
+                            </a>
+                            <a href="#/docs/release-notes"
+                                class="inline-block bg-white/5 border border-white/10 hover:border-ai-lavender px-5 py-2 text-sm text-white transition-colors">
+                                View Release Notes →
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,20 +1,20 @@
 <main class="relative bg-ai-obsidian">
-    <header class="py-32 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
+    <header class="py-12 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
         <div class="aurora aurora-lavender w-96 h-96 -top-48 -left-48 opacity-20"></div>
-        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-80 relative z-10">
+        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-95 relative z-10">
             Visionary Partnership</div>
         <h1
-            class="text-5xl md:text-7xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10 text-white">
+            class="text-xl md:text-2xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10 text-white">
             BECOME A<br>
             <span class="text-ai-lavender">FOUNDING PARTNER.</span>
         </h1>
-        <p class="text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed relative z-10">
+        <p class="text-xl md:text-2xl text-white max-w-3xl leading-relaxed relative z-10">
             We are building the autonomous SOC for the next decade. Join our exclusive waitlist and help shape the
             perimeter of the future.
         </p>
     </header>
 
-    <section class="py-32 section-navy border-y border-white/5 relative overflow-hidden">
+    <section class="py-12 section-navy border-y border-white/5 relative overflow-hidden">
         <div class="aurora aurora-mint w-[600px] h-[600px] -bottom-48 -right-48 opacity-10"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-24 items-start">
@@ -27,7 +27,7 @@
                             <div>
                                 <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">3-Month Free
                                     Trial</h4>
-                                <p class="text-sm opacity-50 leading-relaxed text-white/95">Full access to the Cybat AI
+                                <p class="text-sm opacity-90 leading-relaxed text-white">Full access to the Cybat AI
                                     engine for 90 days following our public launch. No strings attached.</p>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div>
                                 <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-mint">Founding
                                     Discount</h4>
-                                <p class="text-sm opacity-50 leading-relaxed text-white/95">A permanent 20% "Early
+                                <p class="text-sm opacity-90 leading-relaxed text-white">A permanent 20% "Early
                                     Adopter" discount on all professional plans, locked in for the life of your account.
                                 </p>
                             </div>
@@ -46,7 +46,7 @@
                             <div>
                                 <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">Roadmap
                                     Influence</h4>
-                                <p class="text-sm opacity-50 leading-relaxed text-white/95">Direct influence on our
+                                <p class="text-sm opacity-90 leading-relaxed text-white">Direct influence on our
                                     development priorities through monthly exclusive "Design Partner" sessions with our
                                     CTO.</p>
                             </div>
@@ -56,7 +56,7 @@
                             <div>
                                 <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-mint">VIP Support
                                     Channel</h4>
-                                <p class="text-sm opacity-50 leading-relaxed text-white/95">Instant access to our
+                                <p class="text-sm opacity-90 leading-relaxed text-white">Instant access to our
                                     founding engineering team via a private Slack channel for zero-day response and
                                     architectural help.</p>
                             </div>
@@ -66,24 +66,24 @@
                             <div>
                                 <h4 class="font-heading font-black uppercase text-lg mb-2 text-ai-lavender">Strategic
                                     Security Audit</h4>
-                                <p class="text-sm opacity-50 leading-relaxed text-white/95">A complimentary one-time
+                                <p class="text-sm opacity-90 leading-relaxed text-white">A complimentary one-time
                                     deep-dive review of your current GCP security posture by our core architects.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-ai-obsidian border border-white/10 p-12 relative overflow-hidden">
+                <div class="bg-ai-obsidian border border-white/10 p-6 relative overflow-hidden">
                     <div class="aurora aurora-lavender w-64 h-64 -top-32 -right-32 opacity-10"></div>
                     <div class="relative z-10">
-                        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-12 opacity-60">
+                        <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-12 opacity-90">
                             Waitlist // Secure_Entry</div>
 
                         <div v-if="$root.formStatus === 'success'" class="text-center py-20">
                             <div class="text-6xl mb-8">✨</div>
                             <h3 class="text-3xl font-heading font-black uppercase tracking-tighter mb-4 text-ai-mint">
                                 Identity Authorized</h3>
-                            <p class="opacity-50 font-mono text-sm leading-relaxed text-white/95">
+                            <p class="opacity-90 font-mono text-sm leading-relaxed text-white">
                                 Your application has been logged and stored for review. Our team will contact you via
                                 the encrypted channel provided.
                             </p>
@@ -93,7 +93,7 @@
                             </button>
                         </div>
 
-                        <form v-else @submit.prevent="$root.submitPartnerForm" class="space-y-8">
+                        <form v-else @submit.prevent="$root.submitPartnerForm" class="space-y-4">
                             <div>
                                 <label
                                     class="block text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-ai-lavender mb-3">01
@@ -126,7 +126,7 @@
                             </div>
 
                             <button type="submit" :disabled="$root.formStatus === 'sending'"
-                                class="w-full bg-ai-lavender text-ai-obsidian font-heading font-black py-5 uppercase tracking-[0.2em] hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-wait text-sm">
+                                class="w-full bg-ai-lavender text-ai-obsidian font-heading font-black py-5 uppercase tracking-[0.2em] hover:bg-white transition-all disabled:opacity-90 disabled:cursor-not-wait text-sm">
                                 <span v-if="$root.formStatus === 'sending'">Initializing Ingest...</span>
                                 <span v-else>Apply for Early Access</span>
                             </button>
@@ -142,14 +142,14 @@
         </div>
     </section>
 
-    <section class="py-48 text-center section-deep relative overflow-hidden">
+    <section class="py-16 text-center section-deep relative overflow-hidden">
         <div class="aurora aurora-mint w-[800px] h-[800px] -bottom-1/2 left-1/2 -translate-x-1/2 opacity-10"></div>
         <h2
-            class="text-5xl md:text-6xl font-heading font-black uppercase tracking-tighter leading-none mb-16 relative z-10 text-white">
+            class="text-lg md:text-xl font-heading font-black uppercase tracking-tighter leading-none mb-6 relative z-10 text-white">
             QUESTIONS?<br><span class="text-ai-lavender">WERE CONNECTED.</span>
         </h2>
         <router-link to="/connect"
-            class="inline-block border border-ai-lavender text-ai-lavender px-20 py-6 font-heading font-black text-sm uppercase tracking-[0.3em] hover:bg-ai-lavender hover:text-ai-obsidian transition-all relative z-10">
+            class="inline-block border border-ai-lavender text-ai-lavender px-10 py-6 font-heading font-black text-sm uppercase tracking-[0.3em] hover:bg-ai-lavender hover:text-ai-obsidian transition-all relative z-10">
             Contact Architecture_
         </router-link>
     </section>

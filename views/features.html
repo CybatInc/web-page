@@ -1,19 +1,19 @@
-<header class="py-32 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
+<header class="py-12 px-6 text-left max-w-7xl mx-auto relative overflow-hidden">
     <div class="aurora aurora-lavender w-96 h-96 -top-48 -left-48 opacity-20"></div>
-    <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-80 relative z-10">
+    <div class="font-mono text-ai-lavender text-xs tracking-[0.3em] uppercase mb-8 opacity-95 relative z-10">
         Capabilities</div>
     <h1
-        class="text-5xl md:text-7xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10">
+        class="text-xl md:text-2xl font-heading font-black mb-12 uppercase leading-[0.85] tracking-tighter relative z-10">
         SECURITY THAT<br>
         <span class="text-ai-lavender">THINKS.</span>
     </h1>
-    <p class="text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed relative z-10">
+    <p class="text-xl md:text-2xl text-white max-w-3xl leading-relaxed relative z-10">
         Cybat AI isn't just a firewall; it's an autonomous SOC analyst running
         at the speed of Google's network backbone.
     </p>
 </header>
 
-<section class="py-32 section-navy border-y border-white/5 relative overflow-hidden">
+<section class="py-12 section-navy border-y border-white/5 relative overflow-hidden">
     <div class="aurora aurora-mint w-[500px] h-[500px] -bottom-48 -right-48 opacity-10"></div>
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10">
         <div class="border-t border-white/10 pt-12 hover:border-ai-lavender/50 transition-colors">
@@ -23,7 +23,7 @@
                 Most tools block based on "what" (an IP). Cybat AI understands the "why." By analyzing HTTP headers and
                 payload patterns with Gemini 3.1, we identify sophisticated bots that hide behind residential proxies while maintaining a >99.5% Signal-to-Noise Ratio (Near-Zero False Positives).
             </p>
-            <ul class="font-mono text-xs space-y-4 opacity-50">
+            <ul class="font-mono text-xs space-y-4 opacity-90">
                 <li>// DETECTS SQLI & XSS ZERO-DAYS</li>
                 <li>// >99.5% SIGNAL-TO-NOISE RATIO</li>
                 <li>// CONTINUOUS LEARNING FROM THREAT INTEL</li>
@@ -43,47 +43,66 @@
             </div>
         </div>
     </div>
+
+    <!-- Full-width screenshot strip -->
+    <div class="max-w-7xl mx-auto px-6 mt-10">
+        <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ai-mint/90 mb-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-ai-mint animate-pulse"></div>
+            Incident Detail — AI Analysis
+        </div>
+        <div class="relative border border-white/10 overflow-hidden">
+        <img src="assets/screenshot-detail.png" alt="Cybat Incident Detail" class="w-full object-cover object-top max-h-[400px]"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+        <div class="hidden w-full h-40 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">
+            [ screenshot-detail.png ]
+        </div>
+        </div>
+    </div>
 </section>
 
-<section class="py-32 section-deep relative overflow-hidden">
+<section class="py-12 section-deep relative overflow-hidden">
     <div
         class="aurora aurora-lavender w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
     </div>
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-32 items-center relative z-10">
         <div>
             <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Ingestion</div>
-            <h2 class="text-5xl md:text-7xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
+            <h2 class="text-xl md:text-2xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
                 ZERO-RETENTION<br>WORKFLOWS.
             </h2>
-            <p class="text-lg opacity-50 mb-12 leading-relaxed italic text-ai-mint">
+            <p class="text-lg opacity-90 mb-12 leading-relaxed italic text-ai-mint">
                 "We don't store your logs. We reason over them."
             </p>
-            <p class="opacity-50 leading-relaxed">
+            <p class="opacity-90 leading-relaxed">
                 Using our custom Fluent Bit workers, we ingest millions of log lines per second from your Organization
                 Sinks.
                 Stateless, secure, and privacy-preserving by design.
             </p>
         </div>
-        <div class="border border-white/5 p-12 hover:bg-white/5 transition-colors bg-white/[0.02]">
-            <div class="font-mono text-[10px] mb-8 opacity-40 text-ai-lavender">// ORG_GUARD_SYSTEM</div>
-            <h3 class="font-heading font-black text-2xl mb-6 uppercase tracking-tighter">Unified Hierarchy</h3>
-            <p class="text-sm opacity-50 leading-relaxed">
-                Block a threat once, protect everywhere. Cybat AI can inject rules at the GCP Organization or Folder
-                level,
-                ensuring a "one-click" block protects every project in your company instantly.
-            </p>
+        <div>
+            <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ai-lavender/90 mb-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-ai-lavender animate-pulse"></div>
+                Incident Feed
+            </div>
+            <div class="relative border border-white/10 overflow-hidden">
+            <img src="assets/screenshot-incidents.png" alt="Cybat Incident Feed" class="w-full object-cover object-top max-h-[340px]"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+            <div class="hidden w-full h-48 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">
+                [ screenshot-incidents.png ]
+            </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="py-48 section-navy text-center relative overflow-hidden">
+<section class="py-16 section-navy text-center relative overflow-hidden">
     <div class="aurora aurora-mint w-[800px] h-[800px] -bottom-1/2 left-1/2 -translate-x-1/2 opacity-10"></div>
     <h2
-        class="text-5xl md:text-6xl font-heading font-black uppercase tracking-tighter leading-none mb-16 relative z-10">
+        class="text-lg md:text-xl font-heading font-black uppercase tracking-tighter leading-none mb-6 relative z-10">
         READY TO<br><span class="text-ai-lavender">PROTECT?</span>
     </h2>
     <router-link to="/connect"
-        class="inline-block bg-ai-lavender text-ai-obsidian px-20 py-6 font-heading font-black text-sm uppercase tracking-[0.3em] hover:bg-white transition-all relative z-10">
+        class="inline-block bg-ai-lavender text-ai-obsidian px-10 py-6 font-heading font-black text-sm uppercase tracking-[0.3em] hover:bg-white transition-all relative z-10">
         Get Started_
     </router-link>
 </section>
