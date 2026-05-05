@@ -35,12 +35,16 @@
                     <!-- Section 1: Dashboard layout -->
                     <div class="space-y-4">
                         <h2 class="text-xl font-heading font-bold text-white uppercase italic">1. Dashboard Layout</h2>
-                        <p class="text-sm text-white">After logging in at <code class="bg-white/10 px-1 rounded text-ai-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard, which consists of three areas:</p>
+                        <p class="text-sm text-white">After logging in at <code class="bg-white/10 px-1 rounded text-ai-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The left sidebar gives you access to all sections based on your role.</p>
 
                         <div class="space-y-3 text-sm text-white">
                             <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Metric Cards</p>
+                                <p>Five cards at the top of the dashboard show your organisation's security posture at a glance: <strong class="text-white">Data Ingested</strong>, <strong class="text-white">Threats Blocked</strong>, <strong class="text-red-400">High Severity</strong>, <strong class="text-amber-400">Medium Severity</strong>, and <strong class="text-white/60">Low Severity</strong>. All figures reflect the selected time period (Day / Month / Year).</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">3D Threat Globe</p>
-                                <p class="mb-3">A rotating Earth visualization showing the geographic origin of all detected threats. Glowing lavender points represent high-severity sources; mint points represent medium-severity. Click any point to see the full list of incidents from that location.</p>
+                                <p class="mb-3">A rotating Earth visualization showing the geographic origin of all detected threats. Red points represent origins with high-severity incidents; amber points represent medium-severity. Click any point to open a breakdown by severity, then click <strong class="text-white">View incidents →</strong> to filter the Investigations feed to that location.</p>
                                 <div class="relative border border-white/10 overflow-hidden rounded">
                                     <img src="assets/screenshot-globe.png" alt="3D Threat Globe" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
@@ -48,8 +52,8 @@
                                 </div>
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Incident Feed</p>
-                                <p class="mb-3">A live list of all detected threats sorted by recency. Each card shows the source IP, threat level (high / medium), timestamp, affected GCP project, and the enforcement action taken. Click any incident to open the full detail panel.</p>
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Investigations Feed</p>
+                                <p class="mb-3">A live list of all detected threats sorted by recency. Each row shows source IP, threat level, target URL, timestamp, and enforcement verdict. Click any row to open the full incident detail panel. Use the 👍 / 👎 buttons to provide feedback — thumbs down on a blocked IP opens an unblock confirmation dialog.</p>
                                 <div class="relative border border-white/10 overflow-hidden rounded">
                                     <img src="assets/screenshot-incidents.png" alt="Incident Feed" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
@@ -58,7 +62,7 @@
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Incident Detail Panel</p>
-                                <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all log evidence records that triggered the detection, the enforcement decision and its status, and the Slack notification dispatched to your team.</p>
+                                <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all log evidence records that triggered the detection, the enforcement decision and status, and the Slack notification dispatched to your team. Admins can unblock an IP directly from this panel using the 👎 feedback button.</p>
                                 <div class="relative border border-white/10 overflow-hidden rounded">
                                     <img src="assets/screenshot-detail.png" alt="Incident Detail Panel" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
@@ -88,18 +92,22 @@
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">04</span>
-                                <div><strong class="text-white">Verdict Cache</strong> — IPs seen in the last 24 hours skip Gemini re-analysis and are enforced immediately using the cached verdict, eliminating redundant AI calls.</div>
+                                <div><strong class="text-white">Whitelist Filter</strong> — IPs present in your organisation's whitelist are removed from the batch entirely. No analysis, no incident record, no cost. Traffic from trusted IPs is completely ignored by the engine.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">05</span>
-                                <div><strong class="text-white">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
+                                <div><strong class="text-white">Verdict Cache</strong> — IPs seen in the last 24 hours skip Gemini re-analysis and are enforced immediately using the cached verdict, eliminating redundant AI calls.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">06</span>
-                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4). If the VPC network is not discoverable from the logs, it falls back to Cloud Armor IP block (Layer 7). Enforcement is targeted to the specific GCP project the logs originated from.</div>
+                                <div><strong class="text-white">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">07</span>
+                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4). If the VPC network is not discoverable from the logs, it falls back to Cloud Armor IP block (Layer 7). Enforcement is targeted to the specific GCP project the logs originated from.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
+                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">08</span>
                                 <div><strong class="text-white">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. A Slack notification is dispatched to your configured webhook with the full threat summary and enforcement outcome.</div>
                             </div>
                         </div>
@@ -129,18 +137,70 @@
                                         <td class="py-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded">amber</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6 text-white font-bold">LOW / NONE</td>
-                                        <td class="py-3 pr-6 text-white">No enforcement. Verdict cached for 24 hours to skip future analysis of the same IP.</td>
-                                        <td class="py-3"><span class="text-white/70">not shown</span></td>
+                                        <td class="py-3 pr-6 text-white/60 font-bold">LOW</td>
+                                        <td class="py-3 pr-6 text-white">No enforcement. Verdict logged and cached for 24 hours.</td>
+                                        <td class="py-3"><span class="text-white/40">muted white</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-white font-bold">NONE</td>
+                                        <td class="py-3 pr-6 text-white">Clean traffic. No action. Verdict cached for 24 hours to skip future analysis.</td>
+                                        <td class="py-3"><span class="text-white/40">not shown</span></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <!-- Section 4: Slack alerts -->
+                    <!-- Section 4: Feedback & Unblock -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">4. Slack Alert Configuration</h2>
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">4. Feedback & Manual Unblock</h2>
+                        <p class="text-sm text-white">Every incident in the feed and detail panel has 👍 / 👎 feedback buttons. Feedback trains the system's false-positive rate reporting and helps your team audit enforcement decisions.</p>
+                        <div class="space-y-3 text-sm text-white">
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Thumbs Up — Correct Classification</p>
+                                <p>Marks the incident as a true positive. The feedback is recorded and counted in your monthly signal-to-noise report.</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Thumbs Down on a Detected (not blocked) Incident</p>
+                                <p>Marks the incident as a false positive. The feedback is recorded immediately.</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-red-400 text-xs uppercase tracking-widest mb-2">Thumbs Down on a Blocked Incident — Admin Only</p>
+                                <p>A confirmation dialog appears asking whether to remove the active block. Clicking <strong class="text-white">Yes, unblock</strong> immediately removes the Cloud Armor or VPC Firewall rule for that IP and marks the incident expired. The feedback is also saved as a false positive. Clicking <strong class="text-white">No, keep blocked</strong> saves only the feedback without touching the enforcement rule.</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/50">Note: unblocking is scoped to your organisation only and requires the Admin role. The action is logged with the email of the admin who performed it.</p>
+                    </div>
+
+                    <!-- Section 5: IP Whitelist -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">5. IP Whitelist</h2>
+                        <p class="text-sm text-white">The <strong class="text-white">Whitelist</strong> menu item (visible to admins only) lets you register trusted IP addresses that the engine should never analyze or block — for example, your office network, a monitoring service, or a known partner API.</p>
+
+                        <div class="space-y-3 text-sm text-white">
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">How it works</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Whitelisted IPs are filtered out of every log batch <strong class="text-white">before</strong> the AI analysis step — no Vertex AI call is made, no incident is created, and no usage is counted for those requests.</li>
+                                    <li>Whitelisted IPs are also exempt from enforcement: even if a cached verdict exists for the IP, no block will be applied.</li>
+                                    <li>The whitelist is scoped to your organisation. Each org manages its own list independently.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded p-4">
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Managing the whitelist</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Navigate to <strong class="text-white">Whitelist</strong> in the left sidebar (admin role required).</li>
+                                    <li>Enter an IPv4 or IPv6 address and an optional note explaining why it is trusted, then click <strong class="text-white">Add IP</strong>.</li>
+                                    <li>To remove an entry, click <strong class="text-white">Remove</strong> in the corresponding row. The change takes effect on the next log batch.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/50">Tip: if an IP is currently blocked and you also want to whitelist it, unblock it first using the 👎 feedback dialog, then add it to the whitelist to prevent future blocks.</p>
+                    </div>
+
+                    <!-- Section 6: Slack alerts -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">6. Slack Alert Configuration</h2>
                         <p class="text-sm text-white">Slack alerts are configured per organization during onboarding. Each alert includes:</p>
                         <ul class="list-disc pl-6 space-y-2 text-sm text-white">
                             <li>Source IP and geographic location</li>

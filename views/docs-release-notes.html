@@ -26,11 +26,61 @@
                         Changelog for the Cybat Intelligence Engine. Each release covers engine logic improvements, platform features, and infrastructure changes.
                     </p>
 
+                    <!-- v1.1.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
+                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.1.0</h2>
+                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
+                            <span class="text-xs text-white ml-auto">May 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-white">
+
+                            <div>
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">IP Whitelist</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">Admin Whitelist Management:</strong> Org admins can now maintain an IP whitelist from a dedicated <em>Whitelist</em> menu item in the Intelligence Dashboard. Each entry stores the IP address, an optional note, the admin who added it, and the timestamp.</li>
+                                    <li><strong class="text-white">Full Pipeline Skip:</strong> Whitelisted IPs are filtered out before AI analysis and before enforcement. The entire Gemini invocation is skipped — no AI quota consumed, no Slack alert sent, and no firewall rule created for any IP on the whitelist.</li>
+                                    <li><strong class="text-white">Enforcement Guard:</strong> A secondary whitelist check inside the enforcement service ensures that even if a whitelisted IP reaches the enforcement step (e.g. from a cached verdict), the block rule is never applied.</li>
+                                    <li><strong class="text-white">Org-Scoped:</strong> Whitelist entries are stored under <code class="bg-white/10 px-1 rounded text-ai-lavender">organizations/{orgId}/whitelist/{ip}</code>. Entries from one org do not affect any other org.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Feedback & Manual Unblock</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">Thumbs-Down Unblock Modal:</strong> When an admin marks a <em>blocked</em> incident as incorrect (👎), a confirmation dialog appears asking whether to unblock the IP. Choosing <strong>Yes</strong> removes the Cloud Armor or VPC Firewall rule immediately and updates the incident status to <code class="bg-white/10 px-1 rounded text-ai-lavender">expired</code>, recording who unblocked it and when.</li>
+                                    <li><strong class="text-white">Non-Blocked Feedback Unchanged:</strong> Clicking 👎 on a detected (non-blocked) incident submits feedback directly with no modal, preserving the existing fast-path behavior.</li>
+                                    <li><strong class="text-white">Org-Level Enforcement:</strong> The unblock API validates that the incident belongs to the requesting admin's organization. Cross-org unblock requests are rejected.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Dashboard</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">Severity Breakdown Cards:</strong> The top metric bar now shows five cards — <em>High Severity</em>, <em>Medium Severity</em>, <em>Low Severity</em>, <em>Blocked IPs</em>, and <em>Whitelisted IPs</em> — replacing the single "Total Alerts" counter. Each card links to a filtered incident view.</li>
+                                    <li><strong class="text-white">Whitelist View:</strong> A new admin-only <em>Whitelist</em> page lists all whitelisted IPs with note, added-by, and date columns, plus an inline form to add or remove entries immediately.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Infrastructure & Operations</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">Cloud Scheduler — Usage Reporting:</strong> A Cloud Scheduler job now triggers <code class="bg-white/10 px-1 rounded text-ai-lavender">/report-usage</code> at five minutes past every hour, ensuring GCP Marketplace billing records are submitted on time without manual intervention.</li>
+                                    <li><strong class="text-white">Cloud Scheduler — Block Cleanup:</strong> A second Cloud Scheduler job runs <code class="bg-white/10 px-1 rounded text-ai-lavender">/cleanup</code> every 6 hours, removing expired Cloud Armor and VPC Firewall rules to reduce GCP rule-set size and cost.</li>
+                                    <li><strong class="text-white">Auto-Generated Scheduler Token:</strong> The authentication token used by both Cloud Scheduler jobs is now generated automatically via Terraform (<code class="bg-white/10 px-1 rounded text-ai-lavender">random_password</code>) and stored in Secret Manager. No manual token management is required.</li>
+                                    <li><strong class="text-white">Usage Export API:</strong> The <code class="bg-white/10 px-1 rounded text-ai-lavender">/report-usage</code> endpoint now accepts <code class="bg-white/10 px-1 rounded text-ai-lavender">?from=&amp;to=</code> query parameters for time-range filtering and <code class="bg-white/10 px-1 rounded text-ai-lavender">?format=csv</code> for a downloadable CSV export — useful for audit submissions to the GCP Marketplace team.</li>
+                                    <li><strong class="text-white">Firestore Composite Indexes:</strong> Two new composite indexes (usage reporting and active-block lookups) are now provisioned via Terraform, resolving FAILED_PRECONDITION errors that appeared in high-traffic scenarios.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <!-- v1.0.0 -->
                     <div class="space-y-6">
                         <div class="flex items-center gap-4 border-b border-white/10 pb-3">
                             <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.0.0</h2>
-                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
                             <span class="text-xs text-white ml-auto">April 2026</span>
                         </div>
 
