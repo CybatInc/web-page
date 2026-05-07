@@ -26,11 +26,33 @@
                         Changelog for the Cybat Intelligence Engine. Each release covers engine logic improvements, platform features, and infrastructure changes.
                     </p>
 
+                    <!-- v1.2.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
+                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.2.0</h2>
+                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
+                            <span class="text-xs text-white ml-auto">May 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-white">
+
+                            <div>
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Threat Intelligence</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">Google Threat Intelligence Enrichment:</strong> The AI analysis pipeline now queries the Google Threat Intelligence API (VirusTotal v3) for every IP in a batch before invoking Gemini. Reputation score, vendor malicious/suspicious vote counts, ASN name, and country are injected directly into the Gemini prompt, giving the model external context it would otherwise lack.</li>
+                                    <li><strong class="text-white">6-Hour Reputation Cache:</strong> GTI results are cached in Firestore under <code class="bg-white/10 px-1 rounded text-ai-lavender">gti_cache/{ip_hash}</code> with a 6-hour TTL. The same IP seen again within that window skips the external API call entirely, keeping latency low and API quota consumption minimal.</li>
+                                    <li><strong class="text-white">Graceful Degradation:</strong> GTI lookups run in parallel with existing history queries. Individual API failures are swallowed per-IP — the pipeline completes normally with a "no GTI data available" note in the prompt for that IP, never blocking enforcement.</li>
+                                    <li><strong class="text-white">Zero Logic Change:</strong> GTI data enriches the prompt context only. Threat level classification, enforcement decisions, and blocking thresholds remain under Gemini's control — GTI does not hard-override verdicts.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <!-- v1.1.0 -->
                     <div class="space-y-6">
                         <div class="flex items-center gap-4 border-b border-white/10 pb-3">
                             <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.1.0</h2>
-                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
                             <span class="text-xs text-white ml-auto">May 2026</span>
                         </div>
 
