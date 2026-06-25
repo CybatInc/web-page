@@ -259,7 +259,7 @@ const app = createApp({
                         <router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link>
                         <router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link>
                         <router-link to="/security" class="hover:text-ai-lavender transition-colors">Security</router-link>
-                        <router-link to="/connect" class="bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Connect_</router-link>
+                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Subscribe_</a>
                     </div>
 
                     <!-- Mobile Menu Button -->
