@@ -1,0 +1,10 @@
+[
+  {
+    "id": "google-cloud",
+    "name": "Google Cloud",
+    "icon": "☁️",
+    "badge": "Available on Marketplace",
+    "url": "https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine",
+    "highlight": true
+  }
+]

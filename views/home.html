@@ -48,6 +48,13 @@
                 </div>
             </div>
         </div>
+        <div class="mt-8">
+            <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ai-mint border border-ai-mint/30 px-4 py-2 hover:border-ai-mint hover:bg-ai-mint/5 transition-all">
+                ☁ Available on Google Cloud Marketplace
+            </a>
+        </div>
     </div>
 </header>
 
@@ -321,10 +328,40 @@
     </div>
 </section>
 
+<section class="py-20 section-deep border-y border-white/5 relative overflow-hidden">
+    <div class="aurora aurora-mint w-[500px] h-[500px] -top-64 -right-64 opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+
+            <!-- Left: text -->
+            <div>
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ai-lavender mb-6">// Partnership</p>
+                <h2 class="font-heading font-black text-3xl md:text-5xl uppercase tracking-tighter leading-none mb-8">
+                    Google Cloud<br><span class="text-ai-lavender">Partner.</span>
+                </h2>
+                <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-md">
+                    Cybat Intelligence Engine is built natively on Google Cloud, distributed through Google Cloud Marketplace, and deeply integrated with Gemini AI, Vertex AI, and Cloud Armor — delivering autonomous security at cloud scale.
+                </p>
+                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                   target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-ai-mint border border-ai-mint/40 px-6 py-3 hover:border-ai-mint hover:bg-ai-mint/5 transition-all">
+                    View on Google Cloud Marketplace →
+                </a>
+            </div>
+
+            <!-- Right: Google Cloud Partner badge -->
+            <div class="flex justify-center md:justify-end">
+                <img src="assets/google-cloud-partner.png" alt="Google Cloud Partner" class="w-64 h-auto">
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <section class="py-12 section-navy relative overflow-hidden">
     <div class="aurora aurora-lavender w-[500px] h-[500px] -bottom-48 -right-48 opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
-        <div class="order-2 md:order-1 flex justify-center">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start relative z-10">
+        <div class="order-2 md:order-1 flex justify-center pt-2">
             <div
                 class="w-80 h-80 bg-ai-obsidian flex items-center justify-center p-8 hover:scale-105 transition-all duration-500 border border-white/5 group shadow-[0_0_50px_rgba(167,243,208,0.1)]">
                 <img src="assets/eder_diaz.png" alt="Founder" class="w-full h-full object-cover rounded-sm">
@@ -333,7 +370,7 @@
         <div class="order-1 md:order-2">
             <div class="font-mono text-xs tracking-widest uppercase mb-8 text-ai-lavender">Leadership</div>
             <h2 class="text-lg md:text-xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                MEET THE<br>FOUNDER.
+                MEET THE FOUNDER.
             </h2>
             <p class="text-xl font-bold mb-6 italic opacity-90 text-ai-mint">"We aren't just building a tool; we're
                 building a new layer of the cloud."</p>
@@ -356,42 +393,6 @@
                     class="font-mono text-sm border-b-2 border-ai-mint pb-1 hover:text-white hover:border-white transition-all text-ai-mint">
                     Book a Demo_
                 </router-link>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="py-12 section-navy border-y border-white/5 relative overflow-hidden">
-    <div class="aurora aurora-lavender w-[600px] h-[600px] -top-96 -right-96 opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-24 items-center">
-            <div>
-                <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Now Available</div>
-                <h2 class="text-lg md:text-xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                    ON GOOGLE CLOUD<br><span class="text-ai-lavender">MARKETPLACE.</span>
-                </h2>
-                <p class="text-xl opacity-95 mb-12 leading-relaxed">
-                    Cybat Intelligence Engine is now live on Google Cloud Marketplace. Subscribe directly and start protecting your infrastructure in minutes.
-                </p>
-                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
-                    target="_blank" rel="noopener"
-                    class="inline-block bg-ai-lavender text-ai-obsidian px-10 py-5 font-heading font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all">
-                    Subscribe on GCP Marketplace_
-                </a>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <div v-for="partner in $root.partners" :key="partner.id"
-                    class="bg-ai-obsidian p-8 border border-white/5 hover:border-ai-lavender/30 transition-all group text-center">
-                    <div
-                        class="text-3xl mb-4 grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100">
-                        {{ partner.icon }}</div>
-                    <h3
-                        class="font-mono text-[10px] uppercase tracking-widest text-ai-lavender opacity-90 group-hover:opacity-100 transition-opacity">
-                        {{ partner.name }}
-                    </h3>
-                </div>
             </div>
         </div>
     </div>
