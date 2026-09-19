@@ -24,7 +24,7 @@
                     class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter group-hover:text-ai-lavender transition-colors">
                     Vertex AI & Gemini</h3>
                 <p class="opacity-90 leading-relaxed mb-10 text-lg">
-                    We utilize Gemini 3.1 Flash for high-speed log inference. By leveraging its large context window,
+                    We utilize Gemini 3.1 Flash for high-speed request inference. By leveraging its large context window,
                     Cybat AI analyzes traffic patterns to detect low-and-slow DDoS and injection attempts.
                 </p>
                 <div class="flex gap-4 font-mono text-[9px] opacity-80 uppercase">
@@ -37,13 +37,13 @@
                 <div class="font-mono text-xs text-ai-mint mb-8 uppercase tracking-widest">Execution Tier</div>
                 <h3
                     class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter group-hover:text-ai-mint transition-colors">
-                    GKE Autopilot</h3>
+                    Serverless Cloud Run</h3>
                 <p class="opacity-90 leading-relaxed mb-10 text-lg">
-                    Our processing engine is distributed across Google Kubernetes Engine. It scales with your log volume
-                    and uses Workload Identity to securely manage your cloud perimeter.
+                    Our processing engine runs on serverless Cloud Run functions that scale to zero between attacks and
+                    burst instantly under load — no cluster to provision, no idle compute to pay for.
                 </p>
                 <div class="flex gap-4 font-mono text-[9px] opacity-80 uppercase">
-                    <span>// KEYLESS_AUTH</span>
+                    <span>// SCALE_TO_ZERO</span>
                     <span>// ELASTIC_SCALING</span>
                 </div>
             </div>
@@ -52,11 +52,11 @@
                 <div class="font-mono text-xs text-ai-lavender mb-8 uppercase tracking-widest">Pipeline Tier</div>
                 <h3
                     class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter group-hover:text-ai-lavender transition-colors">
-                    Pub/Sub & Fluent Bit</h3>
+                    SDK & API Gateway</h3>
                 <p class="opacity-90 leading-relaxed mb-10 text-lg">
-                    Ingestion is handled via Org-level Sinks. Our custom Fluent Bit Lua filters perform initial pattern
-                    reduction
-                    to ensure only high-risk metadata is sent for AI analysis.
+                    The Cybat SDK streams request telemetry straight from your app to API Gateway, which validates each
+                    request at the edge before it ever reaches our compute — then Pub/Sub buffers the load so no signal
+                    is dropped during a burst.
                 </p>
                 <div class="flex gap-4 font-mono text-[9px] opacity-80 uppercase">
                     <span>// ZERO_RETENTION</span>

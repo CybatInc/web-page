@@ -26,11 +26,34 @@
                         Changelog for the Cybat Intelligence Engine. Each release covers engine logic improvements, platform features, and infrastructure changes.
                     </p>
 
+                    <!-- v2.0.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
+                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 2.0.0</h2>
+                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
+                            <span class="text-xs text-white ml-auto">September 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-white">
+
+                            <div>
+                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">SDK-Based Ingestion</p>
+                                <ul class="list-disc pl-6 space-y-2 text-white">
+                                    <li><strong class="text-white">@cybat/sdk-node:</strong> A new npm package (<code class="bg-white/10 px-1 rounded text-ai-lavender">@cybat/sdk-node</code>) installs as Express middleware and streams captured HTTP traffic directly to Cybat — no GCP org-level Log Sink, no IAM grant at onboarding. Python and Go SDKs are planned next.</li>
+                                    <li><strong class="text-white">API Gateway + API Keys:</strong> A new <em>API Keys</em> page in the Intelligence Dashboard lets org admins create, name, expire, and instantly revoke keys used by the SDK. Every request is validated by API Gateway at the network edge before reaching Cybat compute — revocation is checked live, not cached.</li>
+                                    <li><strong class="text-white">Serverless Ingestion Pipeline:</strong> SDK traffic flows through a new serverless <code class="bg-white/10 px-1 rounded text-ai-lavender">ingest-api</code> Cloud Run service and a shared Pub/Sub topic, replacing the GKE Autopilot Fluent Bit pipeline for new customers — no idle cluster, scales to zero between attacks.</li>
+                                    <li><strong class="text-white">Configurable Enforcement Target:</strong> The SDK accepts a <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> option at initiation, telling the engine which project to enforce blocks against. Detection and alerting work with or without it; automatic blocking requires it.</li>
+                                    <li><strong class="text-white">Automatic Key Revocation on Cancellation:</strong> When a Marketplace subscription is canceled or suspended, every API key for that org is revoked automatically — no manual cleanup, ingestion stops immediately.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <!-- v1.2.0 -->
                     <div class="space-y-6">
                         <div class="flex items-center gap-4 border-b border-white/10 pb-3">
                             <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.2.0</h2>
-                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
                             <span class="text-xs text-white ml-auto">May 2026</span>
                         </div>
 

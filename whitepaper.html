@@ -129,8 +129,8 @@
                 <p class="leading-relaxed text-white/90 text-lg italic">
                     Traditional SOC operations suffer from the "Inertia Gap"—the critical latency between detection and
                     manual enforcement.
-                    Cybat AI introduces an agentic orchestration layer using Gemini 3.1 Flash and GKE Autopilot to
-                    execute
+                    Cybat AI introduces an agentic orchestration layer using Gemini 3.1 Flash and serverless Cloud Run
+                    to execute
                     verified mitigation in sub-500ms intervals.
                 </p>
             </section>
@@ -138,10 +138,9 @@
             <section class="mb-16">
                 <h2 class="text-2xl mb-6">1. Ingestion Protocol</h2>
                 <p class="mb-8 text-white/85 leading-relaxed">
-                    The platform leverages Aggregated Logging Sinks at the Organizational level. By utilizing a keyless
-                    Pub/Sub stream,
-                    we ingest telemetry from every active `GCE_Instance` and `Load_Balancer` into a distributed Lua
-                    filter pipeline.
+                    The platform ingests via a lightweight SDK installed as application middleware — a single line of
+                    code, no log export or org-level IAM grant. Requests are authenticated at the edge by API Gateway,
+                    then buffered through a keyless Pub/Sub stream into the distributed inference engine.
                 </p>
                 <div
                     class="bg-ai-obsidian p-10 border border-white/10 font-mono text-[11px] text-ai-mint leading-relaxed">
@@ -215,7 +214,7 @@
                 <p class="text-white/85 leading-relaxed">
                     Cybat AI operates using a <b>Zero-Retention</b> model. Telemetry is reasoned over in ephemeral
                     memory
-                    within a secure GKE sandbox. Every decision is traceable via audited reasoning logs.
+                    within a secure, stateless Cloud Run sandbox. Every decision is traceable via audited reasoning logs.
                 </p>
             </section>
 

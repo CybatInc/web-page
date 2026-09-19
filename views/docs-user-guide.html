@@ -80,7 +80,7 @@
                         <div class="space-y-2 text-xs text-white">
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">01</span>
-                                <div><strong class="text-white">Ingestion</strong> — Cloud Logging routes your project's logs to a dedicated Pub/Sub topic. The Cybat ingestion layer (Fluent Bit + pubsub-bridge running on GKE) pulls messages continuously and forwards them to the SOC agent.</div>
+                                <div><strong class="text-white">Ingestion</strong> — The Cybat SDK, installed as middleware in your app, streams captured request data to API Gateway, which validates your API key at the edge and forwards accepted batches through Pub/Sub to the SOC agent.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">02</span>
@@ -104,7 +104,7 @@
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">07</span>
-                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4). If the VPC network is not discoverable from the logs, it falls back to Cloud Armor IP block (Layer 7). Enforcement is targeted to the specific GCP project the logs originated from.</div>
+                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4), falling back to Cloud Armor IP block (Layer 7) when the network can't be discovered. Enforcement targets the GCP project you configured via <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> on the SDK — without it, the engine detects and alerts but never modifies infrastructure.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
                                 <span class="text-ai-mint font-bold w-6 flex-shrink-0">08</span>

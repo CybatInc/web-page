@@ -178,12 +178,12 @@ const app = createApp({
             partners: [],
             faqs: [
                 {
-                    question: "Do you store my logs?",
-                    answer: "No. Cybat AI operates on a <b>Zero-Retention</b> architecture. Logs are processed in-flight within secure, stateless GKE pods and are discarded immediately after analysis. Your data never hits a persistent disk in our infrastructure."
+                    question: "Do you store my request data?",
+                    answer: "No. Cybat AI operates on a <b>Zero-Retention</b> architecture. Request telemetry captured by the SDK is processed in-flight within secure, stateless Cloud Run functions and is discarded immediately after analysis. Your data never hits a persistent disk in our infrastructure."
                 },
                 {
                     question: "Does this slow down my application?",
-                    answer: "Not at all. Cybat AI ingests logs via <b>Pub/Sub</b> asynchronously. This 'fire-and-forget' mechanism ensures that our analysis happens outside your user's request path, adding exactly 0ms of latency to your application response times."
+                    answer: "Not at all. The SDK captures each request's outcome only after your server has already sent the response, then buffers and reports it to Cybat asynchronously. This 'fire-and-forget' mechanism ensures our analysis happens outside your user's request path, adding exactly 0ms of latency to your application response times."
                 },
                 {
                     question: "How hard is the integration?",

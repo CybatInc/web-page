@@ -32,7 +32,7 @@
                                 Permissions (IAM)
                             </h3>
                             <p class="font-mono text-sm text-white bg-white/5 p-4 rounded border border-white/5">
-                                The Engine operates under a principle of least privilege. Requires explicit authorization for: <code class="text-ai-lavender text-xs ml-2">logging.viewer</code>, <code class="text-ai-lavender text-xs mx-1">compute.networkViewer</code>, <code class="text-ai-lavender text-xs mx-1">compute.securityAdmin</code> (for Cloud Armor enforcement), <code class="text-ai-lavender text-xs mx-1">compute.networkAdmin</code> (for VPC Firewall enforcement).
+                                The Engine operates under a principle of least privilege. SDK ingestion itself requires zero IAM grants in your project — authentication is a single API key, validated at the edge by API Gateway. Enabling <strong class="text-white">automatic blocking</strong> (optional) requires granting <code class="text-ai-lavender text-xs mx-1">compute.securityAdmin</code> (Cloud Armor enforcement) and <code class="text-ai-lavender text-xs mx-1">compute.networkViewer</code> (VPC discovery) on the specific project you configure, not your whole organization.
                             </p>
                         </div>
 
@@ -43,7 +43,7 @@
                                 Data Sovereignty
                             </h3>
                             <p class="font-mono text-sm text-white bg-white/5 p-4 rounded border border-white/5">
-                                Zero-retention architecture ensures <strong class="text-white">data remains strictly within the user's GCP project boundaries</strong>. No logs or sensitive payload data are persisted to Cybat infrastructure.
+                                Zero-retention architecture ensures request telemetry is <strong class="text-white">evaluated in-stream and immediately discarded</strong>. No request bodies or sensitive payload data are persisted to Cybat infrastructure — only the anonymized (HMAC-hashed) verdict needed for repeat-offender caching.
                             </p>
                         </div>
 
@@ -63,7 +63,7 @@
                 <!-- CLIENT REQUIREMENTS SECTION -->
                 <div class="mt-12">
                     <h2 class="text-3xl font-heading font-black mb-2 uppercase tracking-tighter italic">Client Requirements<span class="text-ai-lavender">_</span></h2>
-                    <p class="font-mono text-sm text-white mb-8">Minimum infrastructure and log configuration needed for the engine to detect threats effectively.</p>
+                    <p class="font-mono text-sm text-white mb-8">Minimum setup needed for the engine to detect — and optionally block — threats effectively.</p>
 
                     <!-- Infrastructure Prerequisites -->
                     <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
@@ -75,83 +75,64 @@
                             <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
                                 <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> GCP project with <strong class="text-white">Cloud Logging enabled</strong></li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> At least one internet-facing workload generating HTTP logs (GCE, GKE, Cloud Run)</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> <strong class="text-white">VPC network</strong> — required for Layer 3/4 firewall enforcement</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> An app that can install the Cybat SDK as middleware (Node.js today; Python and Go on the roadmap)</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> A valid, non-revoked, non-expired API key from the Intelligence Portal</li>
                                     <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> Slack workspace for real-time alert delivery</li>
                                 </ul>
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded p-4">
                                 <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Recommended</p>
                                 <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">Cloud HTTP(S) Load Balancer</strong> — enables full L7 log analysis and Cloud Armor integration</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">Cloud Armor security policy</strong> — enables edge-level IP blocking (Layer 7)</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> GKE Autopilot or Fluent Bit agent — for structured log forwarding from containerized workloads</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">gcpProjectId</strong> configured on the SDK — enables automatic VPC Firewall / Cloud Armor blocking, not just detection</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">compute.securityAdmin</strong> + <strong class="text-white">compute.networkViewer</strong> granted on that specific project — scoped, not org-wide</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <code class="bg-white/10 px-1 rounded text-ai-lavender">app.set('trust proxy', ...)</code> if your app sits behind your own load balancer — otherwise the SDK reports the proxy's IP instead of the real client's</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Supported Log Sources -->
+                    <!-- Wire contract -->
                     <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
                         <h3 class="font-mono text-sm uppercase tracking-widest text-ai-lavender mb-6 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Supported Log Sources
+                            How the SDK Reports Data
                         </h3>
                         <div class="space-y-3 font-mono text-xs">
                             <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Cloud HTTP(S) Load Balancer</p>
-                                    <p class="text-ai-mint text-[10px] uppercase tracking-widest">Full L7 Coverage</p>
+                                    <p class="text-white font-bold mb-1">Auth</p>
+                                    <p class="text-ai-mint text-[10px] uppercase tracking-widest">API Key, Validated at the Edge</p>
                                 </div>
                                 <div class="col-span-8 text-white leading-relaxed">
-                                    The primary and most effective log source. Provides <code class="bg-white/10 px-1 rounded text-ai-lavender">httpRequest.remoteIp</code>, <code class="bg-white/10 px-1 rounded text-ai-lavender">httpRequest.requestUrl</code>, and HTTP status codes. Enables SQLi, XSS, credential stuffing, and DDoS detection. Requires Cloud Logging to be enabled on the backend service.
+                                    Every batch is sent with an <code class="bg-white/10 px-1 rounded text-ai-lavender">x-api-key</code> header. API Gateway validates it's a real, non-deleted key before the request ever reaches our compute — invalid, expired, or revoked keys are rejected at the network edge.
                                 </div>
                             </div>
                             <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Cloud Armor Logs</p>
-                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Signature + L7 Context</p>
+                                    <p class="text-white font-bold mb-1">Batching</p>
+                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Buffered, Not Per-Request</p>
                                 </div>
                                 <div class="col-span-8 text-white leading-relaxed">
-                                    Pre-rule evaluation logs from Cloud Armor. Provides attack signature context alongside source IP and matched OWASP rule IDs. Works in combination with Load Balancer logs for enriched analysis. Cloud Armor policy must be attached to the Load Balancer.
+                                    The SDK buffers captured requests in memory and flushes every ~2 seconds (or when the batch fills up) — never one HTTP call per request. A failed send is retried a bounded number of times, then dropped rather than queued forever.
                                 </div>
                             </div>
                             <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">GKE / Application Logs</p>
-                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Structured JSON Required</p>
+                                    <p class="text-white font-bold mb-1">Buffering</p>
+                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Pub/Sub, Not a Queue in Your App</p>
                                 </div>
                                 <div class="col-span-8 text-white leading-relaxed">
-                                    Logs emitted from containerized workloads via Fluent Bit or the GKE logging agent. Must include a structured <code class="bg-white/10 px-1 rounded text-ai-lavender">jsonPayload.ip</code> field. Optionally include <code class="bg-white/10 px-1 rounded text-ai-lavender">jsonPayload.request</code> for URL-level analysis.
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
-                                <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Custom Application Logs</p>
-                                    <p class="text-white text-[10px] uppercase tracking-widest">Partial Coverage</p>
-                                </div>
-                                <div class="col-span-8 text-white leading-relaxed">
-                                    Any structured JSON log emitted to Cloud Logging. Detection quality depends on the fields present. The engine will extract threat signals as long as a source IP is resolvable.
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-red-500/20 rounded p-4">
-                                <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">VPC Flow Logs / Raw TCP</p>
-                                    <p class="text-red-400 text-[10px] uppercase tracking-widest">L3/L4 Only</p>
-                                </div>
-                                <div class="col-span-8 text-white leading-relaxed">
-                                    VPC Flow Logs are supported but provide <strong class="text-white">network-layer signals only</strong> (port scans, volumetric traffic). Application-layer attacks (SQLi, XSS, injection) cannot be detected without HTTP-level log fields. Non-HTTP protocols are not analyzed.
+                                    Once past the API Gateway, batches land on a durable Pub/Sub topic before reaching the AI analysis engine — a traffic spike (exactly when a real attack is happening) is absorbed instead of dropped.
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Required Log Fields -->
+                    <!-- Event fields -->
                     <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
                         <h3 class="font-mono text-sm uppercase tracking-widest text-ai-lavender mb-6 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                            Required &amp; Recommended Log Fields
+                            Event Fields
                         </h3>
                         <div class="overflow-x-auto">
                             <table class="w-full font-mono text-xs">
@@ -164,29 +145,29 @@
                                 </thead>
                                 <tbody class="divide-y divide-white/5">
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.remoteIp</code><br><span class="text-white">or <code class="text-ai-lavender">jsonPayload.ip</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">remoteIp</code></td>
                                         <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white">Source IP for grouping and blocking. Without this field, no analysis or enforcement is possible.</td>
+                                        <td class="py-3 text-white">Source IP for grouping and blocking. Captured automatically by the SDK from the request.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">resource.labels.project_id</code><br><span class="text-white">or <code class="text-ai-lavender">logName</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">method</code>, <code class="text-ai-lavender">url</code>, <code class="text-ai-lavender">status</code></td>
                                         <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white">GCP project identification for multi-tenant routing, billing, and enforcement targeting.</td>
+                                        <td class="py-3 text-white">Drive SQLi, XSS, path traversal, and credential-stuffing detection. Captured automatically — status is read after your handler responds, not before.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.requestUrl</code><br><span class="text-white">or <code class="text-ai-lavender">request</code></span></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">userAgent</code>, <code class="text-ai-lavender">referer</code></td>
                                         <td class="py-3 pr-6"><span class="text-ai-mint uppercase tracking-widest">Recommended</span></td>
-                                        <td class="py-3 text-white">Enables URL-pattern analysis for SQLi, XSS, and path traversal detection. Significantly improves threat classification accuracy.</td>
+                                        <td class="py-3 text-white">Distinguishes legitimate browser traffic from scanning tools and bots. Captured automatically.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">httpRequest.status</code></td>
-                                        <td class="py-3 pr-6"><span class="text-ai-mint uppercase tracking-widest">Recommended</span></td>
-                                        <td class="py-3 text-white">HTTP status code. 4xx/5xx responses are used as primary signal for attack pattern clustering.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">resource.labels.subnetwork_name</code></td>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">gcpProjectId</code></td>
                                         <td class="py-3 pr-6"><span class="text-white uppercase tracking-widest">Optional</span></td>
-                                        <td class="py-3 text-white">Used to auto-discover the VPC network for targeted firewall rule creation. Without it, enforcement falls back to Cloud Armor.</td>
+                                        <td class="py-3 text-white">Set once at SDK initiation. Required for automatic enforcement — without it, the engine detects and alerts but never modifies infrastructure.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-ai-lavender">serviceName</code></td>
+                                        <td class="py-3 pr-6"><span class="text-white uppercase tracking-widest">Optional</span></td>
+                                        <td class="py-3 text-white">A label shown on incidents — useful if one API key covers multiple services.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -200,11 +181,11 @@
                             Limitations &amp; Out-of-Scope
                         </h3>
                         <ul class="font-mono text-xs text-white space-y-2">
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Non-GCP environments:</strong> The engine is native to Google Cloud. AWS, Azure, and on-premise log sources are not supported.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Unstructured / plaintext logs:</strong> Logs must be structured JSON to be parseable. Free-text log lines cannot be analyzed.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Encrypted payload inspection:</strong> The engine operates on log metadata. It does not decrypt or inspect TLS payload bodies.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Automatic enforcement without a project ID:</strong> Detection works regardless of where your app runs, but blocking a threat requires telling the SDK which cloud project to act on — otherwise nothing gets modified.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">AWS enforcement:</strong> Detection is available today for apps anywhere; automatic blocking on AWS infrastructure is on the roadmap and not yet live.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Infrastructure-layer attacks:</strong> The SDK sees application-level HTTP traffic only. Network-layer signals (VPC port scanning, IAM audit escalation) still require the legacy Log Sink integration.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Encrypted payload inspection:</strong> The engine operates on request metadata. It does not decrypt or inspect TLS payload bodies.</li>
                             <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Non-HTTP protocols:</strong> Raw TCP/UDP, DNS, and SMTP attack patterns are outside the current detection scope.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Internal traffic only:</strong> Workloads without an external IP or Load Balancer will not generate the log fields needed for effective threat detection.</li>
                         </ul>
                     </div>
                 </div>

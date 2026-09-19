@@ -26,34 +26,32 @@
 
                 <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-4 font-mono text-white">
                     <p class="text-lg leading-relaxed">
-                        Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 10 minutes. Follow these steps to start protecting your GCP surface.
+                        Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 10 minutes. Follow these steps to start protecting your application.
                     </p>
 
                     <!-- Prerequisites -->
                     <div class="space-y-4 bg-ai-navy/50 border border-ai-lavender/20 rounded-lg p-6">
                         <h2 class="text-xl font-heading font-bold text-ai-lavender uppercase italic">Prerequisites</h2>
-                        <p class="text-sm text-white">Before subscribing, confirm your GCP environment meets the following requirements. Detection quality improves significantly with each item in place.</p>
+                        <p class="text-sm text-white">Before subscribing, confirm the following. There's no log export or org-level IAM to configure — just an app that can install a small SDK dependency.</p>
                         <div class="grid md:grid-cols-2 gap-4 text-sm">
                             <div>
                                 <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
                                 <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Active GCP project with billing enabled</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Cloud Logging enabled on your project</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> At least one internet-facing workload (GCE, GKE, or Cloud Run)</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> VPC network configured</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> A GCP billing account for Marketplace subscription</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> A Node.js, Python, or Go application receiving HTTP traffic</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Ability to add one middleware line to your app's request pipeline</li>
                                     <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Slack workspace + Incoming Webhook URL for alert delivery</li>
                                 </ul>
                             </div>
                             <div>
                                 <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Strongly Recommended</p>
                                 <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Cloud HTTP(S) Load Balancer with access logging enabled — unlocks full L7 threat analysis</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Cloud Armor security policy attached to the Load Balancer — enables edge IP blocking</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> <span>Structured JSON logs with a source IP field — <code class="bg-white/10 px-1 rounded text-ai-lavender break-all">httpRequest.remoteIp</code> or <code class="bg-white/10 px-1 rounded text-ai-lavender break-all">jsonPayload.ip</code></span></li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Know the GCP project ID your app runs in — unlocks automatic blocking (VPC Firewall / Cloud Armor), not just detection</li>
+                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> A dedicated secret store for the API key (e.g. Secret Manager) — it's shown once at creation</li>
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-xs text-white italic border-t border-white/10 pt-4">For the full list of supported log types and required fields, see the <a href="#/docs/security-specs" class="text-ai-lavender hover:text-white transition-colors underline">Security Specs</a> page.</p>
+                        <p class="text-xs text-white italic border-t border-white/10 pt-4">For the full SDK wire contract and enforcement requirements, see the <a href="#/docs/security-specs" class="text-ai-lavender hover:text-white transition-colors underline">Security Specs</a> page.</p>
                     </div>
 
                     <!-- Step 1 -->
@@ -74,7 +72,7 @@
                         <ul class="list-disc pl-6 space-y-2 text-sm text-white">
                             <li>At the portal login screen, click <strong class="text-ai-lavender">Sign in with Google</strong>.</li>
                             <li>Select your corporate Google Workspace account. Personal Gmail accounts are not authorized.</li>
-                            <li>On first login, your <strong class="text-white">Organization profile</strong> is automatically provisioned — a unique <code class="bg-white/10 px-1 rounded text-ai-lavender">orgId</code> is assigned to your account and linked to your GCP project billing identifier.</li>
+                            <li>On first login, your <strong class="text-white">Organization profile</strong> is automatically provisioned — a unique <code class="bg-white/10 px-1 rounded text-ai-lavender">orgId</code> is assigned to your account and linked to your Marketplace billing identifier.</li>
                         </ul>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
                             class="inline-flex items-center gap-2 mt-2 bg-ai-lavender/10 border border-ai-lavender/30 text-ai-lavender hover:bg-ai-lavender/20 px-4 py-2 rounded text-sm transition-colors">
@@ -84,148 +82,58 @@
 
                     <!-- Step 3 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 3: Run the Provisioning Script</h2>
-                        <p class="text-sm text-white">After logging in, the portal provides a single Google Cloud Shell command. Copy and run it in your GCP project. It takes approximately 60 seconds and performs the following actions automatically:</p>
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 3: Create an API Key</h2>
+                        <p class="text-sm text-white">In the Intelligence Portal, open <strong class="text-white">API Keys</strong> in the sidebar and click <strong class="text-white">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
                         <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 text-xs text-white">
                             <div class="flex items-start gap-3">
                                 <span class="text-ai-mint font-bold mt-0.5">1.</span>
-                                <div><strong class="text-white">Creates a Cloud Logging Sink</strong> — routes matching logs (HTTP, GKE, Cloud Armor) from your project to a dedicated Pub/Sub topic.</div>
+                                <div><strong class="text-white">The raw key is shown once</strong> — copy it into your secret manager immediately. It cannot be retrieved again, only revoked and replaced.</div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <span class="text-ai-mint font-bold mt-0.5">2.</span>
-                                <div><strong class="text-white">Deploys a Pub/Sub Topic & Subscription</strong> — named <code class="bg-white/10 px-1 rounded text-ai-lavender">soc-logs-{orgId}</code>. The Cybat ingestion engine pulls from this subscription in real time.</div>
+                                <div><strong class="text-white">Revocation is instant</strong> — deleting a key from the dashboard is checked live on the very next request, not cached or delayed.</div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <span class="text-ai-mint font-bold mt-0.5">3.</span>
-                                <div><strong class="text-white">Grants minimal IAM roles</strong> to the Cybat service account: <code class="bg-white/10 px-1 rounded text-ai-lavender">logging.viewer</code>, <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.networkViewer</code>, <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.securityAdmin</code> (Cloud Armor enforcement), and <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.networkAdmin</code> (VPC Firewall enforcement). No broader permissions are requested.</div>
+                                <div><strong class="text-white">No infrastructure changes in your project</strong> — creating a key never touches your GCP org, IAM, or logging configuration.</div>
                             </div>
                         </div>
-                        <p class="text-xs text-white italic">The engine applies a <strong class="text-white">zero-retention policy</strong> — logs are analyzed in-stream and immediately discarded. No log data is stored on Cybat infrastructure.</p>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 4: Verify Detection is Active</h2>
-                        <p class="text-sm text-white">Return to the Intelligence Portal. Within 2–5 minutes of the provisioning script completing, you should see:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
-                            <li>Your GCP project listed as <strong class="text-ai-mint">Connected</strong> in the dashboard sidebar.</li>
-                            <li>The 3D Threat Globe populating with activity from your infrastructure's geographic log sources.</li>
-                            <li>Any detected threats appearing in the Incident feed with Gemini-generated analysis and enforcement status.</li>
-                        </ul>
-                        <p class="text-sm text-white">If no incidents appear within 10 minutes, confirm that Cloud Logging is enabled on your internet-facing workloads and that the Log Sink filter matches active log names.</p>
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 4: Install the SDK</h2>
+                        <p class="text-sm text-white">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, no log shipping agents.</p>
+
+                        <div class="space-y-3 text-xs text-white">
+                            <p class="text-ai-mint uppercase tracking-widest text-[10px]">Node.js / Express</p>
+                            <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">npm install @cybat/sdk-node</pre>
+                            <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">import { cybatExpress } from '@cybat/sdk-node'
+
+app.use(cybatExpress({
+  apiKey: process.env.CYBAT_API_KEY,
+  gcpProjectId: 'your-gcp-project', // enables automatic blocking
+}))</pre>
+                            <p>Set <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-white/10 px-1 rounded text-ai-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.securityAdmin</code> + <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
+                            <p class="italic text-white">Python and Go SDKs are on the roadmap — reach out if you need one sooner.</p>
+                        </div>
+
+                        <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-white">
+                            <strong class="text-red-400 uppercase tracking-widest text-[10px]">Behind a load balancer or reverse proxy?</strong>
+                            <p class="mt-2">Set <code class="bg-white/10 px-1 rounded text-ai-lavender">app.set('trust proxy', ...)</code> so the SDK reads the real client IP from <code class="bg-white/10 px-1 rounded text-ai-lavender">X-Forwarded-For</code> instead of your proxy's own address.</p>
+                        </div>
                     </div>
 
-                    <!-- Log Shipping -->
-                    <div class="space-y-6 border-t border-white/10 pt-8 mt-8">
-                        <div>
-                            <h2 class="text-xl font-heading font-bold text-white uppercase italic mb-2">Configuring Log Shipping</h2>
-                            <p class="text-sm text-white">GKE and Cloud Run automatically forward logs to Cloud Logging. For all other workloads — VMs, bare-metal, and self-hosted Docker — you must configure log shipping explicitly. Choose the scenario that matches your setup.</p>
-                        </div>
-
-                        <!-- Scenario 1: Ops Agent -->
-                        <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
-                            <div class="flex items-center gap-3">
-                                <span class="bg-ai-lavender/20 text-ai-lavender text-[10px] font-mono px-2 py-1 rounded uppercase tracking-widest">Scenario A</span>
-                                <h3 class="font-heading font-bold text-white uppercase">GCE VM or On-Premise Server — Google Cloud Ops Agent</h3>
-                            </div>
-                            <p class="text-xs text-white">Required when your application runs directly on a Compute Engine VM or an on-prem server (connected via Cloud VPN). This covers: apps running natively on a VM, NGINX/Apache as a system service, or Docker containers on a VM that is not managed by GKE.</p>
-                            <div class="space-y-3 text-xs text-white">
-                                <p class="text-ai-mint uppercase tracking-widest text-[10px]">Install the Ops Agent</p>
-                                <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender text-xs leading-relaxed">curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
-sudo bash add-google-cloud-ops-agent-repo.sh --also-install</pre>
-                                <p>The VM's service account must have <code class="bg-white/10 px-1 rounded text-ai-lavender">roles/logging.logWriter</code>. Once installed, the Ops Agent automatically tails system logs and can be configured to tail your application's access log file via <code class="bg-white/10 px-1 rounded text-ai-lavender">/etc/google-cloud-ops-agent/config.yaml</code>.</p>
-                                <p class="italic text-white">Not needed for: GKE (Fluent Bit built-in), Cloud Run (stdout auto-shipped), App Engine (automatic).</p>
-                            </div>
-                        </div>
-
-                        <!-- Scenario 2: Docker gcplogs -->
-                        <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
-                            <div class="flex items-center gap-3">
-                                <span class="bg-ai-mint/20 text-ai-mint text-[10px] font-mono px-2 py-1 rounded uppercase tracking-widest">Scenario B</span>
-                                <h3 class="font-heading font-bold text-white uppercase">Docker on a VM — gcplogs Log Driver</h3>
-                            </div>
-                            <p class="text-xs text-white">For Docker containers running on any VM or host (not GKE). Docker ships a built-in <code class="bg-white/10 px-1 rounded text-ai-lavender">gcplogs</code> driver that sends container stdout/stderr directly to Cloud Logging. The host VM's service account needs <code class="bg-white/10 px-1 rounded text-ai-lavender">roles/logging.logWriter</code>.</p>
-
-                            <div class="space-y-4 text-xs text-white">
-                                <div>
-                                    <p class="text-ai-mint uppercase tracking-widest text-[10px] mb-2">Option A — Per container (docker run)</p>
-                                    <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">docker run \
-  --log-driver=gcplogs \
-  --log-opt gcp-project=YOUR_PROJECT_ID \
-  --log-opt gcp-log-cmd=true \
-  your-image</pre>
-                                </div>
-                                <div>
-                                    <p class="text-ai-mint uppercase tracking-widest text-[10px] mb-2">Option B — docker-compose</p>
-                                    <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">services:
-  app:
-    image: your-image
-    logging:
-      driver: gcplogs
-      options:
-        gcp-project: YOUR_PROJECT_ID
-        gcp-log-cmd: "true"</pre>
-                                </div>
-                                <div>
-                                    <p class="text-ai-mint uppercase tracking-widest text-[10px] mb-2">Option C — Default for all containers (/etc/docker/daemon.json)</p>
-                                    <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">{
-  "log-driver": "gcplogs",
-  "log-opts": {
-    "gcp-project": "YOUR_PROJECT_ID"
-  }
-}</pre>
-                                    <p class="mt-2">Then restart Docker: <code class="bg-white/10 px-1 rounded text-ai-lavender">sudo systemctl restart docker</code></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- What your app must log -->
-                        <div class="bg-ai-navy/50 border border-ai-lavender/20 rounded-lg p-6 space-y-4">
-                            <h3 class="font-heading font-bold text-ai-lavender uppercase">What Your Application Must Log</h3>
-                            <p class="text-xs text-white">This requirement applies to <strong class="text-white">every application</strong> you want Cybat to monitor, regardless of deployment platform. Cybat identifies threats from the source IP in each log record — without it, no analysis or enforcement is possible.</p>
-                            <p class="text-xs text-white">Log every inbound HTTP request received from external networks using <strong class="text-white">Apache Combined Log Format</strong> or its structured JSON equivalent. Do not limit logging to errors only — the engine detects attack patterns across the full request history.</p>
-
-                            <div class="space-y-3 text-xs text-white">
-                                <p class="text-ai-lavender uppercase tracking-widest text-[10px]">Apache Combined Log Format</p>
-                                <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"
-
-# Example:
-203.0.113.42 - - [30/Apr/2026:14:22:01 +0000] "GET /api/users HTTP/1.1" 200 1234 "-" "Mozilla/5.0"</pre>
-                            </div>
-
-                            <div class="space-y-3 text-xs text-white">
-                                <p class="text-ai-lavender uppercase tracking-widest text-[10px]">Structured JSON (recommended — enables richer field extraction)</p>
-                                <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">{
-  "ip": "203.0.113.42",
-  "method": "GET",
-  "request": "/api/users",
-  "status": 200,
-  "bytes": 1234,
-  "userAgent": "Mozilla/5.0",
-  "timestamp": "2026-04-30T14:22:01Z"
-}</pre>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-3 text-xs text-white pt-2">
-                                <div class="bg-white/5 border border-white/10 rounded p-3">
-                                    <p class="text-ai-mint uppercase tracking-widest text-[10px] mb-2">Framework quick reference</p>
-                                    <ul class="space-y-1.5 text-white">
-                                        <li><span class="text-ai-lavender">NGINX</span> — enable <code class="bg-white/10 px-1 rounded">access_log</code> with combined or JSON format</li>
-                                        <li><span class="text-ai-lavender">Node / Express</span> — use <code class="bg-white/10 px-1 rounded">morgan('combined')</code> or a JSON middleware</li>
-                                        <li><span class="text-ai-lavender">Python / Flask or FastAPI</span> — log <code class="bg-white/10 px-1 rounded">request.remote_addr</code> in a before-request hook</li>
-                                        <li><span class="text-ai-lavender">Go / Gin</span> — use <code class="bg-white/10 px-1 rounded">gin.Logger()</code> or a custom access-log middleware</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-red-950/20 border border-red-500/20 rounded p-3">
-                                    <p class="text-red-400 uppercase tracking-widest text-[10px] mb-2">Do not log</p>
-                                    <ul class="space-y-1.5 text-white">
-                                        <li>Internal health-check endpoints (pod-to-pod traffic)</li>
-                                        <li>Traffic originating inside the VPC with no external IP</li>
-                                        <li>Plaintext unstructured lines with no parseable IP field</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Step 5 -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 5: Verify Detection is Active</h2>
+                        <p class="text-sm text-white">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
+                            <li>Your app listed as <strong class="text-ai-mint">Connected</strong> in the dashboard sidebar.</li>
+                            <li>The 3D Threat Globe populating with activity from your traffic's geographic origins.</li>
+                            <li>Any detected threats appearing in the Incident feed with Gemini-generated analysis and enforcement status.</li>
+                        </ul>
+                        <p class="text-sm text-white">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
                     </div>
 
                     <div class="space-y-4 border-t border-white/10 pt-8 mt-8">
