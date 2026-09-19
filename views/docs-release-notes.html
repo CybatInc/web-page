@@ -5,45 +5,45 @@
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/4 hidden lg:block">
-            <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white mb-6">Documentation Index</h3>
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
-                    <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
-                    <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
-                    <a href="#/docs/user-guide" class="block text-white hover:text-ai-mint transition-colors">User Guide</a>
-                    <a href="#/docs/release-notes" class="block text-white hover:text-ai-mint transition-colors font-bold text-ai-lavender">Release Notes</a>
-                    <a href="#/docs/security-specs" class="block text-white hover:text-ai-mint transition-colors">Security Specs</a>
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
                 </nav>
             </div>
         </div>
 
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-black mb-6 uppercase tracking-tighter italic">Release Notes<span class="text-ai-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">Release Notes<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-10 font-mono text-white">
+                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-10 font-mono text-ink">
                     <p class="text-lg leading-relaxed">
                         Changelog for the Cybat Intelligence Engine. Each release covers engine logic improvements, platform features, and infrastructure changes.
                     </p>
 
                     <!-- v2.0.0 -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
-                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 2.0.0</h2>
-                            <span class="bg-ai-mint/20 text-ai-mint text-[10px] px-2 py-1 rounded">LATEST</span>
-                            <span class="text-xs text-white ml-auto">September 2026</span>
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-xl font-heading font-bold text-ink">Version 2.0.0</h2>
+                            <span class="bg-mint/20 text-mint text-[10px] px-2 py-1 rounded">LATEST</span>
+                            <span class="text-xs text-ink ml-auto">September 2026</span>
                         </div>
 
-                        <div class="space-y-5 text-sm text-white">
+                        <div class="space-y-5 text-sm text-ink">
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">SDK-Based Ingestion</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">@cybat/sdk-node:</strong> A new npm package (<code class="bg-white/10 px-1 rounded text-ai-lavender">@cybat/sdk-node</code>) installs as Express middleware and streams captured HTTP traffic directly to Cybat — no GCP org-level Log Sink, no IAM grant at onboarding. Python and Go SDKs are planned next.</li>
-                                    <li><strong class="text-white">API Gateway + API Keys:</strong> A new <em>API Keys</em> page in the Intelligence Dashboard lets org admins create, name, expire, and instantly revoke keys used by the SDK. Every request is validated by API Gateway at the network edge before reaching Cybat compute — revocation is checked live, not cached.</li>
-                                    <li><strong class="text-white">Serverless Ingestion Pipeline:</strong> SDK traffic flows through a new serverless <code class="bg-white/10 px-1 rounded text-ai-lavender">ingest-api</code> Cloud Run service and a shared Pub/Sub topic, replacing the GKE Autopilot Fluent Bit pipeline for new customers — no idle cluster, scales to zero between attacks.</li>
-                                    <li><strong class="text-white">Configurable Enforcement Target:</strong> The SDK accepts a <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> option at initiation, telling the engine which project to enforce blocks against. Detection and alerting work with or without it; automatic blocking requires it.</li>
-                                    <li><strong class="text-white">Automatic Key Revocation on Cancellation:</strong> When a Marketplace subscription is canceled or suspended, every API key for that org is revoked automatically — no manual cleanup, ingestion stops immediately.</li>
+                                <p class="text-mint text-xs mb-2">SDK-Based Ingestion</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">@cybat/sdk-node:</strong> A new npm package (<code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>) installs as Express middleware and streams captured HTTP traffic directly to Cybat — no GCP org-level Log Sink, no IAM grant at onboarding. Python and Go SDKs are planned next.</li>
+                                    <li><strong class="text-ink">API Gateway + API Keys:</strong> A new <em>API Keys</em> page in the Intelligence Dashboard lets org admins create, name, expire, and instantly revoke keys used by the SDK. Every request is validated by API Gateway at the network edge before reaching Cybat compute — revocation is checked live, not cached.</li>
+                                    <li><strong class="text-ink">Serverless Ingestion Pipeline:</strong> SDK traffic flows through a new serverless <code class="bg-lavender-pale px-1 rounded text-lavender">ingest-api</code> Cloud Run service and a shared Pub/Sub topic, replacing the GKE Autopilot Fluent Bit pipeline for new customers — no idle cluster, scales to zero between attacks.</li>
+                                    <li><strong class="text-ink">Configurable Enforcement Target:</strong> The SDK accepts a <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> option at initiation, telling the engine which project to enforce blocks against. Detection and alerting work with or without it; automatic blocking requires it.</li>
+                                    <li><strong class="text-ink">Automatic Key Revocation on Cancellation:</strong> When a Marketplace subscription is canceled or suspended, every API key for that org is revoked automatically — no manual cleanup, ingestion stops immediately.</li>
                                 </ul>
                             </div>
 
@@ -52,20 +52,20 @@
 
                     <!-- v1.2.0 -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
-                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.2.0</h2>
-                            <span class="text-xs text-white ml-auto">May 2026</span>
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-xl font-heading font-bold text-ink">Version 1.2.0</h2>
+                            <span class="text-xs text-ink ml-auto">May 2026</span>
                         </div>
 
-                        <div class="space-y-5 text-sm text-white">
+                        <div class="space-y-5 text-sm text-ink">
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Threat Intelligence</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Google Threat Intelligence Enrichment:</strong> The AI analysis pipeline now queries the Google Threat Intelligence API (VirusTotal v3) for every IP in a batch before invoking Gemini. Reputation score, vendor malicious/suspicious vote counts, ASN name, and country are injected directly into the Gemini prompt, giving the model external context it would otherwise lack.</li>
-                                    <li><strong class="text-white">6-Hour Reputation Cache:</strong> GTI results are cached in Firestore under <code class="bg-white/10 px-1 rounded text-ai-lavender">gti_cache/{ip_hash}</code> with a 6-hour TTL. The same IP seen again within that window skips the external API call entirely, keeping latency low and API quota consumption minimal.</li>
-                                    <li><strong class="text-white">Graceful Degradation:</strong> GTI lookups run in parallel with existing history queries. Individual API failures are swallowed per-IP — the pipeline completes normally with a "no GTI data available" note in the prompt for that IP, never blocking enforcement.</li>
-                                    <li><strong class="text-white">Zero Logic Change:</strong> GTI data enriches the prompt context only. Threat level classification, enforcement decisions, and blocking thresholds remain under Gemini's control — GTI does not hard-override verdicts.</li>
+                                <p class="text-mint text-xs mb-2">Threat Intelligence</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Google Threat Intelligence Enrichment:</strong> The AI analysis pipeline now queries the Google Threat Intelligence API (VirusTotal v3) for every IP in a batch before invoking Gemini. Reputation score, vendor malicious/suspicious vote counts, ASN name, and country are injected directly into the Gemini prompt, giving the model external context it would otherwise lack.</li>
+                                    <li><strong class="text-ink">6-Hour Reputation Cache:</strong> GTI results are cached in Firestore under <code class="bg-lavender-pale px-1 rounded text-lavender">gti_cache/{ip_hash}</code> with a 6-hour TTL. The same IP seen again within that window skips the external API call entirely, keeping latency low and API quota consumption minimal.</li>
+                                    <li><strong class="text-ink">Graceful Degradation:</strong> GTI lookups run in parallel with existing history queries. Individual API failures are swallowed per-IP — the pipeline completes normally with a "no GTI data available" note in the prompt for that IP, never blocking enforcement.</li>
+                                    <li><strong class="text-ink">Zero Logic Change:</strong> GTI data enriches the prompt context only. Threat level classification, enforcement decisions, and blocking thresholds remain under Gemini's control — GTI does not hard-override verdicts.</li>
                                 </ul>
                             </div>
 
@@ -74,48 +74,48 @@
 
                     <!-- v1.1.0 -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
-                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.1.0</h2>
-                            <span class="text-xs text-white ml-auto">May 2026</span>
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-xl font-heading font-bold text-ink">Version 1.1.0</h2>
+                            <span class="text-xs text-ink ml-auto">May 2026</span>
                         </div>
 
-                        <div class="space-y-5 text-sm text-white">
+                        <div class="space-y-5 text-sm text-ink">
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">IP Whitelist</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Admin Whitelist Management:</strong> Org admins can now maintain an IP whitelist from a dedicated <em>Whitelist</em> menu item in the Intelligence Dashboard. Each entry stores the IP address, an optional note, the admin who added it, and the timestamp.</li>
-                                    <li><strong class="text-white">Full Pipeline Skip:</strong> Whitelisted IPs are filtered out before AI analysis and before enforcement. The entire Gemini invocation is skipped — no AI quota consumed, no Slack alert sent, and no firewall rule created for any IP on the whitelist.</li>
-                                    <li><strong class="text-white">Enforcement Guard:</strong> A secondary whitelist check inside the enforcement service ensures that even if a whitelisted IP reaches the enforcement step (e.g. from a cached verdict), the block rule is never applied.</li>
-                                    <li><strong class="text-white">Org-Scoped:</strong> Whitelist entries are stored under <code class="bg-white/10 px-1 rounded text-ai-lavender">organizations/{orgId}/whitelist/{ip}</code>. Entries from one org do not affect any other org.</li>
+                                <p class="text-mint text-xs mb-2">IP Whitelist</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Admin Whitelist Management:</strong> Org admins can now maintain an IP whitelist from a dedicated <em>Whitelist</em> menu item in the Intelligence Dashboard. Each entry stores the IP address, an optional note, the admin who added it, and the timestamp.</li>
+                                    <li><strong class="text-ink">Full Pipeline Skip:</strong> Whitelisted IPs are filtered out before AI analysis and before enforcement. The entire Gemini invocation is skipped — no AI quota consumed, no Slack alert sent, and no firewall rule created for any IP on the whitelist.</li>
+                                    <li><strong class="text-ink">Enforcement Guard:</strong> A secondary whitelist check inside the enforcement service ensures that even if a whitelisted IP reaches the enforcement step (e.g. from a cached verdict), the block rule is never applied.</li>
+                                    <li><strong class="text-ink">Org-Scoped:</strong> Whitelist entries are stored under <code class="bg-lavender-pale px-1 rounded text-lavender">organizations/{orgId}/whitelist/{ip}</code>. Entries from one org do not affect any other org.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Feedback & Manual Unblock</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Thumbs-Down Unblock Modal:</strong> When an admin marks a <em>blocked</em> incident as incorrect (👎), a confirmation dialog appears asking whether to unblock the IP. Choosing <strong>Yes</strong> removes the Cloud Armor or VPC Firewall rule immediately and updates the incident status to <code class="bg-white/10 px-1 rounded text-ai-lavender">expired</code>, recording who unblocked it and when.</li>
-                                    <li><strong class="text-white">Non-Blocked Feedback Unchanged:</strong> Clicking 👎 on a detected (non-blocked) incident submits feedback directly with no modal, preserving the existing fast-path behavior.</li>
-                                    <li><strong class="text-white">Org-Level Enforcement:</strong> The unblock API validates that the incident belongs to the requesting admin's organization. Cross-org unblock requests are rejected.</li>
+                                <p class="text-lavender text-xs mb-2">Feedback & Manual Unblock</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Thumbs-Down Unblock Modal:</strong> When an admin marks a <em>blocked</em> incident as incorrect (👎), a confirmation dialog appears asking whether to unblock the IP. Choosing <strong>Yes</strong> removes the Cloud Armor or VPC Firewall rule immediately and updates the incident status to <code class="bg-lavender-pale px-1 rounded text-lavender">expired</code>, recording who unblocked it and when.</li>
+                                    <li><strong class="text-ink">Non-Blocked Feedback Unchanged:</strong> Clicking 👎 on a detected (non-blocked) incident submits feedback directly with no modal, preserving the existing fast-path behavior.</li>
+                                    <li><strong class="text-ink">Org-Level Enforcement:</strong> The unblock API validates that the incident belongs to the requesting admin's organization. Cross-org unblock requests are rejected.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Dashboard</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Severity Breakdown Cards:</strong> The top metric bar now shows five cards — <em>High Severity</em>, <em>Medium Severity</em>, <em>Low Severity</em>, <em>Blocked IPs</em>, and <em>Whitelisted IPs</em> — replacing the single "Total Alerts" counter. Each card links to a filtered incident view.</li>
-                                    <li><strong class="text-white">Whitelist View:</strong> A new admin-only <em>Whitelist</em> page lists all whitelisted IPs with note, added-by, and date columns, plus an inline form to add or remove entries immediately.</li>
+                                <p class="text-mint text-xs mb-2">Dashboard</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Severity Breakdown Cards:</strong> The top metric bar now shows five cards — <em>High Severity</em>, <em>Medium Severity</em>, <em>Low Severity</em>, <em>Blocked IPs</em>, and <em>Whitelisted IPs</em> — replacing the single "Total Alerts" counter. Each card links to a filtered incident view.</li>
+                                    <li><strong class="text-ink">Whitelist View:</strong> A new admin-only <em>Whitelist</em> page lists all whitelisted IPs with note, added-by, and date columns, plus an inline form to add or remove entries immediately.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Infrastructure & Operations</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Cloud Scheduler — Usage Reporting:</strong> A Cloud Scheduler job now triggers <code class="bg-white/10 px-1 rounded text-ai-lavender">/report-usage</code> at five minutes past every hour, ensuring GCP Marketplace billing records are submitted on time without manual intervention.</li>
-                                    <li><strong class="text-white">Cloud Scheduler — Block Cleanup:</strong> A second Cloud Scheduler job runs <code class="bg-white/10 px-1 rounded text-ai-lavender">/cleanup</code> every 6 hours, removing expired Cloud Armor and VPC Firewall rules to reduce GCP rule-set size and cost.</li>
-                                    <li><strong class="text-white">Auto-Generated Scheduler Token:</strong> The authentication token used by both Cloud Scheduler jobs is now generated automatically via Terraform (<code class="bg-white/10 px-1 rounded text-ai-lavender">random_password</code>) and stored in Secret Manager. No manual token management is required.</li>
-                                    <li><strong class="text-white">Usage Export API:</strong> The <code class="bg-white/10 px-1 rounded text-ai-lavender">/report-usage</code> endpoint now accepts <code class="bg-white/10 px-1 rounded text-ai-lavender">?from=&amp;to=</code> query parameters for time-range filtering and <code class="bg-white/10 px-1 rounded text-ai-lavender">?format=csv</code> for a downloadable CSV export — useful for audit submissions to the GCP Marketplace team.</li>
-                                    <li><strong class="text-white">Firestore Composite Indexes:</strong> Two new composite indexes (usage reporting and active-block lookups) are now provisioned via Terraform, resolving FAILED_PRECONDITION errors that appeared in high-traffic scenarios.</li>
+                                <p class="text-lavender text-xs mb-2">Infrastructure & Operations</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Cloud Scheduler — Usage Reporting:</strong> A Cloud Scheduler job now triggers <code class="bg-lavender-pale px-1 rounded text-lavender">/report-usage</code> at five minutes past every hour, ensuring GCP Marketplace billing records are submitted on time without manual intervention.</li>
+                                    <li><strong class="text-ink">Cloud Scheduler — Block Cleanup:</strong> A second Cloud Scheduler job runs <code class="bg-lavender-pale px-1 rounded text-lavender">/cleanup</code> every 6 hours, removing expired Cloud Armor and VPC Firewall rules to reduce GCP rule-set size and cost.</li>
+                                    <li><strong class="text-ink">Auto-Generated Scheduler Token:</strong> The authentication token used by both Cloud Scheduler jobs is now generated automatically via Terraform (<code class="bg-lavender-pale px-1 rounded text-lavender">random_password</code>) and stored in Secret Manager. No manual token management is required.</li>
+                                    <li><strong class="text-ink">Usage Export API:</strong> The <code class="bg-lavender-pale px-1 rounded text-lavender">/report-usage</code> endpoint now accepts <code class="bg-lavender-pale px-1 rounded text-lavender">?from=&amp;to=</code> query parameters for time-range filtering and <code class="bg-lavender-pale px-1 rounded text-lavender">?format=csv</code> for a downloadable CSV export — useful for audit submissions to the GCP Marketplace team.</li>
+                                    <li><strong class="text-ink">Firestore Composite Indexes:</strong> Two new composite indexes (usage reporting and active-block lookups) are now provisioned via Terraform, resolving FAILED_PRECONDITION errors that appeared in high-traffic scenarios.</li>
                                 </ul>
                             </div>
 
@@ -124,55 +124,55 @@
 
                     <!-- v1.0.0 -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4 border-b border-white/10 pb-3">
-                            <h2 class="text-xl font-heading font-bold text-white uppercase italic">Version 1.0.0</h2>
-                            <span class="text-xs text-white ml-auto">April 2026</span>
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-xl font-heading font-bold text-ink">Version 1.0.0</h2>
+                            <span class="text-xs text-ink ml-auto">April 2026</span>
                         </div>
 
-                        <div class="space-y-5 text-sm text-white">
+                        <div class="space-y-5 text-sm text-ink">
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Ingestion Pipeline</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">GKE Ingestion Layer:</strong> Pub/Sub bridge and Fluent Bit run as a sidecar pair on GKE. The bridge continuously pulls per-organization subscriptions (<code class="bg-white/10 px-1 rounded text-ai-lavender">soc-logs-{orgId}-sub</code>), injects routing metadata, and forwards records to Fluent Bit's HTTP input. Fluent Bit applies a Lua context filter to extract source IPs before forwarding to the SOC agent via an OIDC-authenticated egress proxy — all within the same pod.</li>
-                                    <li><strong class="text-white">Multi-tenant Subscription Discovery:</strong> The bridge automatically discovers all active per-org Pub/Sub subscriptions on a 60-second refresh cycle, requiring no manual configuration when new organizations onboard.</li>
-                                    <li><strong class="text-white">Zero-ETL Latency:</strong> End-to-end pipeline lag from log emission to Cloud Run SOC agent is consistently under 7 seconds in steady state.</li>
+                                <p class="text-mint text-xs mb-2">Ingestion Pipeline</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">GKE Ingestion Layer:</strong> Pub/Sub bridge and Fluent Bit run as a sidecar pair on GKE. The bridge continuously pulls per-organization subscriptions (<code class="bg-lavender-pale px-1 rounded text-lavender">soc-logs-{orgId}-sub</code>), injects routing metadata, and forwards records to Fluent Bit's HTTP input. Fluent Bit applies a Lua context filter to extract source IPs before forwarding to the SOC agent via an OIDC-authenticated egress proxy — all within the same pod.</li>
+                                    <li><strong class="text-ink">Multi-tenant Subscription Discovery:</strong> The bridge automatically discovers all active per-org Pub/Sub subscriptions on a 60-second refresh cycle, requiring no manual configuration when new organizations onboard.</li>
+                                    <li><strong class="text-ink">Zero-ETL Latency:</strong> End-to-end pipeline lag from log emission to Cloud Run SOC agent is consistently under 7 seconds in steady state.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">AI Threat Analysis</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Vertex AI Gemini 2.5 Flash Lite:</strong> The SOC agent sends per-IP log batches to Gemini 2.5 Flash Lite via Vertex AI. The model returns a structured verdict (threat level + explanation) with automatic retry on transient failures.</li>
-                                    <li><strong class="text-white">24-Hour Verdict Cache:</strong> IP verdicts are cached in Firestore using HMAC-SHA256 hashed IP keys for 24 hours. Repeat offenders are blocked instantly without consuming AI quota.</li>
-                                    <li><strong class="text-white">1-Hour History Window:</strong> The agent considers the last 60 minutes of activity per IP to give Gemini full behavioral context, improving detection of slow-burn and distributed attacks.</li>
-                                    <li><strong class="text-white">Duplicate Enforcement Guard:</strong> A per-IP enforcement lock prevents redundant firewall or Cloud Armor rule creation if multiple batches arrive concurrently for the same IP.</li>
+                                <p class="text-lavender text-xs mb-2">AI Threat Analysis</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Vertex AI Gemini 2.5 Flash Lite:</strong> The SOC agent sends per-IP log batches to Gemini 2.5 Flash Lite via Vertex AI. The model returns a structured verdict (threat level + explanation) with automatic retry on transient failures.</li>
+                                    <li><strong class="text-ink">24-Hour Verdict Cache:</strong> IP verdicts are cached in Firestore using HMAC-SHA256 hashed IP keys for 24 hours. Repeat offenders are blocked instantly without consuming AI quota.</li>
+                                    <li><strong class="text-ink">1-Hour History Window:</strong> The agent considers the last 60 minutes of activity per IP to give Gemini full behavioral context, improving detection of slow-burn and distributed attacks.</li>
+                                    <li><strong class="text-ink">Duplicate Enforcement Guard:</strong> A per-IP enforcement lock prevents redundant firewall or Cloud Armor rule creation if multiple batches arrive concurrently for the same IP.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Enforcement</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Dual Enforcement Layer:</strong> VPC Firewall deny rules are attempted first (Layer 3/4). If the VPC network cannot be resolved from the log's subnet labels, the engine falls back to a Cloud Armor IP deny rule (Layer 7) on the Load Balancer.</li>
-                                    <li><strong class="text-white">Per-Project Scoping:</strong> Enforcement is applied to the specific GCP project identified in the log's <code class="bg-white/10 px-1 rounded text-ai-lavender">resource.labels.project_id</code> or <code class="bg-white/10 px-1 rounded text-ai-lavender">logName</code> field — not globally, preserving blast-radius isolation in multi-project organizations.</li>
+                                <p class="text-lavender text-xs mb-2">Enforcement</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Dual Enforcement Layer:</strong> VPC Firewall deny rules are attempted first (Layer 3/4). If the VPC network cannot be resolved from the log's subnet labels, the engine falls back to a Cloud Armor IP deny rule (Layer 7) on the Load Balancer.</li>
+                                    <li><strong class="text-ink">Per-Project Scoping:</strong> Enforcement is applied to the specific GCP project identified in the log's <code class="bg-lavender-pale px-1 rounded text-lavender">resource.labels.project_id</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">logName</code> field — not globally, preserving blast-radius isolation in multi-project organizations.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Platform & Dashboard</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">Intelligence Dashboard:</strong> Real-time threat command center at <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-ai-lavender hover:text-white transition-colors">intelligence.cybat.co</a>. Features a 3D Threat Globe, live incident feed, and full incident detail panels with Gemini analysis and enforcement history.</li>
-                                    <li><strong class="text-white">Google SSO:</strong> All access is gated by Google Identity. No separate credentials are required — users sign in with their existing Google Workspace account.</li>
-                                    <li><strong class="text-white">Slack Alerting:</strong> Every high and medium incident dispatches a structured Slack notification to the organization's configured webhook, including source IP, geo location, threat explanation, and enforcement outcome.</li>
-                                    <li><strong class="text-white">Firestore Incident Store:</strong> All incidents, AI verdicts, log evidence, and enforcement records are persisted to Firestore under <code class="bg-white/10 px-1 rounded text-ai-lavender">orgs/{orgId}/incidents</code>, enabling full audit trails and historical review.</li>
+                                <p class="text-mint text-xs mb-2">Platform & Dashboard</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Intelligence Dashboard:</strong> Real-time threat command center at <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink transition-colors">intelligence.cybat.co</a>. Features a 3D Threat Globe, live incident feed, and full incident detail panels with Gemini analysis and enforcement history.</li>
+                                    <li><strong class="text-ink">Google SSO:</strong> All access is gated by Google Identity. No separate credentials are required — users sign in with their existing Google Workspace account.</li>
+                                    <li><strong class="text-ink">Slack Alerting:</strong> Every high and medium incident dispatches a structured Slack notification to the organization's configured webhook, including source IP, geo location, threat explanation, and enforcement outcome.</li>
+                                    <li><strong class="text-ink">Firestore Incident Store:</strong> All incidents, AI verdicts, log evidence, and enforcement records are persisted to Firestore under <code class="bg-lavender-pale px-1 rounded text-lavender">orgs/{orgId}/incidents</code>, enabling full audit trails and historical review.</li>
                                 </ul>
                             </div>
 
                             <div>
-                                <p class="text-white text-xs uppercase tracking-widest mb-2">Marketplace & Billing</p>
-                                <ul class="list-disc pl-6 space-y-2 text-white">
-                                    <li><strong class="text-white">GCP Marketplace Integration:</strong> Available on the Google Cloud Marketplace with Starter, Professional, and Enterprise tiers. Billing is metered through GCP Service Control — charges appear on your existing GCP bill with no separate invoice.</li>
-                                    <li><strong class="text-white">Entitlement-Based Activation:</strong> The SOC agent validates your active Marketplace entitlement via Service Control <code class="bg-white/10 px-1 rounded text-ai-lavender">services.check</code> before processing any logs. Expired or canceled subscriptions halt enforcement within one billing cycle.</li>
+                                <p class="text-ink text-xs mb-2">Marketplace & Billing</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">GCP Marketplace Integration:</strong> Available on the Google Cloud Marketplace with Starter, Professional, and Enterprise tiers. Billing is metered through GCP Service Control — charges appear on your existing GCP bill with no separate invoice.</li>
+                                    <li><strong class="text-ink">Entitlement-Based Activation:</strong> The SOC agent validates your active Marketplace entitlement via Service Control <code class="bg-lavender-pale px-1 rounded text-lavender">services.check</code> before processing any logs. Expired or canceled subscriptions halt enforcement within one billing cycle.</li>
                                 </ul>
                             </div>
                         </div>

@@ -7,14 +7,14 @@
 
         <!-- Sidebar Navigation -->
         <div class="lg:w-1/4 hidden lg:block">
-            <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white mb-6">Documentation Index</h3>
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
-                    <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
-                    <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors font-bold text-ai-lavender">Getting Started</a>
-                    <a href="#/docs/user-guide" class="block text-white hover:text-ai-mint transition-colors">User Guide</a>
-                    <a href="#/docs/release-notes" class="block text-white hover:text-ai-mint transition-colors">Release Notes</a>
-                    <a href="#/docs/security-specs" class="block text-white hover:text-ai-mint transition-colors">Security Specs</a>
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Getting Started</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
                 </nav>
             </div>
         </div>
@@ -22,129 +22,129 @@
         <!-- Main Content -->
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-black mb-6 uppercase tracking-tighter italic">Getting Started<span class="text-ai-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">Getting Started<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-4 font-mono text-white">
+                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-4 font-mono text-ink">
                     <p class="text-lg leading-relaxed">
                         Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 10 minutes. Follow these steps to start protecting your application.
                     </p>
 
                     <!-- Prerequisites -->
-                    <div class="space-y-4 bg-ai-navy/50 border border-ai-lavender/20 rounded-lg p-6">
-                        <h2 class="text-xl font-heading font-bold text-ai-lavender uppercase italic">Prerequisites</h2>
-                        <p class="text-sm text-white">Before subscribing, confirm the following. There's no log export or org-level IAM to configure — just an app that can install a small SDK dependency.</p>
+                    <div class="space-y-4 bg-white border border-lavender/20 rounded-lg p-6">
+                        <h2 class="text-xl font-heading font-bold text-lavender">Prerequisites</h2>
+                        <p class="text-sm text-ink">Before subscribing, confirm the following. There's no log export or org-level IAM to configure — just an app that can install a small SDK dependency.</p>
                         <div class="grid md:grid-cols-2 gap-4 text-sm">
                             <div>
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
-                                <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> A GCP billing account for Marketplace subscription</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> A Node.js, Python, or Go application receiving HTTP traffic</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Ability to add one middleware line to your app's request pipeline</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint">✓</span> Slack workspace + Incoming Webhook URL for alert delivery</li>
+                                <p class="text-mint text-xs mb-2">Required</p>
+                                <ul class="space-y-2 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> A GCP billing account for Marketplace subscription</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> A Node.js, Python, or Go application receiving HTTP traffic</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Ability to add one middleware line to your app's request pipeline</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Slack workspace + Incoming Webhook URL for alert delivery</li>
                                 </ul>
                             </div>
                             <div>
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Strongly Recommended</p>
-                                <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> Know the GCP project ID your app runs in — unlocks automatic blocking (VPC Firewall / Cloud Armor), not just detection</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender">+</span> A dedicated secret store for the API key (e.g. Secret Manager) — it's shown once at creation</li>
+                                <p class="text-lavender text-xs mb-2">Strongly Recommended</p>
+                                <ul class="space-y-2 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-lavender">+</span> Know the GCP project ID your app runs in — unlocks automatic blocking (VPC Firewall / Cloud Armor), not just detection</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender">+</span> A dedicated secret store for the API key (e.g. Secret Manager) — it's shown once at creation</li>
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-xs text-white italic border-t border-white/10 pt-4">For the full SDK wire contract and enforcement requirements, see the <a href="#/docs/security-specs" class="text-ai-lavender hover:text-white transition-colors underline">Security Specs</a> page.</p>
+                        <p class="text-xs text-ink border-t border-lavender-pale pt-4">For the full SDK wire contract and enforcement requirements, see the <a href="#/docs/security-specs" class="text-lavender hover:text-ink transition-colors underline">Security Specs</a> page.</p>
                     </div>
 
                     <!-- Step 1 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 1: Subscribe via Google Cloud Marketplace</h2>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
-                            <li>Navigate to the <strong class="text-white">Google Cloud Console</strong> and open the <strong class="text-white">Marketplace</strong>.</li>
-                            <li>Search for <strong class="text-white">Cybat Intelligence Engine</strong> and open the product listing.</li>
-                            <li>Select your billing account and the appropriate plan (Starter, Professional, or Enterprise), then click <strong class="text-white">Subscribe</strong>.</li>
-                            <li>Accept the Terms of Service. Once the subscription is confirmed, click <strong class="text-white">Register with Cybat</strong> — you will be redirected to the Cybat Intelligence Portal.</li>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 1: Subscribe via Google Cloud Marketplace</h2>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                            <li>Navigate to the <strong class="text-ink">Google Cloud Console</strong> and open the <strong class="text-ink">Marketplace</strong>.</li>
+                            <li>Search for <strong class="text-ink">Cybat Intelligence Engine</strong> and open the product listing.</li>
+                            <li>Select your billing account and the appropriate plan (Starter, Professional, or Enterprise), then click <strong class="text-ink">Subscribe</strong>.</li>
+                            <li>Accept the Terms of Service. Once the subscription is confirmed, click <strong class="text-ink">Register with Cybat</strong> — you will be redirected to the Cybat Intelligence Portal.</li>
                         </ul>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 2: Sign In to the Intelligence Portal</h2>
-                        <p class="text-sm text-white">Cybat uses Google Identity exclusively — no separate password is required.</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
-                            <li>At the portal login screen, click <strong class="text-ai-lavender">Sign in with Google</strong>.</li>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 2: Sign In to the Intelligence Portal</h2>
+                        <p class="text-sm text-ink">Cybat uses Google Identity exclusively — no separate password is required.</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                            <li>At the portal login screen, click <strong class="text-lavender">Sign in with Google</strong>.</li>
                             <li>Select your corporate Google Workspace account. Personal Gmail accounts are not authorized.</li>
-                            <li>On first login, your <strong class="text-white">Organization profile</strong> is automatically provisioned — a unique <code class="bg-white/10 px-1 rounded text-ai-lavender">orgId</code> is assigned to your account and linked to your Marketplace billing identifier.</li>
+                            <li>On first login, your <strong class="text-ink">Organization profile</strong> is automatically provisioned — a unique <code class="bg-lavender-pale px-1 rounded text-lavender">orgId</code> is assigned to your account and linked to your Marketplace billing identifier.</li>
                         </ul>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                            class="inline-flex items-center gap-2 mt-2 bg-ai-lavender/10 border border-ai-lavender/30 text-ai-lavender hover:bg-ai-lavender/20 px-4 py-2 rounded text-sm transition-colors">
+                            class="inline-flex items-center gap-2 mt-2 bg-lavender/10 border border-lavender/30 text-lavender hover:bg-lavender/20 px-4 py-2 rounded text-sm transition-colors">
                             Open Intelligence Portal →
                         </a>
                     </div>
 
                     <!-- Step 3 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 3: Create an API Key</h2>
-                        <p class="text-sm text-white">In the Intelligence Portal, open <strong class="text-white">API Keys</strong> in the sidebar and click <strong class="text-white">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
-                        <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 text-xs text-white">
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 3: Create an API Key</h2>
+                        <p class="text-sm text-ink">In the Intelligence Portal, open <strong class="text-ink">API Keys</strong> in the sidebar and click <strong class="text-ink">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
+                        <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
                             <div class="flex items-start gap-3">
-                                <span class="text-ai-mint font-bold mt-0.5">1.</span>
-                                <div><strong class="text-white">The raw key is shown once</strong> — copy it into your secret manager immediately. It cannot be retrieved again, only revoked and replaced.</div>
+                                <span class="text-mint font-bold mt-0.5">1.</span>
+                                <div><strong class="text-ink">The raw key is shown once</strong> — copy it into your secret manager immediately. It cannot be retrieved again, only revoked and replaced.</div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <span class="text-ai-mint font-bold mt-0.5">2.</span>
-                                <div><strong class="text-white">Revocation is instant</strong> — deleting a key from the dashboard is checked live on the very next request, not cached or delayed.</div>
+                                <span class="text-mint font-bold mt-0.5">2.</span>
+                                <div><strong class="text-ink">Revocation is instant</strong> — deleting a key from the dashboard is checked live on the very next request, not cached or delayed.</div>
                             </div>
                             <div class="flex items-start gap-3">
-                                <span class="text-ai-mint font-bold mt-0.5">3.</span>
-                                <div><strong class="text-white">No infrastructure changes in your project</strong> — creating a key never touches your GCP org, IAM, or logging configuration.</div>
+                                <span class="text-mint font-bold mt-0.5">3.</span>
+                                <div><strong class="text-ink">No infrastructure changes in your project</strong> — creating a key never touches your GCP org, IAM, or logging configuration.</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 4: Install the SDK</h2>
-                        <p class="text-sm text-white">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, no log shipping agents.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 4: Install the SDK</h2>
+                        <p class="text-sm text-ink">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, no log shipping agents.</p>
 
-                        <div class="space-y-3 text-xs text-white">
-                            <p class="text-ai-mint uppercase tracking-widest text-[10px]">Node.js / Express</p>
-                            <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">npm install @cybat/sdk-node</pre>
-                            <pre class="bg-ai-obsidian border border-white/10 rounded p-4 overflow-x-auto text-ai-lavender leading-relaxed">import { cybatExpress } from '@cybat/sdk-node'
+                        <div class="space-y-3 text-xs text-ink">
+                            <p class="text-mint text-[10px]">Node.js / Express</p>
+                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">npm install @cybat/sdk-node</pre>
+                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">import { cybatExpress } from '@cybat/sdk-node'
 
 app.use(cybatExpress({
   apiKey: process.env.CYBAT_API_KEY,
   gcpProjectId: 'your-gcp-project', // enables automatic blocking
 }))</pre>
-                            <p>Set <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-white/10 px-1 rounded text-ai-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.securityAdmin</code> + <code class="bg-white/10 px-1 rounded text-ai-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
-                            <p class="italic text-white">Python and Go SDKs are on the roadmap — reach out if you need one sooner.</p>
+                            <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-lavender-pale px-1 rounded text-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code> + <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
+                            <p class="text-ink">Python and Go SDKs are on the roadmap — reach out if you need one sooner.</p>
                         </div>
 
-                        <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-white">
-                            <strong class="text-red-400 uppercase tracking-widest text-[10px]">Behind a load balancer or reverse proxy?</strong>
-                            <p class="mt-2">Set <code class="bg-white/10 px-1 rounded text-ai-lavender">app.set('trust proxy', ...)</code> so the SDK reads the real client IP from <code class="bg-white/10 px-1 rounded text-ai-lavender">X-Forwarded-For</code> instead of your proxy's own address.</p>
+                        <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
+                            <strong class="text-red-400 text-[10px]">Behind a load balancer or reverse proxy?</strong>
+                            <p class="mt-2">Set <code class="bg-lavender-pale px-1 rounded text-lavender">app.set('trust proxy', ...)</code> so the SDK reads the real client IP from <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> instead of your proxy's own address.</p>
                         </div>
                     </div>
 
                     <!-- Step 5 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">Step 5: Verify Detection is Active</h2>
-                        <p class="text-sm text-white">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
-                            <li>Your app listed as <strong class="text-ai-mint">Connected</strong> in the dashboard sidebar.</li>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 5: Verify Detection is Active</h2>
+                        <p class="text-sm text-ink">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                            <li>Your app listed as <strong class="text-mint">Connected</strong> in the dashboard sidebar.</li>
                             <li>The 3D Threat Globe populating with activity from your traffic's geographic origins.</li>
                             <li>Any detected threats appearing in the Incident feed with Gemini-generated analysis and enforcement status.</li>
                         </ul>
-                        <p class="text-sm text-white">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
+                        <p class="text-sm text-ink">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
                     </div>
 
-                    <div class="space-y-4 border-t border-white/10 pt-8 mt-8">
-                        <p class="text-sm italic text-ai-mint">The Cybat Intelligence Engine is now actively monitoring your cloud surface.</p>
+                    <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
+                        <p class="text-sm text-mint">The Cybat Intelligence Engine is now actively monitoring your cloud surface.</p>
                         <div class="flex flex-wrap gap-4">
                             <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                                class="inline-block bg-ai-lavender text-ai-obsidian px-5 py-2 font-bold text-sm hover:bg-white transition-colors">
+                                class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
                                 Open Dashboard →
                             </a>
                             <a href="#/docs/user-guide"
-                                class="inline-block bg-white/5 border border-white/10 hover:border-ai-lavender px-5 py-2 text-sm text-white transition-colors">
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
                                 Continue to User Guide →
                             </a>
                         </div>

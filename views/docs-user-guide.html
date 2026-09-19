@@ -5,68 +5,68 @@
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/4 hidden lg:block">
-            <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white mb-6">Documentation Index</h3>
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
-                    <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
-                    <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
-                    <a href="#/docs/user-guide" class="block text-white hover:text-ai-mint transition-colors font-bold text-ai-lavender">User Guide</a>
-                    <a href="#/docs/release-notes" class="block text-white hover:text-ai-mint transition-colors">Release Notes</a>
-                    <a href="#/docs/security-specs" class="block text-white hover:text-ai-mint transition-colors">Security Specs</a>
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
                 </nav>
             </div>
         </div>
 
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-black mb-6 uppercase tracking-tighter italic">User Guide<span class="text-ai-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">User Guide<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-ai-obsidian border border-white/10 rounded-lg space-y-10 font-mono text-white">
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pb-6 border-b border-white/10">
+                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-10 font-mono text-ink">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pb-6 border-b border-lavender-pale">
                         <p class="text-lg leading-relaxed flex-1">
                             The Intelligence Dashboard is your real-time command center for autonomous threat monitoring. This guide covers every panel, how the engine processes threats, and how enforcement actions are applied.
                         </p>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                            class="flex-shrink-0 inline-block bg-ai-lavender text-ai-obsidian px-5 py-2 font-bold text-sm hover:bg-white transition-colors text-center">
+                            class="flex-shrink-0 inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors text-center">
                             Open Dashboard →
                         </a>
                     </div>
 
                     <!-- Section 1: Dashboard layout -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">1. Dashboard Layout</h2>
-                        <p class="text-sm text-white">After logging in at <code class="bg-white/10 px-1 rounded text-ai-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The left sidebar gives you access to all sections based on your role.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">1. Dashboard Layout</h2>
+                        <p class="text-sm text-ink">After logging in at <code class="bg-lavender-pale px-1 rounded text-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The left sidebar gives you access to all sections based on your role.</p>
 
-                        <div class="space-y-3 text-sm text-white">
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Metric Cards</p>
-                                <p>Five cards at the top of the dashboard show your organisation's security posture at a glance: <strong class="text-white">Data Ingested</strong>, <strong class="text-white">Threats Blocked</strong>, <strong class="text-red-400">High Severity</strong>, <strong class="text-amber-400">Medium Severity</strong>, and <strong class="text-white/60">Low Severity</strong>. All figures reflect the selected time period (Day / Month / Year).</p>
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Metric Cards</p>
+                                <p>Five cards at the top of the dashboard show your organisation's security posture at a glance: <strong class="text-ink">Data Ingested</strong>, <strong class="text-ink">Threats Blocked</strong>, <strong class="text-red-400">High Severity</strong>, <strong class="text-amber-400">Medium Severity</strong>, and <strong class="text-ink-soft">Low Severity</strong>. All figures reflect the selected time period (Day / Month / Year).</p>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">3D Threat Globe</p>
-                                <p class="mb-3">A rotating Earth visualization showing the geographic origin of all detected threats. Red points represent origins with high-severity incidents; amber points represent medium-severity. Click any point to open a breakdown by severity, then click <strong class="text-white">View incidents →</strong> to filter the Investigations feed to that location.</p>
-                                <div class="relative border border-white/10 overflow-hidden rounded">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">3D Threat Globe</p>
+                                <p class="mb-3">A rotating Earth visualization showing the geographic origin of all detected threats. Red points represent origins with high-severity incidents; amber points represent medium-severity. Click any point to open a breakdown by severity, then click <strong class="text-ink">View incidents →</strong> to filter the Investigations feed to that location.</p>
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
                                     <img src="assets/screenshot-globe.png" alt="3D Threat Globe" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-globe.png ]</div>
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-globe.png ]</div>
                                 </div>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Investigations Feed</p>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Investigations Feed</p>
                                 <p class="mb-3">A live list of all detected threats sorted by recency. Each row shows source IP, threat level, target URL, timestamp, and enforcement verdict. Click any row to open the full incident detail panel. Use the 👍 / 👎 buttons to provide feedback — thumbs down on a blocked IP opens an unblock confirmation dialog.</p>
-                                <div class="relative border border-white/10 overflow-hidden rounded">
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
                                     <img src="assets/screenshot-incidents.png" alt="Incident Feed" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-incidents.png ]</div>
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-incidents.png ]</div>
                                 </div>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Incident Detail Panel</p>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Incident Detail Panel</p>
                                 <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all log evidence records that triggered the detection, the enforcement decision and status, and the Slack notification dispatched to your team. Admins can unblock an IP directly from this panel using the 👎 feedback button.</p>
-                                <div class="relative border border-white/10 overflow-hidden rounded">
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
                                     <img src="assets/screenshot-detail.png" alt="Incident Detail Panel" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                                    <div class="hidden w-full h-32 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">[ screenshot-detail.png ]</div>
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-detail.png ]</div>
                                 </div>
                             </div>
                         </div>
@@ -74,77 +74,77 @@
 
                     <!-- Section 2: Engine pipeline -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">2. How the Engine Processes a Threat</h2>
-                        <p class="text-sm text-white">Each log record moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from log emission to enforcement.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">2. How the Engine Processes a Threat</h2>
+                        <p class="text-sm text-ink">Each log record moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from log emission to enforcement.</p>
 
-                        <div class="space-y-2 text-xs text-white">
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">01</span>
-                                <div><strong class="text-white">Ingestion</strong> — The Cybat SDK, installed as middleware in your app, streams captured request data to API Gateway, which validates your API key at the edge and forwards accepted batches through Pub/Sub to the SOC agent.</div>
+                        <div class="space-y-2 text-xs text-ink">
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">01</span>
+                                <div><strong class="text-ink">Ingestion</strong> — The Cybat SDK, installed as middleware in your app, streams captured request data to API Gateway, which validates your API key at the edge and forwards accepted batches through Pub/Sub to the SOC agent.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">02</span>
-                                <div><strong class="text-white">IP Grouping</strong> — Logs from the same batch are grouped by source IP to build a per-IP request picture before analysis.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">02</span>
+                                <div><strong class="text-ink">IP Grouping</strong> — Logs from the same batch are grouped by source IP to build a per-IP request picture before analysis.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">03</span>
-                                <div><strong class="text-white">Subscription Check</strong> — The engine validates your organization's active Marketplace subscription via GCP Service Control before proceeding.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">03</span>
+                                <div><strong class="text-ink">Subscription Check</strong> — The engine validates your organization's active Marketplace subscription via GCP Service Control before proceeding.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">04</span>
-                                <div><strong class="text-white">Whitelist Filter</strong> — IPs present in your organisation's whitelist are removed from the batch entirely. No analysis, no incident record, no cost. Traffic from trusted IPs is completely ignored by the engine.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">04</span>
+                                <div><strong class="text-ink">Whitelist Filter</strong> — IPs present in your organisation's whitelist are removed from the batch entirely. No analysis, no incident record, no cost. Traffic from trusted IPs is completely ignored by the engine.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">05</span>
-                                <div><strong class="text-white">Verdict Cache</strong> — IPs seen in the last 24 hours skip Gemini re-analysis and are enforced immediately using the cached verdict, eliminating redundant AI calls.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">05</span>
+                                <div><strong class="text-ink">Verdict Cache</strong> — IPs seen in the last 24 hours skip Gemini re-analysis and are enforced immediately using the cached verdict, eliminating redundant AI calls.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">06</span>
-                                <div><strong class="text-white">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">06</span>
+                                <div><strong class="text-ink">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">07</span>
-                                <div><strong class="text-white">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4), falling back to Cloud Armor IP block (Layer 7) when the network can't be discovered. Enforcement targets the GCP project you configured via <code class="bg-white/10 px-1 rounded text-ai-lavender">gcpProjectId</code> on the SDK — without it, the engine detects and alerts but never modifies infrastructure.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">07</span>
+                                <div><strong class="text-ink">Enforcement</strong> — For high and medium verdicts, the engine attempts VPC Firewall deny first (Layer 3/4), falling back to Cloud Armor IP block (Layer 7) when the network can't be discovered. Enforcement targets the GCP project you configured via <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> on the SDK — without it, the engine detects and alerts but never modifies infrastructure.</div>
                             </div>
-                            <div class="flex gap-4 items-start bg-white/5 border border-white/10 rounded p-3">
-                                <span class="text-ai-mint font-bold w-6 flex-shrink-0">08</span>
-                                <div><strong class="text-white">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. A Slack notification is dispatched to your configured webhook with the full threat summary and enforcement outcome.</div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">08</span>
+                                <div><strong class="text-ink">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. A Slack notification is dispatched to your configured webhook with the full threat summary and enforcement outcome.</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Section 3: Threat levels -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">3. Threat Levels & Enforcement Behavior</h2>
+                        <h2 class="text-xl font-heading font-bold text-ink">3. Threat Levels & Enforcement Behavior</h2>
                         <div class="overflow-x-auto">
                             <table class="w-full text-xs">
                                 <thead>
-                                    <tr class="border-b border-white/10 text-left">
-                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Level</th>
-                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Action</th>
-                                        <th class="pb-3 text-white uppercase tracking-widest font-normal">Dashboard Color</th>
+                                    <tr class="border-b border-lavender-pale text-left">
+                                        <th class="pb-3 pr-6 text-ink font-normal">Level</th>
+                                        <th class="pb-3 pr-6 text-ink font-normal">Action</th>
+                                        <th class="pb-3 text-ink font-normal">Dashboard Color</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-white/5">
+                                <tbody class="divide-y divide-lavender-pale">
                                     <tr>
                                         <td class="py-3 pr-6 text-red-400 font-bold">HIGH</td>
-                                        <td class="py-3 pr-6 text-white">Immediate block — VPC Firewall deny or Cloud Armor IP rule. Slack alert dispatched.</td>
+                                        <td class="py-3 pr-6 text-ink">Immediate block — VPC Firewall deny or Cloud Armor IP rule. Slack alert dispatched.</td>
                                         <td class="py-3"><span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded">red</span></td>
                                     </tr>
                                     <tr>
                                         <td class="py-3 pr-6 text-amber-400 font-bold">MEDIUM</td>
-                                        <td class="py-3 pr-6 text-white">Block applied. Slack alert dispatched. Incident flagged for review.</td>
+                                        <td class="py-3 pr-6 text-ink">Block applied. Slack alert dispatched. Incident flagged for review.</td>
                                         <td class="py-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded">amber</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6 text-white/60 font-bold">LOW</td>
-                                        <td class="py-3 pr-6 text-white">No enforcement. Verdict logged and cached for 24 hours.</td>
-                                        <td class="py-3"><span class="text-white/40">muted white</span></td>
+                                        <td class="py-3 pr-6 text-ink-soft font-bold">LOW</td>
+                                        <td class="py-3 pr-6 text-ink">No enforcement. Verdict logged and cached for 24 hours.</td>
+                                        <td class="py-3"><span class="text-ink-soft">muted white</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6 text-white font-bold">NONE</td>
-                                        <td class="py-3 pr-6 text-white">Clean traffic. No action. Verdict cached for 24 hours to skip future analysis.</td>
-                                        <td class="py-3"><span class="text-white/40">not shown</span></td>
+                                        <td class="py-3 pr-6 text-ink font-bold">NONE</td>
+                                        <td class="py-3 pr-6 text-ink">Clean traffic. No action. Verdict cached for 24 hours to skip future analysis.</td>
+                                        <td class="py-3"><span class="text-ink-soft">not shown</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -153,73 +153,73 @@
 
                     <!-- Section 4: Feedback & Unblock -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">4. Feedback & Manual Unblock</h2>
-                        <p class="text-sm text-white">Every incident in the feed and detail panel has 👍 / 👎 feedback buttons. Feedback trains the system's false-positive rate reporting and helps your team audit enforcement decisions.</p>
-                        <div class="space-y-3 text-sm text-white">
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Thumbs Up — Correct Classification</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">4. Feedback & Manual Unblock</h2>
+                        <p class="text-sm text-ink">Every incident in the feed and detail panel has 👍 / 👎 feedback buttons. Feedback trains the system's false-positive rate reporting and helps your team audit enforcement decisions.</p>
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-mint text-xs mb-2">Thumbs Up — Correct Classification</p>
                                 <p>Marks the incident as a true positive. The feedback is recorded and counted in your monthly signal-to-noise report.</p>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Thumbs Down on a Detected (not blocked) Incident</p>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Thumbs Down on a Detected (not blocked) Incident</p>
                                 <p>Marks the incident as a false positive. The feedback is recorded immediately.</p>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-red-400 text-xs uppercase tracking-widest mb-2">Thumbs Down on a Blocked Incident — Admin Only</p>
-                                <p>A confirmation dialog appears asking whether to remove the active block. Clicking <strong class="text-white">Yes, unblock</strong> immediately removes the Cloud Armor or VPC Firewall rule for that IP and marks the incident expired. The feedback is also saved as a false positive. Clicking <strong class="text-white">No, keep blocked</strong> saves only the feedback without touching the enforcement rule.</p>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-red-400 text-xs mb-2">Thumbs Down on a Blocked Incident — Admin Only</p>
+                                <p>A confirmation dialog appears asking whether to remove the active block. Clicking <strong class="text-ink">Yes, unblock</strong> immediately removes the Cloud Armor or VPC Firewall rule for that IP and marks the incident expired. The feedback is also saved as a false positive. Clicking <strong class="text-ink">No, keep blocked</strong> saves only the feedback without touching the enforcement rule.</p>
                             </div>
                         </div>
-                        <p class="text-xs text-white/50">Note: unblocking is scoped to your organisation only and requires the Admin role. The action is logged with the email of the admin who performed it.</p>
+                        <p class="text-xs text-ink-soft">Note: unblocking is scoped to your organisation only and requires the Admin role. The action is logged with the email of the admin who performed it.</p>
                     </div>
 
                     <!-- Section 5: IP Whitelist -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">5. IP Whitelist</h2>
-                        <p class="text-sm text-white">The <strong class="text-white">Whitelist</strong> menu item (visible to admins only) lets you register trusted IP addresses that the engine should never analyze or block — for example, your office network, a monitoring service, or a known partner API.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">5. IP Whitelist</h2>
+                        <p class="text-sm text-ink">The <strong class="text-ink">Whitelist</strong> menu item (visible to admins only) lets you register trusted IP addresses that the engine should never analyze or block — for example, your office network, a monitoring service, or a known partner API.</p>
 
-                        <div class="space-y-3 text-sm text-white">
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">How it works</p>
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">How it works</p>
                                 <ul class="list-disc pl-6 space-y-2">
-                                    <li>Whitelisted IPs are filtered out of every log batch <strong class="text-white">before</strong> the AI analysis step — no Vertex AI call is made, no incident is created, and no usage is counted for those requests.</li>
+                                    <li>Whitelisted IPs are filtered out of every log batch <strong class="text-ink">before</strong> the AI analysis step — no Vertex AI call is made, no incident is created, and no usage is counted for those requests.</li>
                                     <li>Whitelisted IPs are also exempt from enforcement: even if a cached verdict exists for the IP, no block will be applied.</li>
                                     <li>The whitelist is scoped to your organisation. Each org manages its own list independently.</li>
                                 </ul>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Managing the whitelist</p>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Managing the whitelist</p>
                                 <ul class="list-disc pl-6 space-y-2">
-                                    <li>Navigate to <strong class="text-white">Whitelist</strong> in the left sidebar (admin role required).</li>
-                                    <li>Enter an IPv4 or IPv6 address and an optional note explaining why it is trusted, then click <strong class="text-white">Add IP</strong>.</li>
-                                    <li>To remove an entry, click <strong class="text-white">Remove</strong> in the corresponding row. The change takes effect on the next log batch.</li>
+                                    <li>Navigate to <strong class="text-ink">Whitelist</strong> in the left sidebar (admin role required).</li>
+                                    <li>Enter an IPv4 or IPv6 address and an optional note explaining why it is trusted, then click <strong class="text-ink">Add IP</strong>.</li>
+                                    <li>To remove an entry, click <strong class="text-ink">Remove</strong> in the corresponding row. The change takes effect on the next log batch.</li>
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-xs text-white/50">Tip: if an IP is currently blocked and you also want to whitelist it, unblock it first using the 👎 feedback dialog, then add it to the whitelist to prevent future blocks.</p>
+                        <p class="text-xs text-ink-soft">Tip: if an IP is currently blocked and you also want to whitelist it, unblock it first using the 👎 feedback dialog, then add it to the whitelist to prevent future blocks.</p>
                     </div>
 
                     <!-- Section 6: Slack alerts -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-white uppercase italic">6. Slack Alert Configuration</h2>
-                        <p class="text-sm text-white">Slack alerts are configured per organization during onboarding. Each alert includes:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-white">
+                        <h2 class="text-xl font-heading font-bold text-ink">6. Slack Alert Configuration</h2>
+                        <p class="text-sm text-ink">Slack alerts are configured per organization during onboarding. Each alert includes:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
                             <li>Source IP and geographic location</li>
                             <li>Threat level and the Gemini model's explanation</li>
                             <li>Enforcement action taken (firewall rule name or Cloud Armor rule)</li>
                             <li>GCP project affected</li>
                             <li>Timestamp and incident ID for cross-referencing the dashboard</li>
                         </ul>
-                        <p class="text-sm text-white">To update your Slack webhook URL, contact support or use the settings panel inside the Intelligence Portal.</p>
+                        <p class="text-sm text-ink">To update your Slack webhook URL, contact support or use the settings panel inside the Intelligence Portal.</p>
                     </div>
 
-                    <div class="space-y-4 border-t border-white/10 pt-8 mt-8">
+                    <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
                         <div class="flex flex-wrap gap-4">
                             <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                                class="inline-block bg-ai-lavender text-ai-obsidian px-5 py-2 font-bold text-sm hover:bg-white transition-colors">
+                                class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
                                 Open Dashboard →
                             </a>
                             <a href="#/docs/release-notes"
-                                class="inline-block bg-white/5 border border-white/10 hover:border-ai-lavender px-5 py-2 text-sm text-white transition-colors">
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
                                 View Release Notes →
                             </a>
                         </div>

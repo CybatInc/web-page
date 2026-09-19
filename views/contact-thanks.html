@@ -5,35 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Received | Cybat AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Lato', 'sans-serif'], heading: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'paper': '#FAF7F2', 'ink': '#2E2A3B', 'ink-soft': '#5B5670',
+                        'lavender': '#8B7BD8', 'lavender-pale': '#ECE7FA', 'mint': '#3FA796',
+                    }
+                }
+            }
+        }
+    </script>
     <meta http-equiv="refresh" content="5;url=index.html">
 </head>
 
-<body class="bg-slate-950 text-white font-sans flex items-center justify-center min-h-screen p-6">
+<body class="bg-paper text-ink font-sans flex items-center justify-center min-h-screen p-6">
 
     <div class="max-w-md w-full text-center">
         <div class="mb-8 flex justify-center">
             <div class="relative">
-                <div class="absolute inset-0 bg-blue-500 blur-2xl opacity-20 animate-pulse"></div>
-                <svg class="w-20 h-20 text-blue-500 relative" fill="currentColor" viewBox="0 0 24 24">
+                <div class="absolute inset-0 bg-lavender blur-2xl opacity-20 animate-pulse"></div>
+                <svg class="w-20 h-20 text-lavender relative" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
                 </svg>
             </div>
         </div>
 
-        <h1 class="text-4xl font-black mb-4 tracking-tighter uppercase">Message Secured</h1>
-        <p class="text-white mb-8 leading-relaxed">
+        <h1 class="text-4xl font-bold mb-4 tracking-tight">Message Secured</h1>
+        <p class="text-ink mb-8 leading-relaxed">
             Thank you for reaching out. Our team has received your transmission and will respond shortly via encrypted
             channels.
         </p>
 
         <div class="space-y-4">
             <a href="index.html"
-                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-500/20">
+                class="inline-block bg-lavender hover:bg-ink text-white font-bold px-8 py-3 rounded-full transition-all active:scale-95">
                 Return to Dashboard
             </a>
-            <p class="text-xs text-slate-600 uppercase tracking-widest pt-4">
+            <p class="text-xs text-ink-soft pt-4">
                 Redirecting you automatically in <span id="timer">5</span> seconds...
             </p>
         </div>

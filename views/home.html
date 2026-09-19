@@ -1,156 +1,106 @@
-<header class="min-h-screen flex flex-col justify-center px-6 md:px-10 bg-ai-obsidian relative overflow-hidden">
-    <!-- Globe — full-bleed background, centered -->
-    <div id="landing-globe" class="absolute inset-0 pointer-events-none z-0 globe-fade-in"></div>
+<header class="min-h-[88vh] flex flex-col justify-center px-6 md:px-10 relative overflow-hidden">
+    <!-- Globe — soft pastel background -->
+    <div id="landing-globe" class="absolute inset-0 pointer-events-none z-0 globe-fade-in opacity-40"></div>
 
-    <!-- Vignette: darken edges so text stays readable -->
+    <!-- Fade edges into the page -->
     <div class="absolute inset-0 z-[1] pointer-events-none"
-         style="background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 20%, #030712 80%);"></div>
+         style="background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(250,247,242,0.55) 0%, #FAF7F2 85%);"></div>
 
-    <!-- Status badge -->
-    <div class="absolute top-6 right-8 z-20 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ai-mint/90">
-        <div class="w-1.5 h-1.5 rounded-full bg-ai-mint animate-pulse"></div>
-        Global_Coverage
-    </div>
-
-    <!-- Text content -->
-    <div class="max-w-7xl relative z-10">
-        <div class="mb-12 font-mono text-ai-lavender text-sm tracking-[0.3em] uppercase opacity-95">
-            Autonomous Security • Engine v3.0
+    <div class="max-w-3xl mx-auto text-center relative z-10 py-24">
+        <div class="inline-flex items-center gap-2 bg-mint-pale text-mint font-mono text-xs px-4 py-1.5 rounded-full mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+            Autonomous security · Engine v3.0
         </div>
 
-        <h1 class="text-xl md:text-2xl font-heading font-black leading-[0.85] tracking-tighter mb-12 uppercase">
-            SECURE THE<br>
-            <span class="typewriter inline-block text-ai-lavender">GCP SURFACE.</span>
+        <h1 class="text-4xl md:text-7xl font-heading font-bold leading-[1.05] tracking-tight mb-8">
+            Secure the <span class="text-lavender">GCP surface.</span>
         </h1>
 
-        <p class="text-xl md:text-2xl text-white mb-6 max-w-3xl leading-relaxed">
+        <p class="text-xl md:text-2xl text-ink-soft mb-10 leading-relaxed">
             Autonomous AI layer for cloud security — mitigates threats in &lt;5s without human ops.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-0 items-center">
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a href="#/connect"
-                class="bg-ai-lavender text-ai-obsidian px-12 py-5 font-heading font-black text-sm uppercase tracking-widest hover:bg-white transition-colors duration-300">
-                Request Analysis
+                class="bg-lavender text-white px-8 py-4 rounded-full font-heading font-semibold text-base hover:bg-ink transition-colors">
+                Request analysis
             </a>
             <a href="#/stack"
-                class="border border-white/10 text-white px-12 py-5 font-heading font-black text-sm uppercase tracking-widest hover:bg-white/5 transition-colors duration-300">
-                Examine Platform
+                class="bg-white text-ink px-8 py-4 rounded-full font-heading font-semibold text-base border border-lavender-pale hover:border-lavender transition-colors">
+                Examine platform
             </a>
-            <div class="mt-8 sm:mt-0 sm:ml-12 flex items-center gap-4 opacity-80">
-                <div class="w-10 h-10 border border-white/20 flex items-center justify-center p-2">
-                    <svg viewBox="0 0 24 24" class="fill-current text-white">
-                        <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
-                    </svg>
-                </div>
-                <div class="font-mono text-[9px] uppercase tracking-[0.2em] leading-tight text-white">
-                    // Deployment target:<br>
-                    <span class="text-ai-lavender">GCP Marketplace</span>
-                </div>
-            </div>
         </div>
+
         <div class="mt-8">
             <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
                target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ai-mint border border-ai-mint/30 px-4 py-2 hover:border-ai-mint hover:bg-ai-mint/5 transition-all">
-                ☁ Available on Google Cloud Marketplace
+               class="text-sm text-mint font-bold hover:underline">
+                ☁ Available on Google Cloud Marketplace →
             </a>
         </div>
     </div>
 </header>
 
-<section id="how-it-works" class="py-12 section-deep border-y border-white/5 relative overflow-hidden">
-    <div class="aurora aurora-lavender w-[600px] h-[600px] -top-96 -left-96 opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-8 text-center md:text-left">
-            <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-8">Process</div>
-            <h2 class="text-lg md:text-xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                HOW IT<br>WORKS.
-            </h2>
-            <p class="text-xl opacity-95 max-w-2xl leading-relaxed">
+<section id="how-it-works" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-12">
+            <div class="font-mono text-lavender text-sm mb-3">Process</div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight mb-5">How it works</h2>
+            <p class="text-lg text-ink-soft leading-relaxed">
                 Autonomous threat mitigation requires absolute precision. We've built an agentic loop that moves at the
                 speed of the backbone.
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-1px bg-white/5 border border-white/5">
-            <div class="bg-ai-obsidian p-6 group hover:bg-white/5 transition-colors relative overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-1 h-0 bg-ai-lavender group-hover:h-full transition-all duration-500">
-                </div>
-                <div class="font-mono text-xs text-ai-lavender mb-12 opacity-95">STEP_01 // INGESTION</div>
-                <h3 class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter">Real-time<br>Telemetry</h3>
-                <p class="text-sm opacity-95 leading-relaxed mb-12">
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-lavender-pale/70 rounded-3xl p-8">
+                <div class="font-mono text-xs text-lavender mb-6">01 · Ingestion</div>
+                <h3 class="font-heading font-bold text-2xl mb-4">Real-time telemetry</h3>
+                <p class="text-ink-soft leading-relaxed text-base">
                     Drop the Cybat SDK into your app as middleware — one line of code. It streams real HTTP traffic
                     straight to our ingestion engine, no log export or org-level IAM grant required.
                 </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-ai-lavender animate-pulse"></div>
-                    <span class="font-mono text-[10px] uppercase tracking-widest opacity-90">Active_Streaming</span>
-                </div>
             </div>
-
-            <div
-                class="bg-ai-obsidian p-6 group hover:bg-white/5 transition-colors relative overflow-hidden border-x border-white/5">
-                <div class="absolute top-0 left-0 w-1 h-0 bg-ai-mint group-hover:h-full transition-all duration-500">
-                </div>
-                <div class="font-mono text-xs text-ai-mint mb-12 opacity-95">STEP_02 // ANALYSIS</div>
-                <h3 class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter">Gemini-Powered<br>Reasoning
-                </h3>
-                <p class="text-sm opacity-95 leading-relaxed mb-12">
+            <div class="bg-mint-pale rounded-3xl p-8">
+                <div class="font-mono text-xs text-mint mb-6">02 · Analysis</div>
+                <h3 class="font-heading font-bold text-2xl mb-4">Gemini-powered reasoning</h3>
+                <p class="text-ink-soft leading-relaxed text-base">
                     Autonomous agents use multimodal Gemini models to distinguish between legitimate spikes and
                     sophisticated zero-day attacks in milliseconds.
                 </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-ai-mint animate-pulse"></div>
-                    <span class="font-mono text-[10px] uppercase tracking-widest opacity-90">Neural_Processing</span>
-                </div>
             </div>
-
-            <div class="bg-ai-obsidian p-6 group hover:bg-white/5 transition-colors relative overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-1 h-0 bg-ai-lavender group-hover:h-full transition-all duration-500">
-                </div>
-                <div class="font-mono text-xs text-ai-lavender mb-12 opacity-95">STEP_03 // ACTION</div>
-                <h3 class="font-heading font-black text-3xl mb-8 uppercase tracking-tighter">Autonomous<br>Enforcement
-                </h3>
-                <p class="text-sm opacity-95 leading-relaxed mb-12">
+            <div class="bg-peach-pale rounded-3xl p-8">
+                <div class="font-mono text-xs text-[#D9825B] mb-6">03 · Action</div>
+                <h3 class="font-heading font-bold text-2xl mb-4">Autonomous enforcement</h3>
+                <p class="text-ink-soft leading-relaxed text-base">
                     Within 5 seconds, the platform automatically triggers Cloud Armor policies or VPC Firewall updates
                     to isolate threats. Simultaneously, detailed Slack alerts notify your team of the detection and
                     block.
                 </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-ai-lavender animate-pulse"></div>
-                    <span class="font-mono text-[10px] uppercase tracking-widest opacity-90">Shields_Engaged</span>
-                </div>
             </div>
         </div>
 
         <!-- Dashboard screenshot -->
-        <div class="mt-8 relative group">
-            <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ai-mint/90 mb-2">
-                <div class="w-1.5 h-1.5 rounded-full bg-ai-mint animate-pulse"></div>
-                Intelligence Dashboard — Live View
+        <div class="mt-12">
+            <div class="flex items-center gap-2 font-mono text-xs text-mint mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+                Intelligence dashboard — live view
             </div>
-            <div class="absolute -inset-px bg-gradient-to-r from-ai-lavender/20 to-ai-mint/20 rounded-sm"></div>
-            <div class="relative border border-white/10 overflow-hidden">
-<img src="assets/screenshot-globe.png" alt="Cybat Intelligence Dashboard" class="w-full object-cover object-top max-h-[480px]"
-                    onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'">
-                <div class="screenshot-fallback hidden w-full h-48 bg-ai-navy/60 flex items-center justify-center font-mono text-xs text-white/40 tracking-widest uppercase">
-                    [ screenshot-globe.png ]
-                </div>
+            <div class="rounded-3xl overflow-hidden border border-lavender-pale shadow-[0_8px_40px_rgba(46,42,59,0.08)] bg-white">
+                <img src="assets/screenshot-globe.png" alt="Cybat Intelligence Dashboard"
+                    class="w-full object-cover object-top max-h-[480px]">
             </div>
         </div>
 
-        <div class="mt-8 p-6 bg-ai-navy/30 border border-white/5 flex flex-col md:flex-row gap-16 items-center">
-            <div class="flex-shrink-0 w-24 h-24 border border-ai-lavender/30 flex items-center justify-center relative">
-                <div class="absolute inset-2 border border-ai-lavender/10 animate-spin-slow"></div>
-                <svg viewBox="0 0 24 24" class="w-10 h-10 fill-ai-lavender">
+        <div class="mt-8 p-8 bg-white rounded-3xl border border-lavender-pale flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-lavender-pale flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-9 h-9 fill-lavender">
                     <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
                 </svg>
             </div>
             <div>
-                <h4 class="font-heading font-black text-xl mb-4 uppercase tracking-tighter">Zero-Ops Infrastructure</h4>
-                <p class="text-sm opacity-95 leading-relaxed max-w-2xl">
+                <h4 class="font-heading font-bold text-xl mb-2">Zero-Ops infrastructure</h4>
+                <p class="text-ink-soft leading-relaxed max-w-2xl">
                     No log sinks to configure, no manual rules to maintain, no org-level IAM grants. Just one line of
                     middleware — Cybat AI sits above your app as an autonomous logic layer, ensuring your environment
                     is self-healing and self-defending.
@@ -160,46 +110,40 @@
     </div>
 </section>
 
-<section class="py-12 section-navy border-b border-white/5 relative overflow-hidden">
-    <div class="aurora aurora-mint w-[500px] h-[500px] top-0 right-0 opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-8">
-            <div class="font-mono text-ai-mint text-xs tracking-widest uppercase mb-8">Value Proposition</div>
-            <h2 class="text-base md:text-xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                THE AUTONOMOUS<br>ADVANTAGE.
-            </h2>
+<section class="py-20 bg-white/60">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-12">
+            <div class="font-mono text-mint text-sm mb-3">Value proposition</div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight">The autonomous advantage</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-20">
+        <div class="grid md:grid-cols-2 gap-6">
             <!-- The Problem -->
-            <div class="p-5 border border-white/5 bg-ai-obsidian/40 relative group">
-                <div
-                    class="absolute -top-4 -left-4 bg-ai-obsidian px-4 py-2 border border-white/10 font-mono text-[10px] text-white uppercase tracking-widest">
-                    Status_Quo // The Problem
-                </div>
-                <h3 class="font-heading font-black text-2xl mb-8 uppercase text-white">Manual SOC Latency</h3>
-                <ul class="space-y-4">
-                    <li class="flex gap-6 opacity-95">
-                        <span class="text-ai-lavender font-mono text-xl">✕</span>
+            <div class="p-8 rounded-3xl bg-white border border-lavender-pale">
+                <div class="font-mono text-xs text-ink-soft mb-3">Status quo · The problem</div>
+                <h3 class="font-heading font-bold text-2xl mb-6">Manual SOC latency</h3>
+                <ul class="space-y-5">
+                    <li class="flex gap-4">
+                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">Human Reaction Time</h4>
-                            <p class="text-xs leading-relaxed">Average MTTR for cloud threats is >90 minutes when
+                            <h4 class="font-bold mb-1">Human reaction time</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">Average MTTR for cloud threats is &gt;90 minutes when
                                 requiring manual engineer intervention.</p>
                         </div>
                     </li>
-                    <li class="flex gap-6 opacity-95">
-                        <span class="text-ai-lavender font-mono text-xl">✕</span>
+                    <li class="flex gap-4">
+                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">Policy Drift</h4>
-                            <p class="text-xs leading-relaxed">Security rules quickly become stale and irrelevant as
+                            <h4 class="font-bold mb-1">Policy drift</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">Security rules quickly become stale and irrelevant as
                                 cloud infrastructure scales dynamically.</p>
                         </div>
                     </li>
-                    <li class="flex gap-6 opacity-95">
-                        <span class="text-ai-lavender font-mono text-xl">✕</span>
+                    <li class="flex gap-4">
+                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">Operational Fatigue</h4>
-                            <p class="text-xs leading-relaxed">SOC teams are overwhelmed by thousands of false
+                            <h4 class="font-bold mb-1">Operational fatigue</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">SOC teams are overwhelmed by thousands of false
                                 positives, leading to critical alert fatigue.</p>
                         </div>
                     </li>
@@ -207,35 +151,31 @@
             </div>
 
             <!-- The Outcome -->
-            <div
-                class="p-5 border border-ai-mint/20 bg-ai-mint/5 relative group shadow-[0_0_50px_rgba(167,243,208,0.05)]">
-                <div
-                    class="absolute -top-4 -left-4 bg-ai-obsidian px-4 py-2 border border-ai-mint/20 font-mono text-[10px] text-ai-mint uppercase tracking-widest">
-                    Cybat_AI // The Outcome
-                </div>
-                <h3 class="font-heading font-black text-2xl mb-8 uppercase text-ai-mint">99.9% Faster Response</h3>
-                <ul class="space-y-4">
-                    <li class="flex gap-6">
-                        <span class="text-ai-mint font-mono text-xl">✓</span>
+            <div class="p-8 rounded-3xl bg-mint-pale">
+                <div class="font-mono text-xs text-mint mb-3">Cybat AI · The outcome</div>
+                <h3 class="font-heading font-bold text-2xl mb-6">99.9% faster response</h3>
+                <ul class="space-y-5">
+                    <li class="flex gap-4">
+                        <span class="text-mint font-bold text-lg">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">Sub-5s Automated Action</h4>
-                            <p class="text-xs opacity-85 leading-relaxed">Identify and neutralize threats in seconds,
+                            <h4 class="font-bold mb-1">Sub-5s automated action</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">Identify and neutralize threats in seconds,
                                 not hours, with fully autonomous enforcement.</p>
                         </div>
                     </li>
-                    <li class="flex gap-6">
-                        <span class="text-ai-mint font-mono text-xl">✓</span>
+                    <li class="flex gap-4">
+                        <span class="text-mint font-bold text-lg">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">Agentic Adaptation</h4>
-                            <p class="text-xs opacity-85 leading-relaxed">Our AI reasoning engine evolves with your
+                            <h4 class="font-bold mb-1">Agentic adaptation</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">Our AI reasoning engine evolves with your
                                 infrastructure, ensuring security scales with DevOps.</p>
                         </div>
                     </li>
-                    <li class="flex gap-6">
-                        <span class="text-ai-mint font-mono text-xl">✓</span>
+                    <li class="flex gap-4">
+                        <span class="text-mint font-bold text-lg">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm uppercase mb-1">High-Fidelity Signal</h4>
-                            <p class="text-xs opacity-85 leading-relaxed">Gemini-powered filtering eliminates noise,
+                            <h4 class="font-bold mb-1">High-fidelity signal</h4>
+                            <p class="text-ink-soft text-sm leading-relaxed">Gemini-powered filtering eliminates noise,
                                 surfacing only real threats with explained reasoning.</p>
                         </div>
                     </li>
@@ -245,51 +185,46 @@
     </div>
 </section>
 
-
-<section class="py-12 section-deep relative overflow-hidden">
-    <div class="aurora aurora-mint w-96 h-96 top-0 right-0 opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-8 text-center md:text-left">
-            <div class="font-mono text-ai-mint text-xs tracking-widest uppercase mb-6">Capabilities</div>
-            <h2 class="text-lg md:text-xl font-heading font-black uppercase tracking-tighter leading-none mb-12">
-                DEFENSE BY<br>DESIGN.
-            </h2>
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-12">
+            <div class="font-mono text-mint text-sm mb-3">Capabilities</div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight">Defense by design</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-white/5">
-            <div class="p-6 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-3xl mb-8 group-hover:scale-110 transition-transform">🧠</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">AI-Driven Threat Analysis</h3>
-                <p class="text-sm opacity-95 leading-relaxed">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="p-7 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
+                <div class="text-3xl mb-5">🧠</div>
+                <h3 class="font-heading font-bold text-lg mb-2">AI-driven threat analysis</h3>
+                <p class="text-ink-soft text-sm leading-relaxed">
                     Leveraging Vertex AI + Gemini for deep multi-modal security reasoning.
                 </p>
             </div>
-            <div class="p-6 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-ai-lavender text-3xl mb-8 group-hover:scale-110 transition-transform font-bold italic">
-                    ⚡</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Sub-5s Automated Action</h3>
-                <p class="text-sm opacity-95 leading-relaxed">
+            <div class="p-7 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
+                <div class="text-3xl mb-5">⚡</div>
+                <h3 class="font-heading font-bold text-lg mb-2">Sub-5s automated action</h3>
+                <p class="text-ink-soft text-sm leading-relaxed">
                     Identify and neutralize threats in less than 5 seconds without human intervention.
                 </p>
             </div>
-            <div class="p-6 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-ai-mint text-3xl mb-8 group-hover:scale-110 transition-transform">☁️</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Cloud-Native (GCP First)</h3>
-                <p class="text-sm opacity-95 leading-relaxed">
+            <div class="p-7 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
+                <div class="text-3xl mb-5">☁️</div>
+                <h3 class="font-heading font-bold text-lg mb-2">Cloud-native (GCP first)</h3>
+                <p class="text-ink-soft text-sm leading-relaxed">
                     Built natively for Google Cloud Platform, utilizing native security APIs.
                 </p>
             </div>
-            <div class="p-6 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-ai-lavender text-3xl mb-8 group-hover:scale-110 transition-transform">📊</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Easy Integration</h3>
-                <p class="text-sm opacity-95 leading-relaxed">
+            <div class="p-7 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
+                <div class="text-3xl mb-5">📊</div>
+                <h3 class="font-heading font-bold text-lg mb-2">Easy integration</h3>
+                <p class="text-ink-soft text-sm leading-relaxed">
                     Simple integration with existing stacks plus specialized dashboards for executives.
                 </p>
             </div>
-            <div class="p-6 border-r border-b border-white/5 hover:bg-white/5 transition-colors group">
-                <div class="text-ai-mint text-3xl mb-8 group-hover:scale-110 transition-transform">💬</div>
-                <h3 class="font-heading font-black text-xl mb-4 uppercase">Real-time Alerting</h3>
-                <p class="text-sm opacity-95 leading-relaxed">
+            <div class="p-7 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
+                <div class="text-3xl mb-5">💬</div>
+                <h3 class="font-heading font-bold text-lg mb-2">Real-time alerting</h3>
+                <p class="text-ink-soft text-sm leading-relaxed">
                     Instant Slack notifications for every threat detected and blocked, keeping your team in the loop.
                 </p>
             </div>
@@ -297,127 +232,116 @@
     </div>
 </section>
 
-<section class="py-12 section-deep border-y border-white/5 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-8 text-center">
-            <div class="font-mono text-ai-lavender text-xs tracking-widest uppercase mb-6">Audience</div>
-            <h2 class="text-lg md:text-xl font-heading font-black uppercase tracking-tighter leading-none mb-12">
-                BUILT FOR THE<br>GCP ECOSYSTEM.
-            </h2>
+<section class="py-20 bg-white/60">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-12">
+            <div class="font-mono text-lavender text-sm mb-3">Audience</div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight">Built for the GCP ecosystem</h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-12">
-            <div
-                class="p-5 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
-                <h4 class="font-heading font-black uppercase text-xl mb-4">GCP Enterprises</h4>
-                <p class="text-sm opacity-95 leading-relaxed">Scale security across thousands of projects with
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="p-8 rounded-3xl bg-lavender-pale/70">
+                <h4 class="font-heading font-bold text-xl mb-3">GCP enterprises</h4>
+                <p class="text-ink-soft leading-relaxed">Scale security across thousands of projects with
                     centralized policy enforcement and AI reasoning.</p>
             </div>
-            <div
-                class="p-5 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
-                <h4 class="font-heading font-black uppercase text-xl mb-4">Cloud Teams</h4>
-                <p class="text-sm opacity-95 leading-relaxed">Offload manual log review and focus on architecture while
+            <div class="p-8 rounded-3xl bg-mint-pale">
+                <h4 class="font-heading font-bold text-xl mb-3">Cloud teams</h4>
+                <p class="text-ink-soft leading-relaxed">Offload manual log review and focus on architecture while
                     AI handles sub-second threat response.</p>
             </div>
-            <div
-                class="p-5 bg-ai-navy/30 border border-white/5 rounded-none hover:border-ai-lavender transition-colors">
-                <h4 class="font-heading font-black uppercase text-xl mb-4">DevSecOps</h4>
-                <p class="text-sm opacity-95 leading-relaxed">Integrate security directly into the pipeline with
+            <div class="p-8 rounded-3xl bg-peach-pale">
+                <h4 class="font-heading font-bold text-xl mb-3">DevSecOps</h4>
+                <p class="text-ink-soft leading-relaxed">Integrate security directly into the pipeline with
                     API-first architecture and automated remediation.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-20 section-deep border-y border-white/5 relative overflow-hidden">
-    <div class="aurora aurora-mint w-[500px] h-[500px] -top-64 -right-64 opacity-5"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-20 items-center">
-
-            <!-- Left: text -->
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ai-lavender mb-6">// Partnership</p>
-                <h2 class="font-heading font-black text-3xl md:text-5xl uppercase tracking-tighter leading-none mb-8">
-                    Google Cloud<br><span class="text-ai-lavender">Partner.</span>
+                <div class="font-mono text-lavender text-sm mb-3">Partnership</div>
+                <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight mb-6">
+                    Google Cloud <span class="text-lavender">Partner</span>
                 </h2>
-                <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-md">
+                <p class="text-lg text-ink-soft leading-relaxed mb-8 max-w-md">
                     Cybat Intelligence Engine is built natively on Google Cloud, distributed through Google Cloud Marketplace, and deeply integrated with Gemini AI, Vertex AI, and Cloud Armor — delivering autonomous security at cloud scale.
                 </p>
                 <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
                    target="_blank" rel="noopener"
-                   class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-ai-mint border border-ai-mint/40 px-6 py-3 hover:border-ai-mint hover:bg-ai-mint/5 transition-all">
+                   class="inline-block bg-mint-pale text-mint font-bold px-6 py-3 rounded-full hover:bg-mint hover:text-white transition-colors">
                     View on Google Cloud Marketplace →
                 </a>
             </div>
 
-            <!-- Right: Google Cloud Partner badge -->
             <div class="flex justify-center md:justify-end">
-                <img src="assets/google-cloud-partner.png" alt="Google Cloud Partner" class="w-64 h-auto">
+                <div class="bg-white rounded-3xl p-8 border border-lavender-pale">
+                    <img src="assets/google-cloud-partner.png" alt="Google Cloud Partner" class="w-56 h-auto">
+                </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<section class="py-12 section-navy relative overflow-hidden">
-    <div class="aurora aurora-lavender w-[500px] h-[500px] -bottom-48 -right-48 opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start relative z-10">
-        <div class="order-2 md:order-1 flex justify-center pt-2">
-            <div
-                class="w-80 h-80 bg-ai-obsidian flex items-center justify-center p-8 hover:scale-105 transition-all duration-500 border border-white/5 group shadow-[0_0_50px_rgba(167,243,208,0.1)]">
-                <img src="assets/eder_diaz.png" alt="Founder" class="w-full h-full object-cover rounded-sm">
+<section class="py-20 bg-white/60">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 flex justify-center">
+            <div class="w-72 h-72 rounded-3xl overflow-hidden bg-lavender-pale p-3">
+                <img src="assets/eder_diaz.png" alt="Founder" class="w-full h-full object-cover rounded-2xl">
             </div>
         </div>
         <div class="order-1 md:order-2">
-            <div class="font-mono text-xs tracking-widest uppercase mb-8 text-ai-lavender">Leadership</div>
-            <h2 class="text-lg md:text-xl font-heading font-black mb-10 uppercase tracking-tighter leading-none">
-                MEET THE FOUNDER.
-            </h2>
-            <p class="text-xl font-bold mb-6 italic opacity-90 text-ai-mint">"We aren't just building a tool; we're
+            <div class="font-mono text-lavender text-sm mb-3">Leadership</div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight mb-6">Meet the founder</h2>
+            <p class="text-xl font-bold mb-5 text-mint leading-snug">"We aren't just building a tool; we're
                 building a new layer of the cloud."</p>
-            <p class="opacity-85 leading-relaxed mb-12">
-                Eder Diaz Toro, Lead Software Developer & Cloud Architect, leads the vision for autonomous security at
+            <p class="text-ink-soft leading-relaxed mb-8">
+                Eder Diaz Toro, Lead Software Developer &amp; Cloud Architect, leads the vision for autonomous security at
                 Cybat AI.
                 With deep expertise in the Google Cloud ecosystem, Eder is pioneering the use of Agentic AI for critical
                 infrastructure defense.
             </p>
-            <div class="flex flex-wrap gap-6 items-center">
+            <div class="flex flex-wrap gap-3 items-center">
                 <a href="https://linkedin.com/in/ederius" target="_blank"
-                    class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
-                    LinkedIn_
+                    class="bg-lavender-pale text-ink font-semibold text-sm px-5 py-2 rounded-full hover:bg-lavender hover:text-white transition-colors">
+                    LinkedIn
                 </a>
                 <a href="https://github.com/cybatInc" target="_blank"
-                    class="font-mono text-sm border-b-2 border-ai-lavender pb-1 hover:text-white hover:border-white transition-all text-ai-lavender">
-                    GitHub_
+                    class="bg-lavender-pale text-ink font-semibold text-sm px-5 py-2 rounded-full hover:bg-lavender hover:text-white transition-colors">
+                    GitHub
                 </a>
                 <router-link to="/connect"
-                    class="font-mono text-sm border-b-2 border-ai-mint pb-1 hover:text-white hover:border-white transition-all text-ai-mint">
-                    Book a Demo_
+                    class="bg-mint-pale text-mint font-semibold text-sm px-5 py-2 rounded-full hover:bg-mint hover:text-white transition-colors">
+                    Book a demo
                 </router-link>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-16 section-deep text-center overflow-hidden relative">
-    <div class="aurora aurora-lavender w-[800px] h-[800px] -top-1/2 left-1/2 -translate-x-1/2 opacity-10"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-6">
-        <h2 class="text-xl md:text-2xl font-heading font-black uppercase tracking-tighter leading-none mb-6">
-            PROTECT YOUR<br><span class="text-ai-lavender">CLOUD. NOW.</span>
-        </h2>
-        <p class="text-xl opacity-85 mb-6 max-w-2xl mx-auto leading-relaxed">
-            Cybat Intelligence Engine is live on Google Cloud Marketplace. Subscribe in minutes and start blocking threats autonomously.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6 text-xs md:text-sm">
-            <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
-                target="_blank" rel="noopener"
-                class="inline-block bg-ai-lavender text-ai-obsidian px-12 py-6 font-heading font-black hover:bg-white transition-all uppercase tracking-widest">
-                Subscribe on Marketplace
-            </a>
-            <router-link to="/connect"
-                class="inline-block bg-white text-ai-obsidian px-12 py-6 font-heading font-black hover:bg-ai-mint transition-all uppercase tracking-widest">
-                Book Demo
-            </router-link>
+<section class="py-24 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-lavender-pale/70 rounded-[2rem] px-8 py-16">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold tracking-tight mb-5">
+                Protect your <span class="text-lavender">cloud. Now.</span>
+            </h2>
+            <p class="text-lg text-ink-soft mb-8 max-w-xl mx-auto leading-relaxed">
+                Cybat Intelligence Engine is live on Google Cloud Marketplace. Subscribe in minutes and start blocking threats autonomously.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                    target="_blank" rel="noopener"
+                    class="inline-block bg-lavender text-white px-8 py-4 rounded-full font-heading font-semibold hover:bg-ink transition-colors">
+                    Subscribe on Marketplace
+                </a>
+                <router-link to="/connect"
+                    class="inline-block bg-white text-ink px-8 py-4 rounded-full font-heading font-semibold hover:bg-mint-pale transition-colors">
+                    Book demo
+                </router-link>
+            </div>
         </div>
     </div>
 </section>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-light">
 
 <head>
     <meta charset="UTF-8">
@@ -52,6 +52,14 @@
                         'ai-lavender': '#A78BFA',
                         'ai-mint': '#2DD4BF',
                         'ai-border': '#1F2937',
+                        'paper': '#FAF7F2',
+                        'ink': '#2E2A3B',
+                        'ink-soft': '#5B5670',
+                        'lavender': '#8B7BD8',
+                        'lavender-pale': '#ECE7FA',
+                        'mint': '#3FA796',
+                        'mint-pale': '#DFF3EE',
+                        'peach-pale': '#FBEAE0',
                     }
                 }
             }
@@ -238,9 +246,110 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #9FB5AD;
     }
+
+    /* ── Light (pastel) theme — applied per route via html.theme-light ── */
+    html.theme-light,
+    html.theme-light body {
+        background-color: #FAF7F2;
+        color: #2E2A3B;
+    }
+
+    html.theme-light .site-nav {
+        background-color: rgba(250, 247, 242, 0.85);
+        border-color: rgba(46, 42, 59, 0.08);
+    }
+
+    html.theme-light .site-nav .font-black:not(.site-cta),
+    html.theme-light .site-footer .font-black {
+        color: #2E2A3B;
+        font-style: normal;
+        text-transform: none;
+        font-weight: 700;
+    }
+
+    html.theme-light .site-dot {
+        border-radius: 9999px;
+        background-color: #8B7BD8;
+        box-shadow: none;
+    }
+
+    html.theme-light .site-links,
+    html.theme-light .site-mobile a:not(.site-cta),
+    html.theme-light .site-nav button {
+        color: #5B5670;
+    }
+
+    html.theme-light .site-links a:hover,
+    html.theme-light .site-mobile a:hover {
+        color: #8B7BD8;
+    }
+
+    html.theme-light .site-mobile {
+        background-color: #FAF7F2;
+        border-color: rgba(46, 42, 59, 0.08);
+    }
+
+    html.theme-light .site-cta {
+        background-color: #8B7BD8;
+        color: #fff;
+        border-radius: 9999px;
+    }
+
+    html.theme-light .site-links a.site-cta:hover,
+    html.theme-light .site-mobile a.site-cta:hover {
+        background-color: #2E2A3B;
+        color: #fff;
+    }
+
+    html.theme-light .site-footer {
+        background-color: #F2EDE4;
+        border-color: rgba(46, 42, 59, 0.08);
+    }
+
+    html.theme-light .site-footer .aurora {
+        display: none;
+    }
+
+    html.theme-light .site-footer [class*="text-white"] {
+        color: #5B5670;
+    }
+
+    html.theme-light .site-footer [class*="border-white"] {
+        border-color: rgba(46, 42, 59, 0.08);
+    }
+
+    html.theme-light .site-footer a:hover {
+        color: #8B7BD8;
+    }
+
+    html.theme-light .section-deep {
+        background-color: transparent;
+        color: #2E2A3B;
+    }
+
+    html.theme-light .section-navy {
+        background-color: rgba(255, 255, 255, 0.6);
+        color: #2E2A3B;
+    }
+
+    /* Softer corners site-wide; full-bleed blocks stay square */
+    html.theme-light * {
+        border-radius: 12px;
+    }
+
+    html.theme-light section,
+    html.theme-light header,
+    html.theme-light footer,
+    html.theme-light nav,
+    html.theme-light main {
+        border-radius: 0;
+    }
+
+    html.theme-light ::-webkit-scrollbar-track { background: #FAF7F2; }
+    html.theme-light ::-webkit-scrollbar-thumb { background: #D9D2EE; }
 </style>
 
-<body class="bg-ai-obsidian text-white font-sans">
+<body class="bg-paper text-ink font-sans">
     <div id="app" class="flex flex-col min-h-screen">
         <nav class="p-4 md:p-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
             <div class="max-w-7xl mx-auto flex justify-between items-center relative">

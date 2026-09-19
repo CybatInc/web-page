@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lato:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@300;400;700&family=Roboto+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -22,16 +22,46 @@
                         mono: ['Roboto Mono', 'monospace'],
                     },
                     colors: {
-                        'ai-obsidian': '#030712',
-                        'ai-navy': '#0F172A',
-                        'ai-lavender': '#A78BFA',
-                        'ai-mint': '#2DD4BF',
+                        'paper': '#FAF7F2',
+                        'ink': '#2E2A3B',
+                        'ink-soft': '#5B5670',
+                        'lavender': '#8B7BD8',
+                        'lavender-pale': '#ECE7FA',
+                        'mint': '#3FA796',
+                        'mint-pale': '#DFF3EE',
+                        'peach-pale': '#FBEAE0',
                     }
                 }
             }
         }
     </script>
     <style>
+        body {
+            background-color: #FAF7F2;
+            color: #2E2A3B;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .paper-content h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            margin-top: 4rem;
+            margin-bottom: 1.25rem;
+            color: #2E2A3B;
+        }
+
+        .paper-content h2::before {
+            content: "";
+            display: block;
+            width: 2rem;
+            height: 3px;
+            border-radius: 2px;
+            background: #8B7BD8;
+            margin-bottom: 0.75rem;
+        }
+
         @media print {
             .no-print {
                 display: none;
@@ -39,41 +69,12 @@
 
             body {
                 background-color: white !important;
-                color: black !important;
             }
 
             article {
-                border: none !important;
                 box-shadow: none !important;
                 padding: 0 !important;
             }
-
-            .section-glow {
-                display: none !important;
-            }
-        }
-
-        body {
-            background-color: #030712;
-            color: #F9FAFB;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .paper-content h2 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 0.75rem;
-            margin-top: 4rem;
-            color: #A78BFA;
-        }
-
-        /* Technical Grid */
-        .bg-grid {
-            background-image: radial-gradient(rgba(167, 139, 250, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
         }
     </style>
 
@@ -88,147 +89,133 @@
     </script>
 </head>
 
-<body class="p-4 md:p-12 bg-ai-obsidian font-sans selection:bg-ai-lavender selection:text-ai-obsidian">
+<body class="p-4 md:p-12 bg-paper font-sans selection:bg-lavender-pale selection:text-ink">
 
-    <div class="max-w-4xl mx-auto mb-12 flex justify-between items-center no-print">
-        <a href="index.html" class="font-heading font-black text-xl uppercase italic group flex items-center">
-            <span class="mr-2">🛡️</span> Cybat <span class="text-ai-lavender ml-1">AI</span>
+    <div class="max-w-3xl mx-auto mb-10 flex justify-between items-center no-print">
+        <a href="index.html" class="font-heading font-bold text-lg flex items-center text-ink">
+            <span class="mr-2">🛡️</span> Cybat <span class="text-lavender ml-1">AI</span>
         </a>
         <button onclick="window.print()"
-            class="bg-ai-lavender text-ai-obsidian px-6 py-2 font-heading font-black text-xs uppercase tracking-widest hover:bg-white transition-colors">
-            Capture_PDF
+            class="bg-lavender-pale text-ink px-5 py-2 rounded-full font-heading font-semibold text-sm hover:bg-lavender hover:text-white transition-colors">
+            Save as PDF
         </button>
     </div>
 
-    <article class="max-w-5xl mx-auto bg-ai-navy p-8 md:p-24 border border-white/5 relative overflow-hidden bg-grid">
-        <!-- Aurora Glow -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-ai-lavender blur-[150px] opacity-10 -mr-48 -mt-48 section-glow">
-        </div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-ai-mint blur-[150px] opacity-5 -ml-48 -mb-48 section-glow">
-        </div>
+    <article class="paper-content max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-16 shadow-[0_8px_40px_rgba(46,42,59,0.06)]">
 
-        <div class="relative z-10">
-            <div class="text-center mb-24">
-                <div class="font-mono text-ai-lavender text-[10px] uppercase tracking-[0.4em] mb-6 opacity-60">
-                    Technical Whitepaper // v2026.01.08
-                </div>
-                <h1 class="text-5xl md:text-7xl font-heading font-black mb-8 leading-[0.85] tracking-tighter uppercase">
-                    AUTONOMOUS THREAT<br>
-                    <span class="text-ai-lavender">MITIGATION.</span>
-                </h1>
-                <div class="h-1 w-24 bg-ai-mint mx-auto mb-8"></div>
-                <p class="text-white font-mono text-xs uppercase tracking-widest leading-loose">
-                    Authored by the Cybat AI Engineering Team<br>
-                    & Lead Architect <a href="https://linkedin.com/in/ederius" target="_blank"
-                        class="text-ai-lavender hover:text-white transition-colors">Ederius Toro_</a>
-                </p>
+        <header class="mb-16">
+            <div class="inline-block bg-mint-pale text-mint font-mono text-xs px-3 py-1 rounded-full mb-6">
+                Technical Whitepaper · v2026.01.08
             </div>
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 leading-[1.05] tracking-tight">
+                Autonomous Threat <span class="text-lavender">Mitigation</span>
+            </h1>
+            <p class="text-ink-soft">
+                By the Cybat AI Engineering Team &amp; Lead Architect
+                <a href="https://linkedin.com/in/ederius" target="_blank"
+                    class="text-lavender font-bold hover:underline">Ederius Toro</a>
+            </p>
+        </header>
 
-            <section class="mb-16">
-                <h2 class="text-2xl mb-6">Abstract</h2>
-                <p class="leading-relaxed text-white/90 text-lg italic">
-                    Traditional SOC operations suffer from the "Inertia Gap"—the critical latency between detection and
-                    manual enforcement.
-                    Cybat AI introduces an agentic orchestration layer using Gemini 3.1 Flash and serverless Cloud Run
-                    to execute
-                    verified mitigation in sub-500ms intervals.
-                </p>
-            </section>
+        <section>
+            <h2 style="margin-top:0">Abstract</h2>
+            <p class="leading-relaxed text-ink-soft text-lg bg-lavender-pale/60 rounded-2xl p-6">
+                Traditional SOC operations suffer from the "Inertia Gap"—the critical latency between detection and
+                manual enforcement.
+                Cybat AI introduces an agentic orchestration layer using Gemini 3.1 Flash and serverless Cloud Run
+                to execute verified mitigation in sub-500ms intervals.
+            </p>
+        </section>
 
-            <section class="mb-16">
-                <h2 class="text-2xl mb-6">1. Ingestion Protocol</h2>
-                <p class="mb-8 text-white/85 leading-relaxed">
-                    The platform ingests via a lightweight SDK installed as application middleware — a single line of
-                    code, no log export or org-level IAM grant. Requests are authenticated at the edge by API Gateway,
-                    then buffered through a keyless Pub/Sub stream into the distributed inference engine.
-                </p>
-                <div
-                    class="bg-ai-obsidian p-10 border border-white/10 font-mono text-[11px] text-ai-mint leading-relaxed">
-                    <span class="opacity-30">// SCALABILITY_ENGINE_V3</span><br>
-                    Throughput_Capacity = (Payload_Vector * Delta_Events) / Worker_Node_Elasticity<br>
-                    <span class="text-ai-lavender">Status: DETERMINISTIC</span>
+        <section>
+            <h2>1. Ingestion Protocol</h2>
+            <p class="mb-6 text-ink-soft leading-relaxed">
+                The platform ingests via a lightweight SDK installed as application middleware — a single line of
+                code, no log export or org-level IAM grant. Requests are authenticated at the edge by API Gateway,
+                then buffered through a keyless Pub/Sub stream into the distributed inference engine.
+            </p>
+            <div class="bg-mint-pale rounded-2xl p-6 font-mono text-xs text-ink leading-relaxed">
+                <span class="text-ink-soft">// SCALABILITY_ENGINE_V3</span><br>
+                Throughput_Capacity = (Payload_Vector * Delta_Events) / Worker_Node_Elasticity<br>
+                <span class="text-mint font-medium">Status: DETERMINISTIC</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Intent Reasoning</h2>
+            <p class="text-ink-soft leading-relaxed mb-6">
+                Unlike static Regex-based WAFs, our engine evaluates contextual malicious intent. By processing
+                headers through large context windows, we identify:
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-5 bg-lavender-pale/60 rounded-2xl">
+                    <div class="font-mono text-lavender text-xs mb-3">01</div>
+                    <h4 class="font-heading font-semibold mb-2">Temporal Density</h4>
+                    <p class="text-sm text-ink-soft leading-relaxed">Frequency clustering of HTTP-403 across
+                        unrelated project segments.</p>
                 </div>
-            </section>
-
-            <section class="mb-16">
-                <h2 class="text-2xl mb-6">2. Intent Reasoning</h2>
-                <p class="text-white/85 leading-relaxed mb-8">
-                    Unlike static Regex-based WAFs, our engine evaluates contextual malicious intent. By processing
-                    headers
-                    through large context windows, we identify:
-                </p>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="p-6 bg-white/[0.02] border border-white/5">
-                        <div class="font-mono text-ai-lavender text-[10px] mb-4">TYP_01</div>
-                        <h4 class="font-heading font-black uppercase text-xs mb-3">Temporal Density</h4>
-                        <p class="text-[10px] opacity-40 leading-relaxed">Frequency clustering of HTTP-403 across
-                            unrelated project segments.</p>
-                    </div>
-                    <div class="p-6 bg-white/[0.02] border border-white/5">
-                        <div class="font-mono text-ai-lavender text-[10px] mb-4">TYP_02</div>
-                        <h4 class="font-heading font-black uppercase text-xs mb-3">Header Anomalies</h4>
-                        <p class="text-[10px] opacity-40 leading-relaxed">Verification of TCP fingerprints against
-                            spoofed user-agent declarations.</p>
-                    </div>
-                    <div class="p-6 bg-white/[0.02] border border-white/5">
-                        <div class="font-mono text-ai-lavender text-[10px] mb-4">TYP_03</div>
-                        <h4 class="font-heading font-black uppercase text-xs mb-3">Lateral Movement</h4>
-                        <p class="text-[10px] opacity-40 leading-relaxed">Internal port-scanning pattern detection
-                            within VPC cross-project traffic.</p>
-                    </div>
+                <div class="p-5 bg-mint-pale rounded-2xl">
+                    <div class="font-mono text-mint text-xs mb-3">02</div>
+                    <h4 class="font-heading font-semibold mb-2">Header Anomalies</h4>
+                    <p class="text-sm text-ink-soft leading-relaxed">Verification of TCP fingerprints against
+                        spoofed user-agent declarations.</p>
                 </div>
-            </section>
-
-            <section class="mb-16">
-                <h2 class="text-2xl mb-6">3. Enforcement Matrix</h2>
-                <p class="mb-8 text-white/85 leading-relaxed">MITRE ATT&CK mitigation is mapped to zero-latency
-                    enforcement points:</p>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse font-mono text-[10px] uppercase tracking-widest">
-                        <thead>
-                            <tr class="bg-white/5 text-ai-lavender">
-                                <th class="p-4 border border-white/10">Vector</th>
-                                <th class="p-4 border border-white/10">Control Plane Item</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-white/85">
-                            <tr>
-                                <td class="p-4 border border-white/10">HTTP/L7 (SQLi/XSS)</td>
-                                <td class="p-4 border border-white/10 text-ai-mint">Cloud Armor Policy</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 border border-white/10">SSH/RDP Bruteforce</td>
-                                <td class="p-4 border border-white/10 text-ai-lavender">VPC Firewall (Deny)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 border border-white/10">Exfiltration / C2</td>
-                                <td class="p-4 border border-white/10 text-ai-mint">Service Controls (Injected)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="p-5 bg-peach-pale rounded-2xl">
+                    <div class="font-mono text-[#D9825B] text-xs mb-3">03</div>
+                    <h4 class="font-heading font-semibold mb-2">Lateral Movement</h4>
+                    <p class="text-sm text-ink-soft leading-relaxed">Internal port-scanning pattern detection
+                        within VPC cross-project traffic.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="mb-16">
-                <h2 class="text-2xl mb-6">4. Sovereignty</h2>
-                <p class="text-white/85 leading-relaxed">
-                    Cybat AI operates using a <b>Zero-Retention</b> model. Telemetry is reasoned over in ephemeral
-                    memory
-                    within a secure, stateless Cloud Run sandbox. Every decision is traceable via audited reasoning logs.
-                </p>
-            </section>
+        <section>
+            <h2>3. Enforcement Matrix</h2>
+            <p class="mb-6 text-ink-soft leading-relaxed">MITRE ATT&amp;CK mitigation is mapped to zero-latency
+                enforcement points:</p>
+            <div class="overflow-x-auto rounded-2xl border border-lavender-pale">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-lavender-pale text-ink font-heading">
+                            <th class="p-4 font-semibold">Vector</th>
+                            <th class="p-4 font-semibold">Control Plane Item</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-ink-soft">
+                        <tr class="border-t border-lavender-pale">
+                            <td class="p-4">HTTP/L7 (SQLi/XSS)</td>
+                            <td class="p-4 text-mint font-bold">Cloud Armor Policy</td>
+                        </tr>
+                        <tr class="border-t border-lavender-pale">
+                            <td class="p-4">SSH/RDP Bruteforce</td>
+                            <td class="p-4 text-lavender font-bold">VPC Firewall (Deny)</td>
+                        </tr>
+                        <tr class="border-t border-lavender-pale">
+                            <td class="p-4">Exfiltration / C2</td>
+                            <td class="p-4 text-mint font-bold">Service Controls (Injected)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-            <footer
-                class="text-center pt-24 pb-12 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-white/90 border-t border-white/5 mt-32">
-                &copy; 2026 Cybat AI // Internal Technical Specification // Classified Output
-            </footer>
-        </div>
+        <section>
+            <h2>4. Sovereignty</h2>
+            <p class="text-ink-soft leading-relaxed">
+                Cybat AI operates using a <b class="text-ink">Zero-Retention</b> model. Telemetry is reasoned over in
+                ephemeral memory within a secure, stateless Cloud Run sandbox. Every decision is traceable via audited
+                reasoning logs.
+            </p>
+        </section>
+
+        <footer class="text-center pt-8 mt-20 text-xs font-mono text-ink-soft border-t border-lavender-pale">
+            &copy; 2026 Cybat AI · Internal Technical Specification
+        </footer>
     </article>
 
-    <div class="max-w-4xl mx-auto mt-12 text-center no-print">
-        <a href="index.html"
-            class="text-ai-lavender hover:text-white font-mono text-xs uppercase tracking-widest transition-colors">
-            ← Return to Interface
+    <div class="max-w-3xl mx-auto mt-10 text-center no-print">
+        <a href="index.html" class="text-lavender hover:underline font-bold text-sm">
+            ← Back to Cybat AI
         </a>
     </div>
 

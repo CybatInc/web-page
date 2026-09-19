@@ -5,55 +5,55 @@
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/4 hidden lg:block">
-            <div class="sticky top-40 bg-ai-navy/50 border border-white/10 rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-widest text-white mb-6">Documentation Index</h3>
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
                 <nav class="space-y-4 font-mono text-sm">
-                    <a href="#/docs" class="block text-white hover:text-ai-mint transition-colors">Overview</a>
-                    <a href="#/docs/getting-started" class="block text-white hover:text-ai-mint transition-colors">Getting Started</a>
-                    <a href="#/docs/user-guide" class="block text-white hover:text-ai-mint transition-colors">User Guide</a>
-                    <a href="#/docs/release-notes" class="block text-white hover:text-ai-mint transition-colors">Release Notes</a>
-                    <a href="#/docs/security-specs" class="block text-white hover:text-ai-mint transition-colors font-bold text-ai-lavender">Security Specs</a>
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Security Specs</a>
                 </nav>
             </div>
         </div>
 
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-black mb-6 uppercase tracking-tighter italic">Critical Security Specs<span class="text-ai-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">Critical Security Specs<span class="text-lavender">_</span></h1>
                 
-                <div class="bg-ai-obsidian border border-ai-mint/30 rounded-lg p-8 md:p-6 relative overflow-hidden">
+                <div class="bg-paper border border-mint/30 rounded-lg p-8 md:p-6 relative overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.05),transparent_70%)]"></div>
                     
                     <div class="space-y-4 relative z-10">
                         <!-- IAM Permissions -->
                         <div>
-                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
                                 Permissions (IAM)
                             </h3>
-                            <p class="font-mono text-sm text-white bg-white/5 p-4 rounded border border-white/5">
-                                The Engine operates under a principle of least privilege. SDK ingestion itself requires zero IAM grants in your project — authentication is a single API key, validated at the edge by API Gateway. Enabling <strong class="text-white">automatic blocking</strong> (optional) requires granting <code class="text-ai-lavender text-xs mx-1">compute.securityAdmin</code> (Cloud Armor enforcement) and <code class="text-ai-lavender text-xs mx-1">compute.networkViewer</code> (VPC discovery) on the specific project you configure, not your whole organization.
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
+                                The Engine operates under a principle of least privilege. SDK ingestion itself requires zero IAM grants in your project — authentication is a single API key, validated at the edge by API Gateway. Enabling <strong class="text-ink">automatic blocking</strong> (optional) requires granting <code class="text-lavender text-xs mx-1">compute.securityAdmin</code> (Cloud Armor enforcement) and <code class="text-lavender text-xs mx-1">compute.networkViewer</code> (VPC discovery) on the specific project you configure, not your whole organization.
                             </p>
                         </div>
 
                         <!-- Data Sovereignty -->
                         <div>
-                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
                                 Data Sovereignty
                             </h3>
-                            <p class="font-mono text-sm text-white bg-white/5 p-4 rounded border border-white/5">
-                                Zero-retention architecture ensures request telemetry is <strong class="text-white">evaluated in-stream and immediately discarded</strong>. No request bodies or sensitive payload data are persisted to Cybat infrastructure — only the anonymized (HMAC-hashed) verdict needed for repeat-offender caching.
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
+                                Zero-retention architecture ensures request telemetry is <strong class="text-ink">evaluated in-stream and immediately discarded</strong>. No request bodies or sensitive payload data are persisted to Cybat infrastructure — only the anonymized (HMAC-hashed) verdict needed for repeat-offender caching.
                             </p>
                         </div>
 
                         <!-- Authentication -->
                         <div>
-                            <h3 class="font-mono text-sm uppercase tracking-widest text-ai-mint mb-2 flex items-center">
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
                                 Authentication
                             </h3>
-                            <p class="font-mono text-sm text-white bg-white/5 p-4 rounded border border-white/5">
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
                                 Platform access relies exclusively on <strong>Single Sign-On (SSO) via Google Identity</strong> integration, seamlessly authorizing users against their existing Workspace/Cloud Identity directory.
                             </p>
                         </div>
@@ -62,66 +62,66 @@
 
                 <!-- CLIENT REQUIREMENTS SECTION -->
                 <div class="mt-12">
-                    <h2 class="text-3xl font-heading font-black mb-2 uppercase tracking-tighter italic">Client Requirements<span class="text-ai-lavender">_</span></h2>
-                    <p class="font-mono text-sm text-white mb-8">Minimum setup needed for the engine to detect — and optionally block — threats effectively.</p>
+                    <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Client Requirements<span class="text-lavender">_</span></h2>
+                    <p class="font-mono text-sm text-ink mb-8">Minimum setup needed for the engine to detect — and optionally block — threats effectively.</p>
 
                     <!-- Infrastructure Prerequisites -->
-                    <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
-                        <h3 class="font-mono text-sm uppercase tracking-widest text-ai-lavender mb-6 flex items-center gap-3">
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                             Infrastructure Prerequisites
                         </h3>
                         <div class="grid md:grid-cols-2 gap-4 font-mono text-sm">
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-mint text-xs uppercase tracking-widest mb-2">Required</p>
-                                <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> An app that can install the Cybat SDK as middleware (Node.js today; Python and Go on the roadmap)</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> A valid, non-revoked, non-expired API key from the Intelligence Portal</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-mint mt-0.5">✓</span> Slack workspace for real-time alert delivery</li>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-mint text-xs mb-2">Required</p>
+                                <ul class="space-y-2 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-mint mt-0.5">✓</span> An app that can install the Cybat SDK as middleware (Node.js today; Python and Go on the roadmap)</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint mt-0.5">✓</span> A valid, non-revoked, non-expired API key from the Intelligence Portal</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint mt-0.5">✓</span> Slack workspace for real-time alert delivery</li>
                                 </ul>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded p-4">
-                                <p class="text-ai-lavender text-xs uppercase tracking-widest mb-2">Recommended</p>
-                                <ul class="space-y-2 text-white text-xs">
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">gcpProjectId</strong> configured on the SDK — enables automatic VPC Firewall / Cloud Armor blocking, not just detection</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <strong class="text-white">compute.securityAdmin</strong> + <strong class="text-white">compute.networkViewer</strong> granted on that specific project — scoped, not org-wide</li>
-                                    <li class="flex items-start gap-2"><span class="text-ai-lavender mt-0.5">+</span> <code class="bg-white/10 px-1 rounded text-ai-lavender">app.set('trust proxy', ...)</code> if your app sits behind your own load balancer — otherwise the SDK reports the proxy's IP instead of the real client's</li>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Recommended</p>
+                                <ul class="space-y-2 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <strong class="text-ink">gcpProjectId</strong> configured on the SDK — enables automatic VPC Firewall / Cloud Armor blocking, not just detection</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <strong class="text-ink">compute.securityAdmin</strong> + <strong class="text-ink">compute.networkViewer</strong> granted on that specific project — scoped, not org-wide</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <code class="bg-lavender-pale px-1 rounded text-lavender">app.set('trust proxy', ...)</code> if your app sits behind your own load balancer — otherwise the SDK reports the proxy's IP instead of the real client's</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Wire contract -->
-                    <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
-                        <h3 class="font-mono text-sm uppercase tracking-widest text-ai-lavender mb-6 flex items-center gap-3">
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                             How the SDK Reports Data
                         </h3>
                         <div class="space-y-3 font-mono text-xs">
-                            <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Auth</p>
-                                    <p class="text-ai-mint text-[10px] uppercase tracking-widest">API Key, Validated at the Edge</p>
+                                    <p class="text-ink font-bold mb-1">Auth</p>
+                                    <p class="text-mint text-[10px]">API Key, Validated at the Edge</p>
                                 </div>
-                                <div class="col-span-8 text-white leading-relaxed">
-                                    Every batch is sent with an <code class="bg-white/10 px-1 rounded text-ai-lavender">x-api-key</code> header. API Gateway validates it's a real, non-deleted key before the request ever reaches our compute — invalid, expired, or revoked keys are rejected at the network edge.
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    Every batch is sent with an <code class="bg-lavender-pale px-1 rounded text-lavender">x-api-key</code> header. API Gateway validates it's a real, non-deleted key before the request ever reaches our compute — invalid, expired, or revoked keys are rejected at the network edge.
                                 </div>
                             </div>
-                            <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Batching</p>
-                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Buffered, Not Per-Request</p>
+                                    <p class="text-ink font-bold mb-1">Batching</p>
+                                    <p class="text-lavender text-[10px]">Buffered, Not Per-Request</p>
                                 </div>
-                                <div class="col-span-8 text-white leading-relaxed">
+                                <div class="col-span-8 text-ink leading-relaxed">
                                     The SDK buffers captured requests in memory and flushes every ~2 seconds (or when the batch fills up) — never one HTTP call per request. A failed send is retried a bounded number of times, then dropped rather than queued forever.
                                 </div>
                             </div>
-                            <div class="grid grid-cols-12 gap-4 items-start bg-white/5 border border-white/10 rounded p-4">
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
                                 <div class="col-span-4">
-                                    <p class="text-white font-bold mb-1">Buffering</p>
-                                    <p class="text-ai-lavender text-[10px] uppercase tracking-widest">Pub/Sub, Not a Queue in Your App</p>
+                                    <p class="text-ink font-bold mb-1">Buffering</p>
+                                    <p class="text-lavender text-[10px]">Pub/Sub, Not a Queue in Your App</p>
                                 </div>
-                                <div class="col-span-8 text-white leading-relaxed">
+                                <div class="col-span-8 text-ink leading-relaxed">
                                     Once past the API Gateway, batches land on a durable Pub/Sub topic before reaching the AI analysis engine — a traffic spike (exactly when a real attack is happening) is absorbed instead of dropped.
                                 </div>
                             </div>
@@ -129,45 +129,45 @@
                     </div>
 
                     <!-- Event fields -->
-                    <div class="bg-ai-obsidian border border-white/10 rounded-lg p-8 mb-6">
-                        <h3 class="font-mono text-sm uppercase tracking-widest text-ai-lavender mb-6 flex items-center gap-3">
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                             Event Fields
                         </h3>
                         <div class="overflow-x-auto">
                             <table class="w-full font-mono text-xs">
                                 <thead>
-                                    <tr class="border-b border-white/10 text-left">
-                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Field</th>
-                                        <th class="pb-3 pr-6 text-white uppercase tracking-widest font-normal">Status</th>
-                                        <th class="pb-3 text-white uppercase tracking-widest font-normal">Purpose</th>
+                                    <tr class="border-b border-lavender-pale text-left">
+                                        <th class="pb-3 pr-6 text-ink font-normal">Field</th>
+                                        <th class="pb-3 pr-6 text-ink font-normal">Status</th>
+                                        <th class="pb-3 text-ink font-normal">Purpose</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-white/5">
+                                <tbody class="divide-y divide-lavender-pale">
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">remoteIp</code></td>
-                                        <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white">Source IP for grouping and blocking. Captured automatically by the SDK from the request.</td>
+                                        <td class="py-3 pr-6"><code class="text-lavender">remoteIp</code></td>
+                                        <td class="py-3 pr-6"><span class="text-red-400">Required</span></td>
+                                        <td class="py-3 text-ink">Source IP for grouping and blocking. Captured automatically by the SDK from the request.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">method</code>, <code class="text-ai-lavender">url</code>, <code class="text-ai-lavender">status</code></td>
-                                        <td class="py-3 pr-6"><span class="text-red-400 uppercase tracking-widest">Required</span></td>
-                                        <td class="py-3 text-white">Drive SQLi, XSS, path traversal, and credential-stuffing detection. Captured automatically — status is read after your handler responds, not before.</td>
+                                        <td class="py-3 pr-6"><code class="text-lavender">method</code>, <code class="text-lavender">url</code>, <code class="text-lavender">status</code></td>
+                                        <td class="py-3 pr-6"><span class="text-red-400">Required</span></td>
+                                        <td class="py-3 text-ink">Drive SQLi, XSS, path traversal, and credential-stuffing detection. Captured automatically — status is read after your handler responds, not before.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">userAgent</code>, <code class="text-ai-lavender">referer</code></td>
-                                        <td class="py-3 pr-6"><span class="text-ai-mint uppercase tracking-widest">Recommended</span></td>
-                                        <td class="py-3 text-white">Distinguishes legitimate browser traffic from scanning tools and bots. Captured automatically.</td>
+                                        <td class="py-3 pr-6"><code class="text-lavender">userAgent</code>, <code class="text-lavender">referer</code></td>
+                                        <td class="py-3 pr-6"><span class="text-mint">Recommended</span></td>
+                                        <td class="py-3 text-ink">Distinguishes legitimate browser traffic from scanning tools and bots. Captured automatically.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">gcpProjectId</code></td>
-                                        <td class="py-3 pr-6"><span class="text-white uppercase tracking-widest">Optional</span></td>
-                                        <td class="py-3 text-white">Set once at SDK initiation. Required for automatic enforcement — without it, the engine detects and alerts but never modifies infrastructure.</td>
+                                        <td class="py-3 pr-6"><code class="text-lavender">gcpProjectId</code></td>
+                                        <td class="py-3 pr-6"><span class="text-ink">Optional</span></td>
+                                        <td class="py-3 text-ink">Set once at SDK initiation. Required for automatic enforcement — without it, the engine detects and alerts but never modifies infrastructure.</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-3 pr-6"><code class="text-ai-lavender">serviceName</code></td>
-                                        <td class="py-3 pr-6"><span class="text-white uppercase tracking-widest">Optional</span></td>
-                                        <td class="py-3 text-white">A label shown on incidents — useful if one API key covers multiple services.</td>
+                                        <td class="py-3 pr-6"><code class="text-lavender">serviceName</code></td>
+                                        <td class="py-3 pr-6"><span class="text-ink">Optional</span></td>
+                                        <td class="py-3 text-ink">A label shown on incidents — useful if one API key covers multiple services.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -176,16 +176,16 @@
 
                     <!-- What is NOT supported -->
                     <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-8">
-                        <h3 class="font-mono text-sm uppercase tracking-widest text-red-400 mb-4 flex items-center gap-3">
+                        <h3 class="font-mono text-sm text-red-400 mb-4 flex items-center gap-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                             Limitations &amp; Out-of-Scope
                         </h3>
-                        <ul class="font-mono text-xs text-white space-y-2">
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Automatic enforcement without a project ID:</strong> Detection works regardless of where your app runs, but blocking a threat requires telling the SDK which cloud project to act on — otherwise nothing gets modified.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">AWS enforcement:</strong> Detection is available today for apps anywhere; automatic blocking on AWS infrastructure is on the roadmap and not yet live.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Infrastructure-layer attacks:</strong> The SDK sees application-level HTTP traffic only. Network-layer signals (VPC port scanning, IAM audit escalation) still require the legacy Log Sink integration.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Encrypted payload inspection:</strong> The engine operates on request metadata. It does not decrypt or inspect TLS payload bodies.</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-white">Non-HTTP protocols:</strong> Raw TCP/UDP, DNS, and SMTP attack patterns are outside the current detection scope.</li>
+                        <ul class="font-mono text-xs text-ink space-y-2">
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Automatic enforcement without a project ID:</strong> Detection works regardless of where your app runs, but blocking a threat requires telling the SDK which cloud project to act on — otherwise nothing gets modified.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">AWS enforcement:</strong> Detection is available today for apps anywhere; automatic blocking on AWS infrastructure is on the roadmap and not yet live.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Infrastructure-layer attacks:</strong> The SDK sees application-level HTTP traffic only. Network-layer signals (VPC port scanning, IAM audit escalation) still require the legacy Log Sink integration.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Encrypted payload inspection:</strong> The engine operates on request metadata. It does not decrypt or inspect TLS payload bodies.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Non-HTTP protocols:</strong> Raw TCP/UDP, DNS, and SMTP attack patterns are outside the current detection scope.</li>
                         </ul>
                     </div>
                 </div>

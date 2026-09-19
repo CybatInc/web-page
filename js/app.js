@@ -67,10 +67,10 @@ function initLandingGlobe() {
     _globe = Globe()(el)
         .width(el.clientWidth)
         .height(el.clientHeight)
-        .backgroundColor('#030712')
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        .backgroundColor('rgba(0,0,0,0)')
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-day.jpg')
         .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-        .atmosphereColor('#6d28d9')
+        .atmosphereColor('#8B7BD8')
         .atmosphereAltitude(0.22)
         .pointsData(DEMO_POINTS)
         .pointColor('color')
@@ -242,15 +242,15 @@ const app = createApp({
     },
     template: `
         <div class="flex flex-col min-h-screen">
-            <nav class="p-4 md:p-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
+            <nav class="site-nav p-4 md:p-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
                 <div class="max-w-7xl mx-auto flex justify-between items-center relative">
                     <router-link to="/" class="flex items-center group" @click="closeMobileMenu">
                         <span class="text-3xl font-heading font-black tracking-tighter uppercase italic">Cybat</span>
-                        <div class="w-4 h-4 bg-ai-lavender ml-1 animate-pulse shadow-[0_0_10px_#A78BFA]"></div>
+                        <div class="site-dot w-4 h-4 bg-ai-lavender ml-1 animate-pulse shadow-[0_0_10px_#A78BFA]"></div>
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-6 text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-white/50">
+                    <div class="site-links hidden md:flex items-center space-x-6 text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-white/50">
                         <router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link>
                         <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</router-link>
                         <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">Safety</router-link>
@@ -259,7 +259,7 @@ const app = createApp({
                         <router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link>
                         <router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link>
                         <router-link to="/security" class="hover:text-ai-lavender transition-colors">Security</router-link>
-                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Subscribe_</a>
+                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Subscribe_</a>
                     </div>
 
                     <!-- Mobile Menu Button -->
@@ -272,7 +272,7 @@ const app = createApp({
                 </div>
 
                 <!-- Mobile Menu Dropdown -->
-                <div v-show="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
+                <div v-show="isMobileMenuOpen" class="site-mobile md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
                     <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
                     <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
                     <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
@@ -281,7 +281,7 @@ const app = createApp({
                     <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</router-link>
                     <router-link to="/docs" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Docs</router-link>
                     <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</router-link>
-                    <router-link to="/connect" @click="closeMobileMenu" class="block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</router-link>
+                    <router-link to="/connect" @click="closeMobileMenu" class="site-cta block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</router-link>
                 </div>
             </nav>
 
@@ -289,7 +289,7 @@ const app = createApp({
                 <router-view></router-view>
             </div>
 
-            <footer class="bg-ai-obsidian py-32 border-t border-white/5 relative overflow-hidden">
+            <footer class="site-footer bg-ai-obsidian py-32 border-t border-white/5 relative overflow-hidden">
                 <div class="aurora aurora-lavender w-96 h-96 -bottom-48 -left-48 opacity-10"></div>
                 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-20 relative z-10">
                     <div class="col-span-2">
