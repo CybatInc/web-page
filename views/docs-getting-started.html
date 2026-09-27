@@ -115,7 +115,21 @@ app.use(cybatExpress({
   gcpProjectId: 'your-gcp-project', // enables automatic blocking
 }))</pre>
                             <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-lavender-pale px-1 rounded text-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code> + <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
-                            <p class="text-ink">Python and Go SDKs are on the roadmap — reach out if you need one sooner.</p>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-ink">
+                            <p class="text-mint text-[10px]">Python / Flask, Django, FastAPI</p>
+                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">pip install cybat-sdk</pre>
+                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">from flask import Flask
+from cybat_sdk.integrations.flask import init_app
+
+app = Flask(__name__)
+init_app(app,
+    api_key=os.environ["CYBAT_API_KEY"],
+    gcp_project_id="your-gcp-project",  # enables automatic blocking
+)</pre>
+                            <p>Django reads config from <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> instead (add <code class="bg-lavender-pale px-1 rounded text-lavender">cybat_sdk.integrations.django.CybatMiddleware</code> to <code class="bg-lavender-pale px-1 rounded text-lavender">MIDDLEWARE</code> and set <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> / <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_GCP_PROJECT_ID</code>); FastAPI and other ASGI apps use <code class="bg-lavender-pale px-1 rounded text-lavender">CybatASGIMiddleware</code> via <code class="bg-lavender-pale px-1 rounded text-lavender">app.add_middleware(...)</code>. Same <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> / IAM grant as Node.js above enables automatic blocking. See the <a href="https://pypi.org/project/cybat-sdk" target="_blank" class="text-lavender hover:text-ink transition-colors">cybat-sdk package on PyPI</a> for full integration docs.</p>
+                            <p class="text-ink">A Go SDK is on the roadmap — reach out if you need one sooner.</p>
                         </div>
 
                         <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
