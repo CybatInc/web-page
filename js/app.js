@@ -13,6 +13,46 @@ const loadTemplate = (name) => {
         }));
 };
 
+// Copy-to-clipboard for code snippets (docs pages). Plain global function +
+// native onclick rather than a Vue @click/method, since routed views here are
+// bare `{ template: html }` components with no methods object of their own --
+// see loadTemplate above. Call as onclick="cybatCopyCode(this)" on a button
+// that is a sibling of (or inside a common wrapper with) the <pre> to copy;
+// pass an id string instead when the <pre> isn't a convenient DOM neighbor.
+function cybatCopyCode(buttonOrPreId) {
+    const button = typeof buttonOrPreId === 'string' ? document.getElementById(buttonOrPreId) : buttonOrPreId;
+    const pre = typeof buttonOrPreId === 'string'
+        ? document.getElementById(buttonOrPreId)
+        : button.closest('.code-copy-wrap')?.querySelector('pre');
+    if (!pre) return;
+    const text = pre.innerText;
+
+    const showCopied = () => {
+        const original = button.innerHTML;
+        button.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+        button.classList.add('text-mint');
+        setTimeout(() => {
+            button.innerHTML = original;
+            button.classList.remove('text-mint');
+        }, 1500);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(() => {});
+        return;
+    }
+    // Fallback for non-secure contexts / browsers without the Clipboard API.
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try { document.execCommand('copy'); showCopied(); } catch (e) { /* no-op */ }
+    document.body.removeChild(textarea);
+}
+window.cybatCopyCode = cybatCopyCode;
+
 // ── Landing page globe ────────────────────────────────────────────────────────
 
 let _globe = null;
@@ -141,6 +181,7 @@ const routes = [
     { path: '/security', component: loadTemplate('security') },
     { path: '/docs', component: loadTemplate('docs') },
     { path: '/docs/getting-started', component: loadTemplate('docs-getting-started') },
+    { path: '/docs/sdk-python', component: loadTemplate('docs-sdk-python') },
     { path: '/docs/user-guide', component: loadTemplate('docs-user-guide') },
     { path: '/docs/release-notes', component: loadTemplate('docs-release-notes') },
     { path: '/docs/security-specs', component: loadTemplate('docs-security-specs') },
@@ -148,7 +189,19 @@ const routes = [
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    // Hash-history mode means the router owns the URL's # already, so a plain
+    // in-page anchor like href="#section" gets treated as a route change to a
+    // (nonexistent) "/section" route instead of scrolling -- it never scrolls
+    // and silently breaks navigation. Links that want an in-page anchor must
+    // use the full "#/current/route#section" form (see docs-sdk-python.html),
+    // and this scrollBehavior is what actually performs the scroll once Vue
+    // Router parses that into `to.hash`.
+    scrollBehavior(to, _from, savedPosition) {
+        if (savedPosition) return savedPosition;
+        if (to.hash) return { el: to.hash, behavior: 'smooth' };
+        return { top: 0 };
+    }
 });
 
 // Track page views on route change

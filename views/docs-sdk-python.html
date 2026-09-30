@@ -1,0 +1,386 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+
+        <!-- Sidebar Navigation -->
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
+                <nav class="space-y-4 font-mono text-sm">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Python SDK Reference</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
+                </nav>
+
+                <div class="mt-8 pt-6 border-t border-lavender-pale">
+                    <h3 class="font-mono text-xs text-ink mb-4">On this page</h3>
+                    <nav class="space-y-2 font-mono text-xs text-ink-soft">
+                        <a href="#/docs/sdk-python#quickstart" class="block hover:text-mint transition-colors">Quick Start</a>
+                        <a href="#/docs/sdk-python#installation" class="block hover:text-mint transition-colors">Installation</a>
+                        <a href="#/docs/sdk-python#code-samples" class="block hover:text-mint transition-colors">Code Samples</a>
+                        <a href="#/docs/sdk-python#multi-cloud" class="block hover:text-mint transition-colors">Multi-Cloud Routing</a>
+                        <a href="#/docs/sdk-python#configuration" class="block hover:text-mint transition-colors">Configuration Reference</a>
+                        <a href="#/docs/sdk-python#bodies" class="block hover:text-mint transition-colors">Request Bodies &amp; Redaction</a>
+                        <a href="#/docs/sdk-python#next-steps" class="block hover:text-mint transition-colors">Next Steps</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+
+            <!-- Title + badges -->
+            <div class="mb-8">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Python SDK Reference<span class="text-lavender">_</span></h1>
+                <p class="font-mono text-sm text-ink-soft mb-5">Middleware for Flask, Django, FastAPI and any ASGI app that reports HTTP traffic directly to the Cybat Intelligence Engine.</p>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● AVAILABLE NOW</span>
+                    <a href="https://pypi.org/project/cybat-sdk" target="_blank" class="font-mono text-[10px] bg-lavender-pale text-ink px-2 py-1 rounded border border-lavender-pale hover:border-lavender transition-colors">cybat-sdk on PyPI</a>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Python 3.9+</span>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Zero runtime dependencies</span>
+                </div>
+            </div>
+
+            <!-- Other languages: coming soon strip -->
+            <div class="mb-10 p-5 bg-paper border border-lavender-pale rounded-lg">
+                <p class="font-mono text-xs text-ink mb-3">Other language SDKs</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Node.js — coming soon</span>
+                    <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Go — coming soon</span>
+                    <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Java — coming soon</span>
+                    <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">PHP — coming soon</span>
+                </div>
+                <p class="font-mono text-xs text-ink-soft mt-3">Python is the only SDK available today. The others are in active development — <a href="#/connect" class="text-lavender hover:text-ink underline transition-colors">reach out</a> if you need one sooner.</p>
+            </div>
+
+            <!-- Quick Start -->
+            <div id="quickstart" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Quick Start<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Four steps from an empty terminal to live detection.</p>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">1.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Install the package</p>
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">pip install cybat-sdk</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">2.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Create an API key</p>
+                            <p class="font-mono text-xs text-ink">From the <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink underline transition-colors">Intelligence Portal</a> → <strong class="text-ink">API Keys</strong>. It's shown once — store it as <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code>, it can't be retrieved again.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">3.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Add the middleware</p>
+                            <p class="font-mono text-xs text-ink">One import, one call — see <a href="#/docs/sdk-python#code-samples" class="text-lavender hover:text-ink underline transition-colors">Code Samples</a> below for your framework.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">4.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Generate traffic, watch the dashboard</p>
+                            <p class="font-mono text-xs text-ink">Requests appear in the Intelligence Portal within seconds — app listed as <strong class="text-mint">Connected</strong>, Threat Globe populating, incidents in the feed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div id="installation" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Installation<span class="text-lavender">_</span></h2>
+                <div class="p-6 bg-paper border border-lavender-pale rounded-lg space-y-4">
+                    <div class="relative code-copy-wrap">
+                        <pre class="bg-white border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-sm leading-relaxed">pip install cybat-sdk</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 font-mono text-xs text-ink">
+                        <div>
+                            <p class="text-mint mb-2">Supported Python versions</p>
+                            <p class="text-ink-soft">3.9, 3.10, 3.11, 3.12, 3.13</p>
+                        </div>
+                        <div>
+                            <p class="text-mint mb-2">Dependencies</p>
+                            <p class="text-ink-soft">None at runtime — the SDK uses only <code class="bg-lavender-pale px-1 rounded text-lavender">urllib</code> from the standard library for its HTTP call.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Samples -->
+            <div id="code-samples" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Code Samples<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">All three integrations take the same options — see <a href="#/docs/sdk-python#configuration" class="text-lavender hover:text-ink underline transition-colors">Configuration Reference</a> for the full list.</p>
+
+                <div class="space-y-6">
+                    <!-- Flask -->
+                    <div class="bg-white border border-lavender-pale rounded-lg overflow-hidden code-copy-wrap">
+                        <div class="px-5 py-3 bg-paper border-b border-lavender-pale flex items-center justify-between">
+                            <p class="font-mono text-xs text-ink font-bold">Flask</p>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-[10px] text-ink-soft">WSGI</span>
+                                <button onclick="cybatCopyCode(this)" class="p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <pre class="p-5 overflow-x-auto text-ink text-xs leading-relaxed">from flask import Flask
+from cybat_sdk.integrations.flask import init_app
+
+app = Flask(__name__)
+init_app(app,
+    api_key=os.environ["CYBAT_API_KEY"],
+    gcp_project_id="my-gcp-project",  # required (or aws_project_id) -- also enables automatic blocking
+    service_name="checkout-api",      # optional, just a label on incidents
+)</pre>
+                    </div>
+
+                    <!-- Django -->
+                    <div class="bg-white border border-lavender-pale rounded-lg overflow-hidden code-copy-wrap">
+                        <div class="px-5 py-3 bg-paper border-b border-lavender-pale flex items-center justify-between">
+                            <p class="font-mono text-xs text-ink font-bold">Django</p>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-[10px] text-ink-soft">WSGI middleware</span>
+                                <button onclick="cybatCopyCode(this)" class="p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <pre class="p-5 overflow-x-auto text-ink text-xs leading-relaxed"># settings.py
+MIDDLEWARE = [
+    # ... your other middleware ...
+    "cybat_sdk.integrations.django.CybatMiddleware",
+]
+CYBAT_API_KEY = os.environ["CYBAT_API_KEY"]
+CYBAT_GCP_PROJECT_ID = "my-gcp-project"  # required (or CYBAT_AWS_PROJECT_ID) -- also enables automatic blocking</pre>
+                        <p class="px-5 pb-5 font-mono text-xs text-ink-soft">Every option has a <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_*</code> settings equivalent — the Django setting name is <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_</code> + the option name upper-cased.</p>
+                    </div>
+
+                    <!-- FastAPI / ASGI -->
+                    <div class="bg-white border border-lavender-pale rounded-lg overflow-hidden code-copy-wrap">
+                        <div class="px-5 py-3 bg-paper border-b border-lavender-pale flex items-center justify-between">
+                            <p class="font-mono text-xs text-ink font-bold">FastAPI / Starlette</p>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-[10px] text-ink-soft">ASGI</span>
+                                <button onclick="cybatCopyCode(this)" class="p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <pre class="p-5 overflow-x-auto text-ink text-xs leading-relaxed">from cybat_sdk.integrations.asgi import CybatASGIMiddleware
+
+app.add_middleware(CybatASGIMiddleware,
+    api_key=os.environ["CYBAT_API_KEY"],
+    gcp_project_id="my-gcp-project",
+)</pre>
+                        <p class="px-5 pb-5 font-mono text-xs text-ink-soft">Speaks the raw ASGI protocol directly (not a framework-specific base class), so streaming responses work correctly. For a bare ASGI app without <code class="bg-lavender-pale px-1 rounded text-lavender">add_middleware</code>: <code class="bg-lavender-pale px-1 rounded text-lavender">app = CybatASGIMiddleware(app, api_key=...)</code>.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
+                    <strong class="text-red-400 text-[10px]">Behind a load balancer or reverse proxy?</strong>
+                    <p class="mt-2">Configure your framework's standard mechanism for trusting <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> (e.g. Werkzeug's <code class="bg-lavender-pale px-1 rounded text-lavender">ProxyFix</code> for Flask) — otherwise every request reports your proxy's IP instead of the real client's, and Cybat won't be able to tell your traffic apart.</p>
+                </div>
+            </div>
+
+            <!-- Multi-cloud routing -->
+            <div id="multi-cloud" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Multi-Cloud Routing<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Set <strong class="text-ink">exactly one</strong> of <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">aws_project_id</code> — required, and never both on the same SDK instance. Whichever you set decides where data is sent, automatically.</p>
+
+                <div class="overflow-x-auto rounded-lg border border-lavender-pale">
+                    <table class="w-full font-mono text-xs text-left">
+                        <thead class="bg-paper text-ink">
+                            <tr>
+                                <th class="px-4 py-3 border-b border-lavender-pale">You set</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Data goes to</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-ink-soft">
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">gcp_project_id</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">gcp-ingest.cybat.co</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><span class="text-mint">Live</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><code class="text-lavender">aws_project_id</code></td>
+                                <td class="px-4 py-3">aws-ingest.cybat.co</td>
+                                <td class="px-4 py-3">Not yet implemented</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-mono text-xs text-ink-soft mt-4">An app that runs in both clouds needs two SDK instances, one per cloud — not one instance with both fields set (the constructor raises if you do that). It also raises if <strong class="text-ink">neither</strong> is set.</p>
+            </div>
+
+            <!-- Configuration Reference -->
+            <div id="configuration" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Configuration Reference<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Flask and ASGI take these as keyword arguments; Django reads them from <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> as <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_*</code>.</p>
+
+                <div class="overflow-x-auto rounded-lg border border-lavender-pale">
+                    <table class="w-full font-mono text-xs text-left">
+                        <thead class="bg-paper text-ink">
+                            <tr>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Option</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Default</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-ink-soft align-top">
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">api_key</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">—</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Required. Raw key from the Intelligence Portal.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">gcp_project_id</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">—</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Required unless <code class="text-lavender">aws_project_id</code> set. Routes to GCP, enables automatic blocking.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">aws_project_id</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">—</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Required unless <code class="text-lavender">gcp_project_id</code> set. Routes to AWS — not yet live.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">service_name</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><span class="text-ink-soft">None</span></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Optional label shown on incidents.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">ingest_url</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><span class="text-ink-soft">auto</span></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Overrides cloud auto-detection — for local/staging testing.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">flush_interval_ms</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2000</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">How often a partial batch is flushed.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">max_batch_size</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">100</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Flushes immediately once the buffer reaches this size.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">max_retries</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Retries before a failed batch is dropped (3 attempts total).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">retry_backoff_ms</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">500</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Base delay before the first retry; doubles each retry.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">status_filter</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">"all"</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">"all"</code> | <code class="text-lavender">"errors"</code> | a callable <code class="text-lavender">(status: int) -&gt; bool</code>.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">capture_body</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">False</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Send a redacted excerpt of the request body — see below.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">body_max_bytes</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2048</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Cap on the body excerpt after redaction (max 8192).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">body_status_filter</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">"all"</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Capture bodies only for matching responses, independent of <code class="text-lavender">status_filter</code>.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><code class="text-lavender">extra_sensitive_keys</code></td>
+                                <td class="px-4 py-3"><span class="text-ink-soft">None</span></td>
+                                <td class="px-4 py-3">Extra field names redacted like the built-in list (exact, case-insensitive match) — e.g. <code class="text-lavender">{"account_number"}</code>. See <a href="#/docs/sdk-python#bodies" class="text-lavender hover:text-ink underline transition-colors">Request Bodies &amp; Redaction</a>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Request Bodies & Redaction ("Logging" equivalent) -->
+            <div id="bodies" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Request Bodies &amp; Redaction<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6"><code class="bg-lavender-pale px-1 rounded text-lavender">capture_body</code> is off by default. Bodies are where injection attacks, credential stuffing and prompt-injection against LLM-backed endpoints actually show up, so enabling it materially improves detection — and it means request content leaves your infrastructure. Four things worth knowing before you turn it on:</p>
+
+                <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink">
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">1.</span>
+                        <div><strong class="text-ink">Redaction is not optional once this is on.</strong> Before an event is even buffered, the body is masked in-process — emails, card numbers (Luhn-checked), JWT/Bearer tokens, provider API keys, and the value of any field named like a secret (<code class="bg-white px-1 rounded text-lavender">password</code>, <code class="bg-white px-1 rounded text-lavender">token</code>, <code class="bg-white px-1 rounded text-lavender">cvv</code>, <code class="bg-white px-1 rounded text-lavender">ssn</code>…).</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">2.</span>
+                        <div><strong class="text-ink">A masked secret keeps its attack shape, not its content.</strong> It's replaced by a content-free descriptor such as <code class="bg-white px-1 rounded text-lavender">[REDACTED len=13 sus=quote,comment]</code> — its length and what kind of attack characters it contained, so a SQL injection typed into a password box is still visible to detection, but the value is not.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">3.</span>
+                        <div><strong class="text-ink">Only the already-parsed body is read</strong> — the request stream is never consumed directly, so your body-parsing middleware must run first. JSON, form-encoded and text bodies only; multipart and binary are skipped. Bodies are capped (default 2 KiB, hard max 8 KiB).</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">4.</span>
+                        <div><strong class="text-ink">Your own field names can be added with <code class="bg-white px-1 rounded text-lavender">extra_sensitive_keys</code>.</strong> The built-in list can't know that <code class="bg-white px-1 rounded text-lavender">account_number</code> or <code class="bg-white px-1 rounded text-lavender">medical_record_number</code> is sensitive in your app — pass a set of your own field names and they get the same content-free treatment as the built-in ones. Matching is an exact, case-insensitive field name, never a substring, so a short name you add can't accidentally swallow unrelated keys.</div>
+                    </div>
+                </div>
+
+                <div class="relative mt-4 code-copy-wrap">
+                <pre class="bg-white border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">init_app(app,
+    api_key=os.environ["CYBAT_API_KEY"],
+    gcp_project_id="my-gcp-project",
+    capture_body=True,
+    extra_sensitive_keys={"account_number", "medical_record_number", "internal_employee_id"},
+)</pre>
+                    <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div id="next-steps" class="border-t border-lavender-pale pt-8 mt-12 scroll-mt-40">
+                <h2 class="text-xl font-heading font-bold text-ink mb-4">Next Steps</h2>
+                <ul class="list-disc pl-6 space-y-2 text-sm text-ink mb-6">
+                    <li>Not subscribed yet? Start with the <a href="#/docs/getting-started" class="text-lavender hover:text-ink underline transition-colors">Getting Started</a> guide.</li>
+                    <li>Read the full <a href="#/docs/security-specs" class="text-lavender hover:text-ink underline transition-colors">Security Specs</a> for IAM, data sovereignty and authentication details.</li>
+                    <li>Browse the <a href="https://pypi.org/project/cybat-sdk" target="_blank" class="text-lavender hover:text-ink underline transition-colors">cybat-sdk package on PyPI</a> for release history.</li>
+                    <li>Tune detection behavior in the <a href="#/docs/user-guide" class="text-lavender hover:text-ink underline transition-colors">User Guide</a>.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                        class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
+                        Open Dashboard →
+                    </a>
+                    <a href="#/docs/getting-started"
+                        class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
+                        Back to Getting Started →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

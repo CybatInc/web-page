@@ -12,6 +12,7 @@
                 <nav class="space-y-4 font-mono text-sm">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Getting Started</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Python SDK Reference</a>
                     <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
                     <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
                     <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
@@ -38,7 +39,7 @@
                                 <p class="text-mint text-xs mb-2">Required</p>
                                 <ul class="space-y-2 text-ink text-xs">
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> A GCP billing account for Marketplace subscription</li>
-                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> A Node.js, Python, or Go application receiving HTTP traffic</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> A Python application receiving HTTP traffic (Flask, Django, or FastAPI/ASGI — more languages coming soon)</li>
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> Ability to add one middleware line to your app's request pipeline</li>
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> Slack workspace + Incoming Webhook URL for alert delivery</li>
                                 </ul>
@@ -105,22 +106,19 @@
                         <h2 class="text-xl font-heading font-bold text-ink">Step 4: Install the SDK</h2>
                         <p class="text-sm text-ink">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, no log shipping agents.</p>
 
-                        <div class="space-y-3 text-xs text-ink">
-                            <p class="text-mint text-[10px]">Node.js / Express</p>
-                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">npm install @cybat/sdk-node</pre>
-                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">import { cybatExpress } from '@cybat/sdk-node'
-
-app.use(cybatExpress({
-  apiKey: process.env.CYBAT_API_KEY,
-  gcpProjectId: 'your-gcp-project', // enables automatic blocking
-}))</pre>
-                            <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-lavender-pale px-1 rounded text-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code> + <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
-                        </div>
-
-                        <div class="space-y-3 text-xs text-ink">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● AVAILABLE NOW</span>
                             <p class="text-mint text-[10px]">Python / Flask, Django, FastAPI</p>
-                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">pip install cybat-sdk</pre>
-                            <pre class="bg-paper border border-lavender-pale rounded p-4 overflow-x-auto text-lavender leading-relaxed">from flask import Flask
+                        </div>
+                        <div class="space-y-3 text-xs text-ink">
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink leading-relaxed">pip install cybat-sdk</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink leading-relaxed">from flask import Flask
 from cybat_sdk.integrations.flask import init_app
 
 app = Flask(__name__)
@@ -128,13 +126,28 @@ init_app(app,
     api_key=os.environ["CYBAT_API_KEY"],
     gcp_project_id="your-gcp-project",  # enables automatic blocking
 )</pre>
-                            <p>Django reads config from <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> instead (add <code class="bg-lavender-pale px-1 rounded text-lavender">cybat_sdk.integrations.django.CybatMiddleware</code> to <code class="bg-lavender-pale px-1 rounded text-lavender">MIDDLEWARE</code> and set <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> / <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_GCP_PROJECT_ID</code>); FastAPI and other ASGI apps use <code class="bg-lavender-pale px-1 rounded text-lavender">CybatASGIMiddleware</code> via <code class="bg-lavender-pale px-1 rounded text-lavender">app.add_middleware(...)</code>. Same <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> / IAM grant as Node.js above enables automatic blocking. See the <a href="https://pypi.org/project/cybat-sdk" target="_blank" class="text-lavender hover:text-ink transition-colors">cybat-sdk package on PyPI</a> for full integration docs.</p>
-                            <p class="text-ink">A Go SDK is on the roadmap — reach out if you need one sooner.</p>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-lavender-pale px-1 rounded text-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code> + <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
+                            <p>Django reads config from <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> instead (add <code class="bg-lavender-pale px-1 rounded text-lavender">cybat_sdk.integrations.django.CybatMiddleware</code> to <code class="bg-lavender-pale px-1 rounded text-lavender">MIDDLEWARE</code> and set <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> / <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_GCP_PROJECT_ID</code>); FastAPI and other ASGI apps use <code class="bg-lavender-pale px-1 rounded text-lavender">CybatASGIMiddleware</code> via <code class="bg-lavender-pale px-1 rounded text-lavender">app.add_middleware(...)</code>. See the full <a href="#/docs/sdk-python" class="text-lavender hover:text-ink transition-colors underline">Python SDK Reference</a> for the complete configuration reference and redaction details.</p>
+                        </div>
+
+                        <div class="p-4 bg-paper border border-lavender-pale rounded-lg">
+                            <p class="font-mono text-xs text-ink mb-2">Other language SDKs</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Node.js — coming soon</span>
+                                <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Go — coming soon</span>
+                                <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Java — coming soon</span>
+                                <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">PHP — coming soon</span>
+                            </div>
+                            <p class="font-mono text-xs text-ink-soft mt-2">Python is the only SDK available today — reach out if you need another language sooner.</p>
                         </div>
 
                         <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
                             <strong class="text-red-400 text-[10px]">Behind a load balancer or reverse proxy?</strong>
-                            <p class="mt-2">Set <code class="bg-lavender-pale px-1 rounded text-lavender">app.set('trust proxy', ...)</code> so the SDK reads the real client IP from <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> instead of your proxy's own address.</p>
+                            <p class="mt-2">Configure your framework's standard mechanism for trusting <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> (e.g. Werkzeug's <code class="bg-lavender-pale px-1 rounded text-lavender">ProxyFix</code> for Flask) so the SDK reads the real client IP instead of your proxy's own address.</p>
                         </div>
                     </div>
 
