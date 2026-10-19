@@ -35,8 +35,8 @@
 
                     <!-- Section 1: Dashboard layout -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">1. Dashboard Layout</h2>
-                        <p class="text-sm text-ink">After logging in at <code class="bg-lavender-pale px-1 rounded text-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The left sidebar gives you access to all sections based on your role.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">1. Dashboard Layout & Navigation</h2>
+                        <p class="text-sm text-ink">After logging in at <code class="bg-lavender-pale px-1 rounded text-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The navigation sidebar provides access to all core platform features based on your assigned role: <strong class="text-ink">Dashboard</strong>, <strong class="text-ink">Investigations</strong>, <strong class="text-ink">Data Ingestion</strong>, <strong class="text-ink">Users</strong> (Admin), <strong class="text-ink">Whitelist</strong> (Admin), <strong class="text-ink">API Keys</strong> (Admin), and <strong class="text-ink">Webhooks</strong>.</p>
 
                         <div class="space-y-3 text-sm text-ink">
                             <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
                                 <p class="text-lavender text-xs mb-2">Incident Detail Panel</p>
-                                <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all log evidence records that triggered the detection, the enforcement decision and status, and the Slack notification dispatched to your team. Admins can unblock an IP directly from this panel using the 👎 feedback button.</p>
+                                <p class="mb-3">Opens over the feed. Shows the full Gemini AI analysis narrative, all telemetry evidence records that triggered the detection, the enforcement decision and status, and the notification dispatched to your team. Admins can unblock an IP directly from this panel using the 👎 feedback button.</p>
                                 <div class="relative border border-lavender-pale overflow-hidden rounded">
                                     <img src="assets/screenshot-detail.png" alt="Incident Detail Panel" class="w-full object-cover object-top max-h-[260px]"
                                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
@@ -76,16 +76,16 @@
                     <!-- Section 2: Engine pipeline -->
                     <div class="space-y-4">
                         <h2 class="text-xl font-heading font-bold text-ink">2. How the Engine Processes a Threat</h2>
-                        <p class="text-sm text-ink">Each log record moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from log emission to enforcement.</p>
+                        <p class="text-sm text-ink">HTTP telemetry streamed by the Cybat SDK moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from request capture to enforcement.</p>
 
                         <div class="space-y-2 text-xs text-ink">
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">01</span>
-                                <div><strong class="text-ink">Ingestion</strong> — The Cybat SDK, installed as middleware in your app, streams captured request data to API Gateway, which validates your API key at the edge and forwards accepted batches through Pub/Sub to the SOC agent.</div>
+                                <div><strong class="text-ink">Ingestion</strong> — The Cybat SDK, installed as middleware in your app, streams captured request telemetry to API Gateway, which validates your API key at the edge and forwards accepted batches through Pub/Sub to the SOC agent.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">02</span>
-                                <div><strong class="text-ink">IP Grouping</strong> — Logs from the same batch are grouped by source IP to build a per-IP request picture before analysis.</div>
+                                <div><strong class="text-ink">IP Grouping</strong> — Requests from the same telemetry batch are grouped by source IP to build a per-IP request picture before analysis.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">03</span>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">06</span>
-                                <div><strong class="text-ink">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full log context and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
+                                <div><strong class="text-ink">Gemini Analysis</strong> — New IPs are analyzed by Vertex AI Gemini 2.5 Flash Lite. The model receives the full request context (headers, path, method, client metadata) and returns a structured verdict: threat level (high / medium / low / none) and a human-readable explanation.</div>
                             </div>
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">07</span>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
                                 <span class="text-mint font-bold w-6 flex-shrink-0">08</span>
-                                <div><strong class="text-ink">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. A Slack notification is dispatched to your configured webhook with the full threat summary and enforcement outcome.</div>
+                                <div><strong class="text-ink">Persistence & Alerting</strong> — The incident, AI analysis, and evidence records are written to the dashboard. An alert notification is dispatched to your configured webhooks with the full threat summary and enforcement outcome.</div>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                             <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
                                 <p class="text-lavender text-xs mb-2">How it works</p>
                                 <ul class="list-disc pl-6 space-y-2">
-                                    <li>Whitelisted IPs are filtered out of every log batch <strong class="text-ink">before</strong> the AI analysis step — no Vertex AI call is made, no incident is created, and no usage is counted for those requests.</li>
+                                    <li>Whitelisted IPs are filtered out of every telemetry batch <strong class="text-ink">before</strong> the AI analysis step — no Vertex AI call is made, no incident is created, and no usage is counted for those requests.</li>
                                     <li>Whitelisted IPs are also exempt from enforcement: even if a cached verdict exists for the IP, no block will be applied.</li>
                                     <li>The whitelist is scoped to your organisation. Each org manages its own list independently.</li>
                                 </ul>
@@ -192,25 +192,115 @@
                                 <ul class="list-disc pl-6 space-y-2">
                                     <li>Navigate to <strong class="text-ink">Whitelist</strong> in the left sidebar (admin role required).</li>
                                     <li>Enter an IPv4 or IPv6 address and an optional note explaining why it is trusted, then click <strong class="text-ink">Add IP</strong>.</li>
-                                    <li>To remove an entry, click <strong class="text-ink">Remove</strong> in the corresponding row. The change takes effect on the next log batch.</li>
+                                    <li>To remove an entry, click <strong class="text-ink">Remove</strong> in the corresponding row. The change takes effect on the next telemetry batch.</li>
                                 </ul>
                             </div>
                         </div>
                         <p class="text-xs text-ink-soft">Tip: if an IP is currently blocked and you also want to whitelist it, unblock it first using the 👎 feedback dialog, then add it to the whitelist to prevent future blocks.</p>
                     </div>
 
-                    <!-- Section 6: Slack alerts -->
+                    <!-- Section 6: Data Ingestion & Quota Monitoring -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">6. Slack Alert Configuration</h2>
-                        <p class="text-sm text-ink">Slack alerts are configured per organization during onboarding. Each alert includes:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
-                            <li>Source IP and geographic location</li>
-                            <li>Threat level and the Gemini model's explanation</li>
-                            <li>Enforcement action taken (firewall rule name or Cloud Armor rule)</li>
-                            <li>GCP project affected</li>
-                            <li>Timestamp and incident ID for cross-referencing the dashboard</li>
-                        </ul>
-                        <p class="text-sm text-ink">To update your Slack webhook URL, contact support or use the settings panel inside the Intelligence Portal.</p>
+                        <h2 class="text-xl font-heading font-bold text-ink">6. Data Ingestion & Quota Monitoring</h2>
+                        <p class="text-sm text-ink">The <strong class="text-ink">Data Ingestion</strong> view provides real-time visibility into the volume of HTTP traffic streamed from your applications via the Cybat SDK, alongside your monthly plan consumption.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Plan Quota Tracker</p>
+                                <p>A live status bar displays your current consumption against your Google Cloud Marketplace subscription quota (e.g., <code class="bg-lavender-pale px-1 rounded text-lavender">Total / Quota requests</code> and percentage used). Color-coded indicators notify you as your organization approaches monthly plan limits.</p>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Time Period & Historical Navigation</p>
+                                <p>Filter ingestion telemetry by <strong class="text-ink">Day</strong>, <strong class="text-ink">Month</strong>, or <strong class="text-ink">Year</strong>. Use the previous (<code class="bg-lavender-pale px-1 rounded text-lavender">‹</code>) and next (<code class="bg-lavender-pale px-1 rounded text-lavender">›</code>) controls to audit historical traffic patterns and confirm active SDK telemetry across all services.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 7: API Key Management -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-ink">7. API Key Management</h2>
+                        <p class="text-sm text-ink">The <strong class="text-ink">API Keys</strong> view (Admin only) allows you to provision, inspect, and revoke credentials used by the Cybat SDK to stream events securely to the ingestion gateway.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Creating & Storing API Keys</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Click <strong class="text-ink">Create API Key</strong>, assign a descriptive label (e.g., <code class="bg-lavender-pale px-1 rounded text-lavender">prod-api-cluster</code>), and optionally set an expiration date.</li>
+                                    <li><strong class="text-ink">One-time reveal:</strong> The secret key is displayed only once upon generation. Copy and store it securely (e.g., in Google Secret Manager or as <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code>). It cannot be retrieved again.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Edge Validation & Instant Revocation</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Every request sent by the SDK is validated by GCP API Gateway at the network edge before reaching Cybat compute infrastructure.</li>
+                                    <li>If a key is compromised or a service is decommissioned, click <strong class="text-ink">Revoke</strong>. The key is instantly blocked at the edge with zero caching delay.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 8: Webhooks & Alert Integrations -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-ink">8. Webhooks & Alert Integrations</h2>
+                        <p class="text-sm text-ink">The <strong class="text-ink">Webhooks</strong> view enables automated event dispatch to your security operations tooling, SIEM/SOAR platforms, PagerDuty, or chat channels whenever a threat is classified.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Configuring an HTTPS Webhook</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Navigate to <strong class="text-ink">Webhooks</strong> and click <strong class="text-ink">Add Webhook</strong>.</li>
+                                    <li>Specify a name and your HTTPS destination URL (e.g., a webhook receiver, incident response endpoint, or Slack incoming webhook).</li>
+                                    <li>Select which event severities trigger the webhook: <strong class="text-red-400">High</strong> (critical mitigations), <strong class="text-amber-400">Medium</strong> (flagged threats), and/or <strong class="text-ink-soft">Low</strong> (anomalies).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Authentication & Payloads</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Configure custom webhook authentication headers, such as Bearer tokens or static API keys, to verify authenticity on your receiving server.</li>
+                                    <li>Dispatched JSON payloads include source IP, geographic coordinates, Gemini AI analysis narrative, enforcement action taken (VPC Firewall / Cloud Armor), and affected GCP project ID.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 9: User Management & RBAC -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-ink">9. User Management & Role-Based Access</h2>
+                        <p class="text-sm text-ink">The <strong class="text-ink">Users</strong> view (Admin only) allows organization administrators to invite team members and manage role-based permissions.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Google Identity Single Sign-On (SSO)</p>
+                                <p>Platform access is gated by Google Identity SSO. When inviting team members, provide their Google Workspace email address. Users sign in seamlessly without separate password management.</p>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Roles & Permissions</p>
+                                <div class="overflow-x-auto mt-2">
+                                    <table class="w-full text-xs">
+                                        <thead>
+                                            <tr class="border-b border-lavender-pale text-left">
+                                                <th class="pb-2 pr-4 font-normal text-ink">Role</th>
+                                                <th class="pb-2 font-normal text-ink">Capabilities</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-lavender-pale">
+                                            <tr>
+                                                <td class="py-2.5 pr-4 font-bold text-lavender">Admin</td>
+                                                <td class="py-2.5 text-ink">Full platform access: manage team members, generate/revoke API keys, configure webhooks, add/remove IP whitelists, and perform manual IP unblocks.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2.5 pr-4 font-bold text-ink">User</td>
+                                                <td class="py-2.5 text-ink">Security analyst access: monitor dashboard metric cards, explore 3D Threat Globe, inspect investigations and incident details, and submit classification feedback.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Revoking Access</p>
+                                <p>Admins can remove team members at any time by clicking <strong class="text-ink">Remove</strong> next to their entry. Revocation takes effect immediately, terminating active portal access.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">

@@ -60,7 +60,7 @@
                             <div>
                                 <p class="text-mint text-xs mb-2">SDK-Based Ingestion</p>
                                 <ul class="list-disc pl-6 space-y-2 text-ink">
-                                    <li><strong class="text-ink">@cybat/sdk-node:</strong> A new npm package (<code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>) installs as Express middleware and streams captured HTTP traffic directly to Cybat — no GCP org-level Log Sink, no IAM grant at onboarding. Python and Go SDKs are planned next.</li>
+                                    <li><strong class="text-ink">@cybat/sdk-node:</strong> A new npm package (<code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>) installs as Express middleware and streams captured HTTP traffic directly to Cybat — no IAM grant at onboarding. Python and Go SDKs are planned next.</li>
                                     <li><strong class="text-ink">API Gateway + API Keys:</strong> A new <em>API Keys</em> page in the Intelligence Dashboard lets org admins create, name, expire, and instantly revoke keys used by the SDK. Every request is validated by API Gateway at the network edge before reaching Cybat compute — revocation is checked live, not cached.</li>
                                     <li><strong class="text-ink">Serverless Ingestion Pipeline:</strong> SDK traffic flows through a new serverless <code class="bg-lavender-pale px-1 rounded text-lavender">ingest-api</code> Cloud Run service and a shared Pub/Sub topic, replacing the GKE Autopilot Fluent Bit pipeline for new customers — no idle cluster, scales to zero between attacks.</li>
                                     <li><strong class="text-ink">Configurable Enforcement Target:</strong> The SDK accepts a <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> option at initiation, telling the engine which project to enforce blocks against. Detection and alerting work with or without it; automatic blocking requires it.</li>
@@ -155,16 +155,16 @@
                             <div>
                                 <p class="text-mint text-xs mb-2">Ingestion Pipeline</p>
                                 <ul class="list-disc pl-6 space-y-2 text-ink">
-                                    <li><strong class="text-ink">GKE Ingestion Layer:</strong> Pub/Sub bridge and Fluent Bit run as a sidecar pair on GKE. The bridge continuously pulls per-organization subscriptions (<code class="bg-lavender-pale px-1 rounded text-lavender">soc-logs-{orgId}-sub</code>), injects routing metadata, and forwards records to Fluent Bit's HTTP input. Fluent Bit applies a Lua context filter to extract source IPs before forwarding to the SOC agent via an OIDC-authenticated egress proxy — all within the same pod.</li>
+                                    <li><strong class="text-ink">GKE Ingestion Layer:</strong> Pub/Sub bridge and Fluent Bit run as a sidecar pair on GKE. The bridge continuously pulls per-organization subscriptions (<code class="bg-lavender-pale px-1 rounded text-lavender">soc-events-{orgId}-sub</code>), injects routing metadata, and forwards records to Fluent Bit's HTTP input. Fluent Bit applies a Lua context filter to extract source IPs before forwarding to the SOC agent via an OIDC-authenticated egress proxy — all within the same pod.</li>
                                     <li><strong class="text-ink">Multi-tenant Subscription Discovery:</strong> The bridge automatically discovers all active per-org Pub/Sub subscriptions on a 60-second refresh cycle, requiring no manual configuration when new organizations onboard.</li>
-                                    <li><strong class="text-ink">Zero-ETL Latency:</strong> End-to-end pipeline lag from log emission to Cloud Run SOC agent is consistently under 7 seconds in steady state.</li>
+                                    <li><strong class="text-ink">Zero-ETL Latency:</strong> End-to-end pipeline lag from telemetry capture to Cloud Run SOC agent is consistently under 7 seconds in steady state.</li>
                                 </ul>
                             </div>
 
                             <div>
                                 <p class="text-lavender text-xs mb-2">AI Threat Analysis</p>
                                 <ul class="list-disc pl-6 space-y-2 text-ink">
-                                    <li><strong class="text-ink">Vertex AI Gemini 2.5 Flash Lite:</strong> The SOC agent sends per-IP log batches to Gemini 2.5 Flash Lite via Vertex AI. The model returns a structured verdict (threat level + explanation) with automatic retry on transient failures.</li>
+                                    <li><strong class="text-ink">Vertex AI Gemini 2.5 Flash Lite:</strong> The SOC agent sends per-IP telemetry batches to Gemini 2.5 Flash Lite via Vertex AI. The model returns a structured verdict (threat level + explanation) with automatic retry on transient failures.</li>
                                     <li><strong class="text-ink">24-Hour Verdict Cache:</strong> IP verdicts are cached in Firestore using HMAC-SHA256 hashed IP keys for 24 hours. Repeat offenders are blocked instantly without consuming AI quota.</li>
                                     <li><strong class="text-ink">1-Hour History Window:</strong> The agent considers the last 60 minutes of activity per IP to give Gemini full behavioral context, improving detection of slow-burn and distributed attacks.</li>
                                     <li><strong class="text-ink">Duplicate Enforcement Guard:</strong> A per-IP enforcement lock prevents redundant firewall or Cloud Armor rule creation if multiple batches arrive concurrently for the same IP.</li>
@@ -174,8 +174,8 @@
                             <div>
                                 <p class="text-lavender text-xs mb-2">Enforcement</p>
                                 <ul class="list-disc pl-6 space-y-2 text-ink">
-                                    <li><strong class="text-ink">Dual Enforcement Layer:</strong> VPC Firewall deny rules are attempted first (Layer 3/4). If the VPC network cannot be resolved from the log's subnet labels, the engine falls back to a Cloud Armor IP deny rule (Layer 7) on the Load Balancer.</li>
-                                    <li><strong class="text-ink">Per-Project Scoping:</strong> Enforcement is applied to the specific GCP project identified in the log's <code class="bg-lavender-pale px-1 rounded text-lavender">resource.labels.project_id</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">logName</code> field — not globally, preserving blast-radius isolation in multi-project organizations.</li>
+                                    <li><strong class="text-ink">Dual Enforcement Layer:</strong> VPC Firewall deny rules are attempted first (Layer 3/4). If the VPC network cannot be resolved from telemetry metadata, the engine falls back to a Cloud Armor IP deny rule (Layer 7) on the Load Balancer.</li>
+                                    <li><strong class="text-ink">Per-Project Scoping:</strong> Enforcement is applied to the specific GCP project identified in the telemetry payload (<code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> or target project mapping) — not globally, preserving blast-radius isolation in multi-project organizations.</li>
                                 </ul>
                             </div>
 
@@ -185,7 +185,7 @@
                                     <li><strong class="text-ink">Intelligence Dashboard:</strong> Real-time threat command center at <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink transition-colors">intelligence.cybat.co</a>. Features a 3D Threat Globe, live incident feed, and full incident detail panels with Gemini analysis and enforcement history.</li>
                                     <li><strong class="text-ink">Google SSO:</strong> All access is gated by Google Identity. No separate credentials are required — users sign in with their existing Google Workspace account.</li>
                                     <li><strong class="text-ink">Slack Alerting:</strong> Every high and medium incident dispatches a structured Slack notification to the organization's configured webhook, including source IP, geo location, threat explanation, and enforcement outcome.</li>
-                                    <li><strong class="text-ink">Firestore Incident Store:</strong> All incidents, AI verdicts, log evidence, and enforcement records are persisted to Firestore under <code class="bg-lavender-pale px-1 rounded text-lavender">orgs/{orgId}/incidents</code>, enabling full audit trails and historical review.</li>
+                                    <li><strong class="text-ink">Firestore Incident Store:</strong> All incidents, AI verdicts, telemetry evidence, and enforcement records are persisted to Firestore under <code class="bg-lavender-pale px-1 rounded text-lavender">orgs/{orgId}/incidents</code>, enabling full audit trails and historical review.</li>
                                 </ul>
                             </div>
 
@@ -193,7 +193,7 @@
                                 <p class="text-ink text-xs mb-2">Marketplace & Billing</p>
                                 <ul class="list-disc pl-6 space-y-2 text-ink">
                                     <li><strong class="text-ink">GCP Marketplace Integration:</strong> Available on the Google Cloud Marketplace with Starter, Professional, and Enterprise tiers. Billing is metered through GCP Service Control — charges appear on your existing GCP bill with no separate invoice.</li>
-                                    <li><strong class="text-ink">Entitlement-Based Activation:</strong> The SOC agent validates your active Marketplace entitlement via Service Control <code class="bg-lavender-pale px-1 rounded text-lavender">services.check</code> before processing any logs. Expired or canceled subscriptions halt enforcement within one billing cycle.</li>
+                                    <li><strong class="text-ink">Entitlement-Based Activation:</strong> The SOC agent validates your active Marketplace entitlement via Service Control <code class="bg-lavender-pale px-1 rounded text-lavender">services.check</code> before processing incoming telemetry. Expired or canceled subscriptions halt enforcement within one billing cycle.</li>
                                 </ul>
                             </div>
                         </div>

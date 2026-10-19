@@ -130,8 +130,8 @@
         <section>
             <h2>1. Ingestion Protocol</h2>
             <p class="mb-6 text-ink-soft leading-relaxed">
-                The platform ingests via a lightweight SDK installed as application middleware — a single line of
-                code, no log export or org-level IAM grant. Requests are authenticated at the edge by API Gateway,
+                The platform streams telemetry via a lightweight SDK installed as application middleware — a single line of
+                code, requiring no infrastructure changes or org-level IAM grants. Requests are authenticated at the edge by API Gateway,
                 then buffered through a keyless Pub/Sub stream into the distributed inference engine.
             </p>
             <div class="bg-mint-pale rounded-2xl p-6 font-mono text-xs text-ink leading-relaxed">
@@ -204,7 +204,7 @@
             <p class="text-ink-soft leading-relaxed">
                 Cybat AI operates using a <b class="text-ink">Zero-Retention</b> model. Telemetry is reasoned over in
                 ephemeral memory within a secure, stateless Cloud Run sandbox. Every decision is traceable via audited
-                reasoning logs.
+                incident records and reasoning telemetry.
             </p>
         </section>
 
