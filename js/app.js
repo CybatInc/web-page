@@ -240,7 +240,7 @@ const app = createApp({
                 },
                 {
                     question: "How hard is the integration?",
-                    answer: "Integration is effortless. You just need to install the Cybat AI client using <b>Google Cloud Marketplace</b> and it will be ready in <b>less than 30 minutes</b>."
+                    answer: "Integration is effortless. Simply subscribe through the <b>Google Cloud Marketplace</b>, activate your account in seconds, and add our single-line SDK middleware to your application. You are up and running in <b>less than 5 minutes</b>."
                 }
             ]
         };

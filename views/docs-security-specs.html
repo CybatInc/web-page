@@ -33,7 +33,7 @@
                                 Permissions (IAM)
                             </h3>
                             <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
-                                The Engine operates under a principle of least privilege. SDK ingestion itself requires zero IAM grants in your project — authentication is a single API key, validated at the edge by API Gateway. Enabling <strong class="text-ink">automatic blocking</strong> (optional) requires granting <code class="text-lavender text-xs mx-1">compute.securityAdmin</code> (Cloud Armor enforcement) and <code class="text-lavender text-xs mx-1">compute.networkViewer</code> (VPC discovery) on the specific project you configure, not your whole organization.
+                                The Engine operates under a principle of least privilege. SDK ingestion itself requires zero IAM grants in your project — authentication is a single API key, validated at the edge by API Gateway. No log sinks or logging configuration permissions are ever required. Enabling <strong class="text-ink">automatic blocking</strong> (optional) requires granting scoped roles: <code class="text-lavender text-xs mx-1">compute.securityAdmin</code> (Cloud Armor and VPC Firewall rule enforcement), <code class="text-lavender text-xs mx-1">compute.networkViewer</code> (network topology inspection), and <code class="text-lavender text-xs mx-1">browser</code> on your configured project or organization. The onboarding portal provides a copyable, single-line Cloud Shell command to apply these roles.
                             </p>
                         </div>
 
@@ -85,8 +85,8 @@
                                 <p class="text-lavender text-xs mb-2">Recommended</p>
                                 <ul class="space-y-2 text-ink text-xs">
                                     <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <strong class="text-ink">gcpProjectId</strong> configured on the SDK — enables automatic VPC Firewall / Cloud Armor blocking, not just detection</li>
-                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <strong class="text-ink">compute.securityAdmin</strong> + <strong class="text-ink">compute.networkViewer</strong> granted on that specific project — scoped, not org-wide</li>
-                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <code class="bg-lavender-pale px-1 rounded text-lavender">app.set('trust proxy', ...)</code> if your app sits behind your own load balancer — otherwise the SDK reports the proxy's IP instead of the real client's</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> Scoped IAM roles granted via portal Cloud Shell command (<strong class="text-ink">compute.securityAdmin</strong>, <strong class="text-ink">compute.networkViewer</strong>, and <strong class="text-ink">browser</strong>) — unlocks automated remediation and one-click dashboard unblocking</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender mt-0.5">+</span> <code class="bg-lavender-pale px-1 rounded text-lavender">app.set('trust proxy', ...)</code> (or framework equivalent) if your app sits behind a load balancer — ensures the SDK reports the real client IP</li>
                                 </ul>
                             </div>
                         </div>

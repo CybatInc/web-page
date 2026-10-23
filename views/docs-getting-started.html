@@ -27,7 +27,7 @@
 
                 <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-4 font-mono text-ink">
                     <p class="text-lg leading-relaxed">
-                        Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 10 minutes. Follow these steps to start protecting your application.
+                        Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 3 minutes. Follow these steps to start protecting your application.
                     </p>
 
                     <!-- Prerequisites -->
@@ -62,18 +62,30 @@
                             <li>Navigate to the <strong class="text-ink">Google Cloud Console</strong> and open the <strong class="text-ink">Marketplace</strong>.</li>
                             <li>Search for <strong class="text-ink">Cybat Intelligence Engine</strong> and open the product listing.</li>
                             <li>Select your billing account and the appropriate plan (Starter, Professional, or Enterprise), then click <strong class="text-ink">Subscribe</strong>.</li>
-                            <li>Accept the Terms of Service. Once the subscription is confirmed, click <strong class="text-ink">Register with Cybat</strong> — you will be redirected to the Cybat Intelligence Portal.</li>
+                            <li>Accept the Terms of Service. Once the order is confirmed, click <strong class="text-ink">Register with Cybat</strong> — you will be redirected to the Cybat Intelligence Registration Portal.</li>
                         </ul>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 2: Sign In to the Intelligence Portal</h2>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 2: Instant Registration & Remediation Setup</h2>
+                        <p class="text-sm text-ink">On the registration screen, complete your organization profile and alert settings:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                            <li><strong class="text-ink">Organization Details:</strong> Enter your Organization Name and primary Administrator Email.</li>
+                            <li><strong class="text-ink">Alert Channels:</strong> Provide your Slack Incoming Webhook URL and channel for instant threat notification.</li>
+                            <li><strong class="text-ink">Automated Remediation (Optional):</strong> Enter your GCP Organization ID or Project ID to generate a copyable Cloud Shell command. Running this grants least-privilege IAM roles (<code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code>, <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code>, and <code class="bg-lavender-pale px-1 rounded text-lavender">browser</code> for autonomous Cloud Armor / VPC firewall enforcement and dashboard unblocking).</li>
+                            <li>Click <strong class="text-lavender">Activate Account</strong> — your account is verified and activated immediately in seconds through Google Partner Procurement. No infrastructure to provision, no background builds, and no waiting.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 3: Sign In to the Intelligence Portal</h2>
                         <p class="text-sm text-ink">Cybat uses Google Identity exclusively — no separate password is required.</p>
                         <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
                             <li>At the portal login screen, click <strong class="text-lavender">Sign in with Google</strong>.</li>
                             <li>Select your corporate Google Workspace account. Personal Gmail accounts are not authorized.</li>
-                            <li>On first login, your <strong class="text-ink">Organization profile</strong> is automatically provisioned — a unique <code class="bg-lavender-pale px-1 rounded text-lavender">orgId</code> is assigned to your account and linked to your Marketplace billing identifier.</li>
+                            <li>Your organization dashboard will load immediately with real-time analytics, API key management, and security telemetry views.</li>
                         </ul>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
                             class="inline-flex items-center gap-2 mt-2 bg-lavender/10 border border-lavender/30 text-lavender hover:bg-lavender/20 px-4 py-2 rounded text-sm transition-colors">
@@ -81,9 +93,9 @@
                         </a>
                     </div>
 
-                    <!-- Step 3 -->
+                    <!-- Step 4 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 3: Create an API Key</h2>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 4: Create an API Key</h2>
                         <p class="text-sm text-ink">In the Intelligence Portal, open <strong class="text-ink">API Keys</strong> in the sidebar and click <strong class="text-ink">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
                         <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
                             <div class="flex items-start gap-3">
@@ -101,9 +113,9 @@
                         </div>
                     </div>
 
-                    <!-- Step 4 -->
+                    <!-- Step 5 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 4: Install the SDK</h2>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 5: Install the SDK</h2>
                         <p class="text-sm text-ink">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, and no external forwarders.</p>
 
                         <div class="flex items-center gap-2 mb-1">
@@ -130,7 +142,7 @@ init_app(app,
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                 </button>
                             </div>
-                            <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> to the GCP project your app's infrastructure lives in, and grant <code class="bg-lavender-pale px-1 rounded text-lavender">soc-ai-agent@cybat-public.iam.gserviceaccount.com</code> <code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code> + <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> on it (a ready-to-run Cloud Shell command is shown in the portal). Skip it and Cybat still detects and alerts on threats — it just won't have a project to block against.</p>
+                            <p>Set <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> to the GCP project your app's infrastructure lives in (or configure at the organization level). The ready-to-run Cloud Shell command provided during registration configures all required scoped roles for autonomous enforcement and dashboard unblocking. Skip it and Cybat still detects and alerts on threats in real time — it just won't have permission to apply automated firewall or Cloud Armor blocks.</p>
                             <p>Django reads config from <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> instead (add <code class="bg-lavender-pale px-1 rounded text-lavender">cybat_sdk.integrations.django.CybatMiddleware</code> to <code class="bg-lavender-pale px-1 rounded text-lavender">MIDDLEWARE</code> and set <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> / <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_GCP_PROJECT_ID</code>); FastAPI and other ASGI apps use <code class="bg-lavender-pale px-1 rounded text-lavender">CybatASGIMiddleware</code> via <code class="bg-lavender-pale px-1 rounded text-lavender">app.add_middleware(...)</code>. See the full <a href="#/docs/sdk-python" class="text-lavender hover:text-ink transition-colors underline">Python SDK Reference</a> for the complete configuration reference and redaction details.</p>
                         </div>
 
@@ -151,9 +163,9 @@ init_app(app,
                         </div>
                     </div>
 
-                    <!-- Step 5 -->
+                    <!-- Step 6 -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 5: Verify Detection is Active</h2>
+                        <h2 class="text-xl font-heading font-bold text-ink">Step 6: Verify Detection is Active</h2>
                         <p class="text-sm text-ink">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
                         <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
                             <li>Your app listed as <strong class="text-mint">Connected</strong> in the dashboard sidebar.</li>
