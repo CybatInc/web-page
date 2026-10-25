@@ -1,0 +1,256 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+
+        <!-- Sidebar Navigation -->
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
+                <nav class="space-y-4 font-mono text-sm">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Python SDK Reference</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Node.js SDK Reference</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">PHP SDK Reference</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
+                </nav>
+
+                <div class="mt-8 pt-6 border-t border-lavender-pale">
+                    <h3 class="font-mono text-xs text-ink mb-4">On this page</h3>
+                    <nav class="space-y-2 font-mono text-xs text-ink-soft">
+                        <a href="#/docs/sdk-node#quickstart" class="block hover:text-mint transition-colors">Quick Start</a>
+                        <a href="#/docs/sdk-node#installation" class="block hover:text-mint transition-colors">Installation</a>
+                        <a href="#/docs/sdk-node#code-samples" class="block hover:text-mint transition-colors">Framework Code Samples</a>
+                        <a href="#/docs/sdk-node#multi-cloud" class="block hover:text-mint transition-colors">Multi-Cloud Routing</a>
+                        <a href="#/docs/sdk-node#configuration" class="block hover:text-mint transition-colors">Configuration Reference</a>
+                        <a href="#/docs/sdk-node#bodies" class="block hover:text-mint transition-colors">Request Bodies &amp; Redaction</a>
+                        <a href="#/docs/sdk-node#next-steps" class="block hover:text-mint transition-colors">Next Steps</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+
+            <!-- Title + badges -->
+            <div class="mb-8">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Node.js SDK Reference<span class="text-lavender">_</span></h1>
+                <p class="font-mono text-sm text-ink-soft mb-5">Express middleware, Fastify plugin, and NestJS adapter that reports HTTP traffic directly to the Cybat Intelligence Engine.</p>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● AVAILABLE NOW</span>
+                    <a href="https://www.npmjs.com/package/@cybat/sdk-node" target="_blank" class="font-mono text-[10px] bg-lavender-pale text-ink px-2 py-1 rounded border border-lavender-pale hover:border-lavender transition-colors">@cybat/sdk-node on npm</a>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Node.js 18+</span>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Zero runtime dependencies</span>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div id="quickstart" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Quick Start<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Four steps from an empty terminal to live detection.</p>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">1.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Install the package</p>
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">npm install @cybat/sdk-node</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">2.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Create an API key</p>
+                            <p class="font-mono text-xs text-ink">From the <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink underline transition-colors">Intelligence Portal</a> → <strong class="text-ink">API Keys</strong>. Store it as <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code>.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">3.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Add the middleware</p>
+                            <p class="font-mono text-xs text-ink">One import, one middleware call — see <a href="#/docs/sdk-node#code-samples" class="text-lavender hover:text-ink underline transition-colors">Framework Code Samples</a> below.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">4.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Generate traffic, watch the dashboard</p>
+                            <p class="font-mono text-xs text-ink">Requests appear in the Intelligence Portal within seconds — app listed as <strong class="text-mint">Connected</strong>, Threat Globe populating, incidents in the feed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Samples -->
+            <div id="code-samples" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Framework Code Samples<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Choose your framework to view copy-paste integration snippets.</p>
+
+                <!-- Express -->
+                <div class="mb-8 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Express Integration</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-4">Mount <code class="bg-lavender-pale px-1 rounded text-lavender">cybatExpress</code> early in your middleware pipeline so it wraps all incoming routes:</p>
+                    <div class="relative code-copy-wrap mb-3">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">import express from 'express';
+import { cybatExpress } from '@cybat/sdk-node';
+
+const app = express();
+
+// Mount early before route handlers
+app.use(cybatExpress({
+  apiKey: process.env.CYBAT_API_KEY!,
+  gcpProjectId: process.env.GCP_PROJECT_ID!,
+  serviceName: 'user-api',
+  captureBody: true,
+  extraSensitiveKeys: ['account_number', 'ssn_last_4']
+}));
+
+app.get('/api/users', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+app.listen(3000);</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fastify -->
+                <div class="mb-8 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Fastify Integration</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-4">Register <code class="bg-lavender-pale px-1 rounded text-lavender">cybatFastify</code> with your Fastify instance:</p>
+                    <div class="relative code-copy-wrap mb-3">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">import Fastify from 'fastify';
+import { cybatFastify } from '@cybat/sdk-node';
+
+const fastify = Fastify({ logger: true });
+
+cybatFastify(fastify, {
+  apiKey: process.env.CYBAT_API_KEY!,
+  gcpProjectId: process.env.GCP_PROJECT_ID!,
+  serviceName: 'payment-service',
+});
+
+fastify.get('/health', async () => ({ status: 'ok' }));
+
+fastify.listen({ port: 3000 });</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- NestJS -->
+                <div class="p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">NestJS Integration</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-4">Mount in your <code class="bg-lavender-pale px-1 rounded text-lavender">main.ts</code> bootstrap function:</p>
+                    <div class="relative code-copy-wrap mb-3">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { cybatExpress } from '@cybat/sdk-node';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.use(cybatExpress({
+    apiKey: process.env.CYBAT_API_KEY!,
+    gcpProjectId: process.env.GCP_PROJECT_ID!,
+  }));
+  await app.listen(3000);
+}
+bootstrap();</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Reference -->
+            <div id="configuration" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Configuration Reference<span class="text-lavender">_</span></h2>
+                <div class="overflow-x-auto border border-lavender-pale rounded-lg bg-white mb-6">
+                    <table class="w-full font-mono text-xs text-ink text-left">
+                        <thead class="bg-paper border-b border-lavender-pale text-ink font-bold">
+                            <tr>
+                                <th class="px-4 py-3">Option</th>
+                                <th class="px-4 py-3">Type</th>
+                                <th class="px-4 py-3">Default</th>
+                                <th class="px-4 py-3">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-lavender-pale/60">
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">apiKey</td>
+                                <td class="px-4 py-3 text-ink-soft">string</td>
+                                <td class="px-4 py-3 text-red-500 font-bold">Required</td>
+                                <td class="px-4 py-3">Raw API key generated from Intelligence Portal → API Keys.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">gcpProjectId</td>
+                                <td class="px-4 py-3 text-ink-soft">string</td>
+                                <td class="px-4 py-3 text-ink-soft">undefined</td>
+                                <td class="px-4 py-3">Your GCP Project ID for cloud routing and automated VPC Firewall / Cloud Armor blocking.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">awsProjectId</td>
+                                <td class="px-4 py-3 text-ink-soft">string</td>
+                                <td class="px-4 py-3 text-ink-soft">undefined</td>
+                                <td class="px-4 py-3">AWS Project ID for AWS cloud routing.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">serviceName</td>
+                                <td class="px-4 py-3 text-ink-soft">string</td>
+                                <td class="px-4 py-3 text-ink-soft">undefined</td>
+                                <td class="px-4 py-3">Label identifying which service generated the telemetry (shown on incidents).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">captureBody</td>
+                                <td class="px-4 py-3 text-ink-soft">boolean</td>
+                                <td class="px-4 py-3 text-ink-soft">false</td>
+                                <td class="px-4 py-3">Captures request body excerpts. Redacted in-process before leaving server.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">extraSensitiveKeys</td>
+                                <td class="px-4 py-3 text-ink-soft">Iterable&lt;string&gt;</td>
+                                <td class="px-4 py-3 text-ink-soft">undefined</td>
+                                <td class="px-4 py-3">Extra field names to treat as secrets for masking (e.g. <code class="text-lavender">['account_number']</code>).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">statusFilter</td>
+                                <td class="px-4 py-3 text-ink-soft">'all' | 'errors' | fn</td>
+                                <td class="px-4 py-3 text-ink-soft">'all'</td>
+                                <td class="px-4 py-3">Controls which captured response status codes are reported.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">flushIntervalMs</td>
+                                <td class="px-4 py-3 text-ink-soft">number</td>
+                                <td class="px-4 py-3 text-ink-soft">2000</td>
+                                <td class="px-4 py-3">How often to flush buffered telemetry events in milliseconds.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-lavender">maxRetries</td>
+                                <td class="px-4 py-3 text-ink-soft">number</td>
+                                <td class="px-4 py-3 text-ink-soft">2</td>
+                                <td class="px-4 py-3">Max exponential backoff retries on transient network failures.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
