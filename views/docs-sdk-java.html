@@ -1,0 +1,445 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+
+        <!-- Sidebar Navigation -->
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
+                <nav class="space-y-4 font-mono text-sm">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Python SDK Reference</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Node.js SDK Reference</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">PHP SDK Reference</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Java SDK Reference</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">User Guide</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Release Notes</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Security Specs</a>
+                </nav>
+
+                <div class="mt-8 pt-6 border-t border-lavender-pale">
+                    <h3 class="font-mono text-xs text-ink mb-4">On this page</h3>
+                    <nav class="space-y-2 font-mono text-xs text-ink-soft">
+                        <a href="#/docs/sdk-java#quickstart" class="block hover:text-mint transition-colors">Quick Start</a>
+                        <a href="#/docs/sdk-java#installation" class="block hover:text-mint transition-colors">Installation</a>
+                        <a href="#/docs/sdk-java#code-samples" class="block hover:text-mint transition-colors">Framework Code Samples</a>
+                        <a href="#/docs/sdk-java#multi-cloud" class="block hover:text-mint transition-colors">Multi-Cloud Routing</a>
+                        <a href="#/docs/sdk-java#configuration" class="block hover:text-mint transition-colors">Configuration Reference</a>
+                        <a href="#/docs/sdk-java#bodies" class="block hover:text-mint transition-colors">Request Bodies &amp; Redaction</a>
+                        <a href="#/docs/sdk-java#next-steps" class="block hover:text-mint transition-colors">Next Steps</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+
+            <!-- Title + badges -->
+            <div class="mb-8">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Java SDK Reference<span class="text-lavender">_</span></h1>
+                <p class="font-mono text-sm text-ink-soft mb-5">A standard <code class="bg-lavender-pale px-1 rounded text-lavender">jakarta.servlet.Filter</code> for Spring Boot 3+ and Jakarta Servlet 5.0+ containers (Tomcat 10+, Jetty 11+) that reports HTTP traffic directly to the Cybat Intelligence Engine with zero runtime dependencies.</p>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● AVAILABLE NOW</span>
+                    <a href="https://central.sonatype.com/artifact/co.cybat/cybat-sdk" target="_blank" class="font-mono text-[10px] bg-lavender-pale text-ink px-2 py-1 rounded border border-lavender-pale hover:border-lavender transition-colors">co.cybat:cybat-sdk on Maven Central</a>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Java 17+</span>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Jakarta Servlet 5.0+</span>
+                    <span class="font-mono text-[10px] bg-white text-ink px-2 py-1 rounded border border-lavender-pale">Zero runtime dependencies</span>
+                </div>
+            </div>
+
+            <!-- Other languages strip -->
+            <div class="mb-10 p-5 bg-paper border border-lavender-pale rounded-lg">
+                <p class="font-mono text-xs text-ink mb-3">Available Language SDKs</p>
+                <div class="flex flex-wrap gap-2">
+                    <a href="#/docs/sdk-python" class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-bold">Python (PyPI)</a>
+                    <a href="#/docs/sdk-node" class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-bold">Node.js (npm)</a>
+                    <a href="#/docs/sdk-php" class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-bold">PHP (Packagist)</a>
+                    <a href="#/docs/sdk-java" class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-bold">Java (Maven Central)</a>
+                    <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Go — coming soon</span>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div id="quickstart" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Quick Start<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Four steps from dependency configuration to live autonomous threat protection.</p>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">1.</span>
+                        <div class="w-full">
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Add the dependency</p>
+                            <p class="font-mono text-xs text-ink-soft mb-2">Available directly from Maven Central for Maven or Gradle:</p>
+                            <div class="relative code-copy-wrap mb-2">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">&lt;dependency&gt;
+    &lt;groupId&gt;co.cybat&lt;/groupId&gt;
+    &lt;artifactId&gt;cybat-sdk&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">2.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Create an API key</p>
+                            <p class="font-mono text-xs text-ink">From the <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink underline transition-colors">Intelligence Portal</a> → <strong class="text-ink">API Keys</strong>. Store it as an environment variable or secret named <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code>.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">3.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Register the CybatFilter bean</p>
+                            <p class="font-mono text-xs text-ink">In Spring Boot 3+, register a <code class="bg-lavender-pale px-1 rounded text-lavender">FilterRegistrationBean&lt;CybatFilter&gt;</code> with highest precedence — see <a href="#/docs/sdk-java#code-samples" class="text-lavender hover:text-ink underline transition-colors">Framework Code Samples</a> below.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 p-5 bg-white border border-lavender-pale rounded-lg">
+                        <span class="font-mono text-mint font-bold shrink-0">4.</span>
+                        <div>
+                            <p class="font-mono text-sm text-ink font-bold mb-1">Generate traffic, watch the dashboard</p>
+                            <p class="font-mono text-xs text-ink">Traffic appears in the Intelligence Portal within seconds — service listed as <strong class="text-mint">Connected</strong>, Threat Globe actively tracking IP origins, and incidents reported in real time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div id="installation" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Installation<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Install via your build tool of choice. Requires Java 17+ and targets <code class="bg-lavender-pale px-1 rounded text-lavender">jakarta.servlet</code> (Servlet 5.0+ / Jakarta EE 9+).</p>
+
+                <!-- Maven -->
+                <div class="mb-6 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Apache Maven</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-3">Add to your <code class="bg-lavender-pale px-1 rounded text-lavender">pom.xml</code>:</p>
+                    <div class="relative code-copy-wrap">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">&lt;dependency&gt;
+    &lt;groupId&gt;co.cybat&lt;/groupId&gt;
+    &lt;artifactId&gt;cybat-sdk&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gradle -->
+                <div class="mb-6 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Gradle</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-3">Add to your <code class="bg-lavender-pale px-1 rounded text-lavender">build.gradle</code>:</p>
+                    <div class="relative code-copy-wrap">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">implementation 'co.cybat:cybat-sdk:1.0.0'</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Zero dependencies callout -->
+                <div class="p-5 bg-paper border border-lavender-pale rounded-lg text-xs font-mono text-ink">
+                    <strong class="text-mint font-bold text-sm block mb-1">Zero Runtime Dependencies</strong>
+                    <p class="leading-relaxed">The Java SDK relies exclusively on <code class="bg-lavender-pale px-1 rounded text-lavender">java.net.http.HttpClient</code> (built into JDK 11+) and a hand-crafted zero-dependency JSON parser. It avoids third-party JSON libraries (Jackson, Gson, org.json) entirely, eliminating transitive classpath collisions with host application dependencies. The <code class="bg-lavender-pale px-1 rounded text-lavender">jakarta.servlet-api</code> dependency is marked <code class="bg-lavender-pale px-1 rounded text-lavender">&lt;scope&gt;provided&lt;/scope&gt;</code> and is supplied by your container.</p>
+                </div>
+            </div>
+
+            <!-- Framework Code Samples -->
+            <div id="code-samples" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Framework Code Samples<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Drop-in configuration snippets for Spring Boot 3+ and standard Jakarta Servlet containers.</p>
+
+                <!-- Spring Boot 3+ -->
+                <div class="mb-8 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Spring Boot 3+ (Spring MVC)</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-4">Register a <code class="bg-lavender-pale px-1 rounded text-lavender">FilterRegistrationBean</code> in your configuration class. Setting <code class="bg-lavender-pale px-1 rounded text-lavender">Ordered.HIGHEST_PRECEDENCE</code> ensures Cybat instruments all inbound requests before subsequent controller interceptors:</p>
+                    <div class="relative code-copy-wrap mb-3">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">package com.example.demo.config;
+
+import co.cybat.sdk.CybatFilter;
+import co.cybat.sdk.Options;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+
+@Configuration
+public class CybatConfig {
+
+    @Bean
+    public FilterRegistrationBean&lt;CybatFilter&gt; cybatFilter() {
+        Options options = Options.builder(System.getenv("CYBAT_API_KEY"))
+            .gcpProjectId("my-gcp-project") // enables automated Cloud Armor / VPC Firewall blocking
+            .serviceName("checkout-service")
+            .captureBody(true)
+            .build();
+
+        CybatFilter filter = new CybatFilter(options);
+
+        FilterRegistrationBean&lt;CybatFilter&gt; registration = new FilterRegistrationBean&lt;&gt;(filter);
+        registration.addUrlPatterns("/*");
+        registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return registration;
+    }
+}</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plain Jakarta Servlet -->
+                <div class="mb-8 p-6 bg-white border border-lavender-pale rounded-lg">
+                    <h3 class="font-heading text-lg font-bold mb-2">Plain Jakarta Servlet Container (Tomcat 10+, Jetty 11+)</h3>
+                    <p class="font-mono text-xs text-ink-soft mb-4">Register programmatically in a <code class="bg-lavender-pale px-1 rounded text-lavender">ServletContextListener</code> or servlet initializer:</p>
+                    <div class="relative code-copy-wrap mb-3">
+                        <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">import co.cybat.sdk.CybatFilter;
+import co.cybat.sdk.Options;
+import jakarta.servlet.FilterRegistration;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class CybatInitializer implements ServletContextListener {
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        ServletContext ctx = sce.getServletContext();
+
+        Options options = Options.builder(System.getenv("CYBAT_API_KEY"))
+            .gcpProjectId("my-gcp-project")
+            .serviceName("legacy-api")
+            .build();
+
+        CybatFilter filter = new CybatFilter(options);
+        FilterRegistration.Dynamic reg = ctx.addFilter("cybatFilter", filter);
+        reg.addMappingForUrlPatterns(null, false, "/*");
+    }
+}</pre>
+                        <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Warnings & Notices -->
+                <div class="space-y-4">
+                    <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
+                        <strong class="text-red-400 text-[10px]">Behind a load balancer or reverse proxy?</strong>
+                        <p class="mt-2"><code class="bg-lavender-pale px-1 rounded text-lavender">CybatFilter</code> reads the client IP via <code class="bg-lavender-pale px-1 rounded text-lavender">request.getRemoteAddr()</code>. When deployed behind a load balancer, reverse proxy, or Cloud CDN, ensure your servlet container is configured to parse forwarded headers (e.g., Tomcat's <code class="bg-lavender-pale px-1 rounded text-lavender">RemoteIpValve</code> or Spring's <code class="bg-lavender-pale px-1 rounded text-lavender">server.forward-headers-strategy=native</code>) so the real client IP is reported rather than the proxy.</p>
+                    </div>
+
+                    <div class="bg-lavender-pale/30 border border-lavender rounded-lg p-4 text-xs text-ink">
+                        <strong class="text-lavender text-[10px]">Automatic Cloud Armor &amp; VPC Firewall Enforcement</strong>
+                        <p class="mt-2">Setting <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> activates real-time classification and alerting immediately. To enable Cybat to autonomously block detected malicious IPs via Cloud Armor and VPC Firewall rules, grant the Cybat Service Account the <code class="bg-lavender-pale px-1 rounded text-lavender">roles/compute.securityAdmin</code> and <code class="bg-lavender-pale px-1 rounded text-lavender">roles/compute.networkViewer</code> roles on your target GCP project.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Cloud Routing -->
+            <div id="multi-cloud" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Multi-Cloud Routing<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Set <strong class="text-ink">exactly one</strong> of <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">awsProjectId</code> on the options builder — required, and never both on the same instance. Whichever you configure determines where data is routed automatically.</p>
+
+                <div class="overflow-x-auto rounded-lg border border-lavender-pale">
+                    <table class="w-full font-mono text-xs text-left">
+                        <thead class="bg-paper text-ink">
+                            <tr>
+                                <th class="px-4 py-3 border-b border-lavender-pale">You set</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Data goes to</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-ink-soft">
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><code class="text-lavender">gcpProjectId("...")</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">gcp-ingest.cybat.co</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale"><span class="text-mint font-semibold">Live</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><code class="text-lavender">awsProjectId("...")</code></td>
+                                <td class="px-4 py-3">aws-ingest.cybat.co</td>
+                                <td class="px-4 py-3">Not yet implemented</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-mono text-xs text-ink-soft mt-4">An application deployed across both cloud providers should register two distinct <code class="bg-lavender-pale px-1 rounded text-lavender">CybatFilter</code> instances. Setting both properties on a single <code class="bg-lavender-pale px-1 rounded text-lavender">Options.Builder</code> will throw an <code class="text-red-500 font-bold">IllegalArgumentException</code> at build time.</p>
+            </div>
+
+            <!-- Configuration Reference -->
+            <div id="configuration" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Configuration Reference<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6">Constructed via the type-safe fluent builder <code class="bg-lavender-pale px-1 rounded text-lavender">Options.builder(apiKey)</code>.</p>
+
+                <div class="overflow-x-auto rounded-lg border border-lavender-pale mb-6">
+                    <table class="w-full font-mono text-xs text-left">
+                        <thead class="bg-paper text-ink">
+                            <tr>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Option</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Type</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Default</th>
+                                <th class="px-4 py-3 border-b border-lavender-pale">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-ink-soft align-top">
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">apiKey</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">String</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale text-red-500 font-bold">Required</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">API key generated from Intelligence Portal → API Keys.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">gcpProjectId</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">String</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">null</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Required unless <code class="text-lavender">awsProjectId</code> is set. Routes to GCP ingest and enables automated Cloud Armor / VPC Firewall mitigation.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">awsProjectId</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">String</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">null</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Routes to AWS ingest endpoint (coming soon).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">serviceName</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">String</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">null</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Optional identifier displayed on incident timelines and telemetry events.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">ingestUrl</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">String</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">auto</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Overrides cloud destination URL (primarily for local mock testing).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">flushIntervalMs</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">long</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2000</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Interval in milliseconds between background flushes of buffered events.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">maxBatchSize</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">int</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">100</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Triggers an immediate background flush when the in-memory queue reaches this size.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">maxRetries</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">int</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Max exponential backoff retries before dropping a failed telemetry batch.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">retryBackoffMs</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">long</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">500</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Base retry delay; doubles exponentially on successive attempts.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">statusFilter</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">StatusFilter</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">StatusFilter.ALL</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Predicate filter (<code class="text-lavender">StatusFilter.ALL</code>, <code class="text-lavender">StatusFilter.ERRORS</code>, or custom lambda <code class="text-lavender">status -&gt; status != 304</code>).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">captureBody</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">boolean</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">false</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Enables in-process redaction and telemetry capture of request bodies.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">bodyMaxBytes</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">int</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">2048</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Maximum size in bytes of the post-redaction body excerpt (capped at 8192).</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 border-b border-lavender-pale font-bold"><code class="text-lavender">bodyStatusFilter</code></td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">StatusFilter</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">null</td>
+                                <td class="px-4 py-3 border-b border-lavender-pale">Captures request bodies only when the response status matches this predicate.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold"><code class="text-lavender">extraSensitiveKeys</code></td>
+                                <td class="px-4 py-3">Collection&lt;String&gt;</td>
+                                <td class="px-4 py-3">null</td>
+                                <td class="px-4 py-3">Additional field names to mask during in-process redaction (e.g. <code class="text-lavender">Set.of("account_number", "ssn_last_4")</code>).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Request Bodies & Redaction -->
+            <div id="bodies" class="mb-12 scroll-mt-40">
+                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Request Bodies &amp; Redaction<span class="text-lavender">_</span></h2>
+                <p class="font-mono text-sm text-ink mb-6"><code class="bg-lavender-pale px-1 rounded text-lavender">captureBody</code> is disabled by default. Enabling body capture supplies the Intelligence Engine with critical attack indicators (SQLi, command injection, credential stuffing, prompt injection), while preserving strict privacy guarantees:</p>
+
+                <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink font-mono">
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">1.</span>
+                        <div><strong class="text-ink">Zero-leak in-process masking:</strong> Before events leave memory, payloads are parsed and masked locally. Email addresses, Luhn-valid credit card numbers, Bearer/JWT tokens, API keys, and sensitive fields (<code class="bg-white px-1 rounded text-lavender">password</code>, <code class="bg-white px-1 rounded text-lavender">token</code>, <code class="bg-white px-1 rounded text-lavender">cvv</code>, <code class="bg-white px-1 rounded text-lavender">ssn</code>) are permanently redacted.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">2.</span>
+                        <div><strong class="text-ink">Attack shape preservation:</strong> Sensitive values are replaced with content-free structural descriptors such as <code class="bg-white px-1 rounded text-lavender">[REDACTED len=14 sus=quote,comment]</code>. Malicious patterns remain visible to threat models without exposing raw user secrets.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">3.</span>
+                        <div><strong class="text-ink">Dual-stream request wrapping:</strong> <code class="bg-white px-1 rounded text-lavender">CybatFilter</code> wraps the incoming request to intercept both <code class="bg-white px-1 rounded text-lavender">getInputStream()</code> and <code class="bg-white px-1 rounded text-lavender">getReader()</code> safely. Only bodies actually read by downstream application code are captured, bounded by an in-flight 1 MiB buffering cap. Multipart and binary streams are skipped entirely.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-mint font-bold mt-0.5">4.</span>
+                        <div><strong class="text-ink">Custom sensitive field masking:</strong> Extend redaction with your own domain-specific fields via <code class="bg-white px-1 rounded text-lavender">extraSensitiveKeys</code>. Field matching is exact and case-insensitive to prevent accidental over-masking of unrelated parameters.</div>
+                    </div>
+                </div>
+
+                <div class="relative mt-4 code-copy-wrap">
+                    <pre class="bg-white border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink text-xs leading-relaxed">Options options = Options.builder(System.getenv("CYBAT_API_KEY"))
+    .gcpProjectId("my-gcp-project")
+    .captureBody(true)
+    .bodyMaxBytes(4096)
+    .extraSensitiveKeys(java.util.Set.of("account_number", "ssn_last_4", "medical_record_id"))
+    .build();</pre>
+                    <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div id="next-steps" class="border-t border-lavender-pale pt-8 mt-12 scroll-mt-40">
+                <h2 class="text-xl font-heading font-bold text-ink mb-4">Next Steps</h2>
+                <ul class="list-disc pl-6 space-y-2 text-sm text-ink mb-6">
+                    <li>Not subscribed yet? Start with the <a href="#/docs/getting-started" class="text-lavender hover:text-ink underline transition-colors">Getting Started</a> guide.</li>
+                    <li>Read the full <a href="#/docs/security-specs" class="text-lavender hover:text-ink underline transition-colors">Security Specs</a> for IAM, data sovereignty, and autonomous enforcement.</li>
+                    <li>Browse the <a href="https://central.sonatype.com/artifact/co.cybat/cybat-sdk" target="_blank" class="text-lavender hover:text-ink underline transition-colors">co.cybat:cybat-sdk package on Maven Central</a>.</li>
+                    <li>Fine-tune detection behavior and alert workflows in the <a href="#/docs/user-guide" class="text-lavender hover:text-ink underline transition-colors">User Guide</a>.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                        class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
+                        Open Dashboard →
+                    </a>
+                    <a href="#/docs/getting-started"
+                        class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
+                        Back to Getting Started →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

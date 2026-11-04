@@ -184,6 +184,7 @@ const routes = [
     { path: '/docs/sdk-python', component: loadTemplate('docs-sdk-python') },
     { path: '/docs/sdk-node', component: loadTemplate('docs-sdk-node') },
     { path: '/docs/sdk-php', component: loadTemplate('docs-sdk-php') },
+    { path: '/docs/sdk-java', component: loadTemplate('docs-sdk-java') },
     { path: '/docs/user-guide', component: loadTemplate('docs-user-guide') },
     { path: '/docs/release-notes', component: loadTemplate('docs-release-notes') },
     { path: '/docs/security-specs', component: loadTemplate('docs-security-specs') },
