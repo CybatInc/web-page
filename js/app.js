@@ -181,6 +181,7 @@ const routes = [
     { path: '/security', component: loadTemplate('security') },
     { path: '/docs', component: loadTemplate('docs') },
     { path: '/docs/getting-started', component: loadTemplate('docs-getting-started') },
+    { path: '/docs/cloudflare', component: loadTemplate('docs-cloudflare') },
     { path: '/docs/sdk-python', component: loadTemplate('docs-sdk-python') },
     { path: '/docs/sdk-node', component: loadTemplate('docs-sdk-node') },
     { path: '/docs/sdk-php', component: loadTemplate('docs-sdk-php') },

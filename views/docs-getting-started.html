@@ -12,6 +12,7 @@
                 <nav class="space-y-4 font-mono text-sm">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Getting Started</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Cloudflare Integration</a>
                     <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Python SDK Reference</a>
                     <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Node.js SDK Reference</a>
                     <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">PHP SDK Reference</a>
@@ -164,6 +165,28 @@ init_app(app,
                         <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
                             <strong class="text-red-400 text-[10px]">Behind a load balancer or reverse proxy?</strong>
                             <p class="mt-2">Configure your framework's standard mechanism for trusting <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> (e.g. Werkzeug's <code class="bg-lavender-pale px-1 rounded text-lavender">ProxyFix</code> for Flask) so the SDK reads the real client IP instead of your proxy's own address.</p>
+                        </div>
+
+                        <!-- Cloudflare Alternative -->
+                        <div class="bg-white border-2 border-lavender/30 rounded-lg p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-base text-ink flex items-center gap-2">
+                                    <span class="text-[#F38020]">☁️</span> Alternative: Cloudflare Edge Worker (Zero-Code Setup)
+                                </h3>
+                                <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">NO CODE CHANGES</span>
+                            </div>
+                            <p class="text-xs text-ink leading-relaxed">
+                                If your application traffic is proxied through Cloudflare, you don't even need to install an SDK or modify application source code. Deploy the <strong>Cybat Edge Collector</strong> directly into your Cloudflare account to capture zero-latency behavioral telemetry and synchronize automated WAF IP access rules.
+                            </p>
+                            <div class="flex items-center gap-3 pt-1">
+                                <a href="#/docs/cloudflare" class="text-lavender hover:text-ink font-bold text-xs flex items-center transition-colors">
+                                    View Cloudflare Integration Guide →
+                                </a>
+                                <span class="text-ink-soft text-xs">•</span>
+                                <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/CybatInc/cloudflare-collector" target="_blank" rel="noopener" class="text-mint hover:text-ink font-bold text-xs flex items-center transition-colors">
+                                    1-Click Deploy to Cloudflare ↗
+                                </a>
+                            </div>
                         </div>
                     </div>
 
