@@ -212,81 +212,50 @@
                     <section class="space-y-4" aria-labelledby="heading-deploy-collector">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">3</span>
-                            <h2 id="heading-deploy-collector" class="text-lg font-heading font-bold text-ink">Deploy the Edge Collector via GitHub Repository</h2>
+                            <h2 id="heading-deploy-collector" class="text-lg font-heading font-bold text-ink">Deploy the Edge Collector via Cybat Dashboard</h2>
                         </div>
                         <p class="text-sm text-ink leading-relaxed">
-                            The <strong>Cybat Edge Collector</strong> runs as a Cloudflare Worker on Cloudflare's global network edge. Choose between 1-click browser deployment or Wrangler CLI:
+                            You do not need to install local CLI tools or manage code. The <strong>Cybat Edge Collector</strong> deploys directly into your Cloudflare account in one click through the Cybat Intelligence Dashboard:
                         </p>
 
-                        <!-- Option A: 1-Click Deploy -->
-                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-sm text-ink">Option A: 1-Click "Deploy to Cloudflare Workers" Button (Recommended)</h3>
-                                <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">FASTEST</span>
-                            </div>
-                            <p class="text-xs text-ink leading-relaxed">
-                                Deploy directly from our public GitHub repository (<code class="bg-lavender-pale px-1 rounded text-lavender">CybatInc/cloudflare-collector</code>) into your Cloudflare account with a single click:
-                            </p>
-                            <div class="pt-2">
-                                <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/CybatInc/cloudflare-collector" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#F38020] hover:bg-[#E56A08] text-white font-bold text-xs px-4 py-2.5 rounded shadow transition-all">
-                                    <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 10c-.2-2.8-2.5-5-5.3-5-2.2 0-4.1 1.4-4.9 3.4C7.7 8.2 7 8 6.2 8 3.9 8 2 9.9 2 12.2c0 2.2 1.7 4 3.9 4.1h12.4c2.1 0 3.7-1.7 3.7-3.7 0-1.8-1.3-3.3-3.5-3.6z"/></svg>
-                                    Deploy to Cloudflare Workers →
-                                </a>
-                            </div>
-                            <p class="text-[11px] text-ink-soft">
-                                Cloudflare will authenticate your account, fork the worker, and prompt you for your <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> before running automated provisioning.
-                            </p>
-                        </div>
-
-                        <!-- Option B: Wrangler CLI -->
+                        <!-- 1-Click Dashboard Flow -->
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-4">
-                            <h3 class="font-bold text-sm text-ink">Option B: Deploy via Wrangler CLI &amp; Git</h3>
-                            <p class="text-xs text-ink leading-relaxed">
-                                If you manage infrastructure via CLI or CI/CD pipelines, clone the repository and deploy using Wrangler:
-                            </p>
-
-                            <div class="space-y-3">
-                                <p class="text-xs text-ink font-bold">1. Clone &amp; Install Dependencies:</p>
-                                <div class="relative code-copy-wrap">
-                                    <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-xs">git clone https://github.com/CybatInc/cloudflare-collector.git
-cd cloudflare-collector
-npm install</pre>
-                                    <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy clone commands" title="Copy">
-                                        <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                    </button>
-                                </div>
-
-                                <p class="text-xs text-ink font-bold">2. Store Your Cybat API Key as an Encrypted Secret:</p>
-                                <p class="text-[11px] text-ink-soft">Retrieve your Cybat API Key from <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener" class="text-lavender hover:underline">Intelligence Portal → API Keys</a>, then bind it as a secret:</p>
-                                <div class="relative code-copy-wrap">
-                                    <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-xs">npx wrangler secret put CYBAT_API_KEY</pre>
-                                    <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy wrangler secret command" title="Copy">
-                                        <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                    </button>
-                                </div>
-
-                                <p class="text-xs text-ink font-bold">3. Deploy to Cloudflare Network Edge:</p>
-                                <div class="relative code-copy-wrap">
-                                    <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-xs">npm run deploy</pre>
-                                    <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy deploy command" title="Copy">
-                                        <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                    </button>
-                                </div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-sm text-ink">1-Click Deployment via the API Keys Section</h3>
+                                <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">ZERO CODE</span>
                             </div>
+
+                            <ol class="list-decimal pl-6 space-y-3 text-xs text-ink leading-relaxed">
+                                <li>
+                                    <strong>Open the API Keys Section:</strong> Log in to the <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener" class="text-lavender underline font-medium">Cybat Intelligence Portal</a> and navigate to <strong class="text-ink">API Keys</strong> from the sidebar (or visit <code class="bg-lavender-pale px-1 rounded text-lavender">https://intelligence.cybat.co/#/api-keys</code>).
+                                </li>
+                                <li>
+                                    <strong>Copy Your Cybat API Key:</strong> Copy your active Cybat API Key (or generate a dedicated key for edge telemetry). You will need this key during the Cloudflare deployment prompt.
+                                </li>
+                                <li>
+                                    <strong>Click "Deploy to Cloudflare":</strong> In the prominent <strong class="text-[#F38020]">Cloudflare Worker Edge Collector</strong> banner at the top of the API Keys page, click the orange <strong class="text-[#F38020]">Deploy to Cloudflare</strong> button.
+                                </li>
+                                <li>
+                                    <strong>Authorize &amp; Provide API Key:</strong> Cloudflare will open in a new tab. Select your target Cloudflare account, review the worker deployment, and paste your Cybat API Key when prompted for the <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">CYBAT_API_KEY</code> secret.
+                                </li>
+                                <li>
+                                    <strong>Finish Deployment:</strong> Click <strong>Deploy</strong>. Cloudflare will automatically build and provision the edge collector worker into your global edge network.
+                                </li>
+                            </ol>
                         </div>
 
-                        <!-- Step 3.C: Route Mapping -->
+                        <!-- Step 3.B: Route Mapping -->
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3">
                             <h3 class="font-bold text-sm text-ink">Attach Worker Route to Your Domain / API Zone</h3>
                             <p class="text-xs text-ink leading-relaxed">
-                                To inspect API traffic, route inbound requests through the collector worker:
+                                Once deployed, tell Cloudflare which incoming traffic to route through your edge collector:
                             </p>
                             <ol class="list-decimal pl-6 space-y-1.5 text-xs text-ink leading-relaxed">
-                                <li>In the Cloudflare Dashboard, open <strong>Compute (Workers) → Workers &amp; Pages</strong>.</li>
-                                <li>Click on <strong class="text-ink">cybat-edge-collector</strong>.</li>
+                                <li>In your Cloudflare Dashboard, navigate to <strong>Compute (Workers) → Workers &amp; Pages</strong>.</li>
+                                <li>Click on the newly deployed worker (<strong class="text-ink">cybat-edge-collector</strong>).</li>
                                 <li>Go to <strong>Settings → Triggers → Routes</strong> and click <strong class="text-lavender">Add route</strong>.</li>
                                 <li>Set your target route pattern (e.g. <code class="bg-lavender-pale px-1 rounded text-lavender">api.yourdomain.com/*</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">yourdomain.com/api/*</code>).</li>
-                                <li>Select your active Cloudflare Zone and click <strong class="text-lavender">Save</strong>.</li>
+                                <li>Select your active Cloudflare Zone from the dropdown and click <strong class="text-lavender">Save</strong>.</li>
                             </ol>
                         </div>
                     </section>
@@ -295,7 +264,7 @@ npm install</pre>
                     <section class="space-y-4 bg-white border border-lavender-pale rounded-lg p-6" aria-labelledby="heading-bindings">
                         <h2 id="heading-bindings" class="text-lg font-heading font-bold text-lavender">⚙️ Environment Variables &amp; Bindings Reference</h2>
                         <p class="text-xs text-ink leading-relaxed">
-                            Configure these variables in your <code class="bg-lavender-pale px-1 rounded text-lavender">wrangler.jsonc</code> or under <strong>Worker Settings → Variables &amp; Secrets</strong>:
+                            These variables are automatically provisioned during deployment, or can be adjusted under Cloudflare Dashboard <strong>Worker Settings → Variables and Secrets</strong>:
                         </p>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border border-lavender-pale text-xs">
@@ -373,12 +342,12 @@ npm install</pre>
                     <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
                         <p class="text-sm text-mint">Ready to protect your Cloudflare perimeter?</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="https://github.com/CybatInc/cloudflare-collector" target="_blank" rel="noopener"
-                                class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
-                                View GitHub Repository →
+                            <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener"
+                                class="inline-block bg-[#F38020] text-white px-5 py-2 font-bold text-sm hover:bg-[#e07217] transition-colors rounded">
+                                Deploy from Dashboard (API Keys) →
                             </a>
                             <a href="#/docs/getting-started"
-                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors rounded">
                                 Getting Started Guide →
                             </a>
                         </div>
