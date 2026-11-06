@@ -90,22 +90,32 @@
                     <section class="space-y-4" aria-labelledby="heading-onboarding">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">1</span>
-                            <h2 id="heading-onboarding" class="text-lg font-heading font-bold text-ink">Set Up Cloudflare in the Cybat Onboarding Portal</h2>
+                            <h2 id="heading-onboarding" class="text-lg font-heading font-bold text-ink">Connect Cloudflare During Workspace Registration</h2>
                         </div>
                         <p class="text-sm text-ink leading-relaxed">
-                            During your organization registration or from the <strong>Intelligence Portal Settings → Integrations</strong> tab, connect Cloudflare as your automated edge remediation provider:
+                            Cloudflare WAF integration is configured during your initial organization registration at <a href="https://intelligence.cybat.co/#/register" target="_blank" rel="noopener" class="text-lavender underline font-medium">intelligence.cybat.co/#/register</a>:
                         </p>
-                        <ul class="list-disc pl-6 space-y-2 text-xs text-ink leading-relaxed">
-                            <li>Open the <a href="https://intelligence.cybat.co" target="_blank" rel="noopener" class="text-lavender hover:underline">Cybat Intelligence Portal</a>.</li>
-                            <li>Navigate to <strong>Settings → Cloudflare WAF Integration</strong> (or select Cloudflare during account onboarding).</li>
-                            <li>Toggle <strong class="text-ink">Enable Automated Edge Remediation</strong> to <strong class="text-mint">ON</strong>.</li>
-                            <li>You will be prompted for two credentials:
-                                <ul class="list-circle pl-6 mt-1 space-y-1 text-ink-soft">
-                                    <li><code class="bg-lavender-pale px-1 rounded text-lavender">Cloudflare Account ID</code>: Your 32-character hexadecimal account identifier.</li>
-                                    <li><code class="bg-lavender-pale px-1 rounded text-lavender">Cloudflare API Token</code>: Scoped bearer token authorized to manage Firewall Access Rules.</li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
+                            <ol class="list-decimal pl-6 space-y-2.5 leading-relaxed">
+                                <li>
+                                    <strong>Select Autonomous Defense Provider:</strong> On the registration page, choose <strong class="text-ink">Cloudflare (WAF)</strong>.
+                                </li>
+                                <li>
+                                    <strong>Organization Profile:</strong> Enter your <strong>Company Name</strong>, unique <strong>Organization / Workspace ID</strong>, and your <strong>Admin Email</strong> (used for Google SSO sign-in).
+                                </li>
+                                <li>
+                                    <strong>Cloudflare WAF Autonomous Blocking Credentials:</strong>
+                                    <ul class="list-disc pl-6 mt-1 space-y-1 text-ink-soft">
+                                        <li><strong class="text-ink">Cloudflare API Token:</strong> A scoped bearer token created in Cloudflare (detailed in Step 2 below) with <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">Firewall Access Rules: Edit</code> permission.</li>
+                                        <li><strong class="text-ink">Cloudflare Account ID:</strong> Your 32-character hexadecimal account identifier found in the Cloudflare dashboard.</li>
+                                        <li><strong class="text-ink">Cloudflare Zone ID (Optional):</strong> Your zone identifier if you prefer restricting automated IP blocks to a specific domain zone rather than account-wide.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Confirm &amp; Register:</strong> Check the confirmation box verifying that the API token has Firewall Access Rules permissions, then click <strong class="text-lavender">Complete Registration &amp; Generate Workspace</strong>. Credentials are encrypted at rest using Google Cloud KMS and utilized by Cybat's autonomous SOC AI agent to block malicious IPs.
+                                </li>
+                            </ol>
+                        </div>
                     </section>
 
                     <!-- Step 2: Creating Cloudflare API Token -->
