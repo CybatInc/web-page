@@ -101,14 +101,26 @@
                                     <strong>Select Autonomous Defense Provider:</strong> On the Cybat registration screen, choose <strong class="text-ink">Cloudflare (WAF)</strong>.
                                 </li>
                                 <li>
-                                    <strong>Organization Profile:</strong> Enter your <strong>Company Name</strong>, unique <strong>Organization / Workspace ID</strong>, and your <strong>Admin Email</strong> (used for Google SSO sign-in).
+                                    <strong>Organization Profile:</strong> Enter your <strong>Company Name</strong> (e.g. <a href="#heading-api-token" class="text-lavender underline font-mono font-medium hover:text-ink transition-colors" title="Jump to Step 2: Create Scoped Cloudflare API Token">LatAm - Fintech 21-500 - GCP &amp; Cloudflare</a> &mdash; jump to <a href="#heading-api-token" class="text-lavender underline font-medium">Step 2 ↓</a>), unique <strong>Organization / Workspace ID</strong>, and your <strong>Admin Email</strong> (used for Google SSO sign-in).
                                 </li>
                                 <li>
                                     <strong>Cloudflare WAF Autonomous Blocking Credentials:</strong>
-                                    <ul class="list-disc pl-6 mt-1 space-y-1 text-ink-soft">
-                                        <li><strong class="text-ink">Cloudflare API Token:</strong> A scoped bearer token created in your Cloudflare dashboard (see Step 2 below) with <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">Firewall Access Rules: Edit</code> permission.</li>
-                                        <li><strong class="text-ink">Cloudflare Account ID:</strong> Your 32-character hexadecimal account identifier found in the Cloudflare dashboard.</li>
-                                        <li><strong class="text-ink">Cloudflare Zone ID (Optional):</strong> Your zone identifier if you prefer restricting automated IP blocks to a specific domain zone rather than account-wide.</li>
+                                    <ul class="list-disc pl-6 mt-1 space-y-2 text-ink-soft">
+                                        <li>
+                                            <strong class="text-ink">Cloudflare API Token:</strong> A scoped bearer token created in your Cloudflare dashboard with <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">Firewall Access Rules: Edit</code> permission (<a href="#heading-api-token" class="text-lavender underline font-medium">jump to Step 2: Create Scoped Cloudflare API Token below ↓</a>).
+                                        </li>
+                                        <li>
+                                            <strong class="text-ink">Cloudflare Account ID:</strong> Your 32-character hexadecimal account identifier found in the Cloudflare dashboard.
+                                            <div class="mt-1 pl-2 text-[11px] text-ink border-l-2 border-lavender/40 space-y-0.5">
+                                                <p><strong>Where to find it:</strong> In <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Cloudflare Dashboard</a>, select any domain/zone → on the <strong>Overview</strong> page, scroll down the right-hand sidebar to the <strong>API</strong> section to copy <strong>Account ID</strong> (or copy directly from your browser URL: <code class="bg-lavender-pale px-1 rounded text-lavender">dash.cloudflare.com/&lt;ACCOUNT_ID&gt;/...</code>). Jump to <a href="#heading-account-id" class="text-lavender underline font-medium">Step 2.E: Retrieve Account ID ↓</a> for details.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong class="text-ink">Cloudflare Zone ID (Optional):</strong> Specific 32-character zone identifier if you prefer restricting automated IP blocks to a specific domain zone rather than account-wide.
+                                            <div class="mt-1 pl-2 text-[11px] text-ink border-l-2 border-mint/40 space-y-0.5">
+                                                <p><strong>Where to find it:</strong> In <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Cloudflare Dashboard</a>, select your target domain (e.g. <code class="bg-lavender-pale px-1 rounded text-lavender">yourdomain.com</code>) → on the <strong>Overview</strong> page, scroll down the right-hand sidebar to the <strong>API</strong> section. <strong>Zone ID</strong> is displayed directly above Account ID with a 1-click copy button. Jump to <a href="#heading-zone-id" class="text-lavender underline font-medium">Step 2.F: Retrieve Zone ID ↓</a> for details.</p>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
@@ -198,13 +210,44 @@
                                 </ul>
                             </div>
 
-                            <div class="space-y-2 border-t border-lavender-pale pt-4">
+                            <div id="heading-account-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
                                 <h3 class="font-bold text-sm text-ink flex items-center gap-2">
-                                    <span class="text-mint font-bold">E.</span> Retrieve Your Account ID
+                                    <span class="text-mint font-bold">E.</span> Retrieve Your Cloudflare Account ID
                                 </h3>
                                 <p class="leading-relaxed">
-                                    Navigate to Cloudflare Dashboard Home, click on any zone or check the right-hand sidebar under <strong>API → Account ID</strong>. Alternatively, look at your browser address bar: the 32-character string following <code class="bg-lavender-pale px-1 rounded text-lavender">dash.cloudflare.com/</code> is your Account ID.
+                                    The <strong>Account ID</strong> is a unique 32-character hexadecimal identifier required to register your Cloudflare organization in Cybat. You can find it using any of these methods:
                                 </p>
+                                <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink-soft leading-relaxed">
+                                    <li>
+                                        <strong class="text-ink">From Any Domain Overview:</strong> In the <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Cloudflare Dashboard</a>, click on any domain/zone in your account. On the <strong>Overview</strong> page, scroll down the right-hand sidebar to the <strong>API</strong> section and click <strong class="text-ink">Click to copy</strong> under <strong>Account ID</strong>.
+                                    </li>
+                                    <li>
+                                        <strong class="text-ink">From Browser URL:</strong> When viewing any account page or domain in Cloudflare, your 32-character Account ID appears directly in the URL: <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">dash.cloudflare.com/&lt;32_CHARACTER_ACCOUNT_ID&gt;/...</code>
+                                    </li>
+                                    <li>
+                                        <strong class="text-ink">From Workers &amp; Pages:</strong> In the left navigation bar, navigate to <strong class="text-ink">Workers &amp; Pages</strong> (or Compute) &rarr; your <strong>Account ID</strong> is displayed in the right sidebar.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="heading-zone-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
+                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">F.</span> Retrieve Your Cloudflare Zone ID (Optional)
+                                </h3>
+                                <p class="leading-relaxed">
+                                    The <strong>Zone ID</strong> represents a specific domain in your Cloudflare account (e.g., <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">api.yourcompany.com</code>). It is <em>optional</em>: if left blank, Cybat applies autonomous remediation rules across all zones in the account.
+                                </p>
+                                <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink-soft leading-relaxed">
+                                    <li>
+                                        <strong class="text-ink">Where to find it:</strong> In <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Cloudflare Dashboard</a>, click on the specific domain/website you wish to isolate.
+                                    </li>
+                                    <li>
+                                        On the domain's <strong>Overview</strong> tab, scroll down the right-hand sidebar to the <strong>API</strong> section.
+                                    </li>
+                                    <li>
+                                        <strong>Zone ID</strong> is listed directly above <strong>Account ID</strong>. Click <strong class="text-ink">Click to copy</strong> to grab the 32-character string.
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
