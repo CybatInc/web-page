@@ -1,0 +1,201 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Índice de Documentación</h3>
+                <nav class="space-y-3 font-mono text-xs">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Descripción General</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Integración con Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Especificaciones de Seguridad</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="lg:w-3/4">
+            <div class="mb-6">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Especificaciones Críticas de Seguridad<span class="text-lavender">_</span></h1>
+                
+                <div class="bg-paper border border-mint/30 rounded-lg p-8 md:p-6 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.05),transparent_70%)]"></div>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <!-- IAM Permissions -->
+                        <div>
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                                Permisos (IAM)
+                            </h3>
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
+                                El Motor opera bajo el principio de privilegio mínimo. La ingesta del SDK por sí misma no requiere asignaciones de IAM en su proyecto; la autenticación es una única clave API validada en el borde por API Gateway. No se requieren sumideros ni permisos de configuración de logs. La activación del <strong class="text-ink">bloqueo automático</strong> (opcional) requiere otorgar roles con alcance delimitado: <code class="text-lavender text-xs mx-1">compute.securityAdmin</code> (aplicación de reglas en Cloud Armor y VPC Firewall), <code class="text-lavender text-xs mx-1">compute.networkViewer</code> (inspección de topología de red) y <code class="text-lavender text-xs mx-1">browser</code> en su proyecto u organización configurada. El portal de incorporación proporciona un comando de Cloud Shell de una sola línea y copiable para aplicar estos roles.
+                            </p>
+                        </div>
+
+                        <!-- Data Sovereignty -->
+                        <div>
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                                Soberanía de Datos
+                            </h3>
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
+                                La arquitectura de retención cero garantiza que la telemetría de solicitudes se <strong class="text-ink">evalúa en flujo y se descarta inmediatamente</strong>. Ningún cuerpo de solicitud ni datos confidenciales de carga útil se persisten en la infraestructura de Cybat; solo se conserva el veredicto anonimizado (con hash HMAC) necesario para el almacenamiento en caché de infractores recurrentes.
+                            </p>
+                        </div>
+
+                        <!-- Authentication -->
+                        <div>
+                            <h3 class="font-mono text-sm text-mint mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
+                                Autenticación
+                            </h3>
+                            <p class="font-mono text-sm text-ink bg-lavender-pale/40 p-4 rounded border border-lavender-pale">
+                                El acceso a la plataforma se basa exclusivamente en <strong>Inicio de Sesión Único (SSO) mediante Google Identity</strong>, autorizando a los usuarios sin problemas con su directorio existente de Workspace/Cloud Identity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CLIENT REQUIREMENTS SECTION -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Requisitos del Cliente<span class="text-lavender">_</span></h2>
+                    <p class="font-mono text-sm text-ink mb-8">Configuración mínima requerida para que el motor detecte —y opcionalmente bloquee— amenazas de manera efectiva.</p>
+
+                    <!-- Infrastructure Prerequisites -->
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                            Requisitos Previos de Infraestructura
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-mint font-mono font-semibold mb-2">Requerido</p>
+                                <ul class="space-y-3 text-ink">
+                                    <li class="flex items-start gap-2"><span class="text-mint shrink-0 mt-0.5 font-bold">✓</span> <span class="min-w-0">Una aplicación que pueda instalar el SDK de Cybat como middleware (Python, Node.js, PHP y Java activos hoy; Go próximamente)</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-mint shrink-0 mt-0.5 font-bold">✓</span> <span class="min-w-0">Una clave API válida, no revocada y no expirada del Portal de Inteligencia</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-mint shrink-0 mt-0.5 font-bold">✓</span> <span class="min-w-0">Espacio de trabajo de Slack para la entrega de alertas en tiempo real</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender font-mono font-semibold mb-2">Recomendado</p>
+                                <ul class="space-y-3 text-ink">
+                                    <li class="flex items-start gap-2"><span class="text-lavender shrink-0 mt-0.5 font-bold">+</span> <span class="min-w-0"><strong class="text-ink font-mono">gcpProjectId</strong> configurado en el SDK: habilita el bloqueo automático en VPC Firewall / Cloud Armor, no solo la detección</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender shrink-0 mt-0.5 font-bold">+</span> <span class="min-w-0">Roles de IAM delimitados otorgados mediante el comando de Cloud Shell del portal (<code class="bg-lavender-pale px-1 rounded text-lavender font-mono">compute.securityAdmin</code>, <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">compute.networkViewer</code> y <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">browser</code>): desbloquea la remediación automatizada y el desbloqueo en un clic desde el panel</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender shrink-0 mt-0.5 font-bold">+</span> <span class="min-w-0"><code class="bg-lavender-pale px-1 rounded text-lavender font-mono">app.set('trust proxy', ...)</code> (o equivalente de su framework) si su aplicación reside detrás de un balanceador de carga: asegura que el SDK reporte la IP real del cliente</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wire contract -->
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Cómo Reporta Datos el SDK
+                        </h3>
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <div class="col-span-4">
+                                    <p class="text-ink font-bold mb-1">Autenticación</p>
+                                    <p class="text-mint text-[10px]">Clave API, Validada en el Borde</p>
+                                </div>
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    Cada lote se envía con una cabecera <code class="bg-lavender-pale px-1 rounded text-lavender">x-api-key</code>. API Gateway valida que sea una clave real y activa antes de que la petición llegue a nuestras instancias de cómputo; las claves inválidas, vencidas o revocadas se rechazan en el borde de la red.
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <div class="col-span-4">
+                                    <p class="text-ink font-bold mb-1">Agrupación por Lotes</p>
+                                    <p class="text-lavender text-[10px]">En Búfer, No por Petición</p>
+                                </div>
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    El SDK almacena las peticiones capturadas en memoria y las envía cada ~2 segundos (o cuando se llena el lote), nunca una llamada HTTP por petición individual. Los envíos fallidos se reintentan un número acotado de veces y luego se descartan para evitar colas infinitas.
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <div class="col-span-4">
+                                    <p class="text-ink font-bold mb-1">Amortiguación</p>
+                                    <p class="text-lavender text-[10px]">Pub/Sub, Sin Colas en su Aplicación</p>
+                                </div>
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    Una vez superado el API Gateway, los lotes ingresan a un tema duradero de Pub/Sub antes de llegar al motor de análisis de IA: los picos de tráfico (precisamente cuando ocurre un ataque real) se absorben sin pérdidas.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event fields -->
+                    <div class="bg-paper border border-lavender-pale rounded-lg p-8 mb-6">
+                        <h3 class="font-mono text-sm text-lavender mb-6 flex items-center gap-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            Campos del Evento
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full font-mono text-xs">
+                                <thead>
+                                    <tr class="border-b border-lavender-pale text-left">
+                                        <th class="pb-3 pr-6 text-ink font-normal">Campo</th>
+                                        <th class="pb-3 pr-6 text-ink font-normal">Estado</th>
+                                        <th class="pb-3 text-ink font-normal">Propósito</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-lavender-pale">
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-lavender">remoteIp</code></td>
+                                        <td class="py-3 pr-6"><span class="text-red-400">Requerido</span></td>
+                                        <td class="py-3 text-ink">IP de origen para agrupación y bloqueo. Capturada automáticamente por el SDK desde la solicitud.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-lavender">method</code>, <code class="text-lavender">url</code>, <code class="text-lavender">status</code></td>
+                                        <td class="py-3 pr-6"><span class="text-red-400">Requerido</span></td>
+                                        <td class="py-3 text-ink">Fundamentales para detección de SQLi, XSS, salto de directorios y relleno de credenciales. Capturados automáticamente; el código de estado se lee después de que su controlador responde, no antes.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-lavender">userAgent</code>, <code class="text-lavender">referer</code></td>
+                                        <td class="py-3 pr-6"><span class="text-mint">Recomendado</span></td>
+                                        <td class="py-3 text-ink">Distingue el tráfico legítimo de navegadores frente a herramientas de escaneo y bots. Capturados automáticamente.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-lavender">gcpProjectId</code></td>
+                                        <td class="py-3 pr-6"><span class="text-ink">Opcional</span></td>
+                                        <td class="py-3 text-ink">Configurado al iniciar el SDK. Requerido para bloqueo automático: sin él, el motor detecta y alerta pero nunca modifica la infraestructura.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6"><code class="text-lavender">serviceName</code></td>
+                                        <td class="py-3 pr-6"><span class="text-ink">Opcional</span></td>
+                                        <td class="py-3 text-ink">Etiqueta mostrada en incidentes: útil si una sola clave API cubre múltiples microservicios.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- What is NOT supported -->
+                    <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-8">
+                        <h3 class="font-mono text-sm text-red-400 mb-4 flex items-center gap-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            Limitaciones y Fuera de Alcance
+                        </h3>
+                        <ul class="font-mono text-xs text-ink space-y-2">
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Bloqueo automático sin project ID:</strong> La detección funciona sin importar dónde se ejecute su app, pero bloquear una amenaza requiere indicar al SDK qué proyecto en la nube modificar; de lo contrario, nada se altera.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Bloqueo en AWS:</strong> La detección está disponible hoy para aplicaciones en cualquier lugar; el bloqueo automático en infraestructura de AWS está en la hoja de ruta y aún no está activo.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Ataques a nivel de infraestructura:</strong> El SDK opera como middleware a nivel de aplicación inspeccionando tráfico HTTP/HTTPS. Las señales a nivel de red (escaneo de puertos VPC, eventos de auditoría IAM) quedan fuera del alcance del SDK.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Inspección de cargas útiles cifradas:</strong> El motor opera con metadatos de las peticiones. No descifra ni inspecciona los cuerpos de carga útil TLS crudos.</li>
+                            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <strong class="text-ink">Protocolos no HTTP:</strong> Los patrones de ataque en TCP/UDP puros, DNS y SMTP quedan fuera del alcance de detección actual.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

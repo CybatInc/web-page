@@ -1,0 +1,84 @@
+<!-- Security Page - Views -->
+<div class="relative pt-12 pb-20 lg:pt-16 lg:pb-12 overflow-hidden">
+    <div
+        class="aurora aurora-lavender w-[800px] h-[800px] top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 opacity-20">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-14">
+            <h1 class="text-xl md:text-2xl font-heading font-bold mb-6 tracking-tight">
+                Seguridad<span class="text-lavender">_</span></h1>
+            <p class="text-sm md:text-base text-ink-soft max-w-2xl leading-relaxed font-mono">Construido desde el primer día con una
+                mentalidad de Zero Trust. Nuestra postura refleja las mejores prácticas de seguridad más rigurosas que se esperan de los socios
+                empresariales de Google Cloud Marketplace.</p>
+        </div>
+
+        <div class="space-y-16">
+            <section class="border-l-2 border-lavender pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Descripción General de Seguridad y Privacidad</h2>
+                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                    <p>Cybat es una plataforma SOC nativa de IA construida con una postura de seguridad "Enterprise-First". Aprovechamos la infraestructura de vanguardia de Google Cloud para garantizar los más altos niveles de protección de datos e integridad operativa.</p>
+                </div>
+            </section>
+
+            <section class="border-l-2 border-mint pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Residencia de Datos y Arquitectura</h2>
+                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                    <p><strong>Cero Retención:</strong> A diferencia de los SIEM tradicionales, Cybat AI evalúa en memoria la telemetría de solicitudes capturada por el SDK y la descarta de inmediato. Dado que no existe almacenamiento persistente de sus datos operativos sensibles en nuestros sistemas, la superficie de riesgo se minimiza fundamentalmente.</p>
+                    <p><strong>Residencia de Datos:</strong> Toda la telemetría y metadatos de los clientes se almacenan y procesan estrictamente dentro de regiones designadas de Google Cloud, garantizando el cumplimiento de los requisitos de soberanía de datos.</p>
+                </div>
+            </section>
+
+            <section class="border-l-2 border-lavender/40 pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Estándares de Cifrado</h2>
+                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                    <p>Cybat aplica cifrado estándar en la industria para todos los datos:</p>
+                    <ul class="list-disc pl-5 mt-4 space-y-2">
+                        <li><strong class="text-ink">En Tránsito:</strong> Todos los datos transmitidos entre el Proyecto del Cliente y el Proyecto Socio de Cybat están protegidos mediante TLS 1.2+.</li>
+                        <li><strong class="text-ink">En Reposo:</strong> Los datos almacenados en Firestore y BigQuery están cifrados mediante AES-256.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="border-l-2 border-lavender pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Gestión de Identidad y Acceso (IAM)</h2>
+                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                    <p>Seguimos el Principio de Privilegio Mínimo. Cybat utiliza GCP Workload Identity para interactuar con los entornos de los clientes, empleando permisos granulares que autorizan exclusivamente las acciones específicas requeridas para la remediación automatizada.</p>
+                </div>
+            </section>
+
+            <section class="border-l-2 border-mint pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Gobernanaza de la IA</h2>
+                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                    <p>Nuestro Agente SOC utiliza Vertex AI (Gemini 3.1 Flash). En virtud de nuestro acuerdo empresarial con Google Cloud, sus datos nunca se utilizan para entrenar modelos base, asegurando que la telemetría de su aplicación permanezca estrictamente confidencial.</p>
+                </div>
+            </section>
+
+            <section class="border-l-2 border-lavender/40 pl-8">
+                <h2 class="text-2xl font-heading font-bold mb-4">Seguridad Operativa y Cumplimiento</h2>
+                <div class="grid md:grid-cols-2 gap-8 mt-6">
+                    <div class="bg-white p-6 rounded border border-lavender-pale">
+                        <div class="text-2xl mb-4">🛡️</div>
+                        <h4 class="font-heading font-bold text-sm mb-2">SOC2 y RGPD</h4>
+                        <p class="font-mono text-xs text-ink">Cybat realiza auditorías de seguridad internas periódicas y se rige por el marco establecido por SOC2 y el RGPD para sostener un ciclo de vida de seguridad integral.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded border border-lavender-pale">
+                        <div class="text-2xl mb-4">☁️</div>
+                        <h4 class="font-heading font-bold text-sm mb-2">Integrado con Google Cloud</h4>
+                        <p class="font-mono text-xs text-ink">Nuestro producto se adhiere rigurosamente al Modelo de Responsabilidad Compartida de Google Cloud, integrándose a la perfección con Cloud Armor y VPC Firewall para la mitigación activa.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-20 pt-10 border-t border-lavender-pale flex justify-between items-center">
+            <div class="font-mono text-xs text-ink">
+                Última actualización: Marzo de 2026
+            </div>
+            <a href="#/connect"
+                class="bg-lavender-pale hover:bg-ink hover:text-white px-6 py-2 rounded text-xs font-mono font-bold transition-colors">
+                Contactar al Equipo de Seguridad
+            </a>
+        </div>
+    </div>
+</div>

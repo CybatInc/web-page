@@ -1,0 +1,222 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+
+        <!-- Sidebar Navigation -->
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Índice de Documentación</h3>
+                <nav class="space-y-3 font-mono text-xs">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Descripción General</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Integración con Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Especificaciones de Seguridad</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+            <div class="mb-6">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Primeros Pasos<span class="text-lavender">_</span></h1>
+
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-4 font-mono text-ink text-xs md:text-sm">
+                    <p class="text-xs md:text-sm leading-relaxed">
+                        Bienvenido a Cybat Intelligence Engine. La activación de sus operaciones de seguridad autónomas impulsadas por IA a través de Google Cloud Marketplace toma menos de 3 minutos. Siga estos pasos para comenzar a proteger su aplicación.
+                    </p>
+
+                    <!-- Prerequisites -->
+                    <div class="space-y-3 bg-white border border-lavender/20 rounded-lg p-5">
+                        <h2 class="text-base font-heading font-bold text-lavender">Requisitos Previos</h2>
+                        <p class="text-xs text-ink">Antes de suscribirse, confirme lo siguiente. No se requieren canalizaciones de infraestructura complejas ni roles de IAM a nivel de organización para configurar: su aplicación transmite telemetría directamente mediante una dependencia de SDK ligera.</p>
+                        <div class="grid md:grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <p class="text-mint text-xs mb-2">Requerido</p>
+                                <ul class="space-y-1.5 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Una cuenta de facturación de GCP para la suscripción en Marketplace</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Una aplicación que reciba tráfico HTTP en Python (Flask, Django, FastAPI), Node.js (Express, Fastify, NestJS) o PHP (Slim, Laravel, Symfony)</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Capacidad de añadir una línea de middleware en el flujo de peticiones de su aplicación</li>
+                                    <li class="flex items-start gap-2"><span class="text-mint">✓</span> Espacio de trabajo de Slack + URL de Incoming Webhook para la entrega de alertas</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-lavender text-xs mb-2">Altamente Recomendado</p>
+                                <ul class="space-y-1.5 text-ink text-xs">
+                                    <li class="flex items-start gap-2"><span class="text-lavender">+</span> Conocer el ID de proyecto de GCP donde se ejecuta su aplicación: habilita el bloqueo automático (VPC Firewall / Cloud Armor), no solo la detección</li>
+                                    <li class="flex items-start gap-2"><span class="text-lavender">+</span> Un almacén de secretos dedicado para la clave API (p. ej. Secret Manager): se muestra solo una vez tras la creación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-xs text-ink border-t border-lavender-pale pt-3">Para conocer el contrato de red completo del SDK y los requisitos de aplicación, consulte la página de <a href="#/docs/security-specs" class="text-lavender hover:text-ink transition-colors underline">Especificaciones de Seguridad</a>.</p>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 1: Suscribirse mediante Google Cloud Marketplace</h2>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
+                            <li>Navegue a la <strong class="text-ink">Google Cloud Console</strong> y abra el <strong class="text-ink">Marketplace</strong>.</li>
+                            <li>Busque <strong class="text-ink">Cybat Intelligence Engine</strong> y abra la ficha del producto.</li>
+                            <li>Seleccione su cuenta de facturación y el plan correspondiente (Starter, Professional o Enterprise), luego haga clic en <strong class="text-ink">Suscribirse</strong>.</li>
+                            <li>Acepte los Términos del Servicio. Una vez confirmado el pedido, haga clic en <strong class="text-ink">Registrarse con Cybat</strong>: se le redirigirá al Portal de Registro de Cybat Intelligence.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 2: Registro Instantáneo y Configuración de Remediación</h2>
+                        <p class="text-xs text-ink">En la pantalla de registro, complete el perfil de su organización y la configuración de alertas:</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
+                            <li><strong class="text-ink">Detalles de la Organización:</strong> Ingrese el Nombre de su Organización y el Correo Electrónico del Administrador principal.</li>
+                            <li><strong class="text-ink">Canales de Alerta:</strong> Proporcione la URL de Incoming Webhook de Slack y el canal para notificaciones instantáneas de amenazas.</li>
+                            <li><strong class="text-ink">Remediación Automatizada (Opcional):</strong> Ingrese el ID de Organización de GCP o el ID del Proyecto para generar un comando copiable de Cloud Shell. Al ejecutarlo se otorgan roles de IAM con privilegios mínimos (<code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code>, <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code> y <code class="bg-lavender-pale px-1 rounded text-lavender">browser</code> para la aplicación autónoma de reglas en Cloud Armor / firewall VPC y desbloqueo desde el panel).</li>
+                            <li>Haga clic en <strong class="text-lavender">Activar Cuenta</strong>: su cuenta se verifica y activa inmediatamente en cuestión de segundos mediante Google Partner Procurement. Sin infraestructura que aprovisionar, sin compilaciones en segundo plano y sin demoras.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 3: Iniciar Sesión en el Portal de Inteligencia</h2>
+                        <p class="text-xs text-ink">Cybat utiliza exclusivamente Google Identity: no se requiere una contraseña separada.</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
+                            <li>En la pantalla de inicio de sesión del portal, haga clic en <strong class="text-lavender">Iniciar sesión con Google</strong>.</li>
+                            <li>Seleccione su cuenta corporativa de Google Workspace. Las cuentas personales de Gmail no están autorizadas.</li>
+                            <li>El panel de su organización se cargará de inmediato con analíticas en tiempo real, gestión de claves API y vistas de telemetría de seguridad.</li>
+                        </ul>
+                        <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                            class="inline-flex items-center gap-2 mt-2 bg-lavender/10 border border-lavender/30 text-lavender hover:bg-lavender/20 px-4 py-2 rounded text-xs transition-colors">
+                            Abrir Portal de Inteligencia →
+                        </a>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 4: Crear una Clave API</h2>
+                        <p class="text-xs text-ink">En el Portal de Inteligencia, abra <strong class="text-ink">API Keys</strong> en la barra lateral y haga clic en <strong class="text-ink">Crear Clave API</strong>. Asígnele un nombre y, opcionalmente, una fecha de expiración.</p>
+                        <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
+                            <div class="flex items-start gap-3">
+                                <span class="text-mint font-bold mt-0.5">1.</span>
+                                <div><strong class="text-ink">La clave se muestra solo una vez</strong>: cópiela en su gestor de secretos de inmediato. No se puede recuperar nuevamente, únicamente revocar y reemplazar.</div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-mint font-bold mt-0.5">2.</span>
+                                <div><strong class="text-ink">La revocación es instantánea</strong>: eliminar una clave desde el panel se valida en vivo en la siguiente petición, sin almacenamiento en caché ni demoras.</div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-mint font-bold mt-0.5">3.</span>
+                                <div><strong class="text-ink">Sin modificaciones de infraestructura en su proyecto</strong>: la creación de una clave nunca altera la organización de GCP, roles IAM ni infraestructura en la nube.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 5: Instalar el SDK</h2>
+                        <p class="text-xs text-ink">Agregue el SDK de Cybat a su aplicación como middleware. Es una única dependencia y una sola línea: sin demonios, sin sidecars y sin reenviadores externos.</p>
+
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● DISPONIBLE AHORA</span>
+                            <p class="text-mint text-[10px]">Python / Flask, Django, FastAPI</p>
+                        </div>
+                        <div class="space-y-3 text-xs text-ink">
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-[11px] leading-relaxed">pip install cybat-sdk</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copiar código" title="Copiar">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-[11px] leading-relaxed">from flask import Flask
+from cybat_sdk.integrations.flask import init_app
+
+app = Flask(__name__)
+init_app(app,
+    api_key=os.environ["CYBAT_API_KEY"],
+    gcp_project_id="your-gcp-project",  # habilita el bloqueo automático
+)</pre>
+                                <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copiar código" title="Copiar">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            <p>Configure <code class="bg-lavender-pale px-1 rounded text-lavender">gcp_project_id</code> con el ID del proyecto de GCP donde reside la infraestructura de su aplicación (o configúrelo a nivel de organización). El comando de Cloud Shell listo para ejecutar provisto durante el registro configura todos los roles necesarios con alcance estricto para la aplicación autónoma de reglas y el desbloqueo desde el panel. Si lo omite, Cybat seguirá detectando y alertando sobre amenazas en tiempo real, solo que no tendrá permisos para aplicar bloqueos automatizados en el firewall o Cloud Armor.</p>
+                            <p>Django lee la configuración desde <code class="bg-lavender-pale px-1 rounded text-lavender">settings.py</code> (agregue <code class="bg-lavender-pale px-1 rounded text-lavender">cybat_sdk.integrations.django.CybatMiddleware</code> a <code class="bg-lavender-pale px-1 rounded text-lavender">MIDDLEWARE</code> y defina <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_API_KEY</code> / <code class="bg-lavender-pale px-1 rounded text-lavender">CYBAT_GCP_PROJECT_ID</code>); FastAPI y otras aplicaciones ASGI utilizan <code class="bg-lavender-pale px-1 rounded text-lavender">CybatASGIMiddleware</code> mediante <code class="bg-lavender-pale px-1 rounded text-lavender">app.add_middleware(...)</code>. Consulte la <a href="#/docs/sdk-python" class="text-lavender hover:text-ink transition-colors underline">Referencia SDK Python</a> para la guía completa de configuración y detalles de redacción.</p>
+                        </div>
+
+                        <div class="p-4 bg-paper border border-lavender-pale rounded-lg">
+                            <p class="font-mono text-xs text-ink mb-2">SDKs Disponibles por Lenguaje</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="font-mono text-[10px] bg-mint/10 text-mint px-2 py-1 rounded border border-mint/30 font-semibold">Python (PyPI) — Activo</span>
+                                <span class="font-mono text-[10px] bg-mint/10 text-mint px-2 py-1 rounded border border-mint/30 font-semibold">Node.js (npm) — Activo</span>
+                                <span class="font-mono text-[10px] bg-mint/10 text-mint px-2 py-1 rounded border border-mint/30 font-semibold">PHP (Packagist) — Activo</span>
+                                <span class="font-mono text-[10px] bg-mint/10 text-mint px-2 py-1 rounded border border-mint/30 font-semibold">Java (Maven Central) — Activo</span>
+                                <span class="font-mono text-[10px] bg-white text-ink-soft px-2 py-1 rounded border border-lavender-pale/60">Go — próximamente</span>
+                            </div>
+                            <p class="font-mono text-xs text-ink-soft mt-2">Instale directamente vía PyPI (<code class="bg-lavender-pale px-1 rounded text-lavender">cybat-sdk</code>), npm (<code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>), Composer (<code class="bg-lavender-pale px-1 rounded text-lavender">cybat/sdk</code>) o Maven Central (<code class="bg-lavender-pale px-1 rounded text-lavender">co.cybat:cybat-sdk</code>).</p>
+                        </div>
+
+                        <div class="bg-red-950/20 border border-red-500/20 rounded-lg p-4 text-xs text-ink">
+                            <strong class="text-red-400 text-[10px]">¿Detrás de un balanceador de carga o proxy inverso?</strong>
+                            <p class="mt-2">Configure el mecanismo estándar de su framework para confiar en <code class="bg-lavender-pale px-1 rounded text-lavender">X-Forwarded-For</code> (p. ej. <code class="bg-lavender-pale px-1 rounded text-lavender">ProxyFix</code> de Werkzeug para Flask) para que el SDK lea la IP real del cliente en lugar de la dirección del proxy.</p>
+                        </div>
+
+                        <!-- Cloudflare Alternative -->
+                        <div class="bg-white border-2 border-lavender/30 rounded-lg p-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-heading font-bold text-sm text-ink flex items-center gap-2">
+                                    <span class="text-[#F38020]">☁️</span> Alternativa: Cloudflare Edge Worker (Configuración Sin Código)
+                                </h3>
+                                <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">SIN CAMBIOS EN CÓDIGO</span>
+                            </div>
+                            <p class="text-xs text-ink leading-relaxed">
+                                Si el tráfico de su aplicación pasa a través de Cloudflare, ni siquiera necesita instalar un SDK o modificar el código fuente de su aplicación. Despliegue el <strong>Cybat Edge Collector</strong> directamente en su cuenta de Cloudflare para capturar telemetría conductual con cero latencia y sincronizar reglas automatizadas de acceso por IP en el WAF.
+                            </p>
+                            <div class="flex items-center gap-3 pt-1">
+                                <a href="#/docs/cloudflare" class="text-lavender hover:text-ink font-bold text-xs flex items-center transition-colors">
+                                    Ver Guía de Integración con Cloudflare →
+                                </a>
+                                <span class="text-ink-soft text-xs">•</span>
+                                <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener" class="text-mint hover:text-ink font-bold text-xs flex items-center transition-colors">
+                                    Despliegue en 1 Clic desde el Panel (API Keys) ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Paso 6: Verificar que la Detección esté Activa</h2>
+                        <p class="text-xs text-ink">Despliegue su aplicación y genere tráfico. Segundos después de que una petición llegue a su aplicación instrumentada con el SDK, regrese al Portal de Inteligencia; debería observar:</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
+                            <li>Su aplicación listada como <strong class="text-mint">Conectada</strong> en la barra lateral del panel.</li>
+                            <li>El Globo de Amenazas 3D poblándose con actividad desde los orígenes geográficos de su tráfico.</li>
+                            <li>Cualquier amenaza detectada apareciendo en el feed de Incidentes con análisis generado por Gemini y el estado de mitigación.</li>
+                        </ul>
+                        <p class="text-xs text-ink">Si no aparece nada en unos minutos, confirme que el middleware esté montado antes de sus rutas y que la clave API no haya sido revocada ni haya expirado.</p>
+                    </div>
+
+                    <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
+                        <p class="text-sm text-mint">Cybat Intelligence Engine ahora está monitoreando activamente su superficie en la nube.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                                class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
+                                Abrir Panel →
+                            </a>
+                            <a href="#/docs/user-guide"
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
+                                Continuar a la Guía del Usuario →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

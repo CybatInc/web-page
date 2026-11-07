@@ -1,24 +1,142 @@
 const { createApp } = Vue;
 const { createRouter, createWebHashHistory } = VueRouter;
 
-// Helper function to fetch external HTML templates as async components
-const loadTemplate = (name) => {
-    return () => fetch(`./views/${name}.html`)
-        .then(res => {
-            if (!res.ok) throw new Error(`Failed to load template: ${name}`);
-            return res.text();
-        })
-        .then(html => ({
-            template: html
-        }));
+// UI Translations Dictionary
+const UI_STRINGS = {
+    en: {
+        nav: {
+            features: "Features",
+            infra: "Infra",
+            safety: "Safety",
+            stack: "Stack",
+            pricing: "Pricing",
+            support: "Support",
+            docs: "Docs",
+            security: "Security",
+            dashboard: "Dashboard",
+            subscribe: "Subscribe_",
+            connect: "Connect_"
+        },
+        footer: {
+            title: "CYBAT AI",
+            subtitle: "// AUTONOMOUS_SECURITY_ORCHESTRATION<br>// ENGINE_V3.0_ACTIVE",
+            navigation: "Navigation",
+            ecosystem: "Ecosystem",
+            earlyAccess: "Early Access",
+            roadmap: "Roadmap",
+            privacy: "Privacy",
+            terms: "Terms",
+            rights: "© 2026 Cybat AI. All Rights Reserved. // encrypted_connection_established"
+        },
+        langSwitch: {
+            label: "Language"
+        }
+    },
+    es: {
+        nav: {
+            features: "Funciones",
+            infra: "Infra",
+            safety: "IA Segura",
+            stack: "Stack",
+            pricing: "Precios",
+            support: "Soporte",
+            docs: "Docs",
+            security: "Seguridad",
+            dashboard: "Panel",
+            subscribe: "Suscribir_",
+            connect: "Contacto_"
+        },
+        footer: {
+            title: "CYBAT AI",
+            subtitle: "// ORQUESTACIÓN_DE_SEGURIDAD_AUTÓNOMA<br>// MOTOR_V3.0_ACTIVO",
+            navigation: "Navegación",
+            ecosystem: "Ecosistema",
+            earlyAccess: "Acceso Anticipado",
+            roadmap: "Hoja de Ruta",
+            privacy: "Privacidad",
+            terms: "Términos",
+            rights: "© 2026 Cybat AI. Todos los derechos reservados. // conexion_cifrada_establecida"
+        },
+        langSwitch: {
+            label: "Idioma"
+        }
+    }
 };
 
-// Copy-to-clipboard for code snippets (docs pages). Plain global function +
-// native onclick rather than a Vue @click/method, since routed views here are
-// bare `{ template: html }` components with no methods object of their own --
-// see loadTemplate above. Call as onclick="cybatCopyCode(this)" on a button
-// that is a sibling of (or inside a common wrapper with) the <pre> to copy;
-// pass an id string instead when the <pre> isn't a convenient DOM neighbor.
+// Initial language detection
+const initialLang = (() => {
+    try {
+        const urlParam = new URLSearchParams(window.location.search).get('lang');
+        if (urlParam && (urlParam === 'es' || urlParam === 'en')) return urlParam;
+        const stored = localStorage.getItem('cybat_lang');
+        if (stored && (stored === 'es' || stored === 'en')) return stored;
+        const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (navLang.startsWith('es')) return 'es';
+    } catch (e) {}
+    return 'en';
+})();
+
+// Helper function to create a reactive, language-aware view wrapper component
+function createView(name, isHome = false) {
+    return {
+        name: `view-wrapper-${name}`,
+        template: `<component :is="currentComp" v-if="currentComp" />`,
+        data() {
+            return {
+                currentComp: null
+            };
+        },
+        computed: {
+            currentLang() {
+                return this.$root.currentLang || 'en';
+            }
+        },
+        watch: {
+            currentLang: {
+                immediate: true,
+                handler(lang) {
+                    this.loadView(lang);
+                }
+            }
+        },
+        methods: {
+            loadView(lang) {
+                if (isHome && _globe) {
+                    destroyLandingGlobe();
+                }
+                const url = lang === 'es' ? `./views/es/${name}.html` : `./views/${name}.html`;
+                fetch(url)
+                    .then(res => {
+                        if (!res.ok) {
+                            // Fallback to English view if Spanish file is missing
+                            return fetch(`./views/${name}.html`).then(r => {
+                                if (!r.ok) throw new Error(`Failed to load view: ${name}`);
+                                return r.text();
+                            });
+                        }
+                        return res.text();
+                    })
+                    .then(html => {
+                        this.currentComp = {
+                            name: `${name}-${lang}`,
+                            template: html,
+                            mounted() {
+                                if (isHome) this.$nextTick(initLandingGlobe);
+                            },
+                            unmounted() {
+                                if (isHome) destroyLandingGlobe();
+                            }
+                        };
+                    })
+                    .catch(err => {
+                        console.error(`Failed to load view ${name}:`, err);
+                    });
+            }
+        }
+    };
+}
+
+// Copy-to-clipboard for code snippets (docs pages)
 function cybatCopyCode(buttonOrPreId) {
     const button = typeof buttonOrPreId === 'string' ? document.getElementById(buttonOrPreId) : buttonOrPreId;
     const pre = typeof buttonOrPreId === 'string'
@@ -157,50 +275,35 @@ function destroyLandingGlobe() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const routes = [
-    {
-        path: '/',
-        component: () => fetch('./views/home.html')
-            .then(res => { if (!res.ok) throw new Error('Failed to load home'); return res.text(); })
-            .then(html => ({
-                template: html,
-                mounted()   { this.$nextTick(initLandingGlobe); },
-                unmounted() { destroyLandingGlobe(); }
-            }))
-    },
-    { path: '/privacy', component: loadTemplate('privacy') },
-    { path: '/roadmap', component: loadTemplate('roadmap') },
-    { path: '/connect', component: loadTemplate('contact') },
-    { path: '/early-access', component: loadTemplate('early-access') },
-    { path: '/features', component: loadTemplate('features') },
-    { path: '/infrastructure', component: loadTemplate('infrastructure') },
-    { path: '/stack', component: loadTemplate('stack') },
-    { path: '/terms', component: loadTemplate('terms') },
-    { path: '/ai-safety', component: loadTemplate('ai-safety') },
-    { path: '/pricing', component: loadTemplate('pricing') },
-    { path: '/support', component: loadTemplate('support') },
-    { path: '/security', component: loadTemplate('security') },
-    { path: '/docs', component: loadTemplate('docs') },
-    { path: '/docs/getting-started', component: loadTemplate('docs-getting-started') },
-    { path: '/docs/cloudflare', component: loadTemplate('docs-cloudflare') },
-    { path: '/docs/sdk-python', component: loadTemplate('docs-sdk-python') },
-    { path: '/docs/sdk-node', component: loadTemplate('docs-sdk-node') },
-    { path: '/docs/sdk-php', component: loadTemplate('docs-sdk-php') },
-    { path: '/docs/sdk-java', component: loadTemplate('docs-sdk-java') },
-    { path: '/docs/user-guide', component: loadTemplate('docs-user-guide') },
-    { path: '/docs/release-notes', component: loadTemplate('docs-release-notes') },
-    { path: '/docs/security-specs', component: loadTemplate('docs-security-specs') },
+    { path: '/', component: createView('home', true) },
+    { path: '/privacy', component: createView('privacy') },
+    { path: '/roadmap', component: createView('roadmap') },
+    { path: '/connect', component: createView('contact') },
+    { path: '/early-access', component: createView('early-access') },
+    { path: '/features', component: createView('features') },
+    { path: '/infrastructure', component: createView('infrastructure') },
+    { path: '/stack', component: createView('stack') },
+    { path: '/terms', component: createView('terms') },
+    { path: '/ai-safety', component: createView('ai-safety') },
+    { path: '/pricing', component: createView('pricing') },
+    { path: '/support', component: createView('support') },
+    { path: '/security', component: createView('security') },
+    { path: '/contact-thanks', component: createView('contact-thanks') },
+    { path: '/docs', component: createView('docs') },
+    { path: '/docs/getting-started', component: createView('docs-getting-started') },
+    { path: '/docs/cloudflare', component: createView('docs-cloudflare') },
+    { path: '/docs/sdk-python', component: createView('docs-sdk-python') },
+    { path: '/docs/sdk-node', component: createView('docs-sdk-node') },
+    { path: '/docs/sdk-php', component: createView('docs-sdk-php') },
+    { path: '/docs/sdk-java', component: createView('docs-sdk-java') },
+    { path: '/docs/user-guide', component: createView('docs-user-guide') },
+    { path: '/docs/release-notes', component: createView('docs-release-notes') },
+    { path: '/docs/security-specs', component: createView('docs-security-specs') },
 ];
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
-    // Hash-history mode means the router owns the URL's # already, so a plain
-    // in-page anchor like href="#section" gets treated as a route change to a
-    // (nonexistent) "/section" route instead of scrolling -- it never scrolls
-    // and silently breaks navigation. Links that want an in-page anchor must
-    // use the full "#/current/route#section" form (see docs-sdk-python.html),
-    // and this scrollBehavior is what actually performs the scroll once Vue
-    // Router parses that into `to.hash`.
     scrollBehavior(to, _from, savedPosition) {
         if (savedPosition) return savedPosition;
         if (to.hash) return { el: to.hash, behavior: 'smooth' };
@@ -234,6 +337,7 @@ router.afterEach((to) => {
 const app = createApp({
     data() {
         return {
+            currentLang: initialLang,
             isMounted: false,
             isMobileMenuOpen: false,
             activeFaq: null,
@@ -248,24 +352,71 @@ const app = createApp({
             faqs: [
                 {
                     question: "Do you store my request data?",
-                    answer: "No. Cybat AI operates on a <b>Zero-Retention</b> architecture. Request telemetry captured by the SDK is processed in-flight within secure, stateless Cloud Run functions and is discarded immediately after analysis. Your data never hits a persistent disk in our infrastructure."
+                    question_es: "¿Almacenan los datos de mis peticiones?",
+                    answer: "No. Cybat AI operates on a <b>Zero-Retention</b> architecture. Request telemetry captured by the SDK is processed in-flight within secure, stateless Cloud Run functions and is discarded immediately after analysis. Your data never hits a persistent disk in our infrastructure.",
+                    answer_es: "No. Cybat AI opera bajo una arquitectura de <b>Cero Retención</b>. La telemetría capturada por el SDK se procesa al vuelo en funciones stateless seguras de Cloud Run y se descarta inmediatamente tras el análisis. Tus datos nunca tocan un disco persistente en nuestra infraestructura."
                 },
                 {
                     question: "Does this slow down my application?",
-                    answer: "Not at all. The SDK captures each request's outcome only after your server has already sent the response, then buffers and reports it to Cybat asynchronously. This 'fire-and-forget' mechanism ensures our analysis happens outside your user's request path, adding exactly 0ms of latency to your application response times."
+                    question_es: "¿Ralentiza esto mi aplicación?",
+                    answer: "Not at all. The SDK captures each request's outcome only after your server has already sent the response, then buffers and reports it to Cybat asynchronously. This 'fire-and-forget' mechanism ensures our analysis happens outside your user's request path, adding exactly 0ms of latency to your application response times.",
+                    answer_es: "En absoluto. El SDK captura el resultado de cada petición solo después de que tu servidor ya ha emitido la respuesta, almacenándola en búfer y enviándola a Cybat de forma asíncrona. Este mecanismo asegura que el análisis se realice fuera del flujo crítico, añadiendo exactamente 0 ms de latencia a tus tiempos de respuesta."
                 },
                 {
                     question: "How hard is the integration?",
-                    answer: "Integration is effortless. Simply subscribe through the <b>Google Cloud Marketplace</b>, activate your account in seconds, and add our single-line SDK middleware to your application. You are up and running in <b>less than 5 minutes</b>."
+                    question_es: "¿Qué tan compleja es la integración?",
+                    answer: "Integration is effortless. Simply subscribe through the <b>Google Cloud Marketplace</b>, activate your account in seconds, and add our single-line SDK middleware to your application. You are up and running in <b>less than 5 minutes</b>.",
+                    answer_es: "La integración es sencilla. Simplemente suscríbete a través de <b>Google Cloud Marketplace</b>, activa tu cuenta en segundos y añade nuestro middleware SDK de una sola línea a tu aplicación. Estarás protegido en <b>menos de 5 minutos</b>."
                 }
             ]
         };
     },
     mounted() {
         this.isMounted = true;
+        this.applyLanguageSideEffects(this.currentLang);
         this.fetchPartners();
     },
     methods: {
+        t(key) {
+            const keys = key.split('.');
+            let obj = UI_STRINGS[this.currentLang] || UI_STRINGS['en'];
+            for (const k of keys) {
+                if (!obj || obj[k] === undefined) {
+                    let fallback = UI_STRINGS['en'];
+                    for (const fb of keys) {
+                        if (!fallback || fallback[fb] === undefined) return key;
+                        fallback = fallback[fb];
+                    }
+                    return fallback;
+                }
+                obj = obj[k];
+            }
+            return obj;
+        },
+        setLang(lang) {
+            if (lang !== 'en' && lang !== 'es') return;
+            this.currentLang = lang;
+            try {
+                localStorage.setItem('cybat_lang', lang);
+            } catch (e) {}
+            this.applyLanguageSideEffects(lang);
+        },
+        applyLanguageSideEffects(lang) {
+            document.documentElement.lang = lang;
+            if (lang === 'es') {
+                document.title = "Cybat AI | Seguridad Autónoma con Agentes de IA para Google Cloud";
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) {
+                    metaDesc.setAttribute('content', 'Despliega Cybat AI para proteger tu infraestructura en GCP con seguridad autónoma impulsada por Gemini. Telemetría SDK en tiempo real, detección de amenazas en subsegundos y mitigación automatizada con Cloud Armor.');
+                }
+            } else {
+                document.title = "Cybat AI | Autonomous AI-Agent Security for Google Cloud";
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) {
+                    metaDesc.setAttribute('content', 'Deploy Cybat AI to protect your GCP surface with Gemini-powered autonomous security. Real-time SDK-based telemetry, sub-second threat detection, and automated Cloud Armor mitigation.');
+                }
+            }
+        },
         async fetchPartners() {
             try {
                 const response = await fetch('./partners.json');
@@ -279,9 +430,7 @@ const app = createApp({
         async submitPartnerForm() {
             this.formStatus = 'sending';
             try {
-                // Return to Formspree for direct email notifications
                 const endpoint = 'https://formspree.io/f/xnjvbjra';
-
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
@@ -311,28 +460,35 @@ const app = createApp({
     },
     template: `
         <div class="flex flex-col min-h-screen">
-            <nav class="site-nav p-4 md:p-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
+            <nav class="site-nav py-4 md:py-5 px-4 md:px-8 border-b border-white/5 bg-ai-obsidian/80 backdrop-blur-xl sticky top-0 z-50">
                 <div class="max-w-7xl mx-auto flex justify-between items-center relative">
-                    <router-link to="/" class="flex items-center group" @click="closeMobileMenu">
+                    <router-link to="/" class="flex items-center group shrink-0 mr-4 xl:mr-8" @click="closeMobileMenu">
                         <span class="text-3xl font-heading font-black tracking-tighter uppercase italic">Cybat</span>
                         <div class="site-dot w-4 h-4 bg-ai-lavender ml-1 animate-pulse shadow-[0_0_10px_#A78BFA]"></div>
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="site-links hidden md:flex items-center space-x-6 text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-white/50">
-                        <router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link>
-                        <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors">Infra</router-link>
-                        <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors">Safety</router-link>
-                        <router-link to="/stack" class="hover:text-ai-lavender transition-colors">Stack</router-link>
-                        <router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link>
-                        <router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link>
-                        <router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link>
-                        <router-link to="/security" class="hover:text-ai-lavender transition-colors">Security</router-link>
-                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-5 py-2 ml-2 hover:bg-white transition-colors font-bold tracking-[0.2em]">Subscribe_</a>
+                    <div class="site-links hidden lg:flex items-center gap-3 xl:gap-5 text-[13px] xl:text-sm font-mono font-bold uppercase tracking-[0.06em] text-white/50 whitespace-nowrap">
+                        <router-link to="/features" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.features') }}</router-link>
+                        <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.infra') }}</router-link>
+                        <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.safety') }}</router-link>
+                        <router-link to="/stack" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.stack') }}</router-link>
+                        <router-link to="/pricing" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.pricing') }}</router-link>
+                        <router-link to="/support" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.support') }}</router-link>
+                        <router-link to="/docs" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.docs') }}</router-link>
+                        <router-link to="/security" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.security') }}</router-link>
+                        
+                        <!-- Desktop Language Switcher -->
+                        <div class="lang-switch flex items-center rounded-full p-0.5 border text-xs font-mono select-none shrink-0" role="group" aria-label="Language Selector">
+                            <button type="button" @click="setLang('en')" :class="currentLang === 'en' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-1 rounded-full transition-all duration-150" title="English">EN</button>
+                            <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-1 rounded-full transition-all duration-150" title="Español">ES</button>
+                        </div>
+
+                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-4 xl:px-5 py-2 ml-1 xl:ml-2 hover:bg-white transition-colors font-bold tracking-[0.12em] shrink-0 whitespace-nowrap text-xs xl:text-sm">{{ t('nav.subscribe') }}</a>
                     </div>
 
                     <!-- Mobile Menu Button -->
-                    <button @click="toggleMobileMenu" class="md:hidden text-white/50 hover:text-white focus:outline-none">
+                    <button @click="toggleMobileMenu" class="lg:hidden text-white/50 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 8h16M4 16h16" />
                             <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
@@ -341,16 +497,25 @@ const app = createApp({
                 </div>
 
                 <!-- Mobile Menu Dropdown -->
-                <div v-show="isMobileMenuOpen" class="site-mobile md:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
-                    <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Features</router-link>
-                    <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Infra</router-link>
-                    <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">AI Safety</router-link>
-                    <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Stack</router-link>
-                    <router-link to="/pricing" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Pricing</router-link>
-                    <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Support</router-link>
-                    <router-link to="/docs" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Docs</router-link>
-                    <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">Security</router-link>
-                    <router-link to="/connect" @click="closeMobileMenu" class="site-cta block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">Connect_</router-link>
+                <div v-show="isMobileMenuOpen" class="site-mobile lg:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
+                    <!-- Mobile Language Switcher -->
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10 font-mono text-xs">
+                        <span class="mobile-lang-label text-white/50 uppercase tracking-widest">{{ t('langSwitch.label') }}</span>
+                        <div class="lang-switch flex items-center rounded-full p-0.5 border" role="group" aria-label="Language Selector">
+                            <button type="button" @click="setLang('en')" :class="currentLang === 'en' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-3 py-1 rounded-full font-mono text-xs transition-colors" title="English">EN</button>
+                            <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-3 py-1 rounded-full font-mono text-xs transition-colors" title="Español">ES</button>
+                        </div>
+                    </div>
+
+                    <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.features') }}</router-link>
+                    <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.infra') }}</router-link>
+                    <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.safety') }}</router-link>
+                    <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.stack') }}</router-link>
+                    <router-link to="/pricing" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.pricing') }}</router-link>
+                    <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.support') }}</router-link>
+                    <router-link to="/docs" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.docs') }}</router-link>
+                    <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.security') }}</router-link>
+                    <router-link to="/connect" @click="closeMobileMenu" class="site-cta block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">{{ t('nav.connect') }}</router-link>
                 </div>
             </nav>
 
@@ -362,38 +527,35 @@ const app = createApp({
                 <div class="aurora aurora-lavender w-96 h-96 -bottom-48 -left-48 opacity-10"></div>
                 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-20 relative z-10">
                     <div class="col-span-2">
-                        <div class="text-white font-heading font-black text-2xl mb-8 uppercase italic tracking-tighter">CYBAT AI</div>
-                        <p class="max-w-sm text-sm text-white/40 leading-relaxed font-mono mb-8">
-                            // AUTONOMOUS_SECURITY_ORCHESTRATION<br>
-                            // ENGINE_V3.0_ACTIVE
-                        </p>
+                        <div class="text-white font-heading font-black text-2xl mb-8 uppercase italic tracking-tighter">{{ t('footer.title') }}</div>
+                        <p class="max-w-sm text-sm text-white/40 leading-relaxed font-mono mb-8" v-html="t('footer.subtitle')"></p>
                     </div>
                     <div>
-                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Navigation</h4>
+                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">{{ t('footer.navigation') }}</h4>
                         <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
-                            <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">Features</router-link></li>
-                            <li><router-link to="/pricing" class="hover:text-ai-lavender transition-colors">Pricing</router-link></li>
-                            <li><router-link to="/support" class="hover:text-ai-lavender transition-colors">Support</router-link></li>
-                            <li><router-link to="/docs" class="hover:text-ai-lavender transition-colors">Docs</router-link></li>
-                            <li><router-link to="/security" class="hover:text-ai-mint transition-colors">Security</router-link></li>
+                            <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">{{ t('nav.features') }}</router-link></li>
+                            <li><router-link to="/pricing" class="hover:text-ai-lavender transition-colors">{{ t('nav.pricing') }}</router-link></li>
+                            <li><router-link to="/support" class="hover:text-ai-lavender transition-colors">{{ t('nav.support') }}</router-link></li>
+                            <li><router-link to="/docs" class="hover:text-ai-lavender transition-colors">{{ t('nav.docs') }}</router-link></li>
+                            <li><router-link to="/security" class="hover:text-ai-mint transition-colors">{{ t('nav.security') }}</router-link></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">Ecosystem</h4>
+                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">{{ t('footer.ecosystem') }}</h4>
                         <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
-                            <li><router-link to="/early-access" class="hover:text-ai-lavender transition-colors">Early Access</router-link></li>
-                            <li><router-link to="/roadmap" class="hover:text-ai-lavender transition-colors">Roadmap</router-link></li>
-                            <li><a href="https://linkedin.com/company/cybat-ai" target="_blank" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
+                            <li><router-link to="/early-access" class="hover:text-ai-lavender transition-colors">{{ t('footer.earlyAccess') }}</router-link></li>
+                            <li><router-link to="/roadmap" class="hover:text-ai-lavender transition-colors">{{ t('footer.roadmap') }}</router-link></li>
+                            <li><a href="https://linkedin.com/company/cybat-ai" target="_blank" rel="noopener" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="max-w-7xl mx-auto px-6 mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div class="font-mono text-xs uppercase tracking-[0.2em] text-white/40 text-center md:text-left">
-                        © 2026 Cybat AI. All Rights Reserved. // encrypted_connection_established
+                        {{ t('footer.rights') }}
                     </div>
                     <div class="flex gap-8 font-mono text-xs uppercase tracking-widest text-white/40">
-                        <router-link to="/privacy" class="hover:text-white transition-colors">Privacy</router-link>
-                        <router-link to="/terms" class="hover:text-white transition-colors">Terms</router-link>
+                        <router-link to="/privacy" class="hover:text-white transition-colors">{{ t('footer.privacy') }}</router-link>
+                        <router-link to="/terms" class="hover:text-white transition-colors">{{ t('footer.terms') }}</router-link>
                     </div>
                 </div>
             </footer>

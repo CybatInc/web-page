@@ -1,0 +1,236 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Índice de Documentación</h3>
+                <nav class="space-y-3 font-mono text-xs">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Descripción General</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Integración con Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Especificaciones de Seguridad</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="lg:w-3/4">
+            <div class="mb-6">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Guía del Usuario<span class="text-lavender">_</span></h1>
+
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-8 font-mono text-ink text-xs md:text-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pb-6 border-b border-lavender-pale">
+                        <p class="text-xs md:text-sm leading-relaxed flex-1">
+                            El Panel de Inteligencia es su centro de mando en tiempo real para el monitoreo autónomo de amenazas. Esta guía detalla cada panel, cómo el motor procesa las amenazas y cómo se aplican las medidas de mitigación.
+                        </p>
+                        <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                            class="flex-shrink-0 inline-block bg-lavender text-white px-4 py-1.5 font-bold text-xs hover:bg-ink transition-colors text-center">
+                            Abrir Panel →
+                        </a>
+                    </div>
+
+                    <!-- Section 1: Dashboard layout -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">1. Distribución del Panel y Navegación</h2>
+                        <p class="text-sm text-ink">Tras iniciar sesión en <code class="bg-lavender-pale px-1 rounded text-lavender">intelligence.cybat.co</code>, accederá al Panel de Inteligencia principal. La barra lateral de navegación proporciona acceso a las funciones centrales de la plataforma según su rol asignado: <strong class="text-ink">Dashboard</strong>, <strong class="text-ink">Investigations</strong>, <strong class="text-ink">Data Ingestion</strong>, <strong class="text-ink">Users</strong> (Admin), <strong class="text-ink">Whitelist</strong> (Admin), <strong class="text-ink">API Keys</strong> (Admin) y <strong class="text-ink">Webhooks</strong>.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Tarjetas de Métricas</p>
+                                <p>Cinco tarjetas en la parte superior muestran el estado de seguridad de su organización de un vistazo: <strong class="text-ink">Datos Ingeridos</strong>, <strong class="text-ink">Amenazas Bloqueadas</strong>, <strong class="text-red-400">Gravedad Alta</strong>, <strong class="text-amber-400">Gravedad Media</strong> y <strong class="text-ink-soft">Gravedad Baja</strong>. Todas las cifras reflejan el período seleccionado (Día / Mes / Año).</p>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Globo de Amenazas 3D</p>
+                                <p class="mb-3">Visualización interactiva de la Tierra que muestra el origen geográfico de todas las amenazas detectadas. Los puntos rojos indican orígenes con incidentes de gravedad alta; los puntos ámbar indican gravedad media. Haga clic en cualquier punto para desglosarlo por gravedad y ver los incidentes asociados.</p>
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
+                                    <img src="assets/screenshot-globe.png" alt="3D Threat Globe" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-globe.png ]</div>
+                                </div>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Feed de Investigaciones</p>
+                                <p class="mb-3">Lista en vivo de todas las amenazas detectadas ordenadas por fecha. Cada fila muestra IP de origen, nivel de amenaza, URL de destino, fecha y veredicto. Haga clic en cualquier fila para abrir el panel de detalles del incidente. Los botones 👍 / 👎 permiten registrar retroalimentación (voto negativo en una IP bloqueada abre el diálogo de desbloqueo).</p>
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
+                                    <img src="assets/screenshot-incidents.png" alt="Incident Feed" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-incidents.png ]</div>
+                                </div>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Panel de Detalle del Incidente</p>
+                                <p class="mb-3">Se abre sobre el feed mostrando el análisis narrativo completo generado por Gemini AI, registros de evidencia de telemetría que detonaron la detección, estado de la mitigación y notificaciones enviadas. Los administradores pueden desbloquear IPs directamente desde aquí.</p>
+                                <div class="relative border border-lavender-pale overflow-hidden rounded">
+                                    <img src="assets/screenshot-detail.png" alt="Incident Detail Panel" class="w-full object-cover object-top max-h-[260px]"
+                                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden w-full h-32 bg-white flex items-center justify-center font-mono text-xs text-ink-soft">[ screenshot-detail.png ]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Engine pipeline -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">2. Cómo Procesa las Amenazas el Motor</h2>
+                        <p class="text-sm text-ink">La telemetría HTTP transmitida por el SDK de Cybat avanza a través de la siguiente canalización automática en menos de 5 segundos desde la captura de la petición hasta la aplicación de mitigaciones.</p>
+
+                        <div class="space-y-2 text-xs text-ink">
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">01</span>
+                                <div><strong class="text-ink">Ingesta</strong> — El SDK de Cybat, instalado como middleware, transmite telemetría a API Gateway, que valida la clave API en el borde y reenvía los lotes aceptados mediante Pub/Sub al agente SOC.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">02</span>
+                                <div><strong class="text-ink">Agrupación por IP</strong> — Las peticiones del mismo lote se consolidan por IP de origen para construir un perfil de comportamiento por IP previo al análisis.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">03</span>
+                                <div><strong class="text-ink">Verificación de Suscripción</strong> — El motor valida la suscripción activa de su organización en Google Cloud Marketplace mediante GCP Service Control.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">04</span>
+                                <div><strong class="text-ink">Filtro de Lista Blanca</strong> — Las IPs presentes en la lista blanca de su organización se excluyen completamente del lote: sin análisis, sin registros de incidentes y sin consumo de cuota.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">05</span>
+                                <div><strong class="text-ink">Caché de Veredictos</strong> — Las IPs detectadas en las últimas 24 horas omiten el reanálisis de Gemini y se mitigan de inmediato según el veredicto en caché.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">06</span>
+                                <div><strong class="text-ink">Análisis con Gemini</strong> — Las IPs nuevas son evaluadas por Vertex AI Gemini 2.5 Flash Lite recibiendo el contexto completo de la petición y devolviendo un veredicto estructurado.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">07</span>
+                                <div><strong class="text-ink">Aplicación de Medidas</strong> — Para veredictos altos y medios, se intenta el bloqueo en VPC Firewall (Capa 3/4) con repliegue a Cloud Armor (Capa 7). La acción se orienta al proyecto de GCP configurado en <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code>.</div>
+                            </div>
+                            <div class="flex gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-3">
+                                <span class="text-mint font-bold w-6 flex-shrink-0">08</span>
+                                <div><strong class="text-ink">Persistencia y Alertas</strong> — El incidente, el análisis de IA y la evidencia se registran en el panel y se envían notificaciones estructuradas a sus webhooks.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Threat levels -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">3. Niveles de Amenaza y Comportamiento</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs">
+                                <thead>
+                                    <tr class="border-b border-lavender-pale text-left">
+                                        <th class="pb-3 pr-6 text-ink font-normal">Nivel</th>
+                                        <th class="pb-3 pr-6 text-ink font-normal">Acción</th>
+                                        <th class="pb-3 text-ink font-normal">Color en Panel</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-lavender-pale">
+                                    <tr>
+                                        <td class="py-3 pr-6 text-red-400 font-bold">ALTO</td>
+                                        <td class="py-3 pr-6 text-ink">Bloqueo inmediato en VPC Firewall o Cloud Armor. Alerta despachada en Slack.</td>
+                                        <td class="py-3"><span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded">rojo</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-amber-400 font-bold">MEDIO</td>
+                                        <td class="py-3 pr-6 text-ink">Bloqueo aplicado. Alerta despachada en Slack. Marcado para revisión.</td>
+                                        <td class="py-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded">ámbar</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-ink-soft font-bold">BAJO</td>
+                                        <td class="py-3 pr-6 text-ink">Sin mitigación activa. Veredicto registrado y guardado en caché por 24 horas.</td>
+                                        <td class="py-3"><span class="text-ink-soft">blanco tenue</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-6 text-ink font-bold">NINGUNO</td>
+                                        <td class="py-3 pr-6 text-ink">Tráfico limpio. Sin acción. Guardado en caché por 24 horas para omitir análisis futuro.</td>
+                                        <td class="py-3"><span class="text-ink-soft">no se muestra</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Feedback & Unblock -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">4. Retroalimentación y Desbloqueo Manual</h2>
+                        <p class="text-sm text-ink">Cada incidente cuenta con botones de retroalimentación 👍 / 👎 para registrar falsos positivos y auditar decisiones de mitigación.</p>
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-mint text-xs mb-2">Voto Positivo — Clasificación Correcta</p>
+                                <p>Confirma el incidente como verdadero positivo para métricas de precisión mensual.</p>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Voto Negativo en Incidente Detectado (No Bloqueado)</p>
+                                <p>Registra el incidente como falso positivo de inmediato.</p>
+                            </div>
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-red-400 text-xs mb-2">Voto Negativo en Incidente Bloqueado — Exclusivo Administradores</p>
+                                <p>Muestra un diálogo de confirmación para retirar el bloqueo. Al seleccionar <strong class="text-ink">Sí, desbloquear</strong>, se elimina la regla de Cloud Armor o VPC Firewall de inmediato y se actualiza el incidente como expirado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: IP Whitelist -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">5. Lista Blanca de IPs</h2>
+                        <p class="text-sm text-ink">La sección <strong class="text-ink">Whitelist</strong> (solo administradores) permite registrar direcciones IP de confianza que el motor nunca debe analizar ni bloquear, como oficinas corporativas, redes de monitoreo o APIs de socios.</p>
+
+                        <div class="space-y-3 text-sm text-ink">
+                            <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <p class="text-lavender text-xs mb-2">Cómo funciona</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Las IPs en lista blanca se descartan <strong class="text-ink">antes</strong> del análisis de IA: sin llamadas a Vertex AI, sin incidentes y sin consumo de cuota.</li>
+                                    <li>Quedan exentas de mitigación: incluso ante veredictos previos en caché, no se aplicará ningún bloqueo.</li>
+                                    <li>El alcance está aislado por organización.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Data Ingestion & Quota Monitoring -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">6. Ingesta de Datos y Monitoreo de Cuotas</h2>
+                        <p class="text-sm text-ink">La vista <strong class="text-ink">Data Ingestion</strong> ofrece visibilidad en tiempo real sobre el volumen de tráfico transmitido desde sus aplicaciones mediante el SDK de Cybat y el consumo mensual del plan.</p>
+                    </div>
+
+                    <!-- Section 7: API Key Management -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">7. Gestión de Claves API</h2>
+                        <p class="text-sm text-ink">La vista <strong class="text-ink">API Keys</strong> (solo administradores) permite aprovisionar y revocar credenciales utilizadas por el SDK de Cybat para transmitir eventos de forma segura.</p>
+                    </div>
+
+                    <!-- Section 8: Webhooks & Alert Integrations -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">8. Webhooks e Integración de Alertas</h2>
+                        <p class="text-sm text-ink">La vista <strong class="text-ink">Webhooks</strong> permite despachar eventos clasificados hacia herramientas SIEM/SOAR, PagerDuty o canales de chat.</p>
+                    </div>
+
+                    <!-- Section 9: User Management & RBAC -->
+                    <div class="space-y-4">
+                        <h2 class="text-base font-heading font-bold text-ink">9. Gestión de Usuarios y Roles</h2>
+                        <p class="text-sm text-ink">La vista <strong class="text-ink">Users</strong> (solo administradores) gestiona invitaciones de equipo y asignación de permisos basados en roles con autenticación Google Identity SSO.</p>
+                    </div>
+
+                    <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://intelligence.cybat.co/#/login" target="_blank"
+                                class="inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors">
+                                Abrir Panel →
+                            </a>
+                            <a href="#/docs/release-notes"
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors">
+                                Ver Notas de la Versión →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

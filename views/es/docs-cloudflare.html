@@ -1,0 +1,416 @@
+<!-- Documentation Page - Cloudflare Integration Views (Spanish) -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+
+        <!-- Sidebar Navigation -->
+        <aside class="lg:w-1/4 hidden lg:block" aria-label="Navegación lateral de documentación">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Índice de Documentación</h3>
+                <nav class="space-y-3 font-mono text-xs" aria-label="Navegación del índice de documentación">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Visión General</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Integración Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Especificaciones de Seguridad</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lg:w-3/4">
+            <div class="mb-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-semibold tracking-wider">PROXY INVERSO EDGE</span>
+                    <span class="font-mono text-[10px] bg-lavender-pale text-lavender px-2 py-1 rounded border border-lavender/30 font-semibold tracking-wider">AUTOMATIZACIÓN WAF</span>
+                </div>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Guía de Integración con Cloudflare<span class="text-lavender">_</span></h1>
+
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-6 font-mono text-ink text-xs md:text-sm">
+                    <p class="text-xs md:text-sm leading-relaxed">
+                        La <strong>Integración de Cybat con Cloudflare</strong> combina telemetría de comportamiento fuera de banda en el edge con la aplicación automatizada de reglas de acceso IP en Cloudflare WAF. Al desplegar el ligero <strong>Cybat Edge Collector</strong> como un Cloudflare Worker, tus APIs obtienen inspección lógica de zero-days y huellas dactilares JA4 de clientes con <strong>0 ms de latencia añadida</strong> a las respuestas de origen.
+                    </p>
+
+                    <!-- Key Benefits Grid -->
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">⚡ 0 ms de Latencia Añadida</span>
+                            <p class="text-xs text-ink leading-relaxed">Las peticiones al origen se reenvían de inmediato; la telemetría se despacha de forma asíncrona fuera de banda usando <code class="bg-lavender-pale px-1 rounded text-lavender">ctx.waitUntil()</code>.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">🔒 Redacción en Memoria</span>
+                            <p class="text-xs text-ink leading-relaxed">Encabezados de autorización, tokens Bearer, cookies y campos de credenciales sensibles se depuran dentro del isolate perimetral antes del tránsito.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">🛡️ Sincronización WAF Bidireccional</span>
+                            <p class="text-xs text-ink leading-relaxed">El agente de IA autónomo del SOC de Cybat crea bloqueos IP en Cloudflare WAF y retira las reglas automáticamente tras la resolución o retroalimentación negativa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Architecture Section -->
+                    <div class="space-y-3 bg-white border border-lavender-pale rounded-lg p-5">
+                        <h2 class="text-base font-heading font-bold text-lavender">🏛️ Cómo Funciona el Edge Collector</h2>
+                        <p class="text-xs text-ink leading-relaxed">
+                            Los proxies en línea tradicionales introducen viajes de ida y vuelta de red que elevan la latencia. Cybat desacopla la entrega de la respuesta del origen de la telemetría de seguridad:
+                        </p>
+                        <div class="relative code-copy-wrap">
+                            <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink font-mono text-xs leading-relaxed">[Cliente Usuario Final]
+       │
+       │ (1) Petición HTTP Entrante
+       ▼
+┌────────────────────────────────────────────────────────┐
+│ Cloudflare Edge Worker (Cybat Edge Collector)          │
+│                                                        │
+│  (2) request.clone()                                   │
+│  (3) await fetch(request) ───[Petición al Origen]─┐    │
+│  (4) Retornar Respuesta <────[Respuesta Origen]───┤    │
+│                                                   │    │
+│  (5) ctx.waitUntil(dispatchToCybat(...))          │    │
+│       └── Telemetría Asíncrona ─────────────┐     │    │
+└─────────────────────────────────────────────┼─────┼────┘
+                                              │     │
+                  ┌───────────────────────────┘     │
+                  ▼                                 ▼
+    [API de Ingesta Cybat en GCP]          [Servidor de Origen del Cliente]
+    (Motor de Análisis de Amenazas IA)     (0 ms de Demora Añadida)</pre>
+                            <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copiar diagrama de arquitectura" title="Copiar">
+                                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Onboarding Setup -->
+                    <section class="space-y-4" aria-labelledby="heading-onboarding">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">1</span>
+                            <h2 id="heading-onboarding" class="text-base font-heading font-bold text-ink">Conecta Cloudflare Durante el Registro del Workspace</h2>
+                        </div>
+                        <p class="text-xs text-ink leading-relaxed">
+                            Al activar tu suscripción mediante el enlace <strong class="text-ink">Register with Cybat</strong> (desde Google Cloud Marketplace o la invitación de tu organización), configura Cloudflare como tu proveedor de defensa perimetral autónoma:
+                        </p>
+                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
+                            <ol class="list-decimal pl-6 space-y-2.5 leading-relaxed">
+                                <li>
+                                    <strong>Selecciona el Proveedor de Defensa Autónoma:</strong> En la pantalla de registro de Cybat, selecciona <strong class="text-ink">Cloudflare (WAF)</strong>.
+                                </li>
+                                <li>
+                                    <strong>Perfil de la Organización:</strong> Introduce el <strong>Nombre de tu Empresa</strong> (ej. <a href="#heading-api-token" class="text-lavender underline font-mono font-medium hover:text-ink transition-colors" title="Saltar al Paso 2: Crear Token de API de Cloudflare">LatAm - Fintech 21-500 - GCP &amp; Cloudflare</a> &mdash; salta al <a href="#heading-api-token" class="text-lavender underline font-medium">Paso 2 ↓</a>), el <strong>ID único de Organización / Workspace</strong> y tu <strong>Correo de Administrador</strong> (utilizado para el inicio de sesión con Google SSO).
+                                </li>
+                                <li>
+                                    <strong>Credenciales de Bloqueo Autónomo en Cloudflare WAF:</strong>
+                                    <ul class="list-disc pl-6 mt-1 space-y-2 text-ink-soft">
+                                        <li>
+                                            <strong class="text-ink">Token de API de Cloudflare:</strong> Un token bearer restringido creado en tu panel de Cloudflare con el permiso <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">Firewall Access Rules: Edit</code> (<a href="#heading-api-token" class="text-lavender underline font-medium">salta al Paso 2: Crear Token de API de Cloudflare ↓</a>).
+                                        </li>
+                                        <li>
+                                            <strong class="text-ink">Account ID de Cloudflare:</strong> El identificador hexadecimal de 32 caracteres de tu cuenta que se encuentra en el panel de Cloudflare.
+                                            <div class="mt-1 pl-2 text-[11px] text-ink border-l-2 border-lavender/40 space-y-0.5">
+                                                <p><strong>Dónde encontrarlo:</strong> En el <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Panel de Cloudflare</a>, selecciona cualquier dominio/zona → en la página <strong>Overview</strong>, baja por la barra lateral derecha hasta la sección <strong>API</strong> para copiar el <strong>Account ID</strong> (o cópialo directamente de la URL del navegador: <code class="bg-lavender-pale px-1 rounded text-lavender">dash.cloudflare.com/&lt;ACCOUNT_ID&gt;/...</code>). Consulta el <a href="#heading-account-id" class="text-lavender underline font-medium">Paso 2.E: Obtener Account ID ↓</a> para más detalles.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong class="text-ink">Zone ID de Cloudflare (Opcional):</strong> El identificador de 32 caracteres de una zona específica si prefieres restringir los bloqueos IP automáticos a un dominio concreto en lugar de a toda la cuenta.
+                                            <div class="mt-1 pl-2 text-[11px] text-ink border-l-2 border-mint/40 space-y-0.5">
+                                                <p><strong>Dónde encontrarlo:</strong> En el <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Panel de Cloudflare</a>, selecciona tu dominio objetivo (ej. <code class="bg-lavender-pale px-1 rounded text-lavender">tudominio.com</code>) → en la página <strong>Overview</strong>, desplázate por la barra lateral derecha hasta la sección <strong>API</strong>. El <strong>Zone ID</strong> se muestra justo sobre el Account ID con un botón de copiado de un clic. Consulta el <a href="#heading-zone-id" class="text-lavender underline font-medium">Paso 2.F: Obtener Zone ID ↓</a> para más detalles.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Confirmar y Registrar:</strong> Marca la casilla de verificación confirmando que el token de API posee los permisos de Firewall Access Rules y haz clic en <strong class="text-lavender">Activate Account</strong>. Las credenciales se cifran en reposo con Google Cloud KMS y el agente autónomo de IA del SOC de Cybat las utiliza para bloquear IPs maliciosas.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="bg-paper border border-lavender-pale rounded-lg p-4 text-xs text-ink space-y-1">
+                            <p class="font-bold text-lavender">💡 ¿Ya tienes una cuenta activa en Cybat?</p>
+                            <p class="text-ink-soft">Si tu espacio de trabajo ya está activo, inicia sesión directamente en <a href="https://intelligence.cybat.co" target="_blank" rel="noopener" class="text-lavender hover:underline font-medium">intelligence.cybat.co</a> y pasa directamente al <a href="#heading-deploy-collector" class="text-lavender underline font-medium">Paso 3: Desplegar el Edge Collector</a>.</p>
+                        </div>
+                    </section>
+
+                    <!-- Step 2: Creating Cloudflare API Token -->
+                    <section class="space-y-4" aria-labelledby="heading-api-token">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">2</span>
+                            <h2 id="heading-api-token" class="text-base font-heading font-bold text-ink">Crea el Token de API Restringido de Cloudflare</h2>
+                        </div>
+                        <p class="text-xs text-ink leading-relaxed">
+                            Cybat utiliza tokens de API de Cloudflare con privilegios mínimos estándar (nunca utilices Global API Keys). Sigue estos pasos en el panel de Cloudflare:
+                        </p>
+
+                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink">
+                            <div class="space-y-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">A.</span> Navega a API Tokens
+                                </h3>
+                                <p class="leading-relaxed">Inicia sesión en <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">dash.cloudflare.com</a>. En la esquina superior derecha, haz clic en el icono de tu usuario → <strong class="text-ink">My Profile</strong> → selecciona <strong class="text-ink">API Tokens</strong> en la barra lateral izquierda.</p>
+                            </div>
+
+                            <div class="space-y-2 border-t border-lavender-pale pt-4">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">B.</span> Crea un Token Personalizado
+                                </h3>
+                                <p class="leading-relaxed">Haz clic en <strong class="text-ink">Create Token</strong>, desplázate hasta el final bajo <strong>Custom Token</strong> y pulsa <strong class="text-lavender">Get started</strong>.</p>
+                            </div>
+
+                            <div class="space-y-2 border-t border-lavender-pale pt-4">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">C.</span> Establece los Permisos Requeridos
+                                </h3>
+                                <p class="leading-relaxed">Asigna un nombre a tu token (ej. <code class="bg-lavender-pale px-1 rounded text-lavender">Cybat SOC AI WAF Integration</code>) y configura los siguientes permisos:</p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left border border-lavender-pale mt-2">
+                                        <thead>
+                                            <tr class="bg-paper border-b border-lavender-pale">
+                                                <th class="p-2 font-bold text-ink">Ámbito</th>
+                                                <th class="p-2 font-bold text-ink">Categoría de Permiso</th>
+                                                <th class="p-2 font-bold text-ink">Nivel de Acceso</th>
+                                                <th class="p-2 font-bold text-ink">Propósito</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-lavender-pale">
+                                            <tr>
+                                                <td class="p-2 font-mono text-lavender">Account</td>
+                                                <td class="p-2 font-mono">Firewall Access Rules</td>
+                                                <td class="p-2 font-mono text-mint font-bold">Edit</td>
+                                                <td class="p-2">Permite a la IA de Cybat crear y eliminar bloqueos IP en tu cuenta.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-2 font-mono text-lavender">Account</td>
+                                                <td class="p-2 font-mono">Account Settings</td>
+                                                <td class="p-2 font-mono text-ink">Read</td>
+                                                <td class="p-2">Permite a Cybat verificar credenciales y validar el ID de cuenta.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-2 font-mono text-lavender">Zone (Opcional)</td>
+                                                <td class="p-2 font-mono">Firewall Services</td>
+                                                <td class="p-2 font-mono text-mint font-bold">Edit</td>
+                                                <td class="p-2">Habilita reglas a nivel de zona si limitas los bloqueos a zonas específicas.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2 border-t border-lavender-pale pt-4">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">D.</span> Define Recursos y Crea el Token
+                                </h3>
+                                <ul class="list-disc pl-6 space-y-1 leading-relaxed">
+                                    <li><strong>Recursos de Cuenta:</strong> Selecciona <strong class="text-ink">Include → All Accounts</strong> (o tu cuenta de producción específica).</li>
+                                    <li><strong>Recursos de Zona (Opcional):</strong> Selecciona <strong class="text-ink">Include → All Zones</strong>.</li>
+                                    <li>Haz clic en <strong class="text-lavender">Continue to summary</strong>, revisa los ajustes y pulsa en <strong class="text-lavender">Create Token</strong>.</li>
+                                    <li><strong class="text-mint">Importante:</strong> Copia el Token de API generado inmediatamente. Cloudflare no almacena tokens en texto plano y no volverá a mostrarlo jamás.</li>
+                                </ul>
+                            </div>
+
+                            <div id="heading-account-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">E.</span> Obtén tu Account ID de Cloudflare
+                                </h3>
+                                <p class="leading-relaxed">
+                                    El <strong>Account ID</strong> es un identificador hexadecimal único de 32 caracteres necesario para registrar tu organización de Cloudflare en Cybat. Puedes encontrarlo mediante cualquiera de estos métodos:
+                                </p>
+                                <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink-soft leading-relaxed">
+                                    <li>
+                                        <strong class="text-ink">Desde la Vista General de Cualquier Dominio:</strong> En el <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Panel de Cloudflare</a>, haz clic en cualquier dominio/zona de tu cuenta. En la página <strong>Overview</strong>, baja por la barra lateral derecha hasta la sección <strong>API</strong> y haz clic en <strong class="text-ink">Click to copy</strong> bajo <strong>Account ID</strong>.
+                                    </li>
+                                    <li>
+                                        <strong class="text-ink">Desde la URL del Navegador:</strong> Al visualizar cualquier página de cuenta o dominio en Cloudflare, el Account ID de 32 caracteres aparece directamente en la barra de direcciones: <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">dash.cloudflare.com/&lt;ACCOUNT_ID_32_CARACTERES&gt;/...</code>
+                                    </li>
+                                    <li>
+                                        <strong class="text-ink">Desde Workers &amp; Pages:</strong> En la navegación izquierda, ve a <strong class="text-ink">Workers &amp; Pages</strong> (o Compute) &rarr; tu <strong>Account ID</strong> se muestra en la barra lateral derecha.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="heading-zone-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
+                                    <span class="text-mint font-bold">F.</span> Obtén tu Zone ID de Cloudflare (Opcional)
+                                </h3>
+                                <p class="leading-relaxed">
+                                    El <strong>Zone ID</strong> representa un dominio específico en tu cuenta de Cloudflare (ej. <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">api.tuempresa.com</code>). Es <em>opcional</em>: si se deja en blanco, Cybat aplicará las reglas de remediación autónomas en todas las zonas de la cuenta.
+                                </p>
+                                <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink-soft leading-relaxed">
+                                    <li>
+                                        <strong class="text-ink">Dónde encontrarlo:</strong> En el <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">Panel de Cloudflare</a>, haz clic en el dominio/sitio web específico que deseas aislar.
+                                    </li>
+                                    <li>
+                                        En la pestaña <strong>Overview</strong> del dominio, baja por la barra lateral derecha hasta la sección <strong>API</strong>.
+                                    </li>
+                                    <li>
+                                        El <strong>Zone ID</strong> aparece situado justo encima del <strong>Account ID</strong>. Haz clic en <strong class="text-ink">Click to copy</strong> para copiar la cadena de 32 caracteres.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Verification Callout -->
+                        <div class="bg-lavender-pale/30 border border-lavender-pale rounded-lg p-4 text-xs text-ink space-y-2">
+                            <span class="font-bold text-lavender">Verifica tu Token de API de Cloudflare:</span>
+                            <div class="relative code-copy-wrap">
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-[11px]">curl -s -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+  -H "Authorization: Bearer TU_TOKEN_DE_API_CLOUDFLARE" | jq .</pre>
+                                <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copiar comando de verificación curl" title="Copiar">
+                                    <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            <p class="text-[11px] text-ink-soft">Respuesta esperada: <code class="bg-paper px-1 rounded text-mint">{"result": {"status": "active"}, "success": true}</code>.</p>
+                        </div>
+                    </section>
+
+                    <!-- Step 3: Deploying Edge Collector -->
+                    <section class="space-y-4" aria-labelledby="heading-deploy-collector">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">3</span>
+                            <h2 id="heading-deploy-collector" class="text-base font-heading font-bold text-ink">Despliega el Edge Collector desde el Panel de Cybat</h2>
+                        </div>
+                        <p class="text-xs text-ink leading-relaxed">
+                            No necesitas instalar herramientas de CLI locales ni gestionar código. El <strong>Cybat Edge Collector</strong> se despliega directamente en tu cuenta de Cloudflare en un solo clic a través del Panel de Inteligencia de Cybat:
+                        </p>
+
+                        <!-- 1-Click Dashboard Flow -->
+                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-xs md:text-sm text-ink">Despliegue en 1 Clic desde la Sección API Keys</h3>
+                                <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">CERO CÓDIGO</span>
+                            </div>
+
+                            <ol class="list-decimal pl-6 space-y-2.5 text-xs text-ink leading-relaxed">
+                                <li>
+                                    <strong>Abre la Sección API Keys:</strong> Inicia sesión en el <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener" class="text-lavender underline font-medium">Portal de Inteligencia de Cybat</a> y navega a <strong class="text-ink">API Keys</strong> en la barra lateral (o visita <code class="bg-lavender-pale px-1 rounded text-lavender">https://intelligence.cybat.co/#/api-keys</code>).
+                                </li>
+                                <li>
+                                    <strong>Copia tu Clave de API de Cybat:</strong> Copia tu clave activa de Cybat (o genera una dedicada para la telemetría en el edge). La necesitarás durante la confirmación del despliegue en Cloudflare.
+                                </li>
+                                <li>
+                                    <strong>Haz Clic en "Deploy to Cloudflare":</strong> En el banner destacado de <strong class="text-[#F38020]">Cloudflare Worker Edge Collector</strong> en la parte superior de la página de API Keys, pulsa el botón naranja <strong class="text-[#F38020]">Deploy to Cloudflare</strong>.
+                                </li>
+                                <li>
+                                    <strong>Autoriza e Introduce tu Clave de API:</strong> Cloudflare se abrirá en una nueva pestaña. Selecciona tu cuenta de Cloudflare de destino, revisa el despliegue del worker y pega tu clave de API de Cybat cuando te solicite el secreto <code class="bg-lavender-pale px-1 rounded text-lavender font-mono">CYBAT_API_KEY</code>.
+                                </li>
+                                <li>
+                                    <strong>Completa el Despliegue:</strong> Pulsa <strong>Deploy</strong>. Cloudflare compilará y aprovisionará automáticamente el worker del edge collector en su red perimetral global.
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Step 3.B: Route Mapping -->
+                        <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3">
+                            <h3 class="font-bold text-xs md:text-sm text-ink">Vincula la Ruta del Worker a tu Dominio / Zona de API</h3>
+                            <p class="text-xs text-ink leading-relaxed">
+                                Una vez desplegado, indica a Cloudflare qué tráfico entrante debe enrutarse mediante el edge collector:
+                            </p>
+                            <ol class="list-decimal pl-6 space-y-1.5 text-xs text-ink leading-relaxed">
+                                <li>En el panel de Cloudflare, navega a <strong>Compute (Workers) → Workers &amp; Pages</strong>.</li>
+                                <li>Haz clic en el worker recién desplegado (<strong class="text-ink">cybat-edge-collector</strong>).</li>
+                                <li>Ve a <strong>Settings → Triggers → Routes</strong> y pulsa <strong class="text-lavender">Add route</strong>.</li>
+                                <li>Define el patrón de ruta destino (ej. <code class="bg-lavender-pale px-1 rounded text-lavender">api.tudominio.com/*</code> o <code class="bg-lavender-pale px-1 rounded text-lavender">tudominio.com/api/*</code>).</li>
+                                <li>Selecciona tu Zona de Cloudflare activa en el desplegable y haz clic en <strong class="text-lavender">Save</strong>.</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- Bindings Reference -->
+                    <section class="space-y-4 bg-white border border-lavender-pale rounded-lg p-6" aria-labelledby="heading-bindings">
+                        <h2 id="heading-bindings" class="text-base font-heading font-bold text-lavender">⚙️ Referencia de Variables de Entorno y Enlaces</h2>
+                        <p class="text-xs text-ink leading-relaxed">
+                            Estas variables se configuran automáticamente durante el despliegue o pueden ajustarse en el panel de Cloudflare bajo <strong>Worker Settings → Variables and Secrets</strong>:
+                        </p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border border-lavender-pale text-xs">
+                                <thead>
+                                    <tr class="bg-paper border-b border-lavender-pale">
+                                        <th class="p-2 font-bold text-ink">Nombre de Variable</th>
+                                        <th class="p-2 font-bold text-ink">Tipo</th>
+                                        <th class="p-2 font-bold text-ink">Requerido</th>
+                                        <th class="p-2 font-bold text-ink">Valor por Defecto</th>
+                                        <th class="p-2 font-bold text-ink">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-lavender-pale">
+                                    <tr>
+                                        <td class="p-2 font-mono text-lavender font-bold">CYBAT_API_KEY</td>
+                                        <td class="p-2 font-mono">Secret (Cifrado)</td>
+                                        <td class="p-2 font-mono text-mint font-bold">Sí</td>
+                                        <td class="p-2">—</td>
+                                        <td class="p-2">Clave de API del inquilino Cybat obtenida en el Portal de Inteligencia.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono text-lavender font-bold">PROJECT_ID</td>
+                                        <td class="p-2 font-mono">Variable de Texto</td>
+                                        <td class="p-2 font-mono">No</td>
+                                        <td class="p-2 font-mono">"cloudflare"</td>
+                                        <td class="p-2">Etiqueta de proyecto / dominio utilizada para segmentar analíticas en Cybat.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono text-lavender font-bold">CYBAT_INGESTION_URL</td>
+                                        <td class="p-2 font-mono">Variable de Texto</td>
+                                        <td class="p-2 font-mono">No</td>
+                                        <td class="p-2 font-mono">"https://gcp-ingest.cybat.co"</td>
+                                        <td class="p-2">Endpoint gateway del clúster regional de ingesta de Cybat.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono text-lavender font-bold">CYBAT_MAX_BODY_BYTES</td>
+                                        <td class="p-2 font-mono">Variable de Texto</td>
+                                        <td class="p-2 font-mono">No</td>
+                                        <td class="p-2 font-mono">"65536"</td>
+                                        <td class="p-2">Límite máximo del cuerpo en bytes (64 KB) para proteger la memoria del isolate.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Verification & Lifecycle -->
+                    <section class="space-y-4" aria-labelledby="heading-verification">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-mint text-white flex items-center justify-center font-bold text-sm">✓</span>
+                            <h2 id="heading-verification" class="text-base font-heading font-bold text-ink">Verificación y Ciclo de Vida Operativo</h2>
+                        </div>
+
+                        <div class="bg-paper border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink">
+                            <p class="leading-relaxed">
+                                Tan pronto como el tráfico alcanza tu dominio enrutado, el collector comienza a transmitir señales de comportamiento fuera de banda:
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 leading-relaxed">
+                                <li><strong>Globo de Amenazas 3D:</strong> Las peticiones entrantes aparecen en tiempo real en el panel de Cybat con los Ray IDs del edge de Cloudflare y los atributos de huella dactilar JA4 del cliente.</li>
+                                <li><strong>Bloqueo Automatizado de Exploits:</strong> Cuando una petición coincide con la lógica de un exploit zero-day (como BOLA, IDOR o inyección SQL), el agente autónomo de IA del SOC de Cybat crea instantáneamente una regla activa en Cloudflare WAF:
+                                    <div class="relative code-copy-wrap mt-2">
+                                        <pre class="bg-white border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-[11px]">curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/{account_id}/firewall/access_rules/rules" \
+  -H "Authorization: Bearer TU_TOKEN" | jq '.result[] | {id, ip: .configuration.value, mode, notes}'</pre>
+                                        <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copiar comando curl para listar reglas" title="Copiar">
+                                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li><strong>Desbloqueo en 1 Clic y Gestión de Falsos Positivos:</strong> Hacer clic en el icono de <strong>Pulgar hacia abajo</strong> en un incidente dentro del panel de Cybat purga automáticamente la regla en Cloudflare WAF (en los ámbitos de usuario, zona y cuenta). Hacer clic en el <strong>Pulgar hacia arriba</strong> reevalúa y vuelve a bloquear las amenazas activas de forma automática.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Next Actions Navigation -->
+                    <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">
+                        <p class="text-sm text-mint">¿Listo para proteger tu perímetro en Cloudflare?</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener"
+                                class="inline-block bg-[#F38020] text-white px-5 py-2 font-bold text-sm hover:bg-[#e07217] transition-colors rounded">
+                                Desplegar desde el Panel (API Keys) →
+                            </a>
+                            <a href="#/docs/getting-started"
+                                class="inline-block bg-lavender-pale/40 border border-lavender-pale hover:border-lavender px-5 py-2 text-sm text-ink transition-colors rounded">
+                                Guía de Primeros Pasos →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

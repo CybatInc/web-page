@@ -1,0 +1,236 @@
+<!-- Documentation Page - Views -->
+<div class="relative pt-16 pb-12 lg:pt-20 lg:pb-20 overflow-hidden">
+    <div class="aurora aurora-lavender w-[800px] h-[800px] top-0 left-0 opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="aurora aurora-mint w-[600px] h-[600px] bottom-0 right-0 opacity-10 transform translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
+                <h3 class="font-mono text-xs text-ink mb-6">Índice de Documentación</h3>
+                <nav class="space-y-3 font-mono text-xs">
+                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Descripción General</a>
+                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Integración con Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Especificaciones de Seguridad</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="lg:w-3/4">
+            <div class="mb-6">
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Notas de la Versión<span class="text-lavender">_</span></h1>
+
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-8 font-mono text-ink text-xs md:text-sm">
+                    <p class="text-xs md:text-sm leading-relaxed">
+                        Registro de cambios para Cybat Intelligence Engine. Cada versión detalla mejoras en la lógica del motor, características de la plataforma y cambios de infraestructura.
+                    </p>
+
+                    <!-- v2.2.0 -->
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 2.2.0</h2>
+                            <span class="bg-mint/20 text-mint text-[10px] px-2 py-1 rounded">ÚLTIMA</span>
+                            <span class="text-xs text-ink ml-auto">Octubre 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Lanzamiento SDK Java (v1.0.0)</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">co.cybat:cybat-sdk en Maven Central:</strong> Publicado el SDK oficial de Java compatible con Java 17+ y Jakarta Servlet 5.0+ (Spring Boot 3+, Tomcat 10+, Jetty 11+). Incluye cero dependencias externas en tiempo de ejecución, redacción de cuerpos en proceso local y enrutamiento multinube nativo.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Incorporación y Activación</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Activación Instantánea en Marketplace:</strong> Canalización de incorporación de clientes optimizada para ejecutarse directamente a través de la API de Google Partner Procurement. Las aprobaciones de cuentas y activaciones de derechos ahora finalizan en segundos, sin compilaciones de infraestructura ni esperas.</li>
+                                    <li><strong class="text-ink">Cero Sumideros de Logs:</strong> Se desmantelaron por completo los requisitos de sumideros de logs del lado del cliente y se eliminaron los permisos de escritura de logs a nivel de organización del flujo de configuración. La ingesta de telemetría ahora está 100% impulsada por el SDK de aplicación ligero.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- v2.1.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 2.1.0</h2>
+                            <span class="text-xs text-ink ml-auto">Septiembre 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">SDK de Python</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">cybat-sdk en PyPI:</strong> El nuevo paquete <a href="https://pypi.org/project/cybat-sdk" target="_blank" class="text-lavender hover:text-ink transition-colors">cybat-sdk</a> lleva el mismo modelo de middleware a Python: Flask, Django y cualquier aplicación ASGI (FastAPI, Starlette). Instale con <code class="bg-lavender-pale px-1 rounded text-lavender">pip install cybat-sdk</code>; el SDK de Go es el siguiente en la hoja de ruta.</li>
+                                    <li><strong class="text-ink">Mismo contrato de red que Node.js:</strong> Las instancias del SDK de Python se comunican con el mismo protocolo de ingesta que <code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>, de modo que flotas en lenguajes mixtos informan a la misma organización y panel sin cambios en el backend.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- v2.0.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 2.0.0</h2>
+                            <span class="text-xs text-ink ml-auto">Septiembre 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Ingesta Basada en SDK</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">@cybat/sdk-node:</strong> Nuevo paquete npm (<code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>) que se instala como middleware de Express y transmite el tráfico HTTP capturado directamente a Cybat, sin concesión de permisos IAM durante la incorporación.</li>
+                                    <li><strong class="text-ink">API Gateway + Claves API:</strong> Nueva página de <em>API Keys</em> en el Panel de Inteligencia que permite a los administradores crear, nombrar, expirar y revocar instantáneamente las claves utilizadas por el SDK. Cada petición es validada por API Gateway en el borde de la red antes de llegar a los servidores de Cybat.</li>
+                                    <li><strong class="text-ink">Canalización de Ingesta Serverless:</strong> El tráfico del SDK fluye a través del servicio Cloud Run sin servidor <code class="bg-lavender-pale px-1 rounded text-lavender">ingest-api</code> y un tema compartido de Pub/Sub, reemplazando la canalización de Fluent Bit en GKE Autopilot para nuevos clientes.</li>
+                                    <li><strong class="text-ink">Destino de Aplicación Configurable:</strong> El SDK acepta la opción <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> al iniciarse, indicándole al motor en qué proyecto aplicar bloqueos de cortafuegos.</li>
+                                    <li><strong class="text-ink">Revocación Automática por Cancelación:</strong> Cuando una suscripción en Marketplace se cancela o suspende, todas las claves API de esa organización se revocan automáticamente.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- v1.2.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 1.2.0</h2>
+                            <span class="text-xs text-ink ml-auto">Mayo 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Inteligencia de Amenazas</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Enriquecimiento con Google Threat Intelligence:</strong> La canalización de análisis de IA ahora consulta la API de Google Threat Intelligence (VirusTotal v3) para cada IP antes de invocar a Gemini. La puntuación de reputación, recuentos de votos maliciosos, nombre de ASN y país se inyectan en el prompt.</li>
+                                    <li><strong class="text-ink">Caché de Reputación de 6 Horas:</strong> Los resultados de GTI se almacenan en caché en Firestore bajo <code class="bg-lavender-pale px-1 rounded text-lavender">gti_cache/{ip_hash}</code> con un TTL de 6 horas, reduciendo latencias y cuotas.</li>
+                                    <li><strong class="text-ink">Degradación Agraciada:</strong> Las búsquedas de GTI se ejecutan en paralelo con consultas de historial. Fallos individuales de la API se gestionan sin bloquear la mitigación.</li>
+                                    <li><strong class="text-ink">Cero Alteración de Lógica:</strong> Los datos de GTI enriquecen el contexto del prompt; la clasificación y los umbrales permanecen bajo control de Gemini.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- v1.1.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 1.1.0</h2>
+                            <span class="text-xs text-ink ml-auto">Mayo 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Lista Blanca de IPs</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Gestión de Lista Blanca para Administradores:</strong> Los administradores pueden mantener una lista blanca de IPs desde la sección <em>Whitelist</em> en el Panel de Inteligencia.</li>
+                                    <li><strong class="text-ink">Omisión Completa de la Canalización:</strong> Las IPs en lista blanca se filtran antes del análisis de IA y de la aplicación de bloqueos, evitando consumo de cuotas y alertas innecesarias.</li>
+                                    <li><strong class="text-ink">Salvaguarda de Ejecución:</strong> Una verificación secundaria dentro del servicio de aplicación garantiza que nunca se aplique una regla de bloqueo a una IP en lista blanca.</li>
+                                    <li><strong class="text-ink">Ámbito por Organización:</strong> Las entradas de lista blanca se almacenan bajo <code class="bg-lavender-pale px-1 rounded text-lavender">organizations/{orgId}/whitelist/{ip}</code> con aislamiento estricto entre organizaciones.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-lavender text-xs mb-2">Retroalimentación y Desbloqueo Manual</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Modal de Desbloqueo con Voto Negativo:</strong> Cuando un administrador marca un incidente <em>bloqueado</em> como incorrecto (👎), un cuadro de diálogo pregunta si desea desbloquear la IP, eliminando de inmediato la regla en Cloud Armor o VPC Firewall.</li>
+                                    <li><strong class="text-ink">Retroalimentación de Incidentes No Bloqueados:</strong> Hacer clic en 👎 en un incidente detectado (no bloqueado) envía comentarios directamente sin modal adicional.</li>
+                                    <li><strong class="text-ink">Aislamiento Organizacional:</strong> La API de desbloqueo valida que el incidente pertenezca a la organización del administrador solicitante.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Panel de Control</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Tarjetas de Desglose por Gravedad:</strong> La barra superior de métricas ahora muestra cinco tarjetas: <em>Gravedad Alta</em>, <em>Gravedad Media</em>, <em>Gravedad Baja</em>, <em>IPs Bloqueadas</em> e <em>IPs en Lista Blanca</em>.</li>
+                                    <li><strong class="text-ink">Vista de Lista Blanca:</strong> Una nueva página exclusiva para administradores muestra todas las IPs autorizadas con notas, creador y fecha.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-lavender text-xs mb-2">Infraestructura y Operaciones</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Cloud Scheduler — Reporte de Uso:</strong> Un trabajo de Cloud Scheduler activa <code class="bg-lavender-pale px-1 rounded text-lavender">/report-usage</code> a los cinco minutos de cada hora para informar facturación a GCP Marketplace puntualmente.</li>
+                                    <li><strong class="text-ink">Cloud Scheduler — Limpieza de Bloqueos:</strong> Un segundo trabajo ejecuta <code class="bg-lavender-pale px-1 rounded text-lavender">/cleanup</code> cada 6 horas, eliminando reglas expiradas en Cloud Armor y VPC Firewall.</li>
+                                    <li><strong class="text-ink">Token Autogenerado:</strong> El token de autenticación para ambos trabajos se genera automáticamente mediante Terraform y se guarda en Secret Manager.</li>
+                                    <li><strong class="text-ink">API de Exportación de Uso:</strong> El endpoint <code class="bg-lavender-pale px-1 rounded text-lavender">/report-usage</code> admite parámetros <code class="bg-lavender-pale px-1 rounded text-lavender">?from=&amp;to=</code> y <code class="bg-lavender-pale px-1 rounded text-lavender">?format=csv</code> para descargas CSV de auditoría.</li>
+                                    <li><strong class="text-ink">Índices Compuestos de Firestore:</strong> Se aprovisionan dos nuevos índices compuestos mediante Terraform para resolver problemas en escenarios de alto tráfico.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- v1.0.0 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 border-b border-lavender-pale pb-3">
+                            <h2 class="text-base font-heading font-bold text-ink">Versión 1.0.0</h2>
+                            <span class="text-xs text-ink ml-auto">Abril 2026</span>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-ink">
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Canalización de Ingesta</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Capa de Ingesta en GKE:</strong> Puente de Pub/Sub y Fluent Bit ejecutándose como sidecar en GKE con procesamiento y extracción de IPs mediante filtros Lua.</li>
+                                    <li><strong class="text-ink">Descubrimiento Multi-Inquilino:</strong> Descubrimiento automático de suscripciones Pub/Sub por organización en un ciclo de refresco de 60 segundos.</li>
+                                    <li><strong class="text-ink">Latencia Cero-ETL:</strong> Retraso integral de la canalización por debajo de 7 segundos en estado estable.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-lavender text-xs mb-2">Análisis de Amenazas con IA</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Vertex AI Gemini 2.5 Flash Lite:</strong> El agente SOC envía lotes de telemetría por IP a Gemini 2.5 Flash Lite retornando veredictos estructurados (nivel de amenaza + explicación).</li>
+                                    <li><strong class="text-ink">Caché de Veredictos de 24 Horas:</strong> Los veredictos se guardan en Firestore con claves hash HMAC-SHA256 para bloquear infractores reincidentes de inmediato sin consumir cuota de IA.</li>
+                                    <li><strong class="text-ink">Ventana Histórica de 1 Hora:</strong> Se consideran los últimos 60 minutos de actividad por IP para brindar contexto conductual completo.</li>
+                                    <li><strong class="text-ink">Control de Bloqueos Duplicados:</strong> Bloqueo de concurrencia para prevenir reglas redundantes si llegan múltiples lotes simultáneamente.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-lavender text-xs mb-2">Aplicación de Medidas</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Capa de Aplicación Dual:</strong> Intento inicial en VPC Firewall (Capa 3/4) con repliegue automático a Cloud Armor (Capa 7) en el Balanceador de Carga.</li>
+                                    <li><strong class="text-ink">Ámbito por Proyecto:</strong> La mitigación se aplica al proyecto de GCP específico identificado en la telemetría, preservando el aislamiento entre proyectos.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-mint text-xs mb-2">Plataforma y Panel</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Panel de Inteligencia:</strong> Centro de mando en tiempo real en <a href="https://intelligence.cybat.co/#/login" target="_blank" class="text-lavender hover:text-ink transition-colors">intelligence.cybat.co</a> con Globo de Amenazas 3D y feed en vivo.</li>
+                                    <li><strong class="text-ink">Google SSO:</strong> Acceso seguro y unificado mediante Google Identity sin contraseñas adicionales.</li>
+                                    <li><strong class="text-ink">Alertas en Slack:</strong> Notificaciones estructuradas automáticas ante incidentes de gravedad alta y media con detalles del atacante y mitigación.</li>
+                                    <li><strong class="text-ink">Almacén de Incidentes en Firestore:</strong> Historial completo y pistas de auditoría registradas en Firestore.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-ink text-xs mb-2">Marketplace y Facturación</p>
+                                <ul class="list-disc pl-6 space-y-2 text-ink">
+                                    <li><strong class="text-ink">Integración con GCP Marketplace:</strong> Planes Starter, Professional y Enterprise medidos a través de GCP Service Control en su factura habitual de Google Cloud.</li>
+                                    <li><strong class="text-ink">Activación Basada en Derechos:</strong> Validación en tiempo real de derechos de Marketplace antes de procesar telemetría.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
