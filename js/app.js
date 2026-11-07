@@ -208,8 +208,20 @@ const router = createRouter({
     }
 });
 
-// Track page views on route change
+// Helper to update documentation typography sizing on <html>
+function updateDocsTheme(path) {
+    const isDocs = typeof path === 'string' && path.startsWith('/docs');
+    document.documentElement.classList.toggle('is-docs-page', isDocs);
+}
+
+// Initial check based on current hash before router settles
+if (window.location.hash.replace(/^#/, '').startsWith('/docs')) {
+    document.documentElement.classList.add('is-docs-page');
+}
+
+// Track page views on route change & sync docs typography
 router.afterEach((to) => {
+    updateDocsTheme(to.path);
     if (typeof gtag === 'function') {
         gtag('event', 'page_view', {
             page_title: to.name || to.path,

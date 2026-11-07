@@ -7,7 +7,7 @@
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
                 <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
-                <nav class="space-y-4 font-mono text-sm">
+                <nav class="space-y-3 font-mono text-xs">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
                     <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Cloudflare Integration</a>
@@ -24,22 +24,22 @@
 
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">User Guide<span class="text-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">User Guide<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-10 font-mono text-ink">
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-8 font-mono text-ink text-xs md:text-sm">
                     <div class="flex flex-col sm:flex-row sm:items-center gap-4 pb-6 border-b border-lavender-pale">
-                        <p class="text-lg leading-relaxed flex-1">
+                        <p class="text-xs md:text-sm leading-relaxed flex-1">
                             The Intelligence Dashboard is your real-time command center for autonomous threat monitoring. This guide covers every panel, how the engine processes threats, and how enforcement actions are applied.
                         </p>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                            class="flex-shrink-0 inline-block bg-lavender text-white px-5 py-2 font-bold text-sm hover:bg-ink transition-colors text-center">
+                            class="flex-shrink-0 inline-block bg-lavender text-white px-4 py-1.5 font-bold text-xs hover:bg-ink transition-colors text-center">
                             Open Dashboard →
                         </a>
                     </div>
 
                     <!-- Section 1: Dashboard layout -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">1. Dashboard Layout & Navigation</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">1. Dashboard Layout & Navigation</h2>
                         <p class="text-sm text-ink">After logging in at <code class="bg-lavender-pale px-1 rounded text-lavender">intelligence.cybat.co</code>, you land on the main Intelligence Dashboard. The navigation sidebar provides access to all core platform features based on your assigned role: <strong class="text-ink">Dashboard</strong>, <strong class="text-ink">Investigations</strong>, <strong class="text-ink">Data Ingestion</strong>, <strong class="text-ink">Users</strong> (Admin), <strong class="text-ink">Whitelist</strong> (Admin), <strong class="text-ink">API Keys</strong> (Admin), and <strong class="text-ink">Webhooks</strong>.</p>
 
                         <div class="space-y-3 text-sm text-ink">
@@ -79,7 +79,7 @@
 
                     <!-- Section 2: Engine pipeline -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">2. How the Engine Processes a Threat</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">2. How the Engine Processes a Threat</h2>
                         <p class="text-sm text-ink">HTTP telemetry streamed by the Cybat SDK moves through the following pipeline automatically. The entire sequence completes in under 5 seconds from request capture to enforcement.</p>
 
                         <div class="space-y-2 text-xs text-ink">
@@ -120,7 +120,7 @@
 
                     <!-- Section 3: Threat levels -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">3. Threat Levels & Enforcement Behavior</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">3. Threat Levels & Enforcement Behavior</h2>
                         <div class="overflow-x-auto">
                             <table class="w-full text-xs">
                                 <thead>
@@ -158,7 +158,7 @@
 
                     <!-- Section 4: Feedback & Unblock -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">4. Feedback & Manual Unblock</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">4. Feedback & Manual Unblock</h2>
                         <p class="text-sm text-ink">Every incident in the feed and detail panel has 👍 / 👎 feedback buttons. Feedback trains the system's false-positive rate reporting and helps your team audit enforcement decisions.</p>
                         <div class="space-y-3 text-sm text-ink">
                             <div class="bg-lavender-pale/40 border border-lavender-pale rounded p-4">
@@ -179,7 +179,7 @@
 
                     <!-- Section 5: IP Whitelist -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">5. IP Whitelist</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">5. IP Whitelist</h2>
                         <p class="text-sm text-ink">The <strong class="text-ink">Whitelist</strong> menu item (visible to admins only) lets you register trusted IP addresses that the engine should never analyze or block — for example, your office network, a monitoring service, or a known partner API.</p>
 
                         <div class="space-y-3 text-sm text-ink">
@@ -205,7 +205,7 @@
 
                     <!-- Section 6: Data Ingestion & Quota Monitoring -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">6. Data Ingestion & Quota Monitoring</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">6. Data Ingestion & Quota Monitoring</h2>
                         <p class="text-sm text-ink">The <strong class="text-ink">Data Ingestion</strong> view provides real-time visibility into the volume of HTTP traffic streamed from your applications via the Cybat SDK, alongside your monthly plan consumption.</p>
 
                         <div class="space-y-3 text-sm text-ink">
@@ -222,7 +222,7 @@
 
                     <!-- Section 7: API Key Management -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">7. API Key Management</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">7. API Key Management</h2>
                         <p class="text-sm text-ink">The <strong class="text-ink">API Keys</strong> view (Admin only) allows you to provision, inspect, and revoke credentials used by the Cybat SDK to stream events securely to the ingestion gateway.</p>
 
                         <div class="space-y-3 text-sm text-ink">
@@ -245,7 +245,7 @@
 
                     <!-- Section 8: Webhooks & Alert Integrations -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">8. Webhooks & Alert Integrations</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">8. Webhooks & Alert Integrations</h2>
                         <p class="text-sm text-ink">The <strong class="text-ink">Webhooks</strong> view enables automated event dispatch to your security operations tooling, SIEM/SOAR platforms, PagerDuty, or chat channels whenever a threat is classified.</p>
 
                         <div class="space-y-3 text-sm text-ink">
@@ -269,7 +269,7 @@
 
                     <!-- Section 9: User Management & RBAC -->
                     <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">9. User Management & Role-Based Access</h2>
+                        <h2 class="text-base font-heading font-bold text-ink">9. User Management & Role-Based Access</h2>
                         <p class="text-sm text-ink">The <strong class="text-ink">Users</strong> view (Admin only) allows organization administrators to invite team members and manage role-based permissions.</p>
 
                         <div class="space-y-3 text-sm text-ink">

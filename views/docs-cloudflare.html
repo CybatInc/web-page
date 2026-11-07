@@ -9,7 +9,7 @@
         <aside class="lg:w-1/4 hidden lg:block" aria-label="Documentation Sidebar">
             <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
                 <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
-                <nav class="space-y-4 font-mono text-sm" aria-label="Documentation Index Navigation">
+                <nav class="space-y-3 font-mono text-xs" aria-label="Documentation Index Navigation">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
                     <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Cloudflare Integration</a>
@@ -31,32 +31,32 @@
                     <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30 font-semibold tracking-wider">EDGE REVERSE PROXY</span>
                     <span class="font-mono text-[10px] bg-lavender-pale text-lavender px-2 py-1 rounded border border-lavender/30 font-semibold tracking-wider">WAF AUTOMATION</span>
                 </div>
-                <h1 class="text-xl md:text-2xl font-heading font-bold mb-6 tracking-tight">Cloudflare Integration Guide<span class="text-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Cloudflare Integration Guide<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-8 font-mono text-ink">
-                    <p class="text-base leading-relaxed">
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-6 font-mono text-ink text-xs md:text-sm">
+                    <p class="text-xs md:text-sm leading-relaxed">
                         The <strong>Cybat Cloudflare Integration</strong> combines out-of-band edge behavioral telemetry with automated Cloudflare WAF IP access rule enforcement. By deploying the lightweight <strong>Cybat Edge Collector</strong> as a Cloudflare Worker, your APIs gain deep zero-day logic inspection and JA4 client fingerprinting with <strong>0 ms added latency</strong> to origin responses.
                     </p>
 
                     <!-- Key Benefits Grid -->
                     <div class="grid md:grid-cols-3 gap-4">
-                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-2">
-                            <span class="text-mint font-bold text-sm">⚡ 0 ms Added Latency</span>
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">⚡ 0 ms Added Latency</span>
                             <p class="text-xs text-ink leading-relaxed">Origin requests are forwarded immediately; telemetry is dispatched asynchronously out-of-band using <code class="bg-lavender-pale px-1 rounded text-lavender">ctx.waitUntil()</code>.</p>
                         </div>
-                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-2">
-                            <span class="text-mint font-bold text-sm">🔒 In-Memory Redaction</span>
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">🔒 In-Memory Redaction</span>
                             <p class="text-xs text-ink leading-relaxed">Authorization headers, Bearer tokens, cookies, and sensitive credential fields are stripped inside the edge isolate before transit.</p>
                         </div>
-                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-2">
-                            <span class="text-mint font-bold text-sm">🛡️ Bidirectional WAF Sync</span>
+                        <div class="p-4 bg-white border border-lavender/20 rounded-lg space-y-1.5">
+                            <span class="text-mint font-bold text-xs md:text-sm">🛡️ Bidirectional WAF Sync</span>
                             <p class="text-xs text-ink leading-relaxed">Cybat's autonomous SOC AI agent creates edge IP blocks in Cloudflare WAF, and automatically clears rules on resolution or thumbs-down feedback.</p>
                         </div>
                     </div>
 
                     <!-- Architecture Section -->
-                    <div class="space-y-4 bg-white border border-lavender-pale rounded-lg p-6">
-                        <h2 class="text-lg font-heading font-bold text-lavender">🏛️ How the Edge Collector Works</h2>
+                    <div class="space-y-3 bg-white border border-lavender-pale rounded-lg p-5">
+                        <h2 class="text-base font-heading font-bold text-lavender">🏛️ How the Edge Collector Works</h2>
                         <p class="text-xs text-ink leading-relaxed">
                             Traditional inline proxies introduce latency-inducing network round-trips. Cybat decouples origin response delivery from security telemetry:
                         </p>
@@ -90,9 +90,9 @@
                     <section class="space-y-4" aria-labelledby="heading-onboarding">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">1</span>
-                            <h2 id="heading-onboarding" class="text-lg font-heading font-bold text-ink">Connect Cloudflare During Workspace Registration</h2>
+                            <h2 id="heading-onboarding" class="text-base font-heading font-bold text-ink">Connect Cloudflare During Workspace Registration</h2>
                         </div>
-                        <p class="text-sm text-ink leading-relaxed">
+                        <p class="text-xs text-ink leading-relaxed">
                             When activating your subscription via the <strong class="text-ink">Register with Cybat</strong> link (from Google Cloud Marketplace or your organization's onboarding invite), configure Cloudflare as your automated edge defense provider:
                         </p>
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
@@ -138,29 +138,29 @@
                     <section class="space-y-4" aria-labelledby="heading-api-token">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">2</span>
-                            <h2 id="heading-api-token" class="text-lg font-heading font-bold text-ink">Create the Scoped Cloudflare API Token</h2>
+                            <h2 id="heading-api-token" class="text-base font-heading font-bold text-ink">Create the Scoped Cloudflare API Token</h2>
                         </div>
-                        <p class="text-sm text-ink leading-relaxed">
+                        <p class="text-xs text-ink leading-relaxed">
                             Cybat uses standard least-privilege Cloudflare API Tokens (never use Global API Keys). Follow these steps in the Cloudflare Dashboard:
                         </p>
 
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink">
                             <div class="space-y-2">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">A.</span> Navigate to API Tokens
                                 </h3>
                                 <p class="leading-relaxed">Sign in to <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="text-lavender hover:underline">dash.cloudflare.com</a>. In the top-right corner, click your user icon → <strong class="text-ink">My Profile</strong> → select <strong class="text-ink">API Tokens</strong> in the left sidebar.</p>
                             </div>
 
                             <div class="space-y-2 border-t border-lavender-pale pt-4">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">B.</span> Create a Custom Token
                                 </h3>
                                 <p class="leading-relaxed">Click <strong class="text-ink">Create Token</strong>, scroll to the bottom under <strong>Custom Token</strong>, and click <strong class="text-lavender">Get started</strong>.</p>
                             </div>
 
                             <div class="space-y-2 border-t border-lavender-pale pt-4">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">C.</span> Set Required Permissions
                                 </h3>
                                 <p class="leading-relaxed">Name your token (e.g. <code class="bg-lavender-pale px-1 rounded text-lavender">Cybat SOC AI WAF Integration</code>) and configure the following permissions:</p>
@@ -199,7 +199,7 @@
                             </div>
 
                             <div class="space-y-2 border-t border-lavender-pale pt-4">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">D.</span> Set Resources &amp; Create
                                 </h3>
                                 <ul class="list-disc pl-6 space-y-1 leading-relaxed">
@@ -211,7 +211,7 @@
                             </div>
 
                             <div id="heading-account-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">E.</span> Retrieve Your Cloudflare Account ID
                                 </h3>
                                 <p class="leading-relaxed">
@@ -231,7 +231,7 @@
                             </div>
 
                             <div id="heading-zone-id" class="space-y-2 border-t border-lavender-pale pt-4 scroll-mt-20">
-                                <h3 class="font-bold text-sm text-ink flex items-center gap-2">
+                                <h3 class="font-bold text-xs md:text-sm text-ink flex items-center gap-2">
                                     <span class="text-mint font-bold">F.</span> Retrieve Your Cloudflare Zone ID (Optional)
                                 </h3>
                                 <p class="leading-relaxed">
@@ -255,7 +255,7 @@
                         <div class="bg-lavender-pale/30 border border-lavender-pale rounded-lg p-4 text-xs text-ink space-y-2">
                             <span class="font-bold text-lavender">Test Your Cloudflare API Token:</span>
                             <div class="relative code-copy-wrap">
-                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono">curl -s -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink font-mono text-[11px]">curl -s -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
   -H "Authorization: Bearer YOUR_CLOUDFLARE_API_TOKEN" | jq .</pre>
                                 <button type="button" onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy verification curl command" title="Copy">
                                     <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -269,20 +269,20 @@
                     <section class="space-y-4" aria-labelledby="heading-deploy-collector">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-lavender text-white flex items-center justify-center font-bold text-sm">3</span>
-                            <h2 id="heading-deploy-collector" class="text-lg font-heading font-bold text-ink">Deploy the Edge Collector via Cybat Dashboard</h2>
+                            <h2 id="heading-deploy-collector" class="text-base font-heading font-bold text-ink">Deploy the Edge Collector via Cybat Dashboard</h2>
                         </div>
-                        <p class="text-sm text-ink leading-relaxed">
+                        <p class="text-xs text-ink leading-relaxed">
                             You do not need to install local CLI tools or manage code. The <strong>Cybat Edge Collector</strong> deploys directly into your Cloudflare account in one click through the Cybat Intelligence Dashboard:
                         </p>
 
                         <!-- 1-Click Dashboard Flow -->
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-4">
                             <div class="flex items-center justify-between">
-                                <h3 class="font-bold text-sm text-ink">1-Click Deployment via the API Keys Section</h3>
+                                <h3 class="font-bold text-xs md:text-sm text-ink">1-Click Deployment via the API Keys Section</h3>
                                 <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">ZERO CODE</span>
                             </div>
 
-                            <ol class="list-decimal pl-6 space-y-3 text-xs text-ink leading-relaxed">
+                            <ol class="list-decimal pl-6 space-y-2.5 text-xs text-ink leading-relaxed">
                                 <li>
                                     <strong>Open the API Keys Section:</strong> Log in to the <a href="https://intelligence.cybat.co/#/api-keys" target="_blank" rel="noopener" class="text-lavender underline font-medium">Cybat Intelligence Portal</a> and navigate to <strong class="text-ink">API Keys</strong> from the sidebar (or visit <code class="bg-lavender-pale px-1 rounded text-lavender">https://intelligence.cybat.co/#/api-keys</code>).
                                 </li>
@@ -303,7 +303,7 @@
 
                         <!-- Step 3.B: Route Mapping -->
                         <div class="bg-white border border-lavender-pale rounded-lg p-6 space-y-3">
-                            <h3 class="font-bold text-sm text-ink">Attach Worker Route to Your Domain / API Zone</h3>
+                            <h3 class="font-bold text-xs md:text-sm text-ink">Attach Worker Route to Your Domain / API Zone</h3>
                             <p class="text-xs text-ink leading-relaxed">
                                 Once deployed, tell Cloudflare which incoming traffic to route through your edge collector:
                             </p>
@@ -319,7 +319,7 @@
 
                     <!-- Bindings Reference -->
                     <section class="space-y-4 bg-white border border-lavender-pale rounded-lg p-6" aria-labelledby="heading-bindings">
-                        <h2 id="heading-bindings" class="text-lg font-heading font-bold text-lavender">⚙️ Environment Variables &amp; Bindings Reference</h2>
+                        <h2 id="heading-bindings" class="text-base font-heading font-bold text-lavender">⚙️ Environment Variables &amp; Bindings Reference</h2>
                         <p class="text-xs text-ink leading-relaxed">
                             These variables are automatically provisioned during deployment, or can be adjusted under Cloudflare Dashboard <strong>Worker Settings → Variables and Secrets</strong>:
                         </p>
@@ -372,7 +372,7 @@
                     <section class="space-y-4" aria-labelledby="heading-verification">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-8 rounded-full bg-mint text-white flex items-center justify-center font-bold text-sm">✓</span>
-                            <h2 id="heading-verification" class="text-lg font-heading font-bold text-ink">Verification &amp; Operational Lifecycle</h2>
+                            <h2 id="heading-verification" class="text-base font-heading font-bold text-ink">Verification &amp; Operational Lifecycle</h2>
                         </div>
 
                         <div class="bg-paper border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink">

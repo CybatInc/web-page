@@ -9,7 +9,7 @@
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
                 <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
-                <nav class="space-y-4 font-mono text-sm">
+                <nav class="space-y-3 font-mono text-xs">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Getting Started</a>
                     <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Cloudflare Integration</a>
@@ -27,21 +27,21 @@
         <!-- Main Content -->
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-bold mb-6 tracking-tight">Getting Started<span class="text-lavender">_</span></h1>
+                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Getting Started<span class="text-lavender">_</span></h1>
 
-                <div class="p-8 bg-paper border border-lavender-pale rounded-lg space-y-4 font-mono text-ink">
-                    <p class="text-lg leading-relaxed">
+                <div class="p-6 md:p-8 bg-paper border border-lavender-pale rounded-lg space-y-4 font-mono text-ink text-xs md:text-sm">
+                    <p class="text-xs md:text-sm leading-relaxed">
                         Welcome to the Cybat Intelligence Engine. Activating your autonomous AI-driven security operations through the Google Cloud Marketplace takes under 3 minutes. Follow these steps to start protecting your application.
                     </p>
 
                     <!-- Prerequisites -->
-                    <div class="space-y-4 bg-white border border-lavender/20 rounded-lg p-6">
-                        <h2 class="text-xl font-heading font-bold text-lavender">Prerequisites</h2>
-                        <p class="text-sm text-ink">Before subscribing, confirm the following. There are no complex infrastructure pipelines or org-level IAM roles to configure — your application streams telemetry directly using a lightweight SDK dependency.</p>
-                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="space-y-3 bg-white border border-lavender/20 rounded-lg p-5">
+                        <h2 class="text-base font-heading font-bold text-lavender">Prerequisites</h2>
+                        <p class="text-xs text-ink">Before subscribing, confirm the following. There are no complex infrastructure pipelines or org-level IAM roles to configure — your application streams telemetry directly using a lightweight SDK dependency.</p>
+                        <div class="grid md:grid-cols-2 gap-4 text-xs">
                             <div>
                                 <p class="text-mint text-xs mb-2">Required</p>
-                                <ul class="space-y-2 text-ink text-xs">
+                                <ul class="space-y-1.5 text-ink text-xs">
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> A GCP billing account for Marketplace subscription</li>
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> An application receiving HTTP traffic in Python (Flask, Django, FastAPI), Node.js (Express, Fastify, NestJS), or PHP (Slim, Laravel, Symfony)</li>
                                     <li class="flex items-start gap-2"><span class="text-mint">✓</span> Ability to add one middleware line to your app's request pipeline</li>
@@ -50,19 +50,19 @@
                             </div>
                             <div>
                                 <p class="text-lavender text-xs mb-2">Strongly Recommended</p>
-                                <ul class="space-y-2 text-ink text-xs">
+                                <ul class="space-y-1.5 text-ink text-xs">
                                     <li class="flex items-start gap-2"><span class="text-lavender">+</span> Know the GCP project ID your app runs in — unlocks automatic blocking (VPC Firewall / Cloud Armor), not just detection</li>
                                     <li class="flex items-start gap-2"><span class="text-lavender">+</span> A dedicated secret store for the API key (e.g. Secret Manager) — it's shown once at creation</li>
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-xs text-ink border-t border-lavender-pale pt-4">For the full SDK wire contract and enforcement requirements, see the <a href="#/docs/security-specs" class="text-lavender hover:text-ink transition-colors underline">Security Specs</a> page.</p>
+                        <p class="text-xs text-ink border-t border-lavender-pale pt-3">For the full SDK wire contract and enforcement requirements, see the <a href="#/docs/security-specs" class="text-lavender hover:text-ink transition-colors underline">Security Specs</a> page.</p>
                     </div>
 
                     <!-- Step 1 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 1: Subscribe via Google Cloud Marketplace</h2>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 1: Subscribe via Google Cloud Marketplace</h2>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
                             <li>Navigate to the <strong class="text-ink">Google Cloud Console</strong> and open the <strong class="text-ink">Marketplace</strong>.</li>
                             <li>Search for <strong class="text-ink">Cybat Intelligence Engine</strong> and open the product listing.</li>
                             <li>Select your billing account and the appropriate plan (Starter, Professional, or Enterprise), then click <strong class="text-ink">Subscribe</strong>.</li>
@@ -71,10 +71,10 @@
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 2: Instant Registration & Remediation Setup</h2>
-                        <p class="text-sm text-ink">On the registration screen, complete your organization profile and alert settings:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 2: Instant Registration &amp; Remediation Setup</h2>
+                        <p class="text-xs text-ink">On the registration screen, complete your organization profile and alert settings:</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
                             <li><strong class="text-ink">Organization Details:</strong> Enter your Organization Name and primary Administrator Email.</li>
                             <li><strong class="text-ink">Alert Channels:</strong> Provide your Slack Incoming Webhook URL and channel for instant threat notification.</li>
                             <li><strong class="text-ink">Automated Remediation (Optional):</strong> Enter your GCP Organization ID or Project ID to generate a copyable Cloud Shell command. Running this grants least-privilege IAM roles (<code class="bg-lavender-pale px-1 rounded text-lavender">compute.securityAdmin</code>, <code class="bg-lavender-pale px-1 rounded text-lavender">compute.networkViewer</code>, and <code class="bg-lavender-pale px-1 rounded text-lavender">browser</code> for autonomous Cloud Armor / VPC firewall enforcement and dashboard unblocking).</li>
@@ -83,24 +83,24 @@
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 3: Sign In to the Intelligence Portal</h2>
-                        <p class="text-sm text-ink">Cybat uses Google Identity exclusively — no separate password is required.</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 3: Sign In to the Intelligence Portal</h2>
+                        <p class="text-xs text-ink">Cybat uses Google Identity exclusively — no separate password is required.</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
                             <li>At the portal login screen, click <strong class="text-lavender">Sign in with Google</strong>.</li>
                             <li>Select your corporate Google Workspace account. Personal Gmail accounts are not authorized.</li>
                             <li>Your organization dashboard will load immediately with real-time analytics, API key management, and security telemetry views.</li>
                         </ul>
                         <a href="https://intelligence.cybat.co/#/login" target="_blank"
-                            class="inline-flex items-center gap-2 mt-2 bg-lavender/10 border border-lavender/30 text-lavender hover:bg-lavender/20 px-4 py-2 rounded text-sm transition-colors">
+                            class="inline-flex items-center gap-2 mt-2 bg-lavender/10 border border-lavender/30 text-lavender hover:bg-lavender/20 px-4 py-2 rounded text-xs transition-colors">
                             Open Intelligence Portal →
                         </a>
                     </div>
 
                     <!-- Step 4 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 4: Create an API Key</h2>
-                        <p class="text-sm text-ink">In the Intelligence Portal, open <strong class="text-ink">API Keys</strong> in the sidebar and click <strong class="text-ink">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 4: Create an API Key</h2>
+                        <p class="text-xs text-ink">In the Intelligence Portal, open <strong class="text-ink">API Keys</strong> in the sidebar and click <strong class="text-ink">Create API Key</strong>. Give it a name and, optionally, an expiration date.</p>
                         <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-3 text-xs text-ink">
                             <div class="flex items-start gap-3">
                                 <span class="text-mint font-bold mt-0.5">1.</span>
@@ -118,9 +118,9 @@
                     </div>
 
                     <!-- Step 5 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 5: Install the SDK</h2>
-                        <p class="text-sm text-ink">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, and no external forwarders.</p>
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 5: Install the SDK</h2>
+                        <p class="text-xs text-ink">Add the Cybat SDK to your app as middleware. It's a single dependency and a single line — no daemons, no sidecars, and no external forwarders.</p>
 
                         <div class="flex items-center gap-2 mb-1">
                             <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-1 rounded border border-mint/30">● AVAILABLE NOW</span>
@@ -128,13 +128,13 @@
                         </div>
                         <div class="space-y-3 text-xs text-ink">
                             <div class="relative code-copy-wrap">
-                                <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink leading-relaxed">pip install cybat-sdk</pre>
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-[11px] leading-relaxed">pip install cybat-sdk</pre>
                                 <button onclick="cybatCopyCode(this)" class="absolute top-2 right-2 p-1 rounded text-ink-soft hover:text-mint transition-colors" aria-label="Copy code" title="Copy">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                 </button>
                             </div>
                             <div class="relative code-copy-wrap">
-                                <pre class="bg-paper border border-lavender-pale rounded p-4 pr-10 overflow-x-auto text-ink leading-relaxed">from flask import Flask
+                                <pre class="bg-paper border border-lavender-pale rounded p-3 pr-10 overflow-x-auto text-ink text-[11px] leading-relaxed">from flask import Flask
 from cybat_sdk.integrations.flask import init_app
 
 app = Flask(__name__)
@@ -170,7 +170,7 @@ init_app(app,
                         <!-- Cloudflare Alternative -->
                         <div class="bg-white border-2 border-lavender/30 rounded-lg p-6 space-y-3">
                             <div class="flex items-center justify-between">
-                                <h3 class="font-heading font-bold text-base text-ink flex items-center gap-2">
+                                <h3 class="font-heading font-bold text-sm text-ink flex items-center gap-2">
                                     <span class="text-[#F38020]">☁️</span> Alternative: Cloudflare Edge Worker (Zero-Code Setup)
                                 </h3>
                                 <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded font-bold">NO CODE CHANGES</span>
@@ -191,15 +191,15 @@ init_app(app,
                     </div>
 
                     <!-- Step 6 -->
-                    <div class="space-y-4">
-                        <h2 class="text-xl font-heading font-bold text-ink">Step 6: Verify Detection is Active</h2>
-                        <p class="text-sm text-ink">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm text-ink">
+                    <div class="space-y-3">
+                        <h2 class="text-base font-heading font-bold text-ink">Step 6: Verify Detection is Active</h2>
+                        <p class="text-xs text-ink">Deploy your app and generate some traffic. Within seconds of a request reaching your SDK-instrumented app, return to the Intelligence Portal — you should see:</p>
+                        <ul class="list-disc pl-6 space-y-1.5 text-xs text-ink">
                             <li>Your app listed as <strong class="text-mint">Connected</strong> in the dashboard sidebar.</li>
                             <li>The 3D Threat Globe populating with activity from your traffic's geographic origins.</li>
                             <li>Any detected threats appearing in the Incident feed with Gemini-generated analysis and enforcement status.</li>
                         </ul>
-                        <p class="text-sm text-ink">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
+                        <p class="text-xs text-ink">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
                     </div>
 
                     <div class="space-y-4 border-t border-lavender-pale pt-8 mt-8">

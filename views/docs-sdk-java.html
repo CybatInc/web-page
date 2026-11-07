@@ -9,7 +9,7 @@
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
                 <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
-                <nav class="space-y-4 font-mono text-sm">
+                <nav class="space-y-3 font-mono text-xs">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
                     <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Cloudflare Integration</a>
@@ -68,7 +68,7 @@
 
             <!-- Quick Start -->
             <div id="quickstart" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Quick Start<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Quick Start<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6">Four steps from dependency configuration to live autonomous threat protection.</p>
 
                 <div class="space-y-4">
@@ -115,7 +115,7 @@
 
             <!-- Installation -->
             <div id="installation" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Installation<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Installation<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6">Install via your build tool of choice. Requires Java 17+ and targets <code class="bg-lavender-pale px-1 rounded text-lavender">jakarta.servlet</code> (Servlet 5.0+ / Jakarta EE 9+).</p>
 
                 <!-- Maven -->
@@ -155,7 +155,7 @@
 
             <!-- Framework Code Samples -->
             <div id="code-samples" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Framework Code Samples<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Framework Code Samples<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6">Drop-in configuration snippets for Spring Boot 3+ and standard Jakarta Servlet containers.</p>
 
                 <!-- Spring Boot 3+ -->
@@ -249,7 +249,7 @@ public class CybatInitializer implements ServletContextListener {
 
             <!-- Multi-Cloud Routing -->
             <div id="multi-cloud" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Multi-Cloud Routing<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Multi-Cloud Routing<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6">Set <strong class="text-ink">exactly one</strong> of <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code> or <code class="bg-lavender-pale px-1 rounded text-lavender">awsProjectId</code> on the options builder — required, and never both on the same instance. Whichever you configure determines where data is routed automatically.</p>
 
                 <div class="overflow-x-auto rounded-lg border border-lavender-pale">
@@ -280,7 +280,7 @@ public class CybatInitializer implements ServletContextListener {
 
             <!-- Configuration Reference -->
             <div id="configuration" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Configuration Reference<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Configuration Reference<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6">Constructed via the type-safe fluent builder <code class="bg-lavender-pale px-1 rounded text-lavender">Options.builder(apiKey)</code>.</p>
 
                 <div class="overflow-x-auto rounded-lg border border-lavender-pale mb-6">
@@ -385,7 +385,7 @@ public class CybatInitializer implements ServletContextListener {
 
             <!-- Request Bodies & Redaction -->
             <div id="bodies" class="mb-12 scroll-mt-40">
-                <h2 class="text-3xl font-heading font-bold mb-2 tracking-tight">Request Bodies &amp; Redaction<span class="text-lavender">_</span></h2>
+                <h2 class="text-base md:text-lg font-heading font-bold mb-2 tracking-tight">Request Bodies &amp; Redaction<span class="text-lavender">_</span></h2>
                 <p class="font-mono text-sm text-ink mb-6"><code class="bg-lavender-pale px-1 rounded text-lavender">captureBody</code> is disabled by default. Enabling body capture supplies the Intelligence Engine with critical attack indicators (SQLi, command injection, credential stuffing, prompt injection), while preserving strict privacy guarantees:</p>
 
                 <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-6 space-y-4 text-xs text-ink font-mono">
