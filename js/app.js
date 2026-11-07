@@ -468,7 +468,7 @@ const app = createApp({
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="site-links hidden lg:flex items-center gap-3 xl:gap-5 text-[13px] xl:text-sm font-mono font-bold uppercase tracking-[0.06em] text-white/50 whitespace-nowrap">
+                    <div class="site-links hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs xl:text-[13px] font-mono font-bold uppercase tracking-[0.08em] text-white/50 whitespace-nowrap">
                         <router-link to="/features" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.features') }}</router-link>
                         <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.infra') }}</router-link>
                         <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.safety') }}</router-link>
@@ -480,11 +480,11 @@ const app = createApp({
                         
                         <!-- Desktop Language Switcher -->
                         <div class="lang-switch flex items-center rounded-full p-0.5 border text-xs font-mono select-none shrink-0" role="group" aria-label="Language Selector">
-                            <button type="button" @click="setLang('en')" :class="currentLang === 'en' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-1 rounded-full transition-all duration-150" title="English">EN</button>
-                            <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-1 rounded-full transition-all duration-150" title="Español">ES</button>
+                            <button type="button" @click="setLang('en')" :class="currentLang === 'en' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-0.5 rounded-full transition-all duration-150" title="English">EN</button>
+                            <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-0.5 rounded-full transition-all duration-150" title="Español">ES</button>
                         </div>
 
-                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-4 xl:px-5 py-2 ml-1 xl:ml-2 hover:bg-white transition-colors font-bold tracking-[0.12em] shrink-0 whitespace-nowrap text-xs xl:text-sm">{{ t('nav.subscribe') }}</a>
+                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-4 xl:px-5 py-2 ml-1 xl:ml-2 hover:bg-white transition-colors font-bold tracking-[0.15em] shrink-0 whitespace-nowrap text-xs">{{ t('nav.subscribe') }}</a>
                     </div>
 
                     <!-- Mobile Menu Button -->

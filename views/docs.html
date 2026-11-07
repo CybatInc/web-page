@@ -9,8 +9,8 @@
         <!-- Sidebar Navigation -->
         <div class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
-                <h3 class="font-mono text-xs text-ink mb-6">Documentation Index</h3>
-                <nav class="space-y-3 font-mono text-xs">
+                <h3 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-6">Documentation Index</h3>
+                <nav class="space-y-3 font-mono text-sm">
                     <a href="#/docs" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Overview</a>
                     <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Getting Started</a>
                     <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Cloudflare Integration</a>
@@ -28,11 +28,11 @@
         <!-- Main Content -->
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-lg md:text-xl font-heading font-bold mb-4 tracking-tight">Documentation<span class="text-lavender">_</span></h1>
+                <h1 class="text-2xl md:text-3xl font-heading font-bold mb-4 tracking-tight">Documentation<span class="text-lavender">_</span></h1>
                 
                 <!-- Documentation Overview (Required by GCP) -->
                 <div id="overview" class="p-6 md:p-8 bg-paper border border-lavender/30 rounded-lg mb-8">
-                    <p class="text-xs md:text-sm text-ink-soft leading-relaxed font-mono">
+                    <p class="text-sm md:text-base text-ink-soft leading-relaxed font-mono">
                         Comprehensive technical documentation for the Cybat Intelligence Engine is provided to ensure seamless integration within your Google Cloud environment. Our documentation includes step-by-step deployment guides, IAM role configuration requirements, API reference material, and best practices for AI-driven threat hunting. For specialized architectural support, customers can access our dedicated technical portal.
                     </p>
                 </div>
@@ -40,17 +40,17 @@
 
             <!-- Documentation Links -->
             <div class="space-y-4 mb-6">
-                <h2 class="text-lg md:text-xl font-heading font-bold mb-6 border-b border-lavender-pale pb-3">Guides & References</h2>
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-6 border-b border-lavender-pale pb-3">Guides & References</h2>
 
                 <!-- Getting Started -->
                 <div id="getting-started" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Getting Started Guide</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">ESSENTIAL</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Getting Started Guide</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">ESSENTIAL</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">A step-by-step walkthrough on how to activate the engine once purchased in the Google Cloud Marketplace.</p>
-                    <a href="#/docs/getting-started" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Guide <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">A step-by-step walkthrough on how to activate the engine once purchased in the Google Cloud Marketplace.</p>
+                    <a href="#/docs/getting-started" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Guide <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -59,12 +59,12 @@
                 <!-- Cloudflare Integration -->
                 <div id="integration-cloudflare" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Cloudflare Integration Guide</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">WORKERS • WAF • 0 MS</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Cloudflare Integration Guide</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">WORKERS • WAF • 0 MS</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Deploy zero-latency (0 ms) out-of-band reverse proxy telemetry at Cloudflare's edge using Cloudflare Workers, and configure automated WAF IP blocking and unblocking via API.</p>
-                    <a href="#/docs/cloudflare" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Integration Guide <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Deploy zero-latency (0 ms) out-of-band reverse proxy telemetry at Cloudflare's edge using Cloudflare Workers, and configure automated WAF IP blocking and unblocking via API.</p>
+                    <a href="#/docs/cloudflare" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Integration Guide <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -73,12 +73,12 @@
                 <!-- Python SDK Reference -->
                 <div id="sdk-python" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Python SDK Reference</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">PYPI • V1.0.0</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Python SDK Reference</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">PYPI • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Integration guides and middleware setup for Flask, Django, FastAPI, and generic ASGI applications using <code class="bg-lavender-pale px-1 rounded text-lavender">cybat-sdk</code>.</p>
-                    <a href="#/docs/sdk-python" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Reference <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Integration guides and middleware setup for Flask, Django, FastAPI, and generic ASGI applications using <code class="bg-lavender-pale px-1 rounded text-lavender">cybat-sdk</code>.</p>
+                    <a href="#/docs/sdk-python" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Reference <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -87,12 +87,12 @@
                 <!-- Node.js SDK Reference -->
                 <div id="sdk-node" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Node.js SDK Reference</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">NPM • V1.0.2</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Node.js SDK Reference</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">NPM • V1.0.2</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Integration guides and middleware setup for Express, Fastify, and NestJS applications using <code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>.</p>
-                    <a href="#/docs/sdk-node" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Reference <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Integration guides and middleware setup for Express, Fastify, and NestJS applications using <code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>.</p>
+                    <a href="#/docs/sdk-node" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Reference <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -101,12 +101,12 @@
                 <!-- PHP SDK Reference -->
                 <div id="sdk-php" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">PHP SDK Reference</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">PACKAGIST • V1.0.0</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">PHP SDK Reference</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">PACKAGIST • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Integration guides and middleware setup for Slim 4, Laravel, and Symfony applications using <code class="bg-lavender-pale px-1 rounded text-lavender">cybat/sdk</code>.</p>
-                    <a href="#/docs/sdk-php" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Reference <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Integration guides and middleware setup for Slim 4, Laravel, and Symfony applications using <code class="bg-lavender-pale px-1 rounded text-lavender">cybat/sdk</code>.</p>
+                    <a href="#/docs/sdk-php" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Reference <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -115,12 +115,12 @@
                 <!-- Java SDK Reference -->
                 <div id="sdk-java" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Java SDK Reference</h3>
-                        <span class="font-mono text-[10px] bg-mint/20 text-mint px-2 py-0.5 rounded">MAVEN CENTRAL • V1.0.0</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Java SDK Reference</h3>
+                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">MAVEN CENTRAL • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Integration guides and servlet filter setup for Spring Boot 3+ and Jakarta Servlet containers using <code class="bg-lavender-pale px-1 rounded text-lavender">co.cybat:cybat-sdk</code>.</p>
-                    <a href="#/docs/sdk-java" class="text-mint hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        View Reference <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Integration guides and servlet filter setup for Spring Boot 3+ and Jakarta Servlet containers using <code class="bg-lavender-pale px-1 rounded text-lavender">co.cybat:cybat-sdk</code>.</p>
+                    <a href="#/docs/sdk-java" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        View Reference <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -128,10 +128,10 @@
 
                 <!-- User Guide -->
                 <div id="user-guide" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-lavender/50 transition-colors">
-                    <h3 class="font-heading text-base font-bold mb-3">User Guide / Technical Reference</h3>
-                    <p class="font-mono text-xs text-ink mb-4">In-depth explanation of the Cybat Engine logic—how to set up threat rules and tune AI parameters for precise anomaly detection.</p>
-                    <a href="#/docs/user-guide" class="text-lavender hover:text-ink font-mono text-xs font-bold flex items-center transition-colors">
-                        Read Reference <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <h3 class="font-heading text-lg md:text-xl font-bold mb-3">User Guide / Technical Reference</h3>
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">In-depth explanation of the Cybat Engine logic—how to set up threat rules and tune AI parameters for precise anomaly detection.</p>
+                    <a href="#/docs/user-guide" class="text-lavender hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                        Read Reference <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
@@ -140,12 +140,12 @@
                 <!-- Release Notes -->
                 <div id="release-notes" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-lavender/40 transition-colors">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-base font-bold">Release Notes</h3>
-                        <span class="font-mono text-[10px] bg-lavender-pale text-ink px-2 py-0.5 rounded">V1.0.0</span>
+                        <h3 class="font-heading text-lg md:text-xl font-bold">Release Notes</h3>
+                        <span class="font-mono text-xs bg-lavender-pale text-ink px-2.5 py-1 rounded">V1.0.0</span>
                     </div>
-                    <p class="font-mono text-xs text-ink mb-4">Keep up to date with the latest engine builds, logic improvements, and platform feature releases.</p>
-                    <a href="#/docs/release-notes" class="text-ink hover:text-mint font-mono text-xs font-bold flex items-center transition-colors">
-                        View Changelog <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Keep up to date with the latest engine builds, logic improvements, and platform feature releases.</p>
+                    <a href="#/docs/release-notes" class="text-ink hover:text-mint font-mono text-sm font-bold flex items-center transition-colors">
+                        View Changelog <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </a>
