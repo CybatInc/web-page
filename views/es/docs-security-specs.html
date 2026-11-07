@@ -131,6 +131,15 @@
                                     Una vez superado el API Gateway, los lotes ingresan a un tema duradero de Pub/Sub antes de llegar al motor de análisis de IA: los picos de tráfico (precisamente cuando ocurre un ataque real) se absorben sin pérdidas.
                                 </div>
                             </div>
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <div class="col-span-4">
+                                    <p class="text-ink font-bold mb-1">Sondeo de Primer Contacto</p>
+                                    <p class="text-lavender text-[10px]">Validación de Preparación y Calentamiento</p>
+                                </div>
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    En la primera petición recibida que incluye un nuevo <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code>, el motor ejecuta una validación de preparación inicial contra Google Cloud (verificando la existencia del proyecto, la habilitación de <code class="bg-lavender-pale px-1 rounded text-lavender">compute.googleapis.com</code> y la preparación para la aplicación de reglas en Cloud Armor y firewall VPC). Debido a este chequeo inicial y al calentamiento de la caché, el ciclo de la primera petición tomará un poco más de tiempo que las llamadas posteriores, que consultan la caché L1 en memoria con sobrecarga submilimétrica.
+                                </div>
+                            </div>
                         </div>
                     </div>
 

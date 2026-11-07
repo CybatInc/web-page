@@ -199,6 +199,14 @@ init_app(app,
                             <li>El Globo de Amenazas 3D poblándose con actividad desde los orígenes geográficos de su tráfico.</li>
                             <li>Cualquier amenaza detectada apareciendo en el feed de Incidentes con análisis generado por Gemini y el estado de mitigación.</li>
                         </ul>
+                        <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-4 text-xs text-ink space-y-1 mt-3">
+                            <strong class="text-lavender font-mono text-[11px] flex items-center gap-1.5">
+                                <span>⚡</span> Validación de Primera Petición y Calentamiento de Caché
+                            </strong>
+                            <p class="leading-relaxed">
+                                Cuando su aplicación transmite su primer lote de telemetría para un proyecto de GCP, el Motor de Inteligencia realiza automáticamente una validación de preparación de infraestructura en segundo plano: verifica la existencia del proyecto, la habilitación de la API de Compute Engine (<code class="bg-lavender-pale px-1 rounded text-lavender">compute.googleapis.com</code>) y la preparación para la aplicación de reglas en Cloud Armor y firewall VPC. Debido a esta validación inicial y al calentamiento de la caché, el procesamiento del primer lote tomará un poco más de tiempo de lo habitual. Todos los lotes posteriores se almacenan en caché en memoria y se evalúan a latencia ultrabaja.
+                            </p>
+                        </div>
                         <p class="text-xs text-ink">Si no aparece nada en unos minutos, confirme que el middleware esté montado antes de sus rutas y que la clave API no haya sido revocada ni haya expirado.</p>
                     </div>
 

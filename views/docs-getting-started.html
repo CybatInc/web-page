@@ -199,6 +199,14 @@ init_app(app,
                             <li>The 3D Threat Globe populating with activity from your traffic's geographic origins.</li>
                             <li>Any detected threats appearing in the Incident feed with Gemini-generated analysis and enforcement status.</li>
                         </ul>
+                        <div class="bg-lavender-pale/40 border border-lavender-pale rounded-lg p-4 text-xs text-ink space-y-1 mt-3">
+                            <strong class="text-lavender font-mono text-[11px] flex items-center gap-1.5">
+                                <span>⚡</span> First Request Validation &amp; Cache Warm-up
+                            </strong>
+                            <p class="leading-relaxed">
+                                When your application transmits its first batch of telemetry for a GCP project, the Intelligence Engine automatically performs an asynchronous infrastructure readiness check — verifying project existence, Compute Engine API (<code class="bg-lavender-pale px-1 rounded text-lavender">compute.googleapis.com</code>) enablement, and Cloud Armor/VPC firewall enforcement readiness. Because of this one-time initial validation and cache warm-up, the very first request processing cycle will take slightly longer than usual. All subsequent batches are cached in-memory and evaluated with zero latency overhead.
+                            </p>
+                        </div>
                         <p class="text-xs text-ink">If nothing appears within a few minutes, confirm the middleware is mounted before your routes and that the API key hasn't been revoked or expired.</p>
                     </div>
 

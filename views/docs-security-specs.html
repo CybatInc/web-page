@@ -131,6 +131,15 @@
                                     Once past the API Gateway, batches land on a durable Pub/Sub topic before reaching the AI analysis engine — a traffic spike (exactly when a real attack is happening) is absorbed instead of dropped.
                                 </div>
                             </div>
+                            <div class="grid grid-cols-12 gap-4 items-start bg-lavender-pale/40 border border-lavender-pale rounded p-4">
+                                <div class="col-span-4">
+                                    <p class="text-ink font-bold mb-1">First-Contact Probe</p>
+                                    <p class="text-lavender text-[10px]">Readiness Validation &amp; Warm-up</p>
+                                </div>
+                                <div class="col-span-8 text-ink leading-relaxed">
+                                    On the very first request received carrying a new <code class="bg-lavender-pale px-1 rounded text-lavender">gcpProjectId</code>, the engine performs an initial readiness validation against Google Cloud (verifying project existence, <code class="bg-lavender-pale px-1 rounded text-lavender">compute.googleapis.com</code> enablement, and Cloud Armor/VPC firewall enforcement readiness). Because of this one-time check and cache warm-up, the first request cycle takes slightly longer than subsequent calls, which hit an in-memory L1 cache with sub-millisecond evaluation overhead.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
