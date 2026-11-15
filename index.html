@@ -4,27 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybat AI | Autonomous AI-Agent Security for Google Cloud</title>
+    <title>Cybat AI | 24/7 AI Cybersecurity for Apps, APIs, Cloudflare &amp; Google Cloud</title>
     <meta name="description"
-        content="Deploy Cybat AI to protect your GCP surface with Gemini-powered autonomous security. Real-time SDK-based telemetry, sub-second threat detection, and automated Cloud Armor mitigation.">
+        content="Stop hackers, bots, and API attacks automatically in under 5 seconds. Connect Cybat AI to Cloudflare, Google Cloud, Node.js, Python, PHP, or Java in 5 minutes. Start your 30-day free trial.">
     <meta name="author" content="Eder Diaz Toro">
     <meta name="keywords"
-        content="GCP Security, Cloud Security, AI Security, Google Cloud, Gemini AI, SOC Automation, Cloud Armor, Vertex AI, Eder Diaz Toro, Ederius">
+        content="AI Cybersecurity, API Security, Cloudflare WAF, GCP Security, Cloud Security, Google Cloud, Gemini AI, SOC Automation, Cloud Armor, LATAM Ciberseguridad">
 
     <!-- OpenGraph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cybat.co/">
-    <meta property="og:title" content="Cybat AI | Autonomous GCP Security">
+    <meta property="og:title" content="Cybat AI | Your 24/7 AI Cybersecurity Engineer">
     <meta property="og:description"
-        content="Autonomous AI-Agent for GCP. Protecting your infrastructure at the speed of Google's backbone.">
+        content="Stop hackers, bots, and API attacks in under 5 seconds without hiring a security team. 30-day free trial.">
     <meta property="og:image" content="https://cybat.co/assets/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://cybat.co/">
-    <meta property="twitter:title" content="Cybat AI | Autonomous GCP Security">
+    <meta property="twitter:title" content="Cybat AI | Your 24/7 AI Cybersecurity Engineer">
     <meta property="twitter:description"
-        content="Autonomous AI-Agent for GCP. Protecting your infrastructure at the speed of Google's backbone.">
+        content="Stop hackers, bots, and API attacks in under 5 seconds without hiring a security team. 30-day free trial.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lato:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,24 +42,24 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Lato', 'sans-serif'],
-                        heading: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        heading: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['Roboto Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
                     },
                     colors: {
-                        'ai-obsidian': '#030712',
-                        'ai-navy': '#0F172A',
-                        'ai-lavender': '#A78BFA',
-                        'ai-mint': '#2DD4BF',
-                        'ai-border': '#1F2937',
-                        'paper': '#FAF7F2',
-                        'ink': '#2E2A3B',
-                        'ink-soft': '#5B5670',
-                        'lavender': '#8B7BD8',
-                        'lavender-pale': '#ECE7FA',
-                        'mint': '#3FA796',
-                        'mint-pale': '#DFF3EE',
-                        'peach-pale': '#FBEAE0',
+                        'ai-obsidian': '#0F172A',
+                        'ai-navy': '#1E293B',
+                        'ai-lavender': '#4F46E5',
+                        'ai-mint': '#0F766E',
+                        'ai-border': '#E2E8F0',
+                        'paper': '#F8FAFC',
+                        'ink': '#0F172A',
+                        'ink-soft': '#475569',
+                        'lavender': '#4F46E5',
+                        'lavender-pale': '#E0E7FF',
+                        'mint': '#0F766E',
+                        'mint-pale': '#CCFBF1',
+                        'peach-pale': '#FEF3C7',
                     }
                 }
             }
@@ -105,10 +105,14 @@
 
 <style>
     :root {
-        --color-bg: #030712;
-        --color-text: #F9FAFB;
-        --color-lavender: #A78BFA;
-        --color-mint: #2DD4BF;
+        --color-bg: #F8FAFC;
+        --color-text: #0F172A;
+        --color-lavender: #4F46E5;
+        --color-mint: #0F766E;
+    }
+
+    html {
+        color-scheme: light;
     }
 
     html,
@@ -117,9 +121,10 @@
         margin: 0;
         background-color: var(--color-bg);
         color: var(--color-text);
-        font-family: 'Lato', sans-serif;
-        font-size: 18px;
-        /* Increased from default */
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+        -webkit-font-smoothing: antialiased;
     }
 
     h1,
@@ -127,12 +132,32 @@
     h3,
     h4,
     .font-heading {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
-    /* Refined Edges */
-    * {
-        border-radius: 4px;
+    h1,
+    h2,
+    h3 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    /* Prevent monospace fatigue on body prose & nav while keeping mono for code & badges */
+    p.font-mono,
+    li.font-mono,
+    nav.font-mono {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        letter-spacing: normal;
+    }
+
+    code,
+    pre,
+    kbd,
+    samp {
+        font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, monospace;
     }
 
     /* Aurora Glows */
@@ -303,63 +328,64 @@
         color: #ffffff !important;
     }
 
-    /* ── Light (pastel) theme — applied per route via html.theme-light ── */
+    /* ── Enterprise Cloud Light Theme ── */
     html.theme-light,
     html.theme-light body {
-        background-color: #FAF7F2;
-        color: #2E2A3B;
+        background-color: #F8FAFC;
+        color: #0F172A;
     }
 
     html.theme-light .site-nav {
-        background-color: rgba(250, 247, 242, 0.85);
-        border-color: rgba(46, 42, 59, 0.08);
+        background-color: rgba(255, 255, 255, 0.92);
+        border-color: #E2E8F0;
     }
 
     html.theme-light .site-nav .font-black:not(.site-cta),
     html.theme-light .site-footer .font-black {
-        color: #2E2A3B;
+        color: #0F172A;
         font-style: normal;
         text-transform: none;
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: -0.03em;
     }
 
     html.theme-light .site-dot {
         border-radius: 9999px;
-        background-color: #8B7BD8;
+        background-color: #4F46E5;
         box-shadow: none;
     }
 
     html.theme-light .site-links,
     html.theme-light .site-mobile a:not(.site-cta),
     html.theme-light .site-nav > div > button {
-        color: #5B5670;
+        color: #475569;
     }
 
     html.theme-light .site-links a:hover,
     html.theme-light .site-mobile a:hover {
-        color: #8B7BD8;
+        color: #4F46E5;
     }
 
     html.theme-light .site-mobile {
-        background-color: #FAF7F2;
-        border-color: rgba(46, 42, 59, 0.08);
+        background-color: #FFFFFF;
+        border-color: #E2E8F0;
     }
 
     html.theme-light .site-cta {
-        background-color: #8B7BD8;
-        color: #fff;
+        background-color: #4F46E5;
+        color: #FFFFFF;
         border-radius: 9999px;
     }
 
     html.theme-light .site-links a.site-cta:hover,
     html.theme-light .site-mobile a.site-cta:hover {
-        background-color: #2E2A3B;
-        color: #fff;
+        background-color: #0F172A;
+        color: #FFFFFF;
     }
 
     html.theme-light .site-footer {
-        background-color: #F2EDE4;
-        border-color: rgba(46, 42, 59, 0.08);
+        background-color: #F1F5F9;
+        border-color: #E2E8F0;
     }
 
     html.theme-light .site-footer .aurora {
@@ -367,54 +393,49 @@
     }
 
     html.theme-light .site-footer [class*="text-white"] {
-        color: #5B5670;
+        color: #475569;
     }
 
     html.theme-light .site-footer [class*="border-white"] {
-        border-color: rgba(46, 42, 59, 0.08);
+        border-color: #E2E8F0;
     }
 
     html.theme-light .site-footer a:hover {
-        color: #8B7BD8;
+        color: #4F46E5;
     }
 
     html.theme-light .section-deep {
         background-color: transparent;
-        color: #2E2A3B;
+        color: #0F172A;
     }
 
     html.theme-light .section-navy {
-        background-color: rgba(255, 255, 255, 0.6);
-        color: #2E2A3B;
-    }
-
-    /* Softer corners site-wide; full-bleed blocks stay square */
-    html.theme-light * {
-        border-radius: 12px;
+        background-color: #FFFFFF;
+        color: #0F172A;
     }
 
     html.theme-light .lang-switch {
-        border-color: rgba(46, 42, 59, 0.15);
-        background-color: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        border-color: #CBD5E1;
+        background-color: #F8FAFC;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
 
     html.theme-light .lang-switch button.lang-active {
-        background-color: #8B7BD8;
-        color: #ffffff !important;
-        box-shadow: 0 1px 3px rgba(139, 123, 216, 0.3);
+        background-color: #4F46E5;
+        color: #FFFFFF !important;
+        box-shadow: 0 1px 2px rgba(79, 70, 229, 0.25);
     }
 
     html.theme-light .lang-switch button:not(.lang-active) {
-        color: #5B5670 !important;
+        color: #475569 !important;
     }
 
     html.theme-light .lang-switch button:not(.lang-active):hover {
-        color: #2E2A3B !important;
+        color: #0F172A !important;
     }
 
     html.theme-light .mobile-lang-label {
-        color: #5B5670;
+        color: #475569;
     }
 
     html.theme-light section,
@@ -425,35 +446,60 @@
         border-radius: 0;
     }
 
-    html.theme-light ::-webkit-scrollbar-track { background: #FAF7F2; }
-    html.theme-light ::-webkit-scrollbar-thumb { background: #D9D2EE; }
+    html.theme-light ::-webkit-scrollbar-track { background: #F1F5F9; }
+    html.theme-light ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
 
-    /* ── Documentation Page Typography & Letter Sizing ── */
-    html.is-docs-page,
+    @media (forced-colors: active) {
+        .site-cta,
+        button {
+            border: 1px solid ButtonText;
+        }
+    }
+
+    /* ── Documentation Page Layout & Typography ── */
     html.is-docs-page body {
-        font-size: 14px;
-        line-height: 1.55;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    html.is-docs-page .flex-grow .max-w-7xl {
+        max-width: 1520px;
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        html.is-docs-page .flex-grow .lg\:w-1\/4,
+        html.is-docs-page .flex-grow aside.lg\:w-1\/4 {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        html.is-docs-page .flex-grow .lg\:w-3\/4,
+        html.is-docs-page .flex-grow main.lg\:w-3\/4 {
+            width: calc(100% - 250px - 3rem);
+            flex: 1 1 auto;
+        }
     }
 
     html.is-docs-page .lg\:w-1\/4 nav,
     html.is-docs-page aside nav {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     html.is-docs-page .lg\:w-1\/4 nav a,
     html.is-docs-page aside nav a {
-        font-size: 12px;
-        line-height: 1.45;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     html.is-docs-page .lg\:w-3\/4,
     html.is-docs-page main {
-        font-size: 13px;
+        font-size: 14.5px;
     }
 
     html.is-docs-page pre,
     html.is-docs-page code {
-        font-size: 11.5px;
+        font-size: 12.5px;
     }
 </style>
 
@@ -467,15 +513,13 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="site-links hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs xl:text-[13px] font-mono font-bold uppercase tracking-[0.08em] text-white/50 whitespace-nowrap">
-                    <a href="#/features" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Features</a>
-                    <a href="#/infrastructure" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Infra</a>
-                    <a href="#/ai-safety" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Safety</a>
-                    <a href="#/stack" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Stack</a>
-                    <a href="#/pricing" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Pricing</a>
-                    <a href="#/support" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Support</a>
-                    <a href="#/docs" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Docs</a>
-                    <a href="#/security" class="hover:text-ai-lavender transition-colors whitespace-nowrap">Security</a>
+                <div class="site-links hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-sans font-semibold text-ink-soft whitespace-nowrap">
+                    <a href="#/features" class="hover:text-lavender transition-colors whitespace-nowrap">Features</a>
+                    <a href="#/pricing" class="hover:text-lavender transition-colors whitespace-nowrap">Pricing</a>
+                    <a href="#/docs" class="hover:text-lavender transition-colors whitespace-nowrap">Docs</a>
+                    <a href="#/security" class="hover:text-lavender transition-colors whitespace-nowrap">Security</a>
+                    <a href="#/support" class="hover:text-lavender transition-colors whitespace-nowrap">Support</a>
+                    <a href="https://intelligence.cybat.co/#/login" target="_blank" rel="noopener" class="hover:text-lavender transition-colors whitespace-nowrap">Dashboard</a>
                     
                     <!-- Desktop Language Switcher -->
                     <div class="lang-switch flex items-center rounded-full p-0.5 border text-xs font-mono select-none shrink-0" role="group" aria-label="Language Selector">
@@ -484,7 +528,7 @@
                     </div>
 
                     <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener"
-                        class="site-cta bg-ai-lavender text-ai-obsidian px-4 xl:px-5 py-2 ml-1 xl:ml-2 hover:bg-white transition-colors font-bold tracking-[0.15em] shrink-0 whitespace-nowrap text-xs">Subscribe_</a>
+                        class="site-cta bg-lavender text-white px-5 py-2.5 ml-1 xl:ml-2 hover:bg-ink transition-colors font-semibold shrink-0 whitespace-nowrap text-sm rounded-full shadow-sm">30-Day Free Trial</a>
                 </div>
 
                 <!-- Mobile Menu Button (Static fallback) -->

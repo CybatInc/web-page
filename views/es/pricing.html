@@ -1,80 +1,256 @@
-<!-- Pricing Page - Views -->
-<div class="relative pt-12 pb-20 lg:pt-16 lg:pb-12 overflow-hidden bg-paper z-0">
-    <div class="aurora aurora-lavender w-[600px] h-[600px] top-0 left-1/2 -translate-x-1/2 opacity-20 z-0"></div>
+<!-- Pricing Page - Views (ES) -->
+<div class="relative pt-12 pb-20 lg:pt-16 lg:pb-24 overflow-hidden bg-paper z-0">
+    <div class="aurora aurora-lavender w-[600px] h-[600px] top-0 left-1/2 -translate-x-1/2 opacity-20 z-0" aria-hidden="true"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="mb-20 animate-fade-in-up">
-            <h1 class="text-xl md:text-2xl font-heading font-bold mb-6 tracking-tight text-ink">
-                Precios<span class="text-lavender">_</span></h1>
-            <p class="text-sm md:text-base text-ink-soft max-w-2xl leading-relaxed font-mono">Combinación: Suscripción +
-                Uso.<br />MRR predecible. Márgenes protegidos.</p>
+        <!-- Header + 30-Day Free Trial Callout -->
+        <div class="mb-14 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-mint-pale text-mint font-mono text-xs font-bold px-4 py-1.5 rounded-full mb-5">
+                <span class="w-2 h-2 rounded-full bg-mint animate-pulse" aria-hidden="true"></span>
+                30 Días de Prueba Gratis en Todos los Planes · Precios en USD
+            </div>
+            <h1 class="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-tight text-ink">
+                Ciberseguridad con IA 24/7 por una fracción de <span class="text-lavender">contratar a una sola persona.</span>
+            </h1>
+            <p class="text-sm md:text-base text-ink-soft leading-relaxed">
+                Contratar a un solo ingeniero de ciberseguridad en Latinoamérica cuesta entre $2,500 y $6,000+ USD al mes. Cybat AI vigila y bloquea ataques en tus APIs, Cloudflare y Google Cloud las 24 horas—comenzando con <strong>30 días de prueba gratis</strong>.
+            </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Starter Tier -->
-            <div
-                class="bg-white border border-lavender-pale p-8 rounded-lg relative overflow-hidden group hover:border-lavender/50 transition-colors z-10 flex flex-col justify-between">
+        <!-- 3 Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8 items-stretch">
+            <!-- Startups Tier (Plan ID: small) -->
+            <div class="bg-white border border-lavender-pale p-8 rounded-3xl relative overflow-hidden group hover:border-lavender/50 transition-colors z-10 flex flex-col justify-between">
                 <div>
-                    <h3 class="text-2xl font-heading font-bold mb-2 text-ink">Starter</h3>
-                    <div class="text-4xl font-mono font-bold mb-6 text-ink">$249<span
-                            class="text-sm text-ink">/mes</span></div>
-                    <ul class="space-y-4 mb-8 font-mono text-sm text-ink">
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span> 50 GB
-                            de Datos Incluidos</li>
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span>
-                            $3.50/GB por Excedente</li>
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span> SLA de Soporte
-                            Básico</li>
-                    </ul>
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-heading font-bold text-ink">Startups</h2>
+                        <span class="font-mono text-[11px] bg-lavender-pale/70 text-lavender px-2.5 py-0.5 rounded-full font-bold">-20% Plan Anual</span>
+                    </div>
+                    <p class="text-xs text-ink-soft mb-6">Ideal para startups, pymes tecnológicas y aplicaciones web o APIs en crecimiento.</p>
+
+                    <div class="mb-6 pb-6 border-b border-lavender-pale">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-mono font-bold text-ink">$119</span>
+                            <span class="text-sm font-mono text-ink-soft">USD / mes (plan anual)</span>
+                        </div>
+                        <div class="text-xs font-mono text-ink-soft mt-1.5">
+                            O <strong>$149 USD / mes</strong> en pago mensual
+                        </div>
+                        <div class="mt-3 inline-block bg-mint-pale text-mint font-mono text-xs font-bold px-3 py-1 rounded-full">
+                            ✓ Incluye 30 Días de Prueba Gratis
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="font-mono text-xs uppercase tracking-wider text-lavender font-bold mb-3">Capacidad y Funciones Incluidas</div>
+                        <ul class="space-y-3.5 text-sm text-ink">
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>1,500,000 Peticiones API / mes</strong> incluidas ($0/petición hasta 1.5M)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>$0.000015 USD / petición extra</strong> desde 1,500,001+ ($15 por millón adicional)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Detección con IA 24/7 y Bloqueo Automático en &lt;5 segundos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Integración 1-Clic con Cloudflare WAF y Google Cloud Armor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>SDKs (Node.js, Python, PHP, Java) + Alertas en Slack</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>SLA de Soporte Estándar en Español e Inglés</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
-                    target="_blank" rel="noopener"
-                    class="block w-full text-center bg-lavender-pale hover:bg-lavender hover:text-white text-ink font-mono font-bold py-4 transition-colors rounded">Suscribirse en Marketplace</a>
+
+                <div class="space-y-2.5 pt-4">
+                    <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                        target="_blank" rel="noopener"
+                        class="block w-full text-center bg-lavender text-white hover:bg-ink font-heading font-bold py-3.5 transition-colors rounded-full text-sm">
+                        Empezar Prueba Gratis (30 Días)
+                    </a>
+                    <a href="#/connect"
+                        class="block w-full text-center bg-lavender-pale/60 hover:bg-lavender-pale text-ink font-mono text-xs font-bold py-2.5 transition-colors rounded-full">
+                        O Agendar Demo Guiada →
+                    </a>
+                </div>
             </div>
 
-            <!-- Pro Tier -->
-            <div
-                class="bg-paper border-2 border-lavender p-8 rounded-lg relative overflow-hidden transform md:-translate-y-4 z-20 flex flex-col justify-between shadow-2xl">
-                <div
-                    class="absolute top-0 right-0 bg-lavender text-white font-mono text-[10px] font-bold py-1 px-3 z-30">
-                    Más Popular</div>
-                <div>
-                    <h3 class="text-2xl font-heading font-bold mb-2 text-lavender">Pro</h3>
-                    <div class="text-4xl font-mono font-bold mb-6 text-ink">$899<span
-                            class="text-sm text-ink">/mes</span></div>
-                    <ul class="space-y-4 mb-8 font-mono text-sm text-ink relative z-30">
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span> 250 GB
-                            de Datos Incluidos</li>
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span>
-                            $3.00/GB por Excedente</li>
-                        <li class="flex items-center"><span class="text-lavender mr-2 text-xl">&#10003;</span>
-                            SLA de Soporte Prioritario</li>
-                    </ul>
+            <!-- Standard Tier (Plan ID: medium) -->
+            <div class="bg-paper border-2 border-lavender p-8 rounded-3xl relative overflow-hidden transform md:-translate-y-3 z-20 flex flex-col justify-between shadow-2xl">
+                <div class="absolute top-0 right-0 bg-lavender text-white font-mono text-[10px] font-bold py-1.5 px-4 z-30 rounded-bl-xl">
+                    Más Popular
                 </div>
-                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
-                    target="_blank" rel="noopener"
-                    class="block w-full text-center bg-lavender hover:bg-ink text-white font-mono font-bold py-4 transition-colors rounded relative z-30">Suscribirse en Marketplace</a>
+                <div>
+                    <div class="flex items-center justify-between mb-2 pr-20">
+                        <h2 class="text-2xl font-heading font-bold text-lavender">Standard</h2>
+                    </div>
+                    <p class="text-xs text-ink-soft mb-6">Para SaaS en expansión, fintechs, e-commerce y empresas con tráfico constante.</p>
+
+                    <div class="mb-6 pb-6 border-b border-lavender-pale">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-mono font-bold text-ink">$319</span>
+                            <span class="text-sm font-mono text-ink-soft">USD / mes (plan anual)</span>
+                        </div>
+                        <div class="text-xs font-mono text-ink-soft mt-1.5">
+                            O <strong>$399 USD / mes</strong> en pago mensual
+                        </div>
+                        <div class="mt-3 inline-block bg-mint-pale text-mint font-mono text-xs font-bold px-3 py-1 rounded-full">
+                            ✓ Incluye 30 Días de Prueba Gratis
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="font-mono text-xs uppercase tracking-wider text-lavender font-bold mb-3">Capacidad y Funciones Incluidas</div>
+                        <ul class="space-y-3.5 text-sm text-ink relative z-30">
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>5,000,000 Peticiones API / mes</strong> incluidas ($0/petición hasta 5M)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>$0.00001 USD / petición extra</strong> desde 5,000,001+ ($10 por millón adicional)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Todo lo de Startups + Protección Multi-Servicio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Reportes de Auditoría y Cumplimiento para Clientes Corporativos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Acompañamiento en Instalación y Ajuste de Reglas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-lavender mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>SLA de Soporte Prioritario (Respuesta en 4 Horas)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-2.5 pt-4 relative z-30">
+                    <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                        target="_blank" rel="noopener"
+                        class="block w-full text-center bg-lavender hover:bg-ink text-white font-heading font-bold py-3.5 transition-colors rounded-full text-sm">
+                        Empezar Prueba Gratis (30 Días)
+                    </a>
+                    <a href="#/connect"
+                        class="block w-full text-center bg-white hover:bg-lavender-pale text-ink border border-lavender-pale font-mono text-xs font-bold py-2.5 transition-colors rounded-full">
+                        O Agendar Demo Guiada →
+                    </a>
+                </div>
             </div>
 
-            <!-- Enterprise Tier -->
-            <div
-                class="bg-white border border-lavender-pale p-8 rounded-lg relative overflow-hidden group hover:border-mint/50 transition-colors z-10 flex flex-col justify-between">
+            <!-- Enterprise Tier (Plan ID: large) -->
+            <div class="bg-white border border-lavender-pale p-8 rounded-3xl relative overflow-hidden group hover:border-mint/50 transition-colors z-10 flex flex-col justify-between">
                 <div>
-                    <h3 class="text-2xl font-heading font-bold mb-2 text-ink">Enterprise</h3>
-                    <div class="text-4xl font-mono font-bold mb-6 text-ink">$1,999<span
-                            class="text-sm text-ink">/mes</span></div>
-                    <ul class="space-y-4 mb-8 font-mono text-sm text-ink">
-                        <li class="flex items-center"><span class="text-mint mr-2 text-xl">&#10003;</span> 500 GB
-                            de Datos Incluidos</li>
-                        <li class="flex items-center"><span class="text-mint mr-2 text-xl">&#10003;</span> $2.50/GB
-                            por Excedente</li>
-                        <li class="flex items-center"><span class="text-mint mr-2 text-xl">&#10003;</span> Soporte
-                            Dedicado 24/7</li>
-                    </ul>
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-heading font-bold text-ink">Enterprise</h2>
+                        <span class="font-mono text-[11px] bg-mint-pale text-mint px-2.5 py-0.5 rounded-full font-bold">Alto Volumen</span>
+                    </div>
+                    <p class="text-xs text-ink-soft mb-6">Para plataformas de alto tráfico, sector financiero y corporativos.</p>
+
+                    <div class="mb-6 pb-6 border-b border-lavender-pale">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-mono font-bold text-ink">$799</span>
+                            <span class="text-sm font-mono text-ink-soft">USD / mes (plan anual)</span>
+                        </div>
+                        <div class="text-xs font-mono text-ink-soft mt-1.5">
+                            O <strong>$999 USD / mes</strong> en pago mensual
+                        </div>
+                        <div class="mt-3 inline-block bg-mint-pale text-mint font-mono text-xs font-bold px-3 py-1 rounded-full">
+                            ✓ Incluye 30 Días de Prueba Gratis
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="font-mono text-xs uppercase tracking-wider text-mint font-bold mb-3">Capacidad y Funciones Incluidas</div>
+                        <ul class="space-y-3.5 text-sm text-ink">
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>115,000,000 Peticiones API / mes</strong> incluidas ($0/petición hasta 115M)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span><strong>$0.000006 USD / petición extra</strong> desde 115,000,001+ ($6 por millón adicional)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Todo lo de Standard + Múltiples Proyectos y Dominios</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Políticas de IA Personalizadas y Revisión de Arquitectura</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Onboarding Guiado por Arquitecto de Seguridad</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-mint mr-2.5 font-bold" aria-hidden="true">&#10003;</span>
+                                <span>Soporte Dedicado 24/7 (SLA Crítico de 1 Hora)</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <a href="#/connect"
-                    class="block w-full text-center bg-lavender-pale hover:bg-mint hover:text-white text-ink font-mono font-bold py-4 transition-colors rounded">Contactar Ventas</a>
+
+                <div class="space-y-2.5 pt-4">
+                    <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                        target="_blank" rel="noopener"
+                        class="block w-full text-center bg-mint-pale hover:bg-mint hover:text-white text-ink font-heading font-bold py-3.5 transition-colors rounded-full text-sm">
+                        Empezar Prueba Gratis (30 Días)
+                    </a>
+                    <a href="#/connect"
+                        class="block w-full text-center bg-lavender-pale/60 hover:bg-lavender-pale text-ink font-mono text-xs font-bold py-2.5 transition-colors rounded-full">
+                        O Agendar Demo Enterprise →
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- Plain-Spanish FAQ Section using native <details> accordion -->
+        <section class="mt-20 max-w-4xl mx-auto" aria-labelledby="pricing-faq-heading-es">
+            <h2 id="pricing-faq-heading-es" class="text-2xl font-heading font-bold text-center mb-8 text-ink">
+                Preguntas Frecuentes sobre Precios y Prueba Gratis
+            </h2>
+            <div class="space-y-4">
+                <details name="pricing-faq-es" class="bg-white border border-lavender-pale rounded-2xl p-6" open>
+                    <summary class="font-heading font-bold text-base text-ink cursor-pointer">
+                        ¿Cómo funcionan los 30 días de prueba gratis?
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-soft leading-relaxed">
+                        Tienes acceso completo a Cybat AI durante 30 días sin costo. Nuestro equipo te acompaña en una videollamada de 15 minutos para conectar tu cuenta de Cloudflare o el SDK de tu aplicación en 5 minutos, para que veas en tiempo real qué ataques están entrando a tu sistema antes de pagar un solo dólar.
+                    </p>
+                </details>
+                <details name="pricing-faq-es" class="bg-white border border-lavender-pale rounded-2xl p-6">
+                    <summary class="font-heading font-bold text-base text-ink cursor-pointer">
+                        ¿Qué es una "Petición API" y cuántas necesito?
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-soft leading-relaxed">
+                        Cada consulta HTTP que llega a tu aplicación o API protegida cuenta como 1 petición. Los archivos estáticos (imágenes, estilos CSS, fuentes) se ignoran automáticamente para no consumir tu cupo. Para la gran mayoría de startups y pymes en Latinoamérica, 1.5 millones a 5 millones de peticiones cubren holgadamente todo el tráfico del mes.
+                    </p>
+                </details>
+                <details name="pricing-faq-es" class="bg-white border border-lavender-pale rounded-2xl p-6">
+                    <summary class="font-heading font-bold text-base text-ink cursor-pointer">
+                        ¿Necesito tener mis servidores en Google Cloud para usar Cybat?
+                    </summary>
+                    <p class="mt-3 text-sm text-ink-soft leading-relaxed">
+                        ¡No! Aunque tus servidores estén en AWS, DigitalOcean, Azure, Hostinger o servidores propios, puedes protegerlos en 1 clic usando nuestra <strong>integración con Cloudflare</strong> o instalando nuestro SDK ligero en tu aplicación Node.js, Python, PHP o Java.
+                    </p>
+                </details>
+            </div>
+        </section>
     </div>
 </div>

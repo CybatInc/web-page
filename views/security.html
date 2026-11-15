@@ -6,77 +6,77 @@
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="mb-14">
-            <h1 class="text-xl md:text-2xl font-heading font-bold mb-6 tracking-tight">
-                Security<span class="text-lavender">_</span></h1>
-            <p class="text-sm md:text-base text-ink-soft max-w-2xl leading-relaxed font-mono">Built from day one with a
+            <h1 class="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-tight text-ink">
+                Security &amp; Data Privacy</h1>
+            <p class="text-base md:text-lg text-ink-soft max-w-2xl leading-relaxed font-sans">Built from day one with a
                 zero-trust mindset. Our posture reflects the most robust security best practices expected of enterprise
                 Google Cloud Marketplace partners.</p>
         </div>
 
-        <div class="space-y-16">
+        <div class="space-y-12">
             <section class="border-l-2 border-lavender pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">Cybat Security & Data Privacy Overview</h2>
-                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Cybat Security &amp; Data Privacy Overview</h2>
+                <div class="prose prose-p:font-sans prose-p:text-base prose-p:text-ink-soft prose-p:leading-relaxed max-w-3xl">
                     <p>Cybat is an AI-native SOC platform built with an "Enterprise-First" security posture. We leverage Google Cloud’s world-class infrastructure to ensure the highest levels of data protection and operational integrity.</p>
                 </div>
             </section>
 
             <section class="border-l-2 border-mint pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">Data Residency & Architecture</h2>
-                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
-                    <p><strong>Zero-Retention:</strong> Unlike traditional SIEMs, Cybat AI evaluates request telemetry captured by the SDK in-memory and immediately discards it. Because there is no persistent storage of your sensitive operational data on our systems, the risk surface is fundamentally minimized.</p>
-                    <p><strong>Data Residency:</strong> All customer telemetry and metadata are stored and processed strictly within designated Google Cloud regions, ensuring compliance with data sovereignty requirements.</p>
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Data Residency &amp; Architecture</h2>
+                <div class="prose prose-p:font-sans prose-p:text-base prose-p:text-ink-soft prose-p:leading-relaxed max-w-3xl space-y-3">
+                    <p><strong class="text-ink">Zero-Retention:</strong> Unlike traditional SIEMs, Cybat AI evaluates request telemetry captured by the SDK in-memory and immediately discards it. Because there is no persistent storage of your sensitive operational data on our systems, the risk surface is fundamentally minimized.</p>
+                    <p><strong class="text-ink">Data Residency:</strong> All customer telemetry and metadata are stored and processed strictly within designated Google Cloud regions, ensuring compliance with data sovereignty requirements.</p>
                 </div>
             </section>
 
             <section class="border-l-2 border-lavender/40 pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">Encryption Standards</h2>
-                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Encryption Standards</h2>
+                <div class="prose prose-p:font-sans prose-p:text-base prose-p:text-ink-soft prose-p:leading-relaxed max-w-3xl">
                     <p>Cybat enforces industry-standard encryption for all data:</p>
-                    <ul class="list-disc pl-5 mt-4 space-y-2">
+                    <ul class="list-disc pl-5 mt-3 space-y-2 text-ink-soft">
                         <li><strong class="text-ink">In Transit:</strong> All data moved between the Customer Project and the Cybat Partner Project is protected via TLS 1.2+.</li>
-                        <li><strong class="text-ink">At Rest:</strong> Data stored in Firestore and BigQuery is encrypted using AES-256.</li>
+                        <li><strong class="text-ink">At Rest:</strong> Data stored in Firestore and BigQuery is encrypted using AES-256 and per-organization Cloud KMS envelope keys.</li>
                     </ul>
                 </div>
             </section>
 
             <section class="border-l-2 border-lavender pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">Identity & Access Management (IAM)</h2>
-                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Identity &amp; Access Management (IAM)</h2>
+                <div class="prose prose-p:font-sans prose-p:text-base prose-p:text-ink-soft prose-p:leading-relaxed max-w-3xl">
                     <p>We follow the Principle of Least Privilege. Cybat utilizes GCP Workload Identity to interact with customer environments, using granular permissions that allow only the specific actions required for automated remediation.</p>
                 </div>
             </section>
 
             <section class="border-l-2 border-mint pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">AI Governance</h2>
-                <div class="prose prose-p:font-mono prose-p:text-sm prose-p:text-ink prose-p:leading-relaxed max-w-none">
-                    <p>Our SOC Agent utilizes Vertex AI (Gemini 3.1 Flash). Under our enterprise agreement with Google Cloud, your data is never used to train foundation models, ensuring your application telemetry remains private.</p>
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">AI Governance</h2>
+                <div class="prose prose-p:font-sans prose-p:text-base prose-p:text-ink-soft prose-p:leading-relaxed max-w-3xl">
+                    <p>Our SOC Agent utilizes Vertex AI (Gemini 3.8 Flash). Under our enterprise agreement with Google Cloud, your data is never used to train foundation models, ensuring your application telemetry remains private.</p>
                 </div>
             </section>
 
             <section class="border-l-2 border-lavender/40 pl-8">
-                <h2 class="text-2xl font-heading font-bold mb-4">Operational Security & Compliance</h2>
-                <div class="grid md:grid-cols-2 gap-8 mt-6">
-                    <div class="bg-white p-6 rounded border border-lavender-pale">
-                        <div class="text-2xl mb-4">🛡️</div>
-                        <h4 class="font-heading font-bold text-sm mb-2">SOC2 & GDPR</h4>
-                        <p class="font-mono text-xs text-ink">Cybat undergoes regular internal security audits and follows the framework established by SOC2 and GDPR to maintain a robust security lifecycle.</p>
+                <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Operational Security &amp; Compliance</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-white p-6 rounded-2xl border border-lavender-pale shadow-sm">
+                        <div class="text-2xl mb-3">🛡️</div>
+                        <h4 class="font-heading font-bold text-base mb-2">SOC2 &amp; GDPR</h4>
+                        <p class="font-sans text-sm text-ink-soft leading-relaxed">Cybat undergoes regular internal security audits and follows the framework established by SOC2 and GDPR to maintain a robust security lifecycle.</p>
                     </div>
-                    <div class="bg-white p-6 rounded border border-lavender-pale">
-                        <div class="text-2xl mb-4">☁️</div>
-                        <h4 class="font-heading font-bold text-sm mb-2">Google Cloud Integrated</h4>
-                        <p class="font-mono text-xs text-ink">Our product adheres strictly to Google Cloud's Shared Responsibility Model, integrating flawlessly with Cloud Armor and VPC Firewall for enforcement.</p>
+                    <div class="bg-white p-6 rounded-2xl border border-lavender-pale shadow-sm">
+                        <div class="text-2xl mb-3">☁️</div>
+                        <h4 class="font-heading font-bold text-base mb-2">Google Cloud Integrated</h4>
+                        <p class="font-sans text-sm text-ink-soft leading-relaxed">Our product adheres strictly to Google Cloud's Shared Responsibility Model, integrating seamlessly with Cloud Armor, VPC Firewall, and Cloudflare WAF for enforcement.</p>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div class="mt-20 pt-10 border-t border-lavender-pale flex justify-between items-center">
-            <div class="font-mono text-xs text-ink">
+        <div class="mt-16 pt-8 border-t border-lavender-pale flex justify-between items-center">
+            <div class="font-sans text-xs text-ink-soft">
                 Last Updated: March 2026
             </div>
             <a href="#/connect"
-                class="bg-lavender-pale hover:bg-ink hover:text-white px-6 py-2 rounded text-xs font-mono font-bold transition-colors">
+                class="bg-lavender text-white hover:bg-ink px-6 py-2.5 rounded-full text-xs font-sans font-semibold transition-colors">
                 Contact Security Team
             </a>
         </div>

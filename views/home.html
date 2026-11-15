@@ -1,81 +1,138 @@
 <header class="min-h-[88vh] flex flex-col justify-center px-6 md:px-10 relative overflow-hidden">
     <!-- Globe — soft pastel background -->
-    <div id="landing-globe" class="absolute inset-0 pointer-events-none z-0 globe-fade-in opacity-40"></div>
+    <div id="landing-globe" class="absolute inset-0 pointer-events-none z-0 globe-fade-in opacity-40" aria-hidden="true"></div>
 
     <!-- Fade edges into the page -->
-    <div class="absolute inset-0 z-[1] pointer-events-none"
+    <div class="absolute inset-0 z-[1] pointer-events-none" aria-hidden="true"
          style="background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(250,247,242,0.55) 0%, #FAF7F2 85%);"></div>
 
-    <div class="max-w-3xl mx-auto text-center relative z-10 py-24">
-        <div class="inline-flex items-center gap-2 bg-mint-pale text-mint font-mono text-xs px-4 py-1.5 rounded-full mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
-            Autonomous security · Engine v3.0
+    <div class="max-w-4xl mx-auto text-center relative z-10 py-20">
+        <div class="inline-flex items-center gap-2 bg-mint-pale text-mint font-mono text-xs px-4 py-1.5 rounded-full mb-6 font-bold">
+            <span class="w-2 h-2 rounded-full bg-mint animate-pulse" aria-hidden="true"></span>
+            30-Day Free Trial · Your 24/7 AI Cybersecurity Engineer
         </div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight mb-6">
-            Secure the <span class="text-lavender">GCP surface.</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-[1.12] tracking-tight mb-6">
+            Stop hackers, bots, and API attacks automatically — <span class="text-lavender">in under 5 seconds.</span>
         </h1>
 
         <p class="text-base md:text-lg text-ink-soft mb-8 leading-relaxed max-w-2xl mx-auto">
-            Autonomous AI layer for cloud security — mitigates threats in &lt;5s without human ops.
+            Most companies don't have a 24/7 security team, and standard firewalls miss modern attacks disguised as normal users. Cybat AI connects to your app, Cloudflare, or Google Cloud in 5 minutes to detect and block real threats before they touch your data.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="#/connect"
-                class="bg-lavender text-white px-8 py-4 rounded-full font-heading font-semibold text-base hover:bg-ink transition-colors">
-                Request analysis
+            <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                target="_blank" rel="noopener"
+                class="bg-lavender text-white px-8 py-4 rounded-full font-heading font-semibold text-base hover:bg-ink transition-colors shadow-sm">
+                Start 30-Day Free Trial
             </a>
-            <a href="#/stack"
+            <a href="#/connect"
                 class="bg-white text-ink px-8 py-4 rounded-full font-heading font-semibold text-base border border-lavender-pale hover:border-lavender transition-colors">
-                Examine platform
+                Book a 15-Min Demo
             </a>
         </div>
 
-        <div class="mt-8">
+        <!-- Works with your stack badge strip -->
+        <div class="mt-10 pt-8 border-t border-lavender-pale/80 max-w-2xl mx-auto">
+            <p class="font-mono text-[11px] uppercase tracking-wider text-ink-soft mb-3">
+                Plugs into your existing stack in 5 minutes · 0 ms added latency
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 text-xs font-mono font-bold text-ink">
+                <a href="#/docs/cloudflare" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">⚡ Cloudflare WAF (1-Click)</a>
+                <a href="#/docs/getting-started" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">☁️ Google Cloud Armor</a>
+                <a href="#/docs/sdk-node" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">Node.js</a>
+                <a href="#/docs/sdk-python" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">Python</a>
+                <a href="#/docs/sdk-php" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">PHP / Laravel</a>
+                <a href="#/docs/sdk-java" class="bg-white/90 border border-lavender-pale px-3 py-1.5 rounded-full hover:border-lavender transition-colors">Java / Spring</a>
+            </div>
+        </div>
+
+        <div class="mt-6">
             <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
                target="_blank" rel="noopener"
-               class="text-sm text-mint font-bold hover:underline">
-                ☁ Available on Google Cloud Marketplace →
+               class="text-xs text-mint font-bold hover:underline">
+                ☁ Official Google Cloud Partner · Available on Google Cloud Marketplace →
             </a>
         </div>
     </div>
 </header>
 
+<!-- Problem-Unaware Section: Why every live app needs active AI protection -->
+<section class="py-20 bg-white/60">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mb-12">
+            <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Why You Need It</div>
+            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight mb-3">
+                "We already have a cloud server or firewall. Are we really at risk?"
+            </h2>
+            <p class="text-sm md:text-base text-ink-soft leading-relaxed">
+                Yes. Traditional firewalls only block known bad IP addresses. Today's attackers use residential IPs and automated bots that look like legitimate customers to probe your APIs, steal databases, and spike your server bills.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="p-6 rounded-3xl bg-white border border-lavender-pale">
+                <div class="text-2xl mb-3" aria-hidden="true">🔓</div>
+                <h3 class="font-heading font-bold text-base mb-2">Data Theft &amp; API Leaks</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
+                    Stops hackers trying SQL Injection or changing IDs in your URLs (BOLA/IDOR) to download other customers' invoices, records, or private data.
+                </p>
+            </div>
+            <div class="p-6 rounded-3xl bg-white border border-lavender-pale">
+                <div class="text-2xl mb-3" aria-hidden="true">🤖</div>
+                <h3 class="font-heading font-bold text-base mb-2">Bots, Fraud &amp; Scraping</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
+                    Detects automated bots testing stolen passwords on your login page, scraping your catalog, or abusing expensive AI and checkout endpoints.
+                </p>
+            </div>
+            <div class="p-6 rounded-3xl bg-white border border-lavender-pale">
+                <div class="text-2xl mb-3" aria-hidden="true">📋</div>
+                <h3 class="font-heading font-bold text-base mb-2">Pass Enterprise Audits</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
+                    Selling to banks or large enterprises? Meet their 24/7 security monitoring, SOC2, and data-protection requirements in minutes instead of months.
+                </p>
+            </div>
+            <div class="p-6 rounded-3xl bg-white border border-lavender-pale">
+                <div class="text-2xl mb-3" aria-hidden="true">🎛️</div>
+                <h3 class="font-heading font-bold text-base mb-2">1-Click Human Override</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
+                    Worried about blocking a real customer? Start in Preview Mode or unblock any IP across Cloudflare or GCP with a single click in your dashboard.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="how-it-works" class="py-20">
     <div class="max-w-6xl mx-auto px-6">
         <div class="max-w-2xl mb-10">
-            <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Process</div>
-            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight mb-3">How it works</h2>
+            <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">How It Works</div>
+            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight mb-3">Protection in 3 simple steps</h2>
             <p class="text-sm md:text-base text-ink-soft leading-relaxed">
-                Autonomous threat mitigation requires absolute precision. We've built an agentic loop that moves at the
-                speed of the backbone.
+                No complex infrastructure changes and no dedicated security staff required. Set it up once in 5 minutes and let Cybat watch your traffic 24/7.
             </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-5">
             <div class="bg-lavender-pale/70 rounded-3xl p-6">
-                <div class="font-mono text-xs text-lavender mb-4">01 · Ingestion</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Real-time telemetry</h3>
+                <div class="font-mono text-xs text-lavender mb-4">01 · Connect in 5 Minutes</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Zero-code or 1-line SDK</h3>
                 <p class="text-ink-soft leading-relaxed text-xs md:text-sm">
-                    Drop the Cybat SDK into your app as middleware — one line of code. It streams real HTTP traffic
-                    straight to our ingestion engine, with zero infrastructure modifications or org-level IAM grants.
+                    Deploy our 1-click <strong>Cloudflare Worker</strong> (with 0 ms latency) or add a single line of middleware to your <strong>Node.js, Python, PHP, or Java</strong> app. Your user traffic is never slowed down.
                 </p>
             </div>
             <div class="bg-mint-pale rounded-3xl p-6">
-                <div class="font-mono text-xs text-mint mb-4">02 · Analysis</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Gemini-powered reasoning</h3>
+                <div class="font-mono text-xs text-mint mb-4">02 · AI Inspection</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Understands attacker intent</h3>
                 <p class="text-ink-soft leading-relaxed text-xs md:text-sm">
-                    Autonomous agents use multimodal Gemini models to distinguish between legitimate spikes and
-                    sophisticated zero-day attacks in milliseconds.
+                    Cybat's threat engine—powered by Google Threat Intelligence and <strong>Gemini 3.8</strong> on Vertex AI—inspects request behavior in real time, separating legitimate customer traffic spikes from hackers and zero-day attacks with &gt;99.5% precision.
                 </p>
             </div>
             <div class="bg-peach-pale rounded-3xl p-6">
-                <div class="font-mono text-xs text-[#D9825B] mb-4">03 · Action</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Autonomous enforcement</h3>
+                <div class="font-mono text-xs text-[#B45309] mb-4">03 · Instant Protection</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-2">Blocks in &lt;5s + Slack alert</h3>
                 <p class="text-ink-soft leading-relaxed text-xs md:text-sm">
-                    Within 5 seconds, the platform automatically triggers Cloud Armor policies or VPC Firewall updates
-                    to isolate threats. Simultaneously, detailed Slack alerts notify your team of the detection and
-                    block.
+                    Within 5 seconds, Cybat automatically blocks the attacker at your firewall (Cloudflare WAF or Google Cloud Armor) and sends your team a clear, plain-English explanation in Slack.
                 </p>
             </div>
         </div>
@@ -83,28 +140,31 @@
         <!-- Dashboard screenshot -->
         <div class="mt-12">
             <div class="flex items-center gap-2 font-mono text-xs text-mint mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
-                Intelligence dashboard — live view
+                <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" aria-hidden="true"></span>
+                Live Intelligence Dashboard — See every attack and why it was blocked in plain language
             </div>
             <div class="rounded-3xl overflow-hidden border border-lavender-pale shadow-[0_8px_40px_rgba(46,42,59,0.08)] bg-white">
-                <img src="assets/screenshot-globe.png" alt="Cybat Intelligence Dashboard"
+                <img src="assets/screenshot-globe.png" alt="Cybat Intelligence Dashboard showing real-time global threat detection"
+                    width="1200" height="480" fetchpriority="high"
                     class="w-full object-cover object-top max-h-[480px]">
             </div>
         </div>
 
         <div class="mt-8 p-8 bg-white rounded-3xl border border-lavender-pale flex flex-col md:flex-row gap-8 items-center">
-            <div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-lavender-pale flex items-center justify-center">
+            <div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-lavender-pale flex items-center justify-center" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="w-9 h-9 fill-lavender">
                     <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
                 </svg>
             </div>
-            <div>
-                <h4 class="font-heading font-bold text-base md:text-lg mb-1">Zero-Ops infrastructure</h4>
-                <p class="text-ink-soft leading-relaxed text-xs md:text-sm max-w-2xl">
-                    No complex cloud pipelines to configure, no manual rules to maintain, and no org-level IAM grants.
-                    Powered directly by lightweight application SDKs — Cybat AI sits alongside your app as an autonomous logic
-                    layer, ensuring your environment is self-healing and self-defending.
+            <div class="flex-1">
+                <div class="font-mono text-xs text-lavender font-bold uppercase tracking-wider mb-1">For CTOs &amp; Architects · Why Not Build It Yourself?</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-2">More than an LLM: 6-Layer Threat Caching, JA4 Fingerprinting &amp; Anti-Jailbreak Defense</h3>
+                <p class="text-ink-soft leading-relaxed text-xs md:text-sm mb-4">
+                    Wiring raw logs directly to an AI API will bankrupt your token budget during a bot attack and is vulnerable to prompt injection in HTTP headers. Cybat surrounds <strong>Gemini 3.8</strong> with a deterministic <strong>Sub-Second Fast-Path</strong>, an <strong>HMAC Malicious Verdict Cache</strong>, an <strong>Adaptive Low-Risk Coasting Cache</strong> (with in-memory local payload gating), <strong>Google Threat Intelligence (VirusTotal v3)</strong>, <strong>JA4 TLS Fingerprinting</strong>, <strong>Rolling Behavioral Memory</strong>, and an <strong>Adversarial Prompt-Injection Shield</strong>.
                 </p>
+                <a href="#/features" class="inline-block font-mono text-xs font-bold text-lavender hover:text-ink transition-colors">
+                    Explore all 9 platform features &amp; the 6-layer caching architecture →
+                </a>
             </div>
         </div>
     </div>
@@ -113,70 +173,64 @@
 <section class="py-20 bg-white/60">
     <div class="max-w-6xl mx-auto px-6">
         <div class="max-w-2xl mb-10">
-            <div class="font-mono text-mint text-xs uppercase tracking-wider mb-2">Value proposition</div>
-            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight">The autonomous advantage</h2>
+            <div class="font-mono text-mint text-xs uppercase tracking-wider mb-2">Why Teams Switch to Cybat</div>
+            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight">24/7 security without the $100k+ headcount</h2>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
-            <!-- The Problem -->
+            <!-- Without Cybat -->
             <div class="p-8 rounded-3xl bg-white border border-lavender-pale">
-                <div class="font-mono text-xs text-ink-soft mb-3">Status quo · The problem</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-4">Manual SOC latency</h3>
+                <div class="font-mono text-xs text-ink-soft mb-3">Without Cybat AI · The Risk</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-4">Unwatched apps &amp; expensive manual response</h3>
                 <ul class="space-y-5">
                     <li class="flex gap-4">
-                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
+                        <span class="text-[#B45309] font-bold text-lg" aria-hidden="true">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">Human reaction time</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Average MTTR for cloud threats is &gt;90 minutes when
-                                requiring manual engineer intervention.</p>
+                            <h4 class="font-bold text-sm mb-1">Nobody watching at 3:00 AM</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Attacks happen at night and on weekends. Without automated defense, breaches go unnoticed for hours or days.</p>
                         </div>
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
+                        <span class="text-[#B45309] font-bold text-lg" aria-hidden="true">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">Policy drift</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Security rules quickly become stale and irrelevant as
-                                cloud infrastructure scales dynamically.</p>
+                            <h4 class="font-bold text-sm mb-1">Hiring security specialists is prohibitive</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">A single security engineer costs $3,000–$8,000+ USD/month and still cannot manually inspect millions of API requests 24/7.</p>
                         </div>
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-[#D9825B] font-bold text-lg">✕</span>
+                        <span class="text-[#B45309] font-bold text-lg" aria-hidden="true">✕</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">Operational fatigue</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">SOC teams are overwhelmed by thousands of false
-                                positives, leading to critical alert fatigue.</p>
+                            <h4 class="font-bold text-sm mb-1">Basic firewalls miss API &amp; logic attacks</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Static rules either let sophisticated attackers through or flood your developers with noisy false alarms.</p>
                         </div>
                     </li>
                 </ul>
             </div>
 
-            <!-- The Outcome -->
+            <!-- With Cybat -->
             <div class="p-8 rounded-3xl bg-mint-pale">
-                <div class="font-mono text-xs text-mint mb-3">Cybat AI · The outcome</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-4">99.9% faster response</h3>
+                <div class="font-mono text-xs text-mint mb-3">With Cybat AI · Peace of Mind</div>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-4">Autonomous 24/7 defense starting at $119/mo</h3>
                 <ul class="space-y-5">
                     <li class="flex gap-4">
-                        <span class="text-mint font-bold text-lg">✓</span>
+                        <span class="text-mint font-bold text-lg" aria-hidden="true">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">Sub-5s automated action</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Identify and neutralize threats in seconds,
-                                not hours, with fully autonomous enforcement.</p>
+                            <h4 class="font-bold text-sm mb-1">Neutralizes attacks in under 5 seconds</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Spots and blocks SQLi, XSS, BOLA/IDOR, and bot attacks automatically while your team sleeps.</p>
                         </div>
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-mint font-bold text-lg">✓</span>
+                        <span class="text-mint font-bold text-lg" aria-hidden="true">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">Agentic adaptation</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Our AI reasoning engine evolves with your
-                                infrastructure, ensuring security scales with DevOps.</p>
+                            <h4 class="font-bold text-sm mb-1">Clear explanations for every block</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">No cryptic logs. Every incident includes a plain-English summary of what the attacker tried to do and why they were blocked.</p>
                         </div>
                     </li>
                     <li class="flex gap-4">
-                        <span class="text-mint font-bold text-lg">✓</span>
+                        <span class="text-mint font-bold text-lg" aria-hidden="true">✓</span>
                         <div>
-                            <h4 class="font-bold text-sm mb-1">High-fidelity signal</h4>
-                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Gemini-powered filtering eliminates noise,
-                                surfacing only real threats with explained reasoning.</p>
+                            <h4 class="font-bold text-sm mb-1">30-day free trial &amp; 5-minute setup</h4>
+                            <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Connect your app or Cloudflare today at zero cost for 30 days and see what threats are hitting your endpoints right now.</p>
                         </div>
                     </li>
                 </ul>
@@ -188,134 +242,86 @@
 <section class="py-20">
     <div class="max-w-6xl mx-auto px-6">
         <div class="max-w-2xl mb-10">
-            <div class="font-mono text-mint text-xs uppercase tracking-wider mb-2">Capabilities</div>
-            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight">Defense by design</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div class="p-6 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
-                <div class="text-3xl mb-4">🧠</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">AI-driven threat analysis</h3>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
-                    Leveraging Vertex AI + Gemini for deep multi-modal security reasoning.
-                </p>
-            </div>
-            <div class="p-6 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
-                <div class="text-3xl mb-4">⚡</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Sub-5s automated action</h3>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
-                    Identify and neutralize threats in less than 5 seconds without human intervention.
-                </p>
-            </div>
-            <div class="p-6 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
-                <div class="text-3xl mb-4">☁️</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Cloud-native (GCP first)</h3>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
-                    Built natively for Google Cloud Platform, utilizing native security APIs.
-                </p>
-            </div>
-            <div class="p-6 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
-                <div class="text-3xl mb-4">📊</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Easy integration</h3>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
-                    Simple integration with existing stacks plus specialized dashboards for executives.
-                </p>
-            </div>
-            <div class="p-6 rounded-3xl bg-white border border-lavender-pale hover:border-lavender transition-colors">
-                <div class="text-3xl mb-4">💬</div>
-                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Real-time alerting</h3>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">
-                    Instant Slack notifications for every threat detected and blocked, keeping your team in the loop.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 bg-white/60">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="max-w-2xl mb-10">
-            <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Audience</div>
-            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight">Built for the GCP ecosystem</h2>
+            <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Who It's For</div>
+            <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight">Built for growing teams &amp; modern cloud stacks</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-5">
             <div class="p-7 rounded-3xl bg-lavender-pale/70">
-                <h4 class="font-heading font-bold text-base md:text-lg mb-1.5">GCP enterprises</h4>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Scale security across thousands of projects with
-                    centralized policy enforcement and AI reasoning.</p>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Startups, SaaS &amp; Fintechs</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Protect customer data, stop API abuse, and pass security audits from banks and enterprise clients without hiring a dedicated security team.</p>
             </div>
             <div class="p-7 rounded-3xl bg-mint-pale">
-                <h4 class="font-heading font-bold text-base md:text-lg mb-1.5">Cloud teams</h4>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Offload manual threat triage and focus on architecture while
-                    AI handles sub-second response.</p>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">CTOs &amp; Engineering Leads</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Keep your developers focused on shipping product features while Cybat handles 24/7 threat detection, firewall rules, and Slack incident reporting.</p>
             </div>
             <div class="p-7 rounded-3xl bg-peach-pale">
-                <h4 class="font-heading font-bold text-base md:text-lg mb-1.5">DevSecOps</h4>
-                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Integrate security directly into the pipeline with
-                    API-first architecture and automated remediation.</p>
+                <h3 class="font-heading font-bold text-base md:text-lg mb-1.5">Security &amp; DevSecOps Teams</h3>
+                <p class="text-ink-soft text-xs md:text-sm leading-relaxed">Eliminate alert fatigue and manual triage across GCP Cloud Armor and Cloudflare WAF with sub-5s Gemini 3.8 reasoning and zero-retention telemetry.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-20">
+<section class="py-20 bg-white/60">
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Partnership</div>
+                <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Official Partnership</div>
                 <h2 class="font-heading font-bold text-xl md:text-3xl tracking-tight mb-3">
-                    Google Cloud <span class="text-lavender">Partner</span>
+                    Backed by <span class="text-lavender">Google Cloud</span>
                 </h2>
                 <p class="text-sm md:text-base text-ink-soft leading-relaxed mb-6 max-w-md">
-                    Cybat Intelligence Engine is built natively on Google Cloud, distributed through Google Cloud Marketplace, and deeply integrated with Gemini AI, Vertex AI, and Cloud Armor — delivering autonomous security at cloud scale.
+                    Cybat Intelligence Engine is an official Google Cloud Partner solution—available on Google Cloud Marketplace and deeply integrated with Vertex AI (Gemini 3.8), Google Threat Intelligence, Cloud Armor, and Cloudflare WAF.
                 </p>
-                <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
-                    target="_blank" rel="noopener"
-                    class="inline-block bg-mint-pale text-mint font-bold px-6 py-3 rounded-full hover:bg-mint hover:text-white transition-colors text-sm">
-                    View on Google Cloud Marketplace →
-                </a>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
+                        target="_blank" rel="noopener"
+                        class="inline-block bg-lavender text-white font-bold px-6 py-3 rounded-full hover:bg-ink transition-colors text-sm">
+                        Start 30-Day Free Trial →
+                    </a>
+                    <a href="#/connect"
+                        class="inline-block bg-mint-pale text-mint font-bold px-6 py-3 rounded-full hover:bg-mint hover:text-white transition-colors text-sm">
+                        Book a Live Demo →
+                    </a>
+                </div>
             </div>
 
             <div class="flex justify-center md:justify-end">
                 <div class="bg-white rounded-3xl p-8 border border-lavender-pale">
-                    <img src="assets/google-cloud-partner.png" alt="Google Cloud Partner" class="w-56 h-auto">
+                    <img src="assets/google-cloud-partner.png" alt="Google Cloud Partner badge" width="224" height="112" loading="lazy" class="w-56 h-auto">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-20 bg-white/60">
+<section class="py-20">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div class="order-2 md:order-1 flex justify-center">
             <div class="w-72 h-72 rounded-3xl overflow-hidden bg-lavender-pale p-3">
-                <img src="assets/eder_diaz.png" alt="Founder" class="w-full h-full object-cover rounded-2xl">
+                <img src="assets/eder_diaz.png" alt="Eder Diaz Toro, Founder of Cybat AI" width="264" height="264" loading="lazy" class="w-full h-full object-cover rounded-2xl">
             </div>
         </div>
         <div class="order-1 md:order-2">
             <div class="font-mono text-lavender text-xs uppercase tracking-wider mb-2">Leadership</div>
             <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight mb-3">Meet the founder</h2>
-            <p class="text-base md:text-lg font-bold mb-3 text-mint leading-snug">"We aren't just building a tool; we're
-                building a new layer of the cloud."</p>
+            <p class="text-base md:text-lg font-bold mb-3 text-mint leading-snug">"Every company deserves enterprise-grade security—even if you don't have a dedicated security team."</p>
             <p class="text-ink-soft text-xs md:text-sm leading-relaxed mb-6">
-                Eder Diaz Toro, Lead Software Developer &amp; Cloud Architect, leads the vision for autonomous security at
-                Cybat AI.
-                With deep expertise in the Google Cloud ecosystem, Eder is pioneering the use of Agentic AI for critical
-                infrastructure defense.
+                Eder Diaz Toro, Lead Software Developer &amp; Cloud Architect, founded Cybat AI to make autonomous AI cybersecurity accessible to growing engineering teams across Latin America and globally.
             </p>
             <div class="flex flex-wrap gap-3 items-center">
-                <a href="https://linkedin.com/in/ederius" target="_blank"
+                <a href="https://linkedin.com/in/ederius" target="_blank" rel="noopener"
                     class="bg-lavender-pale text-ink font-semibold text-xs px-5 py-2 rounded-full hover:bg-lavender hover:text-white transition-colors">
                     LinkedIn
                 </a>
-                <a href="https://github.com/cybatInc" target="_blank"
+                <a href="https://github.com/cybatInc" target="_blank" rel="noopener"
                     class="bg-lavender-pale text-ink font-semibold text-xs px-5 py-2 rounded-full hover:bg-lavender hover:text-white transition-colors">
                     GitHub
                 </a>
                 <router-link to="/connect"
                     class="bg-mint-pale text-mint font-semibold text-xs px-5 py-2 rounded-full hover:bg-mint hover:text-white transition-colors">
-                    Book a demo
+                    Talk directly with Eder
                 </router-link>
             </div>
         </div>
@@ -325,21 +331,24 @@
 <section class="py-24 text-center">
     <div class="max-w-3xl mx-auto px-6">
         <div class="bg-lavender-pale/70 rounded-[2rem] px-8 py-16">
+            <div class="inline-block bg-white text-lavender font-mono text-xs font-bold px-3 py-1 rounded-full mb-4">
+                30 DAYS FREE · NO INFRASTRUCTURE CHANGES
+            </div>
             <h2 class="text-xl md:text-3xl font-heading font-bold tracking-tight mb-3">
-                Protect your <span class="text-lavender">cloud. Now.</span>
+                See what attacks are hitting your app <span class="text-lavender">today.</span>
             </h2>
             <p class="text-sm md:text-base text-ink-soft mb-6 max-w-xl mx-auto leading-relaxed">
-                Cybat Intelligence Engine is live on Google Cloud Marketplace. Subscribe in minutes and start blocking threats autonomously.
+                Start your 30-day free trial or book a 15-minute guided setup with our team. Connect Cloudflare or your app SDK in 5 minutes.
             </p>
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine"
                     target="_blank" rel="noopener"
                     class="inline-block bg-lavender text-white px-8 py-4 rounded-full font-heading font-semibold hover:bg-ink transition-colors text-sm">
-                    Subscribe on Marketplace
+                    Start 30-Day Free Trial
                 </a>
                 <router-link to="/connect"
                     class="inline-block bg-white text-ink px-8 py-4 rounded-full font-heading font-semibold hover:bg-mint-pale transition-colors text-sm">
-                    Book demo
+                    Book a 15-Min Demo
                 </router-link>
             </div>
         </div>

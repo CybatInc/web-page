@@ -8,19 +8,19 @@
 
         <!-- Sidebar Navigation -->
         <div class="lg:w-1/4 hidden lg:block">
-            <div class="sticky top-40 bg-white border border-lavender-pale rounded-lg p-6">
-                <h3 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-6">Índice de Documentación</h3>
-                <nav class="space-y-3 font-mono text-sm">
-                    <a href="#/docs" class="block text-ink hover:text-mint transition-colors font-bold text-lavender">Descripción General</a>
-                    <a href="#/docs/getting-started" class="block text-ink hover:text-mint transition-colors">Primeros Pasos</a>
-                    <a href="#/docs/cloudflare" class="block text-ink hover:text-mint transition-colors">Integración con Cloudflare</a>
-                    <a href="#/docs/sdk-python" class="block text-ink hover:text-mint transition-colors">Referencia SDK Python</a>
-                    <a href="#/docs/sdk-node" class="block text-ink hover:text-mint transition-colors">Referencia SDK Node.js</a>
-                    <a href="#/docs/sdk-php" class="block text-ink hover:text-mint transition-colors">Referencia SDK PHP</a>
-                    <a href="#/docs/sdk-java" class="block text-ink hover:text-mint transition-colors">Referencia SDK Java</a>
-                    <a href="#/docs/user-guide" class="block text-ink hover:text-mint transition-colors">Guía del Usuario</a>
-                    <a href="#/docs/release-notes" class="block text-ink hover:text-mint transition-colors">Notas de la Versión</a>
-                    <a href="#/docs/security-specs" class="block text-ink hover:text-mint transition-colors">Especificaciones de Seguridad</a>
+            <div class="sticky top-28 bg-white border border-lavender-pale rounded-2xl p-6 shadow-sm">
+                <h3 class="font-heading text-xs uppercase tracking-wider font-bold text-ink mb-5">Índice de Documentación</h3>
+                <nav class="space-y-2.5 font-sans text-sm font-medium">
+                    <a href="#/docs" class="block hover:text-lavender transition-colors font-bold text-lavender">Descripción General</a>
+                    <a href="#/docs/getting-started" class="block text-ink-soft hover:text-lavender transition-colors">Primeros Pasos</a>
+                    <a href="#/docs/cloudflare" class="block text-ink-soft hover:text-lavender transition-colors">Integración con Cloudflare</a>
+                    <a href="#/docs/sdk-python" class="block text-ink-soft hover:text-lavender transition-colors">Referencia SDK Python</a>
+                    <a href="#/docs/sdk-node" class="block text-ink-soft hover:text-lavender transition-colors">Referencia SDK Node.js</a>
+                    <a href="#/docs/sdk-php" class="block text-ink-soft hover:text-lavender transition-colors">Referencia SDK PHP</a>
+                    <a href="#/docs/sdk-java" class="block text-ink-soft hover:text-lavender transition-colors">Referencia SDK Java</a>
+                    <a href="#/docs/user-guide" class="block text-ink-soft hover:text-lavender transition-colors">Guía del Usuario</a>
+                    <a href="#/docs/release-notes" class="block text-ink-soft hover:text-lavender transition-colors">Notas de la Versión</a>
+                    <a href="#/docs/security-specs" class="block text-ink-soft hover:text-lavender transition-colors">Especificaciones de Seguridad</a>
                 </nav>
             </div>
         </div>
@@ -28,12 +28,12 @@
         <!-- Main Content -->
         <div class="lg:w-3/4">
             <div class="mb-6">
-                <h1 class="text-2xl md:text-3xl font-heading font-bold mb-4 tracking-tight">Documentación<span class="text-lavender">_</span></h1>
+                <h1 class="text-2xl md:text-4xl font-heading font-bold mb-4 tracking-tight text-ink">Documentación</h1>
 
                 <!-- Documentation Overview (Required by GCP) -->
-                <div id="overview" class="p-6 md:p-8 bg-paper border border-lavender/30 rounded-lg mb-8">
-                    <p class="text-sm md:text-base text-ink-soft leading-relaxed font-mono">
-                        Se proporciona documentación técnica exhaustiva para Cybat Intelligence Engine con el fin de garantizar una integración fluida en su entorno de Google Cloud. Nuestra documentación incluye guías de despliegue paso a paso, requisitos de configuración de roles IAM, referencias de API y mejores prácticas para la mitigación de amenazas impulsada por IA. Para soporte arquitectónico especializado, los clientes pueden acceder a nuestro portal técnico exclusivo.
+                <div id="overview" class="p-6 md:p-8 bg-white border border-lavender-pale rounded-2xl mb-8 shadow-sm">
+                    <p class="text-sm md:text-base text-ink-soft leading-relaxed font-sans">
+                        Documentación técnica completa para integrar Cybat Intelligence Engine en tu entorno de nube y aplicaciones en menos de 5 minutos. Incluye guías paso a paso para Cloudflare y SDKs (Python, Node.js, PHP y Java), configuración de permisos IAM y guía completa del Panel de Inteligencia.
                     </p>
                 </div>
             </div>
@@ -43,13 +43,13 @@
                 <h2 class="text-xl md:text-2xl font-heading font-bold mb-6 border-b border-lavender-pale pb-3">Guías y Referencias</h2>
 
                 <!-- Getting Started -->
-                <div id="getting-started" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Guía de Primeros Pasos</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">ESENCIAL</span>
+                <div id="getting-started" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Guía de Primeros Pasos</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">ESENCIAL</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Un recorrido paso a paso sobre cómo activar el motor una vez adquirido en Google Cloud Marketplace.</p>
-                    <a href="#/docs/getting-started" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Un recorrido paso a paso sobre cómo activar tus 30 días de prueba gratis o tu suscripción en Google Cloud Marketplace.</p>
+                    <a href="#/docs/getting-started" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Guía <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -57,13 +57,13 @@
                 </div>
 
                 <!-- Cloudflare Integration -->
-                <div id="integration-cloudflare" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Guía de Integración con Cloudflare</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">WORKERS • WAF • 0 MS</span>
+                <div id="integration-cloudflare" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Guía de Integración con Cloudflare</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">WORKERS • WAF • 0 MS</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Despliegue telemetría fuera de banda con cero latencia (0 ms) en el borde de Cloudflare mediante Cloudflare Workers y configure el bloqueo y desbloqueo automatizado de IPs en WAF mediante API.</p>
-                    <a href="#/docs/cloudflare" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Despliegue telemetría fuera de banda con cero latencia (0 ms) en el borde de Cloudflare mediante Cloudflare Workers y configure el bloqueo y desbloqueo automatizado de IPs en WAF mediante API.</p>
+                    <a href="#/docs/cloudflare" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Guía de Integración <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -71,13 +71,13 @@
                 </div>
 
                 <!-- Python SDK Reference -->
-                <div id="sdk-python" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Referencia SDK Python</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">PYPI • V1.0.0</span>
+                <div id="sdk-python" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Referencia SDK Python</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">PYPI • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Flask, Django, FastAPI y ASGI genéricas usando <code class="bg-lavender-pale px-1 rounded text-lavender">cybat-sdk</code>.</p>
-                    <a href="#/docs/sdk-python" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Flask, Django, FastAPI y ASGI genéricas usando <code class="bg-lavender-pale px-1.5 py-0.5 rounded text-lavender font-mono text-xs">cybat-sdk</code>.</p>
+                    <a href="#/docs/sdk-python" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Referencia <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -85,13 +85,13 @@
                 </div>
 
                 <!-- Node.js SDK Reference -->
-                <div id="sdk-node" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Referencia SDK Node.js</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">NPM • V1.0.2</span>
+                <div id="sdk-node" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Referencia SDK Node.js</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">NPM • V1.0.2</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Express, Fastify y NestJS usando <code class="bg-lavender-pale px-1 rounded text-lavender">@cybat/sdk-node</code>.</p>
-                    <a href="#/docs/sdk-node" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Express, Fastify y NestJS usando <code class="bg-lavender-pale px-1.5 py-0.5 rounded text-lavender font-mono text-xs">@cybat/sdk-node</code>.</p>
+                    <a href="#/docs/sdk-node" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Referencia <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -99,13 +99,13 @@
                 </div>
 
                 <!-- PHP SDK Reference -->
-                <div id="sdk-php" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Referencia SDK PHP</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">PACKAGIST • V1.0.0</span>
+                <div id="sdk-php" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Referencia SDK PHP</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">PACKAGIST • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Slim 4, Laravel y Symfony usando <code class="bg-lavender-pale px-1 rounded text-lavender">cybat/sdk</code>.</p>
-                    <a href="#/docs/sdk-php" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de middleware para aplicaciones Slim 4, Laravel y Symfony usando <code class="bg-lavender-pale px-1.5 py-0.5 rounded text-lavender font-mono text-xs">cybat/sdk</code>.</p>
+                    <a href="#/docs/sdk-php" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Referencia <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -113,13 +113,13 @@
                 </div>
 
                 <!-- Java SDK Reference -->
-                <div id="sdk-java" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-mint/50 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Referencia SDK Java</h3>
-                        <span class="font-mono text-xs bg-mint/20 text-mint px-2.5 py-1 rounded">MAVEN CENTRAL • V1.0.0</span>
+                <div id="sdk-java" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Referencia SDK Java</h3>
+                        <span class="font-mono text-xs font-semibold bg-mint-pale text-mint px-2.5 py-1 rounded-full">MAVEN CENTRAL • V1.0.0</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de filtros de servlet para Spring Boot 3+ y contenedores Jakarta Servlet usando <code class="bg-lavender-pale px-1 rounded text-lavender">co.cybat:cybat-sdk</code>.</p>
-                    <a href="#/docs/sdk-java" class="text-mint hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Guías de integración y configuración de filtros de servlet para Spring Boot 3+ y contenedores Jakarta Servlet usando <code class="bg-lavender-pale px-1.5 py-0.5 rounded text-lavender font-mono text-xs">co.cybat:cybat-sdk</code>.</p>
+                    <a href="#/docs/sdk-java" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Referencia <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -127,10 +127,10 @@
                 </div>
 
                 <!-- User Guide -->
-                <div id="user-guide" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-lavender/50 transition-colors">
-                    <h3 class="font-heading text-lg md:text-xl font-bold mb-3">Guía del Usuario / Referencia Técnica</h3>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Explicación en profundidad de la lógica de Cybat Engine: cómo configurar reglas de amenazas y ajustar parámetros de IA para una detección precisa de anomalías.</p>
-                    <a href="#/docs/user-guide" class="text-lavender hover:text-ink font-mono text-sm font-bold flex items-center transition-colors">
+                <div id="user-guide" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">Guía del Usuario / Referencia Técnica</h3>
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Explicación detallada del Panel de Inteligencia: cómo gestionar llaves API, listas blancas de IPs, alertas en Slack y desbloqueo de IPs en 1 clic.</p>
+                    <a href="#/docs/user-guide" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Leer Referencia <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -138,13 +138,13 @@
                 </div>
 
                 <!-- Release Notes -->
-                <div id="release-notes" class="p-6 bg-white border border-lavender-pale rounded-lg group hover:border-lavender/40 transition-colors">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-heading text-lg md:text-xl font-bold">Notas de la Versión</h3>
-                        <span class="font-mono text-xs bg-lavender-pale text-ink px-2.5 py-1 rounded">V1.0.0</span>
+                <div id="release-notes" class="p-6 bg-white border border-lavender-pale rounded-2xl shadow-sm group hover:border-lavender transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-lg font-bold text-ink">Notas de la Versión</h3>
+                        <span class="font-mono text-xs font-semibold bg-lavender-pale text-lavender px-2.5 py-1 rounded-full">V1.0.0</span>
                     </div>
-                    <p class="font-mono text-sm text-ink-soft leading-relaxed mb-4">Manténgase al día con las últimas versiones del motor, mejoras lógicas y lanzamientos de nuevas funciones.</p>
-                    <a href="#/docs/release-notes" class="text-ink hover:text-mint font-mono text-sm font-bold flex items-center transition-colors">
+                    <p class="font-sans text-sm text-ink-soft leading-relaxed mb-4">Manténgase al día con las últimas versiones del motor, mejoras lógicas y lanzamientos de nuevas funciones.</p>
+                    <a href="#/docs/release-notes" class="text-lavender hover:text-ink font-sans text-sm font-semibold flex items-center transition-colors">
                         Ver Registro de Cambios <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>

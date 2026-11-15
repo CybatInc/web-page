@@ -6,27 +6,27 @@ const UI_STRINGS = {
     en: {
         nav: {
             features: "Features",
-            infra: "Infra",
-            safety: "Safety",
-            stack: "Stack",
+            infra: "Infrastructure",
+            safety: "AI Safety",
+            stack: "Tech Stack",
             pricing: "Pricing",
             support: "Support",
             docs: "Docs",
             security: "Security",
             dashboard: "Dashboard",
-            subscribe: "Subscribe_",
-            connect: "Connect_"
+            subscribe: "30-Day Free Trial",
+            connect: "Start 30-Day Free Trial"
         },
         footer: {
             title: "CYBAT AI",
-            subtitle: "// AUTONOMOUS_SECURITY_ORCHESTRATION<br>// ENGINE_V3.0_ACTIVE",
-            navigation: "Navigation",
-            ecosystem: "Ecosystem",
+            subtitle: "Your 24/7 AI Cybersecurity Engineer for Web Apps, APIs, Cloudflare & Google Cloud.<br>30-Day Free Trial · Zero Data Storage.",
+            navigation: "Product",
+            ecosystem: "Architecture & Trust",
             earlyAccess: "Early Access",
             roadmap: "Roadmap",
             privacy: "Privacy",
             terms: "Terms",
-            rights: "© 2026 Cybat AI. All Rights Reserved. // encrypted_connection_established"
+            rights: "© 2026 Cybat AI. All Rights Reserved."
         },
         langSwitch: {
             label: "Language"
@@ -35,27 +35,27 @@ const UI_STRINGS = {
     es: {
         nav: {
             features: "Funciones",
-            infra: "Infra",
+            infra: "Infraestructura",
             safety: "IA Segura",
-            stack: "Stack",
+            stack: "Arquitectura",
             pricing: "Precios",
             support: "Soporte",
             docs: "Docs",
             security: "Seguridad",
             dashboard: "Panel",
-            subscribe: "Suscribir_",
-            connect: "Contacto_"
+            subscribe: "Prueba Gratis 30d",
+            connect: "Empezar Prueba Gratis (30 Días)"
         },
         footer: {
             title: "CYBAT AI",
-            subtitle: "// ORQUESTACIÓN_DE_SEGURIDAD_AUTÓNOMA<br>// MOTOR_V3.0_ACTIVO",
-            navigation: "Navegación",
-            ecosystem: "Ecosistema",
+            subtitle: "Tu Ingeniero de Ciberseguridad con IA 24/7 para Aplicaciones Web, APIs, Cloudflare y Google Cloud.<br>30 Días de Prueba Gratis · Cero Retención de Datos.",
+            navigation: "Producto",
+            ecosystem: "Arquitectura y Confianza",
             earlyAccess: "Acceso Anticipado",
             roadmap: "Hoja de Ruta",
             privacy: "Privacidad",
             terms: "Términos",
-            rights: "© 2026 Cybat AI. Todos los derechos reservados. // conexion_cifrada_establecida"
+            rights: "© 2026 Cybat AI. Todos los derechos reservados."
         },
         langSwitch: {
             label: "Idioma"
@@ -404,16 +404,16 @@ const app = createApp({
         applyLanguageSideEffects(lang) {
             document.documentElement.lang = lang;
             if (lang === 'es') {
-                document.title = "Cybat AI | Seguridad Autónoma con Agentes de IA para Google Cloud";
+                document.title = "Cybat AI | Ciberseguridad con IA 24/7 para Aplicaciones, APIs, Cloudflare y GCP";
                 const metaDesc = document.querySelector('meta[name="description"]');
                 if (metaDesc) {
-                    metaDesc.setAttribute('content', 'Despliega Cybat AI para proteger tu infraestructura en GCP con seguridad autónoma impulsada por Gemini. Telemetría SDK en tiempo real, detección de amenazas en subsegundos y mitigación automatizada con Cloud Armor.');
+                    metaDesc.setAttribute('content', 'Detén hackers, bots y ataques a tus APIs automáticamente en menos de 5 segundos. Conecta Cybat AI a Cloudflare, Google Cloud, Node.js, Python, PHP o Java en 5 minutos. Prueba gratis por 30 días.');
                 }
             } else {
-                document.title = "Cybat AI | Autonomous AI-Agent Security for Google Cloud";
+                document.title = "Cybat AI | 24/7 AI Cybersecurity for Apps, APIs, Cloudflare & Google Cloud";
                 const metaDesc = document.querySelector('meta[name="description"]');
                 if (metaDesc) {
-                    metaDesc.setAttribute('content', 'Deploy Cybat AI to protect your GCP surface with Gemini-powered autonomous security. Real-time SDK-based telemetry, sub-second threat detection, and automated Cloud Armor mitigation.');
+                    metaDesc.setAttribute('content', 'Stop hackers, bots, and API attacks automatically in under 5 seconds. Connect Cybat AI to Cloudflare, Google Cloud, Node.js, Python, PHP, or Java in 5 minutes. Start your 30-day free trial.');
                 }
             }
         },
@@ -468,15 +468,13 @@ const app = createApp({
                     </router-link>
 
                     <!-- Desktop Menu -->
-                    <div class="site-links hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs xl:text-[13px] font-mono font-bold uppercase tracking-[0.08em] text-white/50 whitespace-nowrap">
-                        <router-link to="/features" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.features') }}</router-link>
-                        <router-link to="/infrastructure" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.infra') }}</router-link>
-                        <router-link to="/ai-safety" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.safety') }}</router-link>
-                        <router-link to="/stack" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.stack') }}</router-link>
-                        <router-link to="/pricing" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.pricing') }}</router-link>
-                        <router-link to="/support" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.support') }}</router-link>
-                        <router-link to="/docs" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.docs') }}</router-link>
-                        <router-link to="/security" class="hover:text-ai-lavender transition-colors whitespace-nowrap">{{ t('nav.security') }}</router-link>
+                    <div class="site-links hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-sans font-semibold text-ink-soft whitespace-nowrap">
+                        <router-link to="/features" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.features') }}</router-link>
+                        <router-link to="/pricing" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.pricing') }}</router-link>
+                        <router-link to="/docs" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.docs') }}</router-link>
+                        <router-link to="/security" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.security') }}</router-link>
+                        <router-link to="/support" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.support') }}</router-link>
+                        <a href="https://intelligence.cybat.co/#/login" target="_blank" rel="noopener" class="hover:text-lavender transition-colors whitespace-nowrap">{{ t('nav.dashboard') }}</a>
                         
                         <!-- Desktop Language Switcher -->
                         <div class="lang-switch flex items-center rounded-full p-0.5 border text-xs font-mono select-none shrink-0" role="group" aria-label="Language Selector">
@@ -484,38 +482,36 @@ const app = createApp({
                             <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-2.5 py-0.5 rounded-full transition-all duration-150" title="Español">ES</button>
                         </div>
 
-                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-ai-lavender text-ai-obsidian px-4 xl:px-5 py-2 ml-1 xl:ml-2 hover:bg-white transition-colors font-bold tracking-[0.15em] shrink-0 whitespace-nowrap text-xs">{{ t('nav.subscribe') }}</a>
+                        <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" class="site-cta bg-lavender text-white px-5 py-2.5 ml-1 xl:ml-2 hover:bg-ink transition-colors font-semibold shrink-0 whitespace-nowrap text-sm rounded-full shadow-sm">{{ t('nav.subscribe') }}</a>
                     </div>
 
                     <!-- Mobile Menu Button -->
-                    <button @click="toggleMobileMenu" class="lg:hidden text-white/50 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
+                    <button @click="toggleMobileMenu" class="lg:hidden text-ink-soft hover:text-ink focus:outline-none" aria-label="Toggle Navigation">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 8h16M4 16h16" />
-                            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
+                            <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+                            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
                 <!-- Mobile Menu Dropdown -->
-                <div v-show="isMobileMenuOpen" class="site-mobile lg:hidden absolute top-full left-0 w-full bg-ai-obsidian border-b border-white/5 shadow-2xl flex flex-col p-8 space-y-4 z-40">
+                <div v-show="isMobileMenuOpen" class="site-mobile lg:hidden absolute top-full left-0 w-full bg-white border-b border-lavender-pale shadow-xl flex flex-col p-6 space-y-3 z-40">
                     <!-- Mobile Language Switcher -->
-                    <div class="flex items-center justify-between pb-3 border-b border-white/10 font-mono text-xs">
-                        <span class="mobile-lang-label text-white/50 uppercase tracking-widest">{{ t('langSwitch.label') }}</span>
+                    <div class="flex items-center justify-between pb-3 border-b border-lavender-pale text-xs font-semibold">
+                        <span class="mobile-lang-label text-ink-soft">{{ t('langSwitch.label') }}</span>
                         <div class="lang-switch flex items-center rounded-full p-0.5 border" role="group" aria-label="Language Selector">
                             <button type="button" @click="setLang('en')" :class="currentLang === 'en' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-3 py-1 rounded-full font-mono text-xs transition-colors" title="English">EN</button>
                             <button type="button" @click="setLang('es')" :class="currentLang === 'es' ? 'lang-active font-bold shadow-xs' : 'hover:opacity-100'" class="px-3 py-1 rounded-full font-mono text-xs transition-colors" title="Español">ES</button>
                         </div>
                     </div>
 
-                    <router-link to="/features" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.features') }}</router-link>
-                    <router-link to="/infrastructure" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.infra') }}</router-link>
-                    <router-link to="/ai-safety" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.safety') }}</router-link>
-                    <router-link to="/stack" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.stack') }}</router-link>
-                    <router-link to="/pricing" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.pricing') }}</router-link>
-                    <router-link to="/support" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.support') }}</router-link>
-                    <router-link to="/docs" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.docs') }}</router-link>
-                    <router-link to="/security" @click="closeMobileMenu" class="block text-white/50 hover:text-ai-lavender font-mono text-sm font-bold uppercase tracking-[0.2em] py-2">{{ t('nav.security') }}</router-link>
-                    <router-link to="/connect" @click="closeMobileMenu" class="site-cta block bg-ai-lavender text-ai-obsidian font-heading font-black uppercase text-center px-5 py-4 text-sm mt-4">{{ t('nav.connect') }}</router-link>
+                    <router-link to="/features" @click="closeMobileMenu" class="block text-ink-soft hover:text-lavender font-sans text-base font-semibold py-1.5">{{ t('nav.features') }}</router-link>
+                    <router-link to="/pricing" @click="closeMobileMenu" class="block text-ink-soft hover:text-lavender font-sans text-base font-semibold py-1.5">{{ t('nav.pricing') }}</router-link>
+                    <router-link to="/docs" @click="closeMobileMenu" class="block text-ink-soft hover:text-lavender font-sans text-base font-semibold py-1.5">{{ t('nav.docs') }}</router-link>
+                    <router-link to="/security" @click="closeMobileMenu" class="block text-ink-soft hover:text-lavender font-sans text-base font-semibold py-1.5">{{ t('nav.security') }}</router-link>
+                    <router-link to="/support" @click="closeMobileMenu" class="block text-ink-soft hover:text-lavender font-sans text-base font-semibold py-1.5">{{ t('nav.support') }}</router-link>
+                    <a href="https://intelligence.cybat.co/#/login" target="_blank" rel="noopener" @click="closeMobileMenu" class="block text-mint hover:text-ink font-sans text-base font-semibold py-1.5">{{ t('nav.dashboard') }} →</a>
+                    <a href="https://console.cloud.google.com/marketplace/product/cybat-public/cybat-intelligence-engine" target="_blank" rel="noopener" @click="closeMobileMenu" class="site-cta block bg-lavender text-white font-heading font-bold text-center px-5 py-3.5 rounded-full text-sm mt-2">{{ t('nav.connect') }}</a>
                 </div>
             </nav>
 
@@ -523,39 +519,40 @@ const app = createApp({
                 <router-view></router-view>
             </div>
 
-            <footer class="site-footer bg-ai-obsidian py-32 border-t border-white/5 relative overflow-hidden">
-                <div class="aurora aurora-lavender w-96 h-96 -bottom-48 -left-48 opacity-10"></div>
-                <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-20 relative z-10">
+            <footer class="site-footer bg-ai-obsidian py-16 border-t border-lavender-pale relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 relative z-10">
                     <div class="col-span-2">
-                        <div class="text-white font-heading font-black text-2xl mb-8 uppercase italic tracking-tighter">{{ t('footer.title') }}</div>
-                        <p class="max-w-sm text-sm text-white/40 leading-relaxed font-mono mb-8" v-html="t('footer.subtitle')"></p>
+                        <div class="text-ink font-heading font-extrabold text-2xl mb-4 tracking-tight">{{ t('footer.title') }}</div>
+                        <p class="max-w-md text-sm text-ink-soft leading-relaxed font-sans mb-6" v-html="t('footer.subtitle')"></p>
                     </div>
                     <div>
-                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">{{ t('footer.navigation') }}</h4>
-                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
-                            <li><router-link to="/features" class="hover:text-ai-lavender transition-colors">{{ t('nav.features') }}</router-link></li>
-                            <li><router-link to="/pricing" class="hover:text-ai-lavender transition-colors">{{ t('nav.pricing') }}</router-link></li>
-                            <li><router-link to="/support" class="hover:text-ai-lavender transition-colors">{{ t('nav.support') }}</router-link></li>
-                            <li><router-link to="/docs" class="hover:text-ai-lavender transition-colors">{{ t('nav.docs') }}</router-link></li>
-                            <li><router-link to="/security" class="hover:text-ai-mint transition-colors">{{ t('nav.security') }}</router-link></li>
+                        <h4 class="font-heading text-xs font-bold uppercase tracking-wider text-ink mb-4">{{ t('footer.navigation') }}</h4>
+                        <ul class="space-y-2.5 text-sm font-medium text-ink-soft">
+                            <li><router-link to="/features" class="hover:text-lavender transition-colors">{{ t('nav.features') }}</router-link></li>
+                            <li><router-link to="/pricing" class="hover:text-lavender transition-colors">{{ t('nav.pricing') }}</router-link></li>
+                            <li><router-link to="/docs" class="hover:text-lavender transition-colors">{{ t('nav.docs') }}</router-link></li>
+                            <li><router-link to="/security" class="hover:text-mint transition-colors">{{ t('nav.security') }}</router-link></li>
+                            <li><router-link to="/support" class="hover:text-lavender transition-colors">{{ t('nav.support') }}</router-link></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-8">{{ t('footer.ecosystem') }}</h4>
-                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest text-white/50">
-                            <li><router-link to="/early-access" class="hover:text-ai-lavender transition-colors">{{ t('footer.earlyAccess') }}</router-link></li>
-                            <li><router-link to="/roadmap" class="hover:text-ai-lavender transition-colors">{{ t('footer.roadmap') }}</router-link></li>
-                            <li><a href="https://linkedin.com/company/cybat-ai" target="_blank" rel="noopener" class="hover:text-ai-lavender transition-colors">LinkedIn</a></li>
+                        <h4 class="font-heading text-xs font-bold uppercase tracking-wider text-ink mb-4">{{ t('footer.ecosystem') }}</h4>
+                        <ul class="space-y-2.5 text-sm font-medium text-ink-soft">
+                            <li><router-link to="/stack" class="hover:text-lavender transition-colors">{{ t('nav.stack') }}</router-link></li>
+                            <li><router-link to="/infrastructure" class="hover:text-lavender transition-colors">{{ t('nav.infra') }}</router-link></li>
+                            <li><router-link to="/ai-safety" class="hover:text-lavender transition-colors">{{ t('nav.safety') }}</router-link></li>
+                            <li><router-link to="/roadmap" class="hover:text-lavender transition-colors">{{ t('footer.roadmap') }}</router-link></li>
+                            <li><a href="https://linkedin.com/company/cybat-ai" target="_blank" rel="noopener" class="hover:text-lavender transition-colors">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="max-w-7xl mx-auto px-6 mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div class="font-mono text-xs uppercase tracking-[0.2em] text-white/40 text-center md:text-left">
+                <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-lavender-pale flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-xs text-ink-soft text-center md:text-left">
                         {{ t('footer.rights') }}
                     </div>
-                    <div class="flex gap-8 font-mono text-xs uppercase tracking-widest text-white/40">
-                        <router-link to="/privacy" class="hover:text-white transition-colors">{{ t('footer.privacy') }}</router-link>
-                        <router-link to="/terms" class="hover:text-white transition-colors">{{ t('footer.terms') }}</router-link>
+                    <div class="flex gap-6 text-xs font-semibold text-ink-soft">
+                        <router-link to="/privacy" class="hover:text-ink transition-colors">{{ t('footer.privacy') }}</router-link>
+                        <router-link to="/terms" class="hover:text-ink transition-colors">{{ t('footer.terms') }}</router-link>
                     </div>
                 </div>
             </footer>
