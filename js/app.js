@@ -122,6 +122,14 @@ function createView(name, isHome = false) {
                             template: html,
                             mounted() {
                                 if (isHome) this.$nextTick(initLandingGlobe);
+                                this.$nextTick(() => {
+                                    const fullHash = window.location.hash;
+                                    const match = fullHash.match(/#(heading-[a-zA-Z0-9_-]+)/);
+                                    if (match && match[1]) {
+                                        const el = document.getElementById(match[1]);
+                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                });
                             },
                             unmounted() {
                                 if (isHome) destroyLandingGlobe();
@@ -311,6 +319,16 @@ const router = createRouter({
     }
 });
 
+// Redirect legacy heading anchors (e.g. #/heading-api-token) directly to the Cloudflare doc section
+router.beforeEach((to, _from, next) => {
+    if (to.path.startsWith('/heading-')) {
+        const headingId = to.path.substring(1);
+        next({ path: '/docs/cloudflare', hash: '#' + headingId });
+        return;
+    }
+    next();
+});
+
 // Helper to update documentation typography sizing on <html>
 function updateDocsTheme(path) {
     const isDocs = typeof path === 'string' && path.startsWith('/docs');
@@ -331,6 +349,30 @@ router.afterEach((to) => {
             page_location: window.location.href,
             page_path: to.path
         });
+    }
+});
+
+// Smooth in-page scrolling for documentation heading anchors without breaking router hash
+document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href) return;
+
+    let targetId = null;
+    if (href.startsWith('#heading-')) {
+        targetId = href.substring(1);
+    } else if (href.includes('#heading-')) {
+        targetId = 'heading-' + href.split('#heading-')[1].split(/[?&]/)[0];
+    }
+
+    if (targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', `#/docs/cloudflare#${targetId}`);
+        }
     }
 });
 
